@@ -1,2 +1,10 @@
 {
+  "srt_signature": "\"5dbba-658f48641b62d-gzip\"|\"5ed96-658f48668b6c5-gzip\"",
+  "srt_last_update": "2026-08-21",
+  "dept_signature": "Thu, 30 Jul 2026 14:42:21 GMT",
+  "dept_last_detected": "2026-08-21",
+  "dept_needs_manual_update": true,
+  "oede_signature": "https://www.argentina.gob.ar/sites/default/files/trabajoregistrado_2605_estadisticas.xlsx",
+  "oede_last_update": "2026-08-21",
+  "last_check": "2026-08-21"
 }
