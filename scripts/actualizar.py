@@ -246,7 +246,7 @@ def main():
             bytes_nac  = download(url_nac)  if url_nac  else None
             bytes_dept = download(url_dept)
             # XLSX de totales departamentales (opcional, mejora precisión)
-            url_xlsx = 'https://raw.githubusercontent.com/FUranga/mapa-empleo/main/depto_empleo_total.xlsx'
+            url_xlsx = 'https://raw.githubusercontent.com/FUranga/mapa-empleo/main/departamento_serie_empleo_remuneraciones_3.xlsx'
             try:
                 bytes_xlsx = download(url_xlsx)
             except:
