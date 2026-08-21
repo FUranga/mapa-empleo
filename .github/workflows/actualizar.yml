@@ -26,9 +26,55 @@ jobs:
         run: python scripts/actualizar.py
 
       - name: Commit y push si hubo cambios
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data.json empresas.json log.json
-          git diff --staged --quiet || git commit -m "datos: actualización automática $(date +'%Y-%m-%d')"
-          git push
+          if git diff --staged --quiet; then
+            echo "Sin cambios para commitear"
+            echo "committed=false" >> $GITHUB_OUTPUT
+          else
+            git commit -m "datos: actualización automática $(date +'%Y-%m-%d')"
+            git push
+            echo "committed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Leer log para el mail
+        id: readlog
+        if: steps.commit.outputs.committed == 'true'
+        run: |
+          python3 -c "
+          import json
+          with open('log.json') as f:
+              log = json.load(f)
+          msg = []
+          if log.get('srt_last_update'):
+              msg.append('Empresas (SRT): actualizado al ' + log['srt_last_update'])
+          if log.get('oede_last_detected'):
+              msg.append('Empleo (OEDE): datos nuevos detectados el ' + log['oede_last_detected'])
+          print('\n'.join(msg) if msg else 'Datos actualizados')
+          " > mail_body.txt
+          echo "body<<EOF" >> $GITHUB_OUTPUT
+          cat mail_body.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Mandar mail de notificación
+        if: steps.commit.outputs.committed == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: franciscocuranga@gmail.com
+          password: ${{ secrets.GMAIL_PASSWORD }}
+          subject: "Dashboard Argentina — datos actualizados"
+          to: franciscocuranga@gmail.com
+          from: Dashboard Argentina <franciscocuranga@gmail.com>
+          body: |
+            Se encontraron y procesaron datos nuevos en el dashboard.
+
+            ${{ steps.readlog.outputs.body }}
+
+            Ver cambios: https://github.com/FUranga/mapa-empleo/commits/main
+            Ver dashboard: https://bespoke-zabaione-80649f.netlify.app
