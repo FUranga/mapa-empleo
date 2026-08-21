@@ -191,7 +191,7 @@ def parse_sipa(bytes_xlsx):
     return prov_series, dict(macro_orig), dict(macro_desa), detalle_orig, detalle_desa, nac_a1_orig, nac_a1_desa
 
 
-def parse_departamental(bytes_csv):
+def parse_departamental(bytes_csv, bytes_xlsx=None):
     import csv, io
     content = bytes_csv.decode('utf-8-sig', errors='replace')
     reader = csv.DictReader(io.StringIO(content), delimiter=';')
@@ -230,7 +230,7 @@ def parse_departamental(bytes_csv):
 
             empleo_str = str(row.get('Empleo', row.get('empleo', row.get('puestos', row.get('trabajadores',''))))).strip()
             if not empleo_str: continue
-            empleo = round(float(empleo_str.replace(',','.')) * 1000)  # CSV en miles
+            empleo = round(float(empleo_str.replace(',','.')))  # CSV en puestos reales
 
             d = deptos[codigo]
             d['label'] = f'{nombre_depto} — {nombre_prov}'
@@ -238,16 +238,53 @@ def parse_departamental(bytes_csv):
             d['id_prov'] = id_prov
 
             if not sector_raw or sector_raw in ('Total', 'Sin rama', '0'):
-                d['serie'][t] = empleo
+                pass  # ignorar Sin rama — usamos suma de sectores
             else:
                 d['sectores'][sector][t] = empleo
-                # Acumular total sumando sectores (para deptos sin fila Sin rama)
+                # Total = suma de sectores (puestos reales)
                 d['serie_sec'][t] = d['serie_sec'].get(t, 0) + empleo
                 if nombre_prov:
                     prov_sec[nombre_prov][sector][t] = \
                         prov_sec[nombre_prov][sector].get(t, 0) + empleo
         except (ValueError, KeyError):
             continue
+
+    # Si tenemos el XLSX, usarlo para el total (más preciso)
+    if bytes_xlsx:
+        import openpyxl
+        from datetime import datetime as dt2
+        wb = openpyxl.load_workbook(BytesIO(bytes_xlsx), data_only=True, read_only=True)
+        for sheet in wb.sheetnames:
+            if not sheet.startswith('T'): continue
+            try: int(sheet[1:])
+            except: continue
+            ws = wb[sheet]
+            rows = list(ws.iter_rows(values_only=True))
+            if len(rows) < 2: continue
+            header = rows[1]
+            # Find date columns
+            date_cols = [(i, v.strftime('%Y-%m')) for i, v in enumerate(header)
+                        if isinstance(v, dt2)]
+            if not date_cols: continue
+            # Skip remuneraciones sheets (T7-T12 typically)
+            title = str(rows[0][0] if rows[0] else '')
+            if 'Remuner' in title: continue
+            for row in rows[2:]:
+                codigo = str(row[1]).strip().zfill(5) if row[1] else None
+                if not codigo or codigo == '00000': continue
+                nombre_depto = str(row[0]).strip() if row[0] else ''
+                nombre_prov  = str(row[2]).strip() if len(row) > 2 and row[2] else ''
+                id_prov = codigo[:2]
+                d = deptos[codigo]
+                d['label'] = f'{nombre_depto} — {nombre_prov}'
+                d['provincia'] = nombre_prov
+                d['id_prov'] = id_prov
+                # Overwrite serie with XLSX values (puestos reales, más precisos)
+                for col_i, t in date_cols:
+                    v = row[col_i] if col_i < len(row) else None
+                    if isinstance(v, (int, float)) and v > 0:
+                        d['serie'][t] = round(v)
+        wb.close()
 
     return deptos, dict(prov_sec)
 
@@ -261,12 +298,12 @@ def delta_pct(serie_dict, ini, fin):
     return None, None
 
 
-def build_empleo(bytes_sipa, bytes_dept):
+def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None):
     print('  Parseando SIPA (A.2.1/A.2.2/A.5.1/A.5.2)...')
     prov_series, macro_orig, macro_desa, detalle_orig, detalle_desa, nac_orig, nac_desa = parse_sipa(bytes_sipa)
 
     print('  Parseando CSV departamental...')
-    deptos, prov_sec = parse_departamental(bytes_dept)
+    deptos, prov_sec = parse_departamental(bytes_dept, bytes_xlsx)
 
     # Períodos
     sample = next(iter(prov_series.values()))
@@ -392,8 +429,8 @@ def build_empleo(bytes_sipa, bytes_dept):
         # ── Departamentos ──
         depts_out = {}
         for codigo, dv in deptos.items():
-            # Usar serie directa si existe, sino suma de sectores
-            serie_total = dv['serie'] if dv['serie'] else dv.get('serie_sec', {})
+            # Total = suma de sectores (puestos reales)
+            serie_total = dv.get('serie_sec', {})
             if not serie_total: continue
             d2, p2 = delta_pct(serie_total, ini, fin_dept)
             secs = []
@@ -401,7 +438,7 @@ def build_empleo(bytes_sipa, bytes_dept):
                 sd2, sp2 = delta_pct(dict(st), ini, fin_dept)
                 if sd2 is not None:
                     secs.append({'sector': sec, 'delta': sd2, 'pct': sp2})
-            serie_dep = dv['serie'] if dv['serie'] else dv.get('serie_sec', {})
+            serie_dep = dv.get('serie_sec', {})
             depts_out[codigo] = {
                 'label':    dv['label'],
                 'provincia': dv['provincia'],
