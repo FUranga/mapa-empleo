@@ -197,21 +197,21 @@ def parse_departamental(bytes_csv):
 
     for row in reader:
         try:
-            codigo = str(row.get('codigo_departamento','')).strip().zfill(5)
+            codigo = str(row.get('id_depto', row.get('codigo_departamento',''))).strip().zfill(5)
             if not codigo or codigo == '00000': continue
-            periodo_raw = row.get('periodo','').strip()
+            periodo_raw = row.get('Periodo', row.get('periodo','')).strip()
             t = None
             if re.match(r'\d{4}-\d{2}', periodo_raw): t = periodo_raw[:7]
             elif re.match(r'\d{6}', periodo_raw): t = periodo_raw[:4]+'-'+periodo_raw[4:6]
             if not t: continue
 
-            nombre_depto = row.get('nombre_departamento','').strip()
-            nombre_prov  = row.get('nombre_provincia','').strip()
-            id_prov      = str(row.get('codigo_provincia','')).strip().zfill(2)
-            sector_raw   = row.get('sector', row.get('letra_actividad','')).strip()
+            nombre_depto = row.get('Departamento', row.get('nombre_departamento','')).strip()
+            nombre_prov  = row.get('Provincia', row.get('nombre_provincia','')).strip()
+            id_prov      = str(row.get('id_prov', row.get('codigo_provincia',''))).strip().zfill(2)
+            sector_raw   = row.get('Sector', row.get('sector', row.get('letra_actividad',''))).strip()
             sector       = SECTOR_MAP.get(sector_raw, sector_raw)
 
-            empleo_str = (row.get('empleo') or row.get('puestos') or row.get('trabajadores','')).strip()
+            empleo_str = str(row.get('Empleo', row.get('empleo', row.get('puestos', row.get('trabajadores',''))))).strip()
             if not empleo_str: continue
             empleo = round(float(empleo_str.replace(',','.')))
 
@@ -220,7 +220,7 @@ def parse_departamental(bytes_csv):
             d['provincia'] = nombre_prov
             d['id_prov'] = id_prov
 
-            if not sector_raw or sector_raw == 'Total':
+            if not sector_raw or sector_raw in ('Total', 'Sin rama', '0'):
                 d['serie'][t] = empleo
             else:
                 d['sectores'][sector][t] = empleo
