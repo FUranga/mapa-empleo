@@ -54,23 +54,23 @@ PROV_ID = {
     'Tucumán':'90',
 }
 
-# Mapeo ramas SIPA → sectores macro del dashboard
-RAMA_MACRO = {
-    'Agricultura, ganaderÍa, \ncaza y silvicultura': 'Agro y pesca',
-    'Pesca':                                          'Agro y pesca',
-    'Explotación de \nminas y canteras':              'Minas y petróleo',
-    'Industrias manufactureras':                      'Industria',
-    'Suministro de electricidad, \ngas y agua':       'Electricidad, gas y agua',
-    'Construcción':                                   'Construcción',
-    'Comercio y reparaciones':                        'Comercio',
-    'Hoteles y restaurantes':                         'Servicios',
-    'Transporte, almacenamiento\n y comunicación':    'Servicios',
-    'Intermediación financiera':                      'Servicios',
-    'Actividades inmobiliarias, \nempresariales y de alquiler': 'Servicios',
-    'Enseñanza':                                      'Servicios',
-    'Servicios sociales \ny de salud':                'Servicios',
-    'Servicios comunitarios, \nsociales y personales': 'Servicios',
+# Mapeo ramas SIPA → 7 macrosectores (nombres exactos de A.2.1)
+MACRO_MAP = {
+    'Agro y pesca':           ['Agricultura, ganaderÍa, \ncaza y silvicultura', 'Pesca'],
+    'Minas y petróleo':       ['Explotación de \nminas y canteras'],
+    'Industria manufacturera':['Industrias manufactureras'],
+    'Electricidad, gas y agua':['Suministro de electricidad, \ngas y agua'],
+    'Construcción':           ['Construcción'],
+    'Comercio':               ['Comercio y reparaciones'],
+    'Servicios':              ['Hoteles y restaurantes',
+                               'Transporte, almacenamiento\n y comunicación',
+                               'Intermediación financiera',
+                               'Actividades inmobiliarias, \nempresariales y de alquiler',
+                               'Enseñanza',
+                               'Servicios sociales \ny de salud',
+                               'Servicios comunitarios, \nsociales y personales'],
 }
+RAMA_MACRO = {rama: macro for macro, ramas in MACRO_MAP.items() for rama in ramas}
 
 MESES = {'ene':'01','feb':'02','mar':'03','abr':'04','may':'05','jun':'06',
          'jul':'07','ago':'08','sep':'09','oct':'10','nov':'11','dic':'12'}
@@ -128,6 +128,23 @@ def parse_sipa(bytes_xlsx):
     # A.2.2 — sectores nacionales desestacionalizados
     sec_desa, _ = parse_sheet(wb['A.2.2'], n_cols=14)
 
+    # A.1 — total nacional sector privado (orig col 1, desa col 2)
+    ws_a1 = wb['A.1']
+    rows_a1 = list(ws_a1.iter_rows(values_only=True))
+    nac_a1_orig = {}
+    nac_a1_desa = {}
+    for row in rows_a1[3:]:  # skip headers
+        cell = row[0]
+        if isinstance(cell, datetime):
+            t = cell.strftime('%Y-%m')
+        else:
+            t = parse_periodo(cell)
+        if not t: continue
+        if isinstance(row[1], (int, float)):
+            nac_a1_orig[t] = round(row[1] * 1000)
+        if isinstance(row[2], (int, float)):
+            nac_a1_desa[t] = round(row[2] * 1000)
+
     # A.5.1 — provincias con estacionalidad
     prov_orig, prov_names = parse_sheet(wb['A.5.1'])
     # A.5.2 — provincias desestacionalizadas
@@ -171,7 +188,7 @@ def parse_sipa(bytes_xlsx):
         for t, v in detalle_desa.get(rama, {}).items():
             macro_desa[grupo][t] += v
 
-    return prov_series, dict(macro_orig), dict(macro_desa), detalle_orig, detalle_desa
+    return prov_series, dict(macro_orig), dict(macro_desa), detalle_orig, detalle_desa, nac_a1_orig, nac_a1_desa
 
 
 def parse_departamental(bytes_csv):
@@ -246,7 +263,7 @@ def delta_pct(serie_dict, ini, fin):
 
 def build_empleo(bytes_sipa, bytes_dept):
     print('  Parseando SIPA (A.2.1/A.2.2/A.5.1/A.5.2)...')
-    prov_series, macro_orig, macro_desa, detalle_orig, detalle_desa = parse_sipa(bytes_sipa)
+    prov_series, macro_orig, macro_desa, detalle_orig, detalle_desa, nac_orig, nac_desa = parse_sipa(bytes_sipa)
 
     print('  Parseando CSV departamental...')
     deptos, prov_sec = parse_departamental(bytes_dept)
@@ -261,12 +278,7 @@ def build_empleo(bytes_sipa, bytes_dept):
 
     print(f'  SIPA hasta: {ultimo_sipa} | Depto hasta: {ultimo_depto}')
 
-    # Nacional = suma de provincias
-    nac_orig = defaultdict(int)
-    nac_desa = defaultdict(int)
-    for ps in prov_series.values():
-        for t, v in ps['orig'].items(): nac_orig[t] += v
-        for t, v in ps['desa'].items(): nac_desa[t] += v
+    # Nacional viene de A.1 (ya parseado en parse_sipa)
 
     PRESIDENCIAS_CFG = {
         'Alberto Fernández': ('2019-11', '2023-11'),
@@ -278,13 +290,24 @@ def build_empleo(bytes_sipa, bytes_dept):
         fin_dept = min(fin, ultimo_depto)
 
         # ── Sectores nacionales ──
-        def build_sectores(macro, detalle, ini, fin):
+        def build_sectores(sec_dict, ini, fin):
+            """Agrupa las 14 ramas del SIPA en 7 macros usando MACRO_MAP."""
             secs = []
-            for grupo in sorted(set(RAMA_MACRO.values())):
-                sd = macro.get(grupo, {})
-                d, p = delta_pct(sd, ini, fin)
-                if d is not None:
-                    secs.append({'sector': grupo, 'delta': d, 'pct': p})
+            for macro, ramas in MACRO_MAP.items():
+                delta_total = 0
+                base_total = 0
+                found = False
+                for rama in ramas:
+                    sd = sec_dict.get(rama, {})
+                    b = sd.get(ini)
+                    u = sd.get(fin) or sd.get(max((t for t in sd if t <= fin), default=''))
+                    if b and u:
+                        delta_total += u - b
+                        base_total += b
+                        found = True
+                if found and base_total > 0:
+                    pct = round(delta_total / base_total * 100, 1)
+                    secs.append({'sector': macro, 'delta': delta_total, 'pct': pct})
             return sorted(secs, key=lambda x: x['delta'])
 
         def build_detalle(detalle, ini, fin):
@@ -404,8 +427,8 @@ def build_empleo(bytes_sipa, bytes_dept):
                 'pct_desa':    nac_pct_d,
                 'serie':       slice_t(dict(nac_orig), ini, fin),
                 'serie_desa':  slice_t(dict(nac_desa), ini, fin),
-                'sectores':    build_sectores(macro_orig, detalle_orig, ini, fin),
-                'sectores_desa': build_sectores(macro_desa, detalle_desa, ini, fin),
+                'sectores':    build_sectores(detalle_orig, ini, fin),
+                'sectores_desa': build_sectores(detalle_desa, ini, fin),
                 'detalle':     build_detalle(detalle_orig, ini, fin),
             },
             'provincias':    provincias_out,
