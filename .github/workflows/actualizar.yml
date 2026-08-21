@@ -7,7 +7,7 @@ on:
   push:
     paths:
       - 'departamento_series_empleo_y_salarios_mensual_sector_1.csv'
-      - 'depto_empleo_total.xlsx'
+      - 'departamento_serie_empleo_remuneraciones_3.xlsx'
 
 jobs:
   actualizar:
