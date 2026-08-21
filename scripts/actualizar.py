@@ -225,9 +225,17 @@ def main():
         print(f'  URL SIPA mensual:  {url_nac}')
         print(f'  URL departamental: {url_dept}')
 
+        # Alerta si no se encuentra la URL del SIPA
+        if not url_nac:
+            print('  ✗ No se encontró la URL del SIPA — el patrón puede haber cambiado')
+            log['sipa_url_missing'] = True
+            log['sipa_url_missing_date'] = today
+        else:
+            log.pop('sipa_url_missing', None)
+
         oede_sig = url_nac or ''
 
-        # Verificar también el CSV departamental (URL estable)
+        # Verificar CSV departamental (URL estable)
         url_dept_oede = 'https://www.argentina.gob.ar/sites/default/files/departamento_series_empleo_y_salarios_mensual_sector_1.csv'
         mod_dept = get_last_modified(url_dept_oede)
         dept_sig = mod_dept or ''
@@ -241,6 +249,51 @@ def main():
             updated_dept = False
             print(f'  Sin cambios en departamental (última detección: {log.get("dept_last_detected", "nunca")})')
 
+        # Verificar XLSX del OEDE en la página del gobierno
+        PAGE_PROV = 'https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-provinciales'
+        try:
+            import re as _re
+            r_prov = requests.get(PAGE_PROV, timeout=30)
+            pat_dept = r"(/sites/default/files/departamento_serie_empleo_remuneraciones[^ ]+[.]xlsx)"
+            pat_trim = r"(/sites/default/files/provinciales_serie_empleo_trimestral_2dig[^ ]+[.]xlsx)"
+            found_dept = _re.search(pat_dept, r_prov.text)
+            found_trim = _re.search(pat_trim, r_prov.text)
+            url_xlsx_dept_web = found_dept.group(1) if found_dept else None
+            url_xlsx_trim_web = found_trim.group(1) if found_trim else None
+
+            # XLSX departamental
+            if not url_xlsx_dept_web:
+                print('  ✗ XLSX departamental no encontrado en página OEDE — URL puede haber cambiado')
+                log['xlsx_dept_web_missing'] = True
+                log['xlsx_dept_web_missing_date'] = today
+            elif url_xlsx_dept_web != log.get('xlsx_dept_web_url'):
+                print(f'  📬 XLSX departamental nuevo en web: {url_xlsx_dept_web}')
+                log['xlsx_dept_web_url'] = url_xlsx_dept_web
+                log['xlsx_dept_web_detected'] = today
+                log['xlsx_dept_needs_manual_update'] = True
+                log.pop('xlsx_dept_web_missing', None)
+            else:
+                print(f'  Sin cambios en XLSX departamental web')
+                log.pop('xlsx_dept_web_missing', None)
+
+            # XLSX trimestral provincial
+            if not url_xlsx_trim_web:
+                print('  ✗ XLSX trimestral provincial no encontrado en página OEDE — URL puede haber cambiado')
+                log['xlsx_trim_web_missing'] = True
+                log['xlsx_trim_web_missing_date'] = today
+            elif url_xlsx_trim_web != log.get('xlsx_trim_web_url'):
+                print(f'  📬 XLSX trimestral provincial nuevo en web: {url_xlsx_trim_web}')
+                log['xlsx_trim_web_url'] = url_xlsx_trim_web
+                log['xlsx_trim_web_detected'] = today
+                log['xlsx_trim_needs_manual_update'] = True
+                log.pop('xlsx_trim_web_missing', None)
+            else:
+                print(f'  Sin cambios en XLSX trimestral provincial web')
+                log.pop('xlsx_trim_web_missing', None)
+
+        except Exception as e:
+            print(f'  ⚠ No se pudo verificar página OEDE: {e}')
+
         if oede_sig != log.get('oede_signature'):
             print('  ✓ Hay datos nuevos en OEDE — descargando...')
             bytes_nac  = download(url_nac)  if url_nac  else None
@@ -251,15 +304,20 @@ def main():
                 bytes_xlsx = download(url_xlsx)
             except:
                 bytes_xlsx = None
-                print('  ⚠ XLSX departamental no disponible — usando solo CSV')
+                print('  ✗ XLSX departamental no encontrado en repo')
+                log['xlsx_dept_missing'] = True
+                log['xlsx_dept_missing_date'] = today
 
             # XLSX trimestral provincial (sectores por provincia)
             url_prov_trim = 'https://raw.githubusercontent.com/FUranga/mapa-empleo/main/provinciales_serie_empleo_trimestral_2dig_6.xlsx'
             try:
                 bytes_prov_trim = download(url_prov_trim)
+                log.pop('xlsx_prov_trim_missing', None)
             except:
                 bytes_prov_trim = None
-                print('  ⚠ Trimestral provincial no disponible — usando departamental')
+                print('  ✗ Trimestral provincial no encontrado en repo')
+                log['xlsx_prov_trim_missing'] = True
+                log['xlsx_prov_trim_missing_date'] = today
 
             if bytes_nac and bytes_dept:
                 print('  Construyendo data.json...')
