@@ -331,12 +331,19 @@ def delta_pct(serie_dict, ini, fin):
     return None, None
 
 
-def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None):
+def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
     print('  Parseando SIPA (A.2.1/A.2.2/A.5.1/A.5.2)...')
     prov_series, macro_orig, macro_desa, detalle_orig, detalle_desa, nac_orig, nac_desa = parse_sipa(bytes_sipa)
 
     print('  Parseando CSV departamental...')
     deptos, prov_sec = parse_departamental(bytes_dept, bytes_xlsx)
+
+    # Sectores provinciales desde trimestral (más preciso)
+    prov_trim_sec = {}
+    if bytes_prov_trim:
+        print('  Parseando trimestral provincial...')
+        prov_trim_sec = parse_provincial_trimestral(bytes_prov_trim)
+        print(f'  Provincias con sectores trimestrales: {len(prov_trim_sec)}')
 
     # Períodos
     sample = next(iter(prov_series.values()))
@@ -400,14 +407,35 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None):
             d, p     = delta_pct(ps['orig'], ini, fin)
             d_d, p_d = delta_pct(ps['desa'], ini, fin)
 
-            # Sectores provinciales del departamental
-            ps_sec = prov_sec.get(nombre, {})
-            secs_prov = []
-            for sector, sd in ps_sec.items():
-                sd2, sp2 = delta_pct(sd, ini, fin_dept)
-                if sd2 is not None:
-                    secs_prov.append({'sector': sector, 'delta': sd2, 'pct': sp2})
-            secs_prov.sort(key=lambda x: x['delta'])
+            # Sectores provinciales: trimestral si disponible, sino departamental
+            trim_sec = prov_trim_sec.get(nombre, {})
+            if trim_sec:
+                # Usar baseline Q4 del año del inicio y fin Q4 del año del fin
+                # Baseline: Q4 del año de ini (nov → Q4 del mismo año)
+                ini_year = ini[:4]
+                fin_year = fin_dept[:4]
+                ini_q = f'{ini_year}-Q4'
+                fin_q = f'{fin_year}-Q4'
+                secs_prov = []
+                for sector, sd in trim_sec.items():
+                    sd2, sp2 = delta_pct(sd, ini_q, fin_q)
+                    if sd2 is None:
+                        # Try adjacent quarters
+                        fin_q_alt = f'{fin_year}-Q3'
+                        sd2, sp2 = delta_pct(sd, ini_q, fin_q_alt)
+                    if sd2 is not None:
+                        secs_prov.append({'sector': sector, 'delta': sd2, 'pct': sp2})
+                secs_prov.sort(key=lambda x: x['delta'])
+                secs_source = 'trimestral'
+            else:
+                ps_sec = prov_sec.get(nombre, {})
+                secs_prov = []
+                for sector, sd in ps_sec.items():
+                    sd2, sp2 = delta_pct(sd, ini, fin_dept)
+                    if sd2 is not None:
+                        secs_prov.append({'sector': sector, 'delta': sd2, 'pct': sp2})
+                secs_prov.sort(key=lambda x: x['delta'])
+                secs_source = 'departamental'
 
             # Sub de Buenos Aires (GBA / Resto)
             # Total: suma de deptos del XLSX | Sectores: CSV
@@ -530,3 +558,107 @@ GBA_CODES = {
 
 def _is_gba(codigo):
     return codigo in GBA_CODES
+
+
+# ── Parser del trimestral provincial ─────────────────────────────────────────
+
+SHEET_TO_PROV = {
+    'Partidos de GBA':      '__gba__',
+    'Capital Federal':      'C.A.B.A.',
+    'Resto de Buenos Aires':'__resto__',
+    'Catamarca':            'Catamarca',
+    'Cordoba':              'Córdoba',
+    'Corrientes':           'Corrientes',
+    'Chaco':                'Chaco',
+    'Chubut':               'Chubut',
+    'Entre Rios':           'Entre Ríos',
+    'Formosa':              'Formosa',
+    'Jujuy':                'Jujuy',
+    'La Pampa':             'La Pampa',
+    'La Rioja':             'La Rioja',
+    'Mendoza':              'Mendoza',
+    'Misiones':             'Misiones',
+    'Neuquen':              'Neuquén',
+    'Rio Negro':            'Río Negro',
+    'Salta':                'Salta',
+    'San Juan':             'San Juan',
+    'San Luis':             'San Luis',
+    'Santa Cruz':           'Santa Cruz',
+    'Santa Fe':             'Santa Fe',
+    'Santiago del Estero':  'Santiago del Estero',
+    'Tucuman':              'Tucumán',
+    'Tierra del Fuego':     'Tierra del Fuego',
+    'Buenos Aires':         'Buenos Aires',
+}
+
+# Mapeo de letras CIIU a macrosectores del dashboard
+LETRA_MACRO = {
+    'A': 'Agro y pesca', 'B': 'Agro y pesca',
+    'C': 'Minas y petróleo',
+    'D': 'Industria manufacturera',
+    'E': 'Electricidad, gas y agua',
+    'F': 'Construcción',
+    'G': 'Comercio',
+    'H': 'Servicios', 'I': 'Servicios', 'J': 'Servicios',
+    'K': 'Servicios', 'M': 'Servicios', 'N': 'Servicios', 'O': 'Servicios',
+}
+
+def parse_trimestre(s):
+    """Convierte '4° Trim 2023' a '2023-Q4'."""
+    import re
+    m = re.match(r'(\d)[°º]\s*[Tt]rim(?:\.|estre)?\s*(\d{4})', str(s).strip())
+    if m:
+        return f"{m.group(2)}-Q{m.group(1)}"
+    return None
+
+def parse_provincial_trimestral(bytes_xlsx):
+    """
+    Lee el archivo provincial trimestral del OEDE.
+    Devuelve dict: {nombre_prov: {macro_sector: {trimestre: valor}}}
+    donde trimestre es '2023-Q4' etc.
+    """
+    import openpyxl
+    wb = openpyxl.load_workbook(BytesIO(bytes_xlsx), data_only=True, read_only=True)
+
+    result = {}  # prov → macro → {t: v}
+
+    for sheet_name, prov in SHEET_TO_PROV.items():
+        if sheet_name not in wb.sheetnames:
+            continue
+        ws = wb[sheet_name]
+        rows = list(ws.iter_rows(values_only=True))
+
+        # Fila 3 = header con trimestres
+        header = rows[3]
+        trim_cols = []
+        for i, v in enumerate(header):
+            if v:
+                t = parse_trimestre(v)
+                if t:
+                    trim_cols.append((i, t))
+
+        if not trim_cols:
+            continue
+
+        # Acumular por macro
+        prov_data = {}  # macro → {t: v}
+
+        for row in rows[4:]:
+            letra = str(row[0]).strip() if row[0] else ''
+            if len(letra) != 1 or not letra.isalpha():
+                continue
+            macro = LETRA_MACRO.get(letra.upper())
+            if not macro:
+                continue
+            if macro not in prov_data:
+                prov_data[macro] = {}
+            for col_i, t in trim_cols:
+                v = row[col_i] if col_i < len(row) else None
+                if isinstance(v, (int, float)):
+                    prov_data[macro][t] = prov_data[macro].get(t, 0) + v
+
+        if prov_data:
+            result[prov] = prov_data
+
+    wb.close()
+    return result
