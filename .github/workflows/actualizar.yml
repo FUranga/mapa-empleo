@@ -85,7 +85,7 @@ jobs:
             ${{ steps.readlog.outputs.body }}
 
             Ver cambios: https://github.com/FUranga/mapa-empleo/commits/main
-            Ver dashboard: https://bespoke-zabaione-80649f.netlify.app
+            Ver dashboard: https://soft-cocada-6a8c87.netlify.app
 
       - name: Verificar si OEDE departamental necesita actualización manual
         id: check_dept
