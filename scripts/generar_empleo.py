@@ -409,24 +409,29 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
 
             # Sectores provinciales: trimestral si disponible, sino departamental
             trim_sec = prov_trim_sec.get(nombre, {})
+            trim_det = prov_trim_sec.get(f'__det__{nombre}', {})
+            ini_year = ini[:4]
+            fin_year = fin_dept[:4]
+            ini_q = f'{ini_year}-Q4'
+            fin_q = f'{fin_year}-Q4'
             if trim_sec:
-                # Usar baseline Q4 del año del inicio y fin Q4 del año del fin
-                # Baseline: Q4 del año de ini (nov → Q4 del mismo año)
-                ini_year = ini[:4]
-                fin_year = fin_dept[:4]
-                ini_q = f'{ini_year}-Q4'
-                fin_q = f'{fin_year}-Q4'
                 secs_prov = []
                 for sector, sd in trim_sec.items():
                     sd2, sp2 = delta_pct(sd, ini_q, fin_q)
                     if sd2 is None:
-                        # Try adjacent quarters
-                        fin_q_alt = f'{fin_year}-Q3'
-                        sd2, sp2 = delta_pct(sd, ini_q, fin_q_alt)
+                        sd2, sp2 = delta_pct(sd, ini_q, f'{fin_year}-Q3')
                     if sd2 is not None:
                         secs_prov.append({'sector': sector, 'delta': sd2, 'pct': sp2})
                 secs_prov.sort(key=lambda x: x['delta'])
-                secs_source = 'trimestral'
+                # Detalle provincial desde subramas trimestrales
+                det_prov = []
+                for subrama, sd in trim_det.items():
+                    sd2, sp2 = delta_pct(sd, ini_q, fin_q)
+                    if sd2 is None:
+                        sd2, sp2 = delta_pct(sd, ini_q, f'{fin_year}-Q3')
+                    if sd2 is not None:
+                        det_prov.append({'sector': subrama, 'delta': sd2, 'pct': sp2})
+                det_prov.sort(key=lambda x: x['delta'])
             else:
                 ps_sec = prov_sec.get(nombre, {})
                 secs_prov = []
@@ -435,7 +440,7 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
                     if sd2 is not None:
                         secs_prov.append({'sector': sector, 'delta': sd2, 'pct': sp2})
                 secs_prov.sort(key=lambda x: x['delta'])
-                secs_source = 'departamental'
+                det_prov = []
 
             # Sub de Buenos Aires (GBA / Resto)
             # Total: suma de deptos del XLSX | Sectores: CSV
@@ -480,7 +485,7 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
                 'serie':      slice_t(ps['orig'], ini, fin),
                 'serie_desa': slice_t(ps['desa'], ini, fin),
                 'sectores':   secs_prov,
-                'detalle':    [],
+                'detalle':    det_prov,
             }
             if sub:
                 prov_obj['sub'] = sub
@@ -643,22 +648,58 @@ def parse_provincial_trimestral(bytes_xlsx):
         # Acumular por macro
         prov_data = {}  # macro → {t: v}
 
+        prov_detalle = {}  # subrama → {t: v}
         for row in rows[4:]:
             letra = str(row[0]).strip() if row[0] else ''
-            if len(letra) != 1 or not letra.isalpha():
-                continue
-            macro = LETRA_MACRO.get(letra.upper())
-            if not macro:
-                continue
-            if macro not in prov_data:
-                prov_data[macro] = {}
-            for col_i, t in trim_cols:
-                v = row[col_i] if col_i < len(row) else None
-                if isinstance(v, (int, float)):
-                    prov_data[macro][t] = prov_data[macro].get(t, 0) + v
+            nombre_row = str(row[1]).strip() if row[1] else ''
+            if not nombre_row: continue
+
+            is_macro = len(letra) == 1 and letra.isalpha()
+            is_sub = letra.isdigit() and nombre_row
+
+            if is_macro:
+                macro = LETRA_MACRO.get(letra.upper())
+                if not macro: continue
+                if macro not in prov_data:
+                    prov_data[macro] = {}
+                for col_i, t in trim_cols:
+                    v = row[col_i] if col_i < len(row) else None
+                    if isinstance(v, (int, float)):
+                        prov_data[macro][t] = prov_data[macro].get(t, 0) + v
+            elif is_sub:
+                # Subrama — capitalize first letter
+                subrama = nombre_row[0].upper() + nombre_row[1:] if nombre_row else nombre_row
+                prov_detalle[subrama] = {}
+                for col_i, t in trim_cols:
+                    v = row[col_i] if col_i < len(row) else None
+                    if isinstance(v, (int, float)):
+                        prov_detalle[subrama][t] = v
 
         if prov_data:
             result[prov] = prov_data
+        if prov_detalle:
+            result[f'__det__{prov}'] = prov_detalle
+
+    # Agregar Buenos Aires = suma de GBA + Resto (sectores y detalle)
+    if '__gba__' in result and '__resto__' in result:
+        ba = {}
+        for macro in set(list(result['__gba__'].keys()) + list(result['__resto__'].keys())):
+            ba[macro] = {}
+            for t, v in result['__gba__'].get(macro, {}).items():
+                ba[macro][t] = ba[macro].get(t, 0) + v
+            for t, v in result['__resto__'].get(macro, {}).items():
+                ba[macro][t] = ba[macro].get(t, 0) + v
+        result['Buenos Aires'] = ba
+        # Detalle de BA = suma de detalle GBA + Resto
+        ba_det = {}
+        for prefix in ['__det____gba__', '__det____resto__']:
+            for subrama, sd in result.get(prefix, {}).items():
+                if subrama not in ba_det:
+                    ba_det[subrama] = {}
+                for t, v in sd.items():
+                    ba_det[subrama][t] = ba_det[subrama].get(t, 0) + v
+        if ba_det:
+            result['__det__Buenos Aires'] = ba_det
 
     wb.close()
     return result
