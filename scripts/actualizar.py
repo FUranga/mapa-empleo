@@ -204,24 +204,67 @@ def main():
         print(f'  Sin cambios en SRT (última actualización: {log.get("srt_last_update", "nunca")})')
 
     print('\n=== Verificando OEDE (empleo) ===')
-    mod_oede = get_last_modified(URL_OEDE)
+    try:
+        # Scrapeamos la página para encontrar las URLs actuales (cambian con cada publicación)
+        PAGE_NAC  = 'https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-nacionales'
+        PAGE_PROV = 'https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-provinciales'
+        import re as _re
 
-    if mod_oede and mod_oede != log.get('oede_signature'):
-        print('  ✓ Hay datos nuevos en OEDE — descargando...')
-        try:
-            bytes_oede = download(URL_OEDE)
-            # Por ahora lo guardamos para procesamiento manual
-            # TODO: integrar el generador completo de data.json
-            with open('oede_nuevo.xlsx', 'wb') as f:
-                f.write(bytes_oede)
-            print('  ⚠ OEDE tiene datos nuevos — procesar manualmente por ahora')
-            print('  (el generador completo de data.json se agrega en la próxima iteración)')
-            log['oede_signature'] = mod_oede
-            log['oede_last_detected'] = today
-        except Exception as e:
-            print(f'  ✗ Error en OEDE: {e}')
-    else:
-        print(f'  Sin cambios en OEDE (última detección: {log.get("oede_last_detected", "nunca")})')
+        def find_oede_url(page_url, pattern):
+            r = requests.get(page_url, timeout=30)
+            matches = _re.findall(pattern, r.text)
+            if matches:
+                path = matches[0]
+                return 'https://www.argentina.gob.ar' + path if path.startswith('/') else path
+            return None
+
+        url_nac  = find_oede_url(PAGE_NAC,  r'(/sites/default/files/nacional_serie_empleo_trimestral[^"'\s]+\.xlsx)')
+        url_prov = find_oede_url(PAGE_PROV, r'(/sites/default/files/provinciales_serie_empleo_trimestral_2dig[^"'\s]+\.xlsx)')
+        url_dept = 'https://raw.githubusercontent.com/FUranga/mapa-empleo/main/departamento_series_empleo_y_salarios_mensual_sector_1.csv'
+
+        print(f'  URL nacional:      {url_nac}')
+        print(f'  URL provincial:    {url_prov}')
+        print(f'  URL departamental: {url_dept}')
+
+        oede_sig = f'{url_nac}|{url_prov}'
+
+        # Verificar también el CSV departamental (URL estable)
+        url_dept_oede = 'https://www.argentina.gob.ar/sites/default/files/departamento_series_empleo_y_salarios_mensual_sector_1.csv'
+        mod_dept = get_last_modified(url_dept_oede)
+        dept_sig = mod_dept or ''
+        if dept_sig and dept_sig != log.get('dept_signature'):
+            print(f'  📬 CSV departamental actualizado — avisando por mail')
+            log['dept_signature'] = dept_sig
+            log['dept_last_detected'] = today
+            log['dept_needs_manual_update'] = True
+            updated_dept = True
+        else:
+            updated_dept = False
+            print(f'  Sin cambios en departamental (última detección: {log.get("dept_last_detected", "nunca")})')
+
+        if oede_sig != log.get('oede_signature'):
+            print('  ✓ Hay datos nuevos en OEDE — descargando...')
+            bytes_nac  = download(url_nac)  if url_nac  else None
+            bytes_prov = download(url_prov) if url_prov else None
+            bytes_dept = download(url_dept)
+
+            if bytes_nac and bytes_prov and bytes_dept:
+                print('  Construyendo data.json...')
+                import sys; sys.path.insert(0, 'scripts')
+                from generar_empleo import build_empleo
+                empleo = build_empleo(bytes_nac, bytes_prov, bytes_dept)
+                with open(EMP_PATH, 'w', encoding='utf-8') as f:
+                    json.dump(empleo, f, ensure_ascii=False, separators=(',', ':'))
+                print(f'  ✓ data.json actualizado — último período: {empleo["meta"]["ultimo_sipa"]}')
+                log['oede_signature'] = oede_sig
+                log['oede_last_update'] = today
+                updated = True
+            else:
+                print('  ✗ No se pudieron bajar todos los archivos')
+        else:
+            print(f'  Sin cambios en OEDE (última actualización: {log.get("oede_last_update", "nunca")})')
+    except Exception as e:
+        print(f'  ✗ Error en OEDE: {e}')
 
     log['last_check'] = today
     save_log(log)
