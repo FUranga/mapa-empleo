@@ -215,8 +215,6 @@ def parse_departamental(bytes_csv, bytes_xlsx=None):
     PROV_NAME_MAP = {
         'CABA': 'C.A.B.A.',
         'BUENOS AIRES': 'Buenos Aires',
-        '40 MUNICIPIOS GBA': 'Buenos Aires',  # se acumula en BA
-        'RESTO DE PBA': 'Buenos Aires',        # se acumula en BA
         'CATAMARCA': 'Catamarca',
         'CHACO': 'Chaco',
         'CHUBUT': 'Chubut',
@@ -273,9 +271,14 @@ def parse_departamental(bytes_csv, bytes_xlsx=None):
                 # Total = suma de sectores (puestos reales)
                 d['serie_sec'][t] = d['serie_sec'].get(t, 0) + empleo
                 if nombre_prov:
-                    prov_norm = PROV_NAME_MAP.get(nombre_prov.upper(), nombre_prov)
-                    prov_sec[prov_norm][sector][t] = \
-                        prov_sec[prov_norm][sector].get(t, 0) + empleo
+                    prov_upper = nombre_prov.upper()
+                    if prov_upper == '40 MUNICIPIOS GBA':
+                        prov_sec['__gba__'][sector][t] = prov_sec['__gba__'][sector].get(t, 0) + empleo
+                    elif prov_upper == 'RESTO DE PBA':
+                        prov_sec['__resto__'][sector][t] = prov_sec['__resto__'][sector].get(t, 0) + empleo
+                    else:
+                        prov_norm = PROV_NAME_MAP.get(prov_upper, nombre_prov)
+                        prov_sec[prov_norm][sector][t] = prov_sec[prov_norm][sector].get(t, 0) + empleo
         except (ValueError, KeyError):
             continue
 
@@ -406,34 +409,33 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None):
                     secs_prov.append({'sector': sector, 'delta': sd2, 'pct': sp2})
             secs_prov.sort(key=lambda x: x['delta'])
 
-            # Sub de Buenos Aires (GBA / Resto) si disponible
+            # Sub de Buenos Aires (GBA / Resto)
+            # Total: suma de deptos del XLSX | Sectores: CSV
             sub = None
             if nombre == 'Buenos Aires':
                 sub = {}
-                for sub_key in ['gba', 'resto']:
-                    sub_deptos = {
-                        k: v for k, v in deptos.items()
-                        if v['id_prov'] == PROV_ID[nombre] and
-                        (sub_key == 'gba') == _is_gba(k)
-                    }
-                    sub_orig = defaultdict(int)
-                    for dv in sub_deptos.values():
-                        for t, v in dv['serie'].items():
-                            sub_orig[t] += v
-                    sd2, sp2 = delta_pct(dict(sub_orig), ini, fin_dept)
+                for sub_key, csv_key, is_gba_flag in [('gba','__gba__',True),('resto','__resto__',False)]:
+                    # Total desde XLSX — suma de deptos correspondientes
+                    sub_total = defaultdict(int)
+                    for codigo, dv in deptos.items():
+                        if dv.get('id_prov') != PROV_ID['Buenos Aires']:
+                            continue
+                        if _is_gba(codigo) != is_gba_flag:
+                            continue
+                        serie_src = dv.get('serie_xlsx') or dv.get('serie_sec', {})
+                        for t, v in serie_src.items():
+                            sub_total[t] += v
+                    sd2, sp2 = delta_pct(dict(sub_total), ini, fin_dept)
+                    # Sectores desde CSV
+                    sec_data = prov_sec.get(csv_key, {})
                     sub_secs = []
-                    sub_sec_agg = defaultdict(lambda: defaultdict(int))
-                    for dv in sub_deptos.values():
-                        for sec, st in dv['sectores'].items():
-                            for t, v in st.items():
-                                sub_sec_agg[sec][t] += v
-                    for sec, st in sub_sec_agg.items():
+                    for sec, st in sec_data.items():
                         sd3, sp3 = delta_pct(dict(st), ini, fin_dept)
                         if sd3 is not None:
                             sub_secs.append({'sector': sec, 'delta': sd3, 'pct': sp3})
                     sub[sub_key] = {
                         'delta': sd2, 'pct': sp2,
-                        'serie': slice_t(dict(sub_orig), ini, fin_dept),
+                        'serie': slice_t(dict(sub_total), ini, fin_dept),
                         'sectores': sorted(sub_secs, key=lambda x: x['delta']),
                     }
 
