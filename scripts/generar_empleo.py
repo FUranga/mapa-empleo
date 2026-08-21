@@ -191,7 +191,7 @@ def parse_departamental(bytes_csv):
 
     deptos = defaultdict(lambda: {
         'label':'','provincia':'','id_prov':'',
-        'serie':{},'sectores':defaultdict(dict)
+        'serie':{},'serie_sec':{},'sectores':defaultdict(dict)
     })
     prov_sec = defaultdict(lambda: defaultdict(dict))  # prov → sector → {t: v}
 
@@ -224,6 +224,8 @@ def parse_departamental(bytes_csv):
                 d['serie'][t] = empleo
             else:
                 d['sectores'][sector][t] = empleo
+                # Acumular total sumando sectores (para deptos sin fila Sin rama)
+                d['serie_sec'][t] = d['serie_sec'].get(t, 0) + empleo
                 if nombre_prov:
                     prov_sec[nombre_prov][sector][t] = \
                         prov_sec[nombre_prov][sector].get(t, 0) + empleo
@@ -367,20 +369,23 @@ def build_empleo(bytes_sipa, bytes_dept):
         # ── Departamentos ──
         depts_out = {}
         for codigo, dv in deptos.items():
-            if not dv['serie']: continue
-            d2, p2 = delta_pct(dv['serie'], ini, fin_dept)
+            # Usar serie directa si existe, sino suma de sectores
+            serie_total = dv['serie'] if dv['serie'] else dv.get('serie_sec', {})
+            if not serie_total: continue
+            d2, p2 = delta_pct(serie_total, ini, fin_dept)
             secs = []
             for sec, st in dv['sectores'].items():
                 sd2, sp2 = delta_pct(dict(st), ini, fin_dept)
                 if sd2 is not None:
                     secs.append({'sector': sec, 'delta': sd2, 'pct': sp2})
+            serie_dep = dv['serie'] if dv['serie'] else dv.get('serie_sec', {})
             depts_out[codigo] = {
                 'label':    dv['label'],
                 'provincia': dv['provincia'],
                 'id_prov':  dv['id_prov'],
                 'delta':    d2,
                 'pct':      p2,
-                'serie':    slice_t(dv['serie'], ini, fin_dept),
+                'serie':    slice_t(serie_dep, ini, fin_dept),
                 'sectores': sorted(secs, key=lambda x: x['delta']),
             }
 
