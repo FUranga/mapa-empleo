@@ -465,10 +465,20 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
                             sd3, sp3 = delta_pct(st, ini_q, f'{fin_year}-Q3')
                         if sd3 is not None:
                             sub_secs.append({'sector': sec, 'delta': sd3, 'pct': sp3})
+                    # Detalle desde trimestral
+                    det_trim = prov_trim_sec.get(f'__det__{trim_key}', {})
+                    sub_det = []
+                    for subrama, sd in det_trim.items():
+                        sd3, sp3 = delta_pct(sd, ini_q, fin_q)
+                        if sd3 is None:
+                            sd3, sp3 = delta_pct(sd, ini_q, f'{fin_year}-Q3')
+                        if sd3 is not None:
+                            sub_det.append({'sector': subrama, 'delta': sd3, 'pct': sp3})
                     sub[sub_key] = {
                         'delta': sd2, 'pct': sp2,
                         'serie': sub_serie,
                         'sectores': sorted(sub_secs, key=lambda x: x['delta']),
+                        'detalle': sorted(sub_det, key=lambda x: x['delta']),
                     }
 
             prov_obj = {
