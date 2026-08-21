@@ -212,6 +212,35 @@ def parse_departamental(bytes_csv, bytes_xlsx=None):
     })
     prov_sec = defaultdict(lambda: defaultdict(dict))  # prov → sector → {t: v}
 
+    PROV_NAME_MAP = {
+        'CABA': 'C.A.B.A.',
+        'BUENOS AIRES': 'Buenos Aires',
+        '40 MUNICIPIOS GBA': 'Buenos Aires',  # se acumula en BA
+        'RESTO DE PBA': 'Buenos Aires',        # se acumula en BA
+        'CATAMARCA': 'Catamarca',
+        'CHACO': 'Chaco',
+        'CHUBUT': 'Chubut',
+        'CORDOBA': 'Córdoba',
+        'CORRIENTES': 'Corrientes',
+        'ENTRE RIOS': 'Entre Ríos',
+        'FORMOSA': 'Formosa',
+        'JUJUY': 'Jujuy',
+        'LA PAMPA': 'La Pampa',
+        'LA RIOJA': 'La Rioja',
+        'MENDOZA': 'Mendoza',
+        'MISIONES': 'Misiones',
+        'NEUQUEN': 'Neuquén',
+        'RIO NEGRO': 'Río Negro',
+        'SALTA': 'Salta',
+        'SAN JUAN': 'San Juan',
+        'SAN LUIS': 'San Luis',
+        'SANTA CRUZ': 'Santa Cruz',
+        'SANTA FE': 'Santa Fe',
+        'SANTIAGO DEL ESTERO': 'Santiago del Estero',
+        'TIERRA DEL FUEGO': 'Tierra del Fuego',
+        'TUCUMAN': 'Tucumán',
+    }
+
     for row in reader:
         try:
             codigo = str(row.get('id_depto', row.get('codigo_departamento',''))).strip().zfill(5)
@@ -244,8 +273,9 @@ def parse_departamental(bytes_csv, bytes_xlsx=None):
                 # Total = suma de sectores (puestos reales)
                 d['serie_sec'][t] = d['serie_sec'].get(t, 0) + empleo
                 if nombre_prov:
-                    prov_sec[nombre_prov][sector][t] = \
-                        prov_sec[nombre_prov][sector].get(t, 0) + empleo
+                    prov_norm = PROV_NAME_MAP.get(nombre_prov.upper(), nombre_prov)
+                    prov_sec[prov_norm][sector][t] = \
+                        prov_sec[prov_norm][sector].get(t, 0) + empleo
         except (ValueError, KeyError):
             continue
 
@@ -467,6 +497,7 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None):
                 'sectores':    build_sectores(detalle_orig, ini, fin),
                 'sectores_desa': build_sectores(detalle_desa, ini, fin),
                 'detalle':     build_detalle(detalle_orig, ini, fin),
+                'detalle_desa': build_detalle(detalle_desa, ini, fin),
             },
             'provincias':    provincias_out,
             'departamentos': depts_out,
