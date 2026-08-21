@@ -1,130 +1,276 @@
-name: Actualizar datos del dashboard
+"""
+actualizar.py
+Corre en GitHub Actions. Verifica si hay datos nuevos en SRT y OEDE,
+los baja, regenera los JSONs y los guarda en el repo.
+"""
 
-on:
-  schedule:
-    - cron: '0 12 * * *'
-  workflow_dispatch:
-  push:
-    paths:
-      - 'departamento_series_empleo_y_salarios_mensual_sector_1.csv'
+import requests
+import openpyxl
+import json
+import os
+import sys
+from datetime import datetime
+from io import BytesIO
 
-jobs:
-  actualizar:
-    runs-on: ubuntu-latest
+# ── URLs de las fuentes ───────────────────────────────────────────
+URL_SRT_JURISDICCION = (
+    'https://www.srt.gob.ar/estadisticas/series/co/up/'
+    'Serie_historica_Segun_Jurisdiccion - Ubicacion Persona Trabajadora - UP.xlsx'
+)
+URL_SRT_SECTOR = (
+    'https://www.srt.gob.ar/estadisticas/series/co/up/'
+    'Serie_historica_Segun_Sector_de_actividad_economica_CIIUrev4 - UP.xlsx'
+)
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+# OEDE publica en una URL fija que sobreescribe con cada actualización
+# Verificar esta URL con cada publicación nueva
+URL_OEDE = (
+    'https://www.trabajo.gob.ar/downloads/estadisticas/'
+    'observatorio/series/cuadros_empleo_privado.xlsx'
+)
 
-      - name: Instalar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+LOG_PATH    = 'log.json'
+EMP_PATH    = 'data.json'
+EMP_PATH_E  = 'empresas.json'
 
-      - name: Instalar dependencias
-        run: pip install requests openpyxl
+# ── Logging ───────────────────────────────────────────────────────
+def load_log():
+    if os.path.exists(LOG_PATH):
+        with open(LOG_PATH) as f:
+            return json.load(f)
+    return {}
 
-      - name: Backup de JSONs actuales
-        run: |
-          cp data.json data.json.bak 2>/dev/null || true
-          cp empresas.json empresas.json.bak 2>/dev/null || true
-          echo "✓ Backups creados"
+def save_log(log):
+    with open(LOG_PATH, 'w') as f:
+        json.dump(log, f, ensure_ascii=False, indent=2)
 
-      - name: Verificar y actualizar datos
-        run: python scripts/actualizar.py
+def get_last_modified(url):
+    """HEAD request para ver fecha de modificación del archivo remoto."""
+    try:
+        r = requests.head(url, timeout=20, allow_redirects=True)
+        return r.headers.get('Last-Modified') or r.headers.get('ETag') or ''
+    except Exception as e:
+        print(f'  ⚠ No se pudo verificar {url}: {e}')
+        return None
 
-      - name: Commit y push si hubo cambios
-        id: commit
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data.json empresas.json log.json data.json.bak empresas.json.bak
-          if git diff --staged --quiet; then
-            echo "Sin cambios para commitear"
-            echo "committed=false" >> $GITHUB_OUTPUT
-          else
-            git commit -m "datos: actualización automática $(date +'%Y-%m-%d')"
-            git push
-            echo "committed=true" >> $GITHUB_OUTPUT
-          fi
+def download(url):
+    """Descarga un archivo y devuelve sus bytes."""
+    print(f'  Descargando: {url[:80]}...')
+    r = requests.get(url, timeout=120)
+    r.raise_for_status()
+    return r.content
 
-      - name: Leer log para el mail
-        id: readlog
-        if: steps.commit.outputs.committed == 'true'
-        run: |
-          python3 -c "
-          import json
-          with open('log.json') as f:
-              log = json.load(f)
-          msg = []
-          if log.get('srt_last_update'):
-              msg.append('Empresas (SRT): actualizado al ' + log['srt_last_update'])
-          if log.get('oede_last_update'):
-              msg.append('Empleo (OEDE/SIPA): actualizado al ' + log['oede_last_update'])
-          print('\n'.join(msg) if msg else 'Datos actualizados')
-          " > mail_body.txt
-          echo "body<<EOF" >> $GITHUB_OUTPUT
-          cat mail_body.txt >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+# ── Generador de empresas.json ────────────────────────────────────
+def build_empresas(bytes_juris, bytes_sector):
+    from datetime import datetime as dt
 
-      - name: Mail — datos actualizados automáticamente
-        if: steps.commit.outputs.committed == 'true'
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: franciscocuranga@gmail.com
-          password: ${{ secrets.GMAIL_PASSWORD }}
-          subject: "Dashboard Argentina — datos actualizados"
-          to: franciscocuranga@gmail.com
-          from: Dashboard Argentina <franciscocuranga@gmail.com>
-          body: |
-            Se encontraron y procesaron datos nuevos en el dashboard.
+    def pct(base, curr):
+        if base and base > 0:
+            return round((curr - base) / base * 100, 1)
+        return None
 
-            ${{ steps.readlog.outputs.body }}
+    # Jurisdicción
+    wb_j = openpyxl.load_workbook(BytesIO(bytes_juris), data_only=True)
+    ws_j = wb_j['Cuadro 6.2']
+    rows_j = list(ws_j.iter_rows(values_only=True))
+    header = rows_j[4]
+    periodos = [v.strftime('%Y-%m') for v in header[1:] if isinstance(v, dt)]
 
-            Ver cambios: https://github.com/FUranga/mapa-empleo/commits/main
-            Ver dashboard: https://soft-cocada-6a8c87.netlify.app
+    SKIP = {'Sin datos', None,
+        'Parte empleadora afiliada de unidades productivas con personas trabajadoras declaradas *',
+        'Parte empleadora afiliada y aportante de casas particulares con personas trabajadoras declaradas **',
+        'Parte empleadora afiliada de casas particulares con personas trabajadoras declaradas ***'}
 
-      - name: Verificar si OEDE departamental necesita actualización manual
-        id: check_dept
-        run: |
-          python3 -c "
-          import json
-          with open('log.json') as f:
-              log = json.load(f)
-          needs = log.get('dept_needs_manual_update', False)
-          detected = log.get('dept_last_detected', '')
-          print('needs=' + str(needs).lower())
-          print('detected=' + detected)
-          " > dept_check.txt
-          grep "needs=true" dept_check.txt && echo "needs_update=true" >> $GITHUB_OUTPUT || echo "needs_update=false" >> $GITHUB_OUTPUT
-          grep "detected=" dept_check.txt | cut -d= -f2 > dept_date.txt
-          echo "detected=$(cat dept_date.txt)" >> $GITHUB_OUTPUT
+    prov_data = {}
+    for row in rows_j[5:]:
+        nombre = row[0]
+        if not isinstance(nombre, str) or nombre in SKIP: continue
+        if nombre.startswith('Debido') or nombre.startswith('*') or nombre.startswith('Fuente'): continue
+        vals = row[1:len(periodos)+1]
+        if not any(isinstance(v, (int, float)) for v in vals): continue
+        prov_data[nombre] = {periodos[i]: int(v) for i, v in enumerate(vals) if isinstance(v, (int, float))}
 
-      - name: Mail — actualización manual requerida (departamental)
-        if: steps.check_dept.outputs.needs_update == 'true'
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: franciscocuranga@gmail.com
-          password: ${{ secrets.GMAIL_PASSWORD }}
-          subject: "Dashboard Argentina — acción requerida: CSV departamental actualizado"
-          to: franciscocuranga@gmail.com
-          from: Dashboard Argentina <franciscocuranga@gmail.com>
-          body: |
-            El OEDE publicó una versión nueva del CSV departamental de empleo.
+    # Sectores
+    wb_s = openpyxl.load_workbook(BytesIO(bytes_sector), data_only=True)
+    ws_s = wb_s['Cuadro 2.2']
+    rows_s = list(ws_s.iter_rows(values_only=True))
+    header_s = rows_s[4]
+    periodos_s = [v.strftime('%Y-%m') for v in header_s[1:] if isinstance(v, dt)]
 
-            Fecha de detección: ${{ steps.check_dept.outputs.detected }}
+    SKIP_SEC = {
+        'Parte empleadora afiliada de unidades productivas con personas trabajadoras declaradas  (1) *',
+        'Parte empleadora afiliada y aportante de casas particulares con personas trabajadoras declaradas (2) **',
+        'Parte empleadora afiliada de casas particulares con personas trabajadoras declaradas (3)***',
+        'Parte empleadora afiliada con personas trabajadoras declaradas = (1) + (3)',
+        'Total parte empleadora afiliada del sistema****', 'Sin datos',
+    }
 
-            Este archivo requiere actualización manual:
-            1. Bajá el nuevo CSV desde:
-               https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-provinciales
-            2. Reemplazalo en el repo como:
-               departamento_series_empleo_y_salarios_mensual_sector_1.csv
-            3. El workflow detectará el cambio y regenerará data.json automáticamente.
+    SECTOR_CORTO = {
+        'Agricultura, ganaderia, caza, silvicultura y pesca': 'Agro y pesca',
+        'Explotacion de minas y canteras': 'Minería',
+        'Industria manufacturera': 'Industria',
+        'Suministro de electricidad, gas, vapor y aire acondicionado': 'Energía eléctrica',
+        'Suministro de agua, cloacas, gestion de residuos y recuperacion de materiales y saneamiento publico': 'Agua y saneamiento',
+        'Construccion': 'Construcción',
+        'Comercio al por mayor y al por menor; reparacion de vehiculos automotores y motocicletas': 'Comercio',
+        'Servicio de transporte y almacenamiento': 'Transporte',
+        'Servicios de alojamiento y servicios de comida': 'Alojamiento y gastronomía',
+        'Informacion y comunicaciones': 'Info. y comunicaciones',
+        'Intermediacion financiera y servicios de seguros': 'Finanzas y seguros',
+        'Servicios inmobiliarios': 'Inmobiliario',
+        'Servicios profesionales, cientificos y tecnicos': 'Servicios profesionales',
+        'Actividades administrativas y servicios de apoyo': 'Serv. administrativos',
+        'Administracion publica, defensa y seguridad social obligatoria': 'Administración pública',
+        'Enseñanza': 'Enseñanza',
+        'Salud humana y servicios sociales': 'Salud',
+        'Servicios artisticos, culturales, deportivos y de esparcimiento': 'Arte y esparcimiento',
+        'Servicios de asociaciones y servicios personales': 'Asoc. y serv. personales',
+        'Servicios de organizaciones y organos extraterritoriales': 'Org. extraterritoriales',
+    }
 
-            Ver repo: https://github.com/FUranga/mapa-empleo
+    sec_data = {}
+    total_nac_s = {}
+    TOTAL_ROW = 26  # fila exacta del total nacional en Cuadro 2.2
+    for i, row in enumerate(rows_s):
+        nombre = row[0]
+        if not isinstance(nombre, str): continue
+        if i == TOTAL_ROW:
+            for j, v in enumerate(row[1:len(periodos_s)+1]):
+                if isinstance(v, (int, float)):
+                    total_nac_s[periodos_s[j]] = int(v)
+            continue
+        if not (5 <= i <= 24): continue
+        corto = SECTOR_CORTO.get(nombre, nombre)
+        vals = row[1:len(periodos_s)+1]
+        if any(isinstance(v, (int, float)) for v in vals):
+            sec_data[corto] = {periodos_s[j]: int(v) for j, v in enumerate(vals) if isinstance(v, (int, float))}
+
+    ULTIMO = periodos[-1]
+    PRESIDENCIAS = {
+        'Fernández': {'inicio': '2019-11', 'fin': '2023-11'},
+        'Milei':     {'inicio': '2023-11', 'fin': ULTIMO},
+    }
+
+    serie_nac = [{'t': t, 'v': total_nac_s.get(t)} for t in periodos_s]
+    sectores_list = [
+        {'sector': nombre, 'serie': [{'t': t, 'v': serie.get(t)} for t in periodos_s]}
+        for nombre, serie in sec_data.items()
+    ]
+    provincias_obj = {
+        nombre: {'serie': [{'t': t, 'v': serie.get(t)} for t in periodos]}
+        for nombre, serie in prov_data.items()
+    }
+
+    return {
+        'meta': {
+            'ultimo':        periodos_s[-1],
+            'periodos':      periodos_s,
+            'periodos_prov': periodos,
+            'presidencias':  PRESIDENCIAS,
+            'fuente': 'SRT — Superintendencia de Riesgos del Trabajo',
+            'actualizado': datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
+        },
+        'pais': {'serie': serie_nac, 'sectores': sectores_list},
+        'provincias': provincias_obj,
+    }
+
+# ── Main ──────────────────────────────────────────────────────────
+def main():
+    log = load_log()
+    today = datetime.utcnow().strftime('%Y-%m-%d')
+    updated = False
+
+    print('=== Verificando SRT (empresas) ===')
+    mod_juris  = get_last_modified(URL_SRT_JURISDICCION)
+    mod_sector = get_last_modified(URL_SRT_SECTOR)
+    srt_sig    = f'{mod_juris}|{mod_sector}'
+
+    if srt_sig and srt_sig != log.get('srt_signature'):
+        print('  ✓ Hay datos nuevos en SRT — descargando...')
+        try:
+            bytes_juris  = download(URL_SRT_JURISDICCION)
+            bytes_sector = download(URL_SRT_SECTOR)
+            print('  Construyendo empresas.json...')
+            empresas = build_empresas(bytes_juris, bytes_sector)
+            with open(EMP_PATH_E, 'w', encoding='utf-8') as f:
+                json.dump(empresas, f, ensure_ascii=False, separators=(',', ':'))
+            print(f'  ✓ empresas.json actualizado — último período: {empresas["meta"]["ultimo"]}')
+            log['srt_signature'] = srt_sig
+            log['srt_last_update'] = today
+            updated = True
+        except Exception as e:
+            print(f'  ✗ Error en SRT: {e}')
+    else:
+        print(f'  Sin cambios en SRT (última actualización: {log.get("srt_last_update", "nunca")})')
+
+    print('\n=== Verificando OEDE (empleo) ===')
+    try:
+        # Scrapeamos la página para encontrar las URLs actuales (cambian con cada publicación)
+        PAGE_SIPA = 'https://www.argentina.gob.ar/trabajo/estadisticas/situacion-y-evolucion-del-trabajo-registrado'
+        PAGE_DEPT = 'https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-provinciales'
+        import re as _re
+
+        def find_url(page_url, pattern):
+            r = requests.get(page_url, timeout=30)
+            matches = _re.findall(pattern, r.text)
+            if matches:
+                path = matches[0]
+                return 'https://www.argentina.gob.ar' + path if path.startswith('/') else path
+            return None
+
+        # SIPA mensual: trabajoregistrado_AAMM_estadisticas.xlsx
+        url_nac  = find_url(PAGE_SIPA, r'(/sites/default/files/trabajoregistrado_\d+_estadisticas\.xlsx)')
+        url_dept = 'https://raw.githubusercontent.com/FUranga/mapa-empleo/main/departamento_series_empleo_y_salarios_mensual_sector_1.csv'
+
+        print(f'  URL SIPA mensual:  {url_nac}')
+        print(f'  URL departamental: {url_dept}')
+
+        oede_sig = url_nac or ''
+
+        # Verificar también el CSV departamental (URL estable)
+        url_dept_oede = 'https://www.argentina.gob.ar/sites/default/files/departamento_series_empleo_y_salarios_mensual_sector_1.csv'
+        mod_dept = get_last_modified(url_dept_oede)
+        dept_sig = mod_dept or ''
+        if dept_sig and dept_sig != log.get('dept_signature'):
+            print(f'  📬 CSV departamental actualizado — avisando por mail')
+            log['dept_signature'] = dept_sig
+            log['dept_last_detected'] = today
+            log['dept_needs_manual_update'] = True
+            updated_dept = True
+        else:
+            updated_dept = False
+            print(f'  Sin cambios en departamental (última detección: {log.get("dept_last_detected", "nunca")})')
+
+        if oede_sig != log.get('oede_signature'):
+            print('  ✓ Hay datos nuevos en OEDE — descargando...')
+            bytes_nac  = download(url_nac)  if url_nac  else None
+            bytes_dept = download(url_dept)
+
+            if bytes_nac and bytes_dept:
+                print('  Construyendo data.json...')
+                import sys; sys.path.insert(0, 'scripts')
+                from generar_empleo import build_empleo
+                empleo = build_empleo(bytes_nac, bytes_dept)
+                with open(EMP_PATH, 'w', encoding='utf-8') as f:
+                    json.dump(empleo, f, ensure_ascii=False, separators=(',', ':'))
+                print(f'  ✓ data.json actualizado — último período: {empleo["meta"]["ultimo_sipa"]}')
+                log['oede_signature'] = oede_sig
+                log['oede_last_update'] = today
+                updated = True
+            else:
+                print('  ✗ No se pudieron bajar todos los archivos')
+        else:
+            print(f'  Sin cambios en OEDE (última actualización: {log.get("oede_last_update", "nunca")})')
+    except Exception as e:
+        print(f'  ✗ Error en OEDE: {e}')
+
+    log['last_check'] = today
+    save_log(log)
+
+    if updated:
+        print(f'\n✓ Datos actualizados el {today}')
+    else:
+        print(f'\n— Sin cambios el {today}')
+
+if __name__ == '__main__':
+    main()
