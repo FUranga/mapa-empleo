@@ -130,20 +130,20 @@ def build_empresas(bytes_juris, bytes_sector):
 
     sec_data = {}
     total_nac_s = {}
-    for row in rows_s[5:]:
+    TOTAL_ROW = 26  # fila exacta del total nacional en Cuadro 2.2
+    for i, row in enumerate(rows_s):
         nombre = row[0]
-        if not isinstance(nombre, str) or nombre in SKIP_SEC: continue
-        if nombre.startswith('*') or nombre.startswith('Un total') or nombre.startswith('Fuente'): continue
-        # Total nacional
-        if 'Parte empleadora afiliada de unidades productivas con personas trabajadoras declaradas  (1)' in nombre:
-            for i, v in enumerate(row[1:len(periodos_s)+1]):
+        if not isinstance(nombre, str): continue
+        if i == TOTAL_ROW:
+            for j, v in enumerate(row[1:len(periodos_s)+1]):
                 if isinstance(v, (int, float)):
-                    total_nac_s[periodos_s[i]] = int(v)
+                    total_nac_s[periodos_s[j]] = int(v)
             continue
-        vals = row[1:len(periodos_s)+1]
-        if not any(isinstance(v, (int, float)) for v in vals): continue
+        if not (5 <= i <= 24): continue
         corto = SECTOR_CORTO.get(nombre, nombre)
-        sec_data[corto] = {periodos_s[i]: int(v) for i, v in enumerate(vals) if isinstance(v, (int, float))}
+        vals = row[1:len(periodos_s)+1]
+        if any(isinstance(v, (int, float)) for v in vals):
+            sec_data[corto] = {periodos_s[j]: int(v) for j, v in enumerate(vals) if isinstance(v, (int, float))}
 
     ULTIMO = periodos[-1]
     PRESIDENCIAS = {
@@ -151,7 +151,7 @@ def build_empresas(bytes_juris, bytes_sector):
         'Milei':     {'inicio': '2023-11', 'fin': ULTIMO},
     }
 
-    serie_nac = [{'t': t, 'v': total_nac_s.get(t)} for t in periodos]
+    serie_nac = [{'t': t, 'v': total_nac_s.get(t)} for t in periodos_s]
     sectores_list = [
         {'sector': nombre, 'serie': [{'t': t, 'v': serie.get(t)} for t in periodos_s]}
         for nombre, serie in sec_data.items()
@@ -163,10 +163,10 @@ def build_empresas(bytes_juris, bytes_sector):
 
     return {
         'meta': {
-            'ultimo': ULTIMO,
-            'periodos': periodos,
-            'periodos_sec': periodos_s,
-            'presidencias': PRESIDENCIAS,
+            'ultimo':        periodos_s[-1],
+            'periodos':      periodos_s,
+            'periodos_prov': periodos,
+            'presidencias':  PRESIDENCIAS,
             'fuente': 'SRT — Superintendencia de Riesgos del Trabajo',
             'actualizado': datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
         },
