@@ -443,32 +443,31 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
                 det_prov = []
 
             # Sub de Buenos Aires (GBA / Resto)
-            # Total: suma de deptos del XLSX | Sectores: CSV
+            # Total y sectores: trimestral provincial
             sub = None
             if nombre == 'Buenos Aires':
                 sub = {}
-                for sub_key, csv_key, is_gba_flag in [('gba','__gba__',True),('resto','__resto__',False)]:
-                    # Total desde XLSX — suma de deptos correspondientes
-                    sub_total = defaultdict(int)
-                    for codigo, dv in deptos.items():
-                        if dv.get('id_prov') != PROV_ID['Buenos Aires']:
-                            continue
-                        if _is_gba(codigo) != is_gba_flag:
-                            continue
-                        serie_src = dv.get('serie_xlsx') or dv.get('serie_sec', {})
-                        for t, v in serie_src.items():
-                            sub_total[t] += v
-                    sd2, sp2 = delta_pct(dict(sub_total), ini, fin_dept)
-                    # Sectores desde CSV
-                    sec_data = prov_sec.get(csv_key, {})
+                for sub_key, trim_key in [('gba','__gba__'),('resto','__resto__')]:
+                    # Total desde fila TOTAL del trimestral
+                    tot_trim = prov_trim_sec.get(f'__tot__{trim_key}', {})
+                    sd2, sp2 = delta_pct(tot_trim, ini_q, fin_q)
+                    if sd2 is None:
+                        sd2, sp2 = delta_pct(tot_trim, ini_q, f'{fin_year}-Q3')
+                    # Serie desde total trimestral
+                    sub_serie = [{'t': t, 'v': v} for t, v in sorted(tot_trim.items())
+                                 if ini_q <= t <= fin_q]
+                    # Sectores desde trimestral
+                    sec_trim = prov_trim_sec.get(trim_key, {})
                     sub_secs = []
-                    for sec, st in sec_data.items():
-                        sd3, sp3 = delta_pct(dict(st), ini, fin_dept)
+                    for sec, st in sec_trim.items():
+                        sd3, sp3 = delta_pct(st, ini_q, fin_q)
+                        if sd3 is None:
+                            sd3, sp3 = delta_pct(st, ini_q, f'{fin_year}-Q3')
                         if sd3 is not None:
                             sub_secs.append({'sector': sec, 'delta': sd3, 'pct': sp3})
                     sub[sub_key] = {
                         'delta': sd2, 'pct': sp2,
-                        'serie': slice_t(dict(sub_total), ini, fin_dept),
+                        'serie': sub_serie,
                         'sectores': sorted(sub_secs, key=lambda x: x['delta']),
                     }
 
@@ -649,10 +648,19 @@ def parse_provincial_trimestral(bytes_xlsx):
         prov_data = {}  # macro → {t: v}
 
         prov_detalle = {}  # subrama → {t: v}
+        prov_total = {}   # total por trimestre (fila TOTAL)
         for row in rows[4:]:
             letra = str(row[0]).strip() if row[0] else ''
             nombre_row = str(row[1]).strip() if row[1] else ''
             if not nombre_row: continue
+
+            # Fila TOTAL (letra vacía, nombre TOTAL)
+            if not letra and nombre_row.upper() == 'TOTAL':
+                for col_i, t in trim_cols:
+                    v = row[col_i] if col_i < len(row) else None
+                    if isinstance(v, (int, float)):
+                        prov_total[t] = v
+                continue
 
             is_macro = len(letra) == 1 and letra.isalpha()
             is_sub = letra.isdigit() and nombre_row
@@ -679,6 +687,11 @@ def parse_provincial_trimestral(bytes_xlsx):
             result[prov] = prov_data
         if prov_detalle:
             result[f'__det__{prov}'] = prov_detalle
+        if prov_total:
+            result[f'__tot__{prov}'] = prov_total
+
+    # Agregar totales de GBA y Resto desde fila TOTAL
+    # (ya están en result como __tot____gba__ y __tot____resto__)
 
     # Agregar Buenos Aires = suma de GBA + Resto (sectores y detalle)
     if '__gba__' in result and '__resto__' in result:
