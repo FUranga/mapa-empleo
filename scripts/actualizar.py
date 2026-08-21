@@ -206,11 +206,11 @@ def main():
     print('\n=== Verificando OEDE (empleo) ===')
     try:
         # Scrapeamos la página para encontrar las URLs actuales (cambian con cada publicación)
-        PAGE_NAC  = 'https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-nacionales'
-        PAGE_PROV = 'https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-provinciales'
+        PAGE_SIPA = 'https://www.argentina.gob.ar/trabajo/estadisticas/situacion-y-evolucion-del-trabajo-registrado'
+        PAGE_DEPT = 'https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-provinciales'
         import re as _re
 
-        def find_oede_url(page_url, pattern):
+        def find_url(page_url, pattern):
             r = requests.get(page_url, timeout=30)
             matches = _re.findall(pattern, r.text)
             if matches:
@@ -218,15 +218,14 @@ def main():
                 return 'https://www.argentina.gob.ar' + path if path.startswith('/') else path
             return None
 
-        url_nac  = find_oede_url(PAGE_NAC,  r'(/sites/default/files/nacional_serie_empleo_trimestral[^"\s]+\.xlsx)')
-        url_prov = find_oede_url(PAGE_PROV, r'(/sites/default/files/provinciales_serie_empleo_trimestral_2dig[^"\s]+\.xlsx)')
+        # SIPA mensual: trabajoregistrado_AAMM_estadisticas.xlsx
+        url_nac  = find_url(PAGE_SIPA, r'(/sites/default/files/trabajoregistrado_\d+_estadisticas\.xlsx)')
         url_dept = 'https://raw.githubusercontent.com/FUranga/mapa-empleo/main/departamento_series_empleo_y_salarios_mensual_sector_1.csv'
 
-        print(f'  URL nacional:      {url_nac}')
-        print(f'  URL provincial:    {url_prov}')
+        print(f'  URL SIPA mensual:  {url_nac}')
         print(f'  URL departamental: {url_dept}')
 
-        oede_sig = f'{url_nac}|{url_prov}'
+        oede_sig = url_nac or ''
 
         # Verificar también el CSV departamental (URL estable)
         url_dept_oede = 'https://www.argentina.gob.ar/sites/default/files/departamento_series_empleo_y_salarios_mensual_sector_1.csv'
@@ -245,10 +244,9 @@ def main():
         if oede_sig != log.get('oede_signature'):
             print('  ✓ Hay datos nuevos en OEDE — descargando...')
             bytes_nac  = download(url_nac)  if url_nac  else None
-            bytes_prov = download(url_prov) if url_prov else None
             bytes_dept = download(url_dept)
 
-            if bytes_nac and bytes_prov and bytes_dept:
+            if bytes_nac and bytes_dept:
                 print('  Construyendo data.json...')
                 import sys; sys.path.insert(0, 'scripts')
                 from generar_empleo import build_empleo
