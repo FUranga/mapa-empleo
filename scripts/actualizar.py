@@ -218,8 +218,8 @@ def main():
                 return 'https://www.argentina.gob.ar' + path if path.startswith('/') else path
             return None
 
-        url_nac  = find_oede_url(PAGE_NAC,  r'(/sites/default/files/nacional_serie_empleo_trimestral[^"'\s]+\.xlsx)')
-        url_prov = find_oede_url(PAGE_PROV, r'(/sites/default/files/provinciales_serie_empleo_trimestral_2dig[^"'\s]+\.xlsx)')
+        url_nac  = find_oede_url(PAGE_NAC,  r'(/sites/default/files/nacional_serie_empleo_trimestral[^"\s]+\.xlsx)')
+        url_prov = find_oede_url(PAGE_PROV, r'(/sites/default/files/provinciales_serie_empleo_trimestral_2dig[^"\s]+\.xlsx)')
         url_dept = 'https://raw.githubusercontent.com/FUranga/mapa-empleo/main/departamento_series_empleo_y_salarios_mensual_sector_1.csv'
 
         print(f'  URL nacional:      {url_nac}')
