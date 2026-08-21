@@ -253,11 +253,19 @@ def main():
                 bytes_xlsx = None
                 print('  ⚠ XLSX departamental no disponible — usando solo CSV')
 
+            # XLSX trimestral provincial (sectores por provincia)
+            url_prov_trim = 'https://raw.githubusercontent.com/FUranga/mapa-empleo/main/provinciales_serie_empleo_trimestral_2dig_6.xlsx'
+            try:
+                bytes_prov_trim = download(url_prov_trim)
+            except:
+                bytes_prov_trim = None
+                print('  ⚠ Trimestral provincial no disponible — usando departamental')
+
             if bytes_nac and bytes_dept:
                 print('  Construyendo data.json...')
                 import sys; sys.path.insert(0, 'scripts')
                 from generar_empleo import build_empleo
-                empleo = build_empleo(bytes_nac, bytes_dept, bytes_xlsx)
+                empleo = build_empleo(bytes_nac, bytes_dept, bytes_xlsx, bytes_prov_trim)
                 with open(EMP_PATH, 'w', encoding='utf-8') as f:
                     json.dump(empleo, f, ensure_ascii=False, separators=(',', ':'))
                 print(f'  ✓ data.json actualizado — último período: {empleo["meta"]["ultimo_sipa"]}')
