@@ -252,7 +252,7 @@ def main():
                 print('  Construyendo data.json...')
                 import sys; sys.path.insert(0, 'scripts')
                 from generar_empleo import build_empleo
-                empleo = build_empleo(bytes_nac, bytes_prov, bytes_dept)
+                empleo = build_empleo(bytes_nac, bytes_dept)
                 with open(EMP_PATH, 'w', encoding='utf-8') as f:
                     json.dump(empleo, f, ensure_ascii=False, separators=(',', ':'))
                 print(f'  ✓ data.json actualizado — último período: {empleo["meta"]["ultimo_sipa"]}')
