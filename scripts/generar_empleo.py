@@ -208,7 +208,7 @@ def parse_departamental(bytes_csv, bytes_xlsx=None):
 
     deptos = defaultdict(lambda: {
         'label':'','provincia':'','id_prov':'',
-        'serie':{},'serie_sec':{},'sectores':defaultdict(dict)
+        'serie':{},'serie_sec':{},'serie_xlsx':{},'sectores':defaultdict(dict)
     })
     prov_sec = defaultdict(lambda: defaultdict(dict))  # prov → sector → {t: v}
 
@@ -309,11 +309,11 @@ def parse_departamental(bytes_csv, bytes_xlsx=None):
                 d['label'] = f'{nombre_depto} — {nombre_prov}'
                 d['provincia'] = nombre_prov
                 d['id_prov'] = id_prov
-                # Overwrite serie with XLSX values (puestos reales, más precisos)
+                # Store XLSX values separately (puestos reales, más precisos)
                 for col_i, t in date_cols:
                     v = row[col_i] if col_i < len(row) else None
                     if isinstance(v, (int, float)) and v > 0:
-                        d['serie'][t] = round(v)
+                        d['serie_xlsx'][t] = round(v)
         wb.close()
 
     return deptos, dict(prov_sec)
@@ -459,8 +459,8 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None):
         # ── Departamentos ──
         depts_out = {}
         for codigo, dv in deptos.items():
-            # Total = suma de sectores (puestos reales)
-            serie_total = dv.get('serie_sec', {})
+            # Total: XLSX si disponible (más preciso), sino suma de sectores del CSV
+            serie_total = dv['serie_xlsx'] if dv.get('serie_xlsx') else dv.get('serie_sec', {})
             if not serie_total: continue
             d2, p2 = delta_pct(serie_total, ini, fin_dept)
             secs = []
@@ -468,7 +468,7 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None):
                 sd2, sp2 = delta_pct(dict(st), ini, fin_dept)
                 if sd2 is not None:
                     secs.append({'sector': sec, 'delta': sd2, 'pct': sp2})
-            serie_dep = dv.get('serie_sec', {})
+            serie_dep = dv['serie_xlsx'] if dv.get('serie_xlsx') else dv.get('serie_sec', {})
             depts_out[codigo] = {
                 'label':    dv['label'],
                 'provincia': dv['provincia'],
