@@ -245,12 +245,19 @@ def main():
             print('  ✓ Hay datos nuevos en OEDE — descargando...')
             bytes_nac  = download(url_nac)  if url_nac  else None
             bytes_dept = download(url_dept)
+            # XLSX de totales departamentales (opcional, mejora precisión)
+            url_xlsx = 'https://raw.githubusercontent.com/FUranga/mapa-empleo/main/depto_empleo_total.xlsx'
+            try:
+                bytes_xlsx = download(url_xlsx)
+            except:
+                bytes_xlsx = None
+                print('  ⚠ XLSX departamental no disponible — usando solo CSV')
 
             if bytes_nac and bytes_dept:
                 print('  Construyendo data.json...')
                 import sys; sys.path.insert(0, 'scripts')
                 from generar_empleo import build_empleo
-                empleo = build_empleo(bytes_nac, bytes_dept)
+                empleo = build_empleo(bytes_nac, bytes_dept, bytes_xlsx)
                 with open(EMP_PATH, 'w', encoding='utf-8') as f:
                     json.dump(empleo, f, ensure_ascii=False, separators=(',', ':'))
                 print(f'  ✓ data.json actualizado — último período: {empleo["meta"]["ultimo_sipa"]}')
