@@ -2,9 +2,11 @@ name: Actualizar datos del dashboard
 
 on:
   schedule:
-    # Corre todos los días a las 9am Argentina (UTC-3) = 12:00 UTC
     - cron: '0 12 * * *'
-  workflow_dispatch:  # permite correrlo manualmente desde GitHub
+  workflow_dispatch:
+  push:
+    paths:
+      - 'departamento_series_empleo_y_salarios_mensual_sector_1.csv'
 
 jobs:
   actualizar:
@@ -51,15 +53,15 @@ jobs:
           msg = []
           if log.get('srt_last_update'):
               msg.append('Empresas (SRT): actualizado al ' + log['srt_last_update'])
-          if log.get('oede_last_detected'):
-              msg.append('Empleo (OEDE): datos nuevos detectados el ' + log['oede_last_detected'])
+          if log.get('oede_last_update'):
+              msg.append('Empleo (OEDE/SIPA): actualizado al ' + log['oede_last_update'])
           print('\n'.join(msg) if msg else 'Datos actualizados')
           " > mail_body.txt
           echo "body<<EOF" >> $GITHUB_OUTPUT
           cat mail_body.txt >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
-      - name: Mandar mail de notificación
+      - name: Mail — datos actualizados automáticamente
         if: steps.commit.outputs.committed == 'true'
         uses: dawidd6/action-send-mail@v3
         with:
@@ -78,3 +80,45 @@ jobs:
 
             Ver cambios: https://github.com/FUranga/mapa-empleo/commits/main
             Ver dashboard: https://bespoke-zabaione-80649f.netlify.app
+
+      - name: Verificar si OEDE departamental necesita actualización manual
+        id: check_dept
+        run: |
+          python3 -c "
+          import json
+          with open('log.json') as f:
+              log = json.load(f)
+          needs = log.get('dept_needs_manual_update', False)
+          detected = log.get('dept_last_detected', '')
+          print('needs=' + str(needs).lower())
+          print('detected=' + detected)
+          " > dept_check.txt
+          grep "needs=true" dept_check.txt && echo "needs_update=true" >> $GITHUB_OUTPUT || echo "needs_update=false" >> $GITHUB_OUTPUT
+          grep "detected=" dept_check.txt | cut -d= -f2 > dept_date.txt
+          echo "detected=$(cat dept_date.txt)" >> $GITHUB_OUTPUT
+
+      - name: Mail — actualización manual requerida (departamental)
+        if: steps.check_dept.outputs.needs_update == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: franciscocuranga@gmail.com
+          password: ${{ secrets.GMAIL_PASSWORD }}
+          subject: "Dashboard Argentina — acción requerida: CSV departamental actualizado"
+          to: franciscocuranga@gmail.com
+          from: Dashboard Argentina <franciscocuranga@gmail.com>
+          body: |
+            El OEDE publicó una versión nueva del CSV departamental de empleo.
+
+            Fecha de detección: ${{ steps.check_dept.outputs.detected }}
+
+            Este archivo requiere actualización manual:
+            1. Bajá el nuevo CSV desde:
+               https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-provinciales
+            2. Reemplazalo en el repo como:
+               departamento_series_empleo_y_salarios_mensual_sector_1.csv
+            3. El workflow detectará el cambio y regenerará data.json automáticamente.
+
+            Ver repo: https://github.com/FUranga/mapa-empleo
