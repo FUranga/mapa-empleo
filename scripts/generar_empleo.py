@@ -213,7 +213,7 @@ def parse_departamental(bytes_csv):
 
             empleo_str = str(row.get('Empleo', row.get('empleo', row.get('puestos', row.get('trabajadores',''))))).strip()
             if not empleo_str: continue
-            empleo = round(float(empleo_str.replace(',','.')))
+            empleo = round(float(empleo_str.replace(',','.')) * 1000)  # CSV en miles
 
             d = deptos[codigo]
             d['label'] = f'{nombre_depto} — {nombre_prov}'
@@ -269,8 +269,8 @@ def build_empleo(bytes_sipa, bytes_dept):
         for t, v in ps['desa'].items(): nac_desa[t] += v
 
     PRESIDENCIAS_CFG = {
-        'Alberto Fernández': ('2019-12', '2023-11'),
-        'Milei':             ('2023-12', ultimo_sipa),
+        'Alberto Fernández': ('2019-11', '2023-11'),
+        'Milei':             ('2023-11', ultimo_sipa),
     }
 
     presidencias_out = {}
