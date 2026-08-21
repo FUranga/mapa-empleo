@@ -1,7 +1,7 @@
 # Dashboard: Empleo y empresas en Argentina
-**Visión Desarrollista** · [bespoke-zabaione-80649f.netlify.app](https://bespoke-zabaione-80649f.netlify.app)
+**Visión Desarrollista** · [soft-cocada-6a8c87.netlify.app](https://soft-cocada-6a8c87.netlify.app)
 
-Tablero interactivo de creación y destrucción de empleo privado registrado y empresas empleadoras en Argentina, con cobertura nacional, provincial y departamental, desglose sectorial y comparación entre las presidencias de Alberto Fernández y Javier Milei.
+Tablero interactivo de creación y destrucción de empleo privado registrado y empresas empleadoras en Argentina, con cobertura nacional, provincial, departamental y subregional (GBA / Resto de PBA), con desglose sectorial y comparación entre las presidencias de Alberto Fernández y Javier Milei.
 
 ---
 
@@ -11,18 +11,18 @@ Tablero interactivo de creación y destrucción de empleo privado registrado y e
 mapa-empleo/
 ├── data.json                          # Datos de empleo (generado automáticamente)
 ├── empresas.json                      # Datos de empresas (generado automáticamente)
-├── data.json.bak                      # Backup del deploy anterior
-├── empresas.json.bak                  # Backup del deploy anterior
-├── log.json                           # Log de firmas y fechas de última actualización
+├── data.json.bak / empresas.json.bak  # Backups del deploy anterior
+├── log.json                           # Firmas y fechas de última actualización
 ├── provincias.geojson                 # Geometrías provinciales (estático)
 ├── departamentos.geojson              # Geometrías departamentales (estático)
-├── departamento_series_empleo_y_salarios_mensual_sector_1.csv  # Fuente departamental (actualización manual semestral)
+├── departamento_series_empleo_y_salarios_mensual_sector_1.csv   # CSV sectores por departamento
+├── departamento_serie_empleo_remuneraciones_3.xlsx              # XLSX totales por departamento
+├── provinciales_serie_empleo_trimestral_2dig_6.xlsx             # XLSX sectores provinciales trimestrales
 ├── scripts/
 │   ├── actualizar.py                  # Script principal del workflow
-│   └── generar_empleo.py             # Generador de data.json
-└── .github/
-    └── workflows/
-        └── actualizar.yml            # GitHub Actions workflow
+│   └── generar_empleo.py              # Generador de data.json
+└── .github/workflows/
+    └── actualizar.yml                 # GitHub Actions workflow
 ```
 
 El dashboard (Netlify) sirve los archivos HTML/JS estáticos. Los JSONs de datos viven en este repo y se sirven desde `raw.githubusercontent.com`.
@@ -33,46 +33,60 @@ El dashboard (Netlify) sirve los archivos HTML/JS estáticos. Los JSONs de datos
 
 ### Empleo (`data.json`)
 
-El dashboard combina tres fuentes del Ministerio de Capital Humano de Argentina, cada una con distinto nivel de detalle y frecuencia de actualización:
+El dashboard combina cuatro fuentes, cada una con distinto nivel de detalle y frecuencia:
 
 #### 1. Informe mensual SIPA
-**URL de descarga:** scrapeada dinámicamente desde  
+**URL:** scrapeada dinámicamente desde  
 `https://www.argentina.gob.ar/trabajo/estadisticas/situacion-y-evolucion-del-trabajo-registrado`
 
-El archivo se llama `trabajoregistrado_AAMM_estadisticas.xlsx` (ej. `trabajoregistrado_2605_estadisticas.xlsx` para mayo 2026). La URL cambia cada mes con el período publicado, por lo que el workflow scrapea la página para encontrar el link actual.
-
-Se usan cuatro hojas del archivo:
+Patrón de nombre: `trabajoregistrado_AAMM_estadisticas.xlsx` (ej. `trabajoregistrado_2605_estadisticas.xlsx`). La URL cambia cada mes — el workflow scrapea la página para encontrar el link actual y lo compara con el guardado en `log.json`.
 
 | Hoja | Contenido | Unidad |
 |------|-----------|--------|
-| A.2.1 | Empleo por sector de actividad — con estacionalidad | Miles de personas |
-| A.2.2 | Empleo por sector de actividad — desestacionalizado | Miles de personas |
-| A.5.1 | Empleo por provincia — con estacionalidad | Miles de personas |
-| A.5.2 | Empleo por provincia — desestacionalizado | Miles de personas |
+| A.1  | Total nacional sector privado (original y desestacionalizado) | Miles |
+| A.2.1 | Sectores nacionales — con estacionalidad | Miles |
+| A.2.2 | Sectores nacionales — desestacionalizado | Miles |
+| A.5.1 | Total por provincia — con estacionalidad | Miles |
+| A.5.2 | Total por provincia — desestacionalizado | Miles |
 
-Los valores se multiplican por 1.000 al procesar para expresarlos en puestos individuales. Los datos cubren desde enero 2009 y se actualizan mensualmente.
+Los valores se multiplican por 1.000 al procesar.
 
 **Qué alimenta en el dashboard:**
 - Total nacional (original y desestacionalizado)
 - Sectores nacionales: 7 macrosectores + 14 ramas finas (original y desestacionalizado)
 - Total por provincia (original y desestacionalizado)
 
-#### 2. CSV departamental OEDE
-**URL:** `https://www.argentina.gob.ar/sites/default/files/departamento_series_empleo_y_salarios_mensual_sector_1.csv`
+#### 2. XLSX provincial trimestral OEDE
+**Archivo en repo:** `provinciales_serie_empleo_trimestral_2dig_6.xlsx`  
+**Fuente original:** `https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-provinciales`
 
-Serie mensual de empleo asalariado registrado privado por departamento, con desglose sectorial. Cubre aproximadamente 485 de los ~525 departamentos del país. Se actualiza semestralmente.
-
-**Importante:** el servidor del gobierno bloquea la descarga automática de este archivo (HTTP 403). Por eso se almacena en este repositorio y el workflow lo lee desde GitHub.
+Una hoja por provincia/región con sectores a 2 dígitos CIIU y subramas. Incluye hojas separadas para `Partidos de GBA`, `Capital Federal` y `Resto de Buenos Aires`.
 
 **Qué alimenta en el dashboard:**
-- Total y sectores por departamento
-- Sectores por provincia *(ver nota metodológica abajo)*
-- Subdivisión de Buenos Aires en GBA (40 municipios) y Resto de la provincia
+- Sectores provinciales (7 macros) — baseline Q4-2023, último Q4 disponible
+- Detalle de subramas por provincia
+- Serie trimestral, delta y sectores de GBA y Resto de PBA
 
-#### 3. Series OEDE provinciales trimestrales *(no implementado aún — ver mejoras pendientes)*
-**URL:** `https://www.argentina.gob.ar/sites/default/files/provinciales_serie_empleo_trimestral_2dig_6.xlsx`
+**Nota:** es trimestral — los gráficos de GBA/Resto muestran puntos trimestrales, no mensuales.
 
-Serie trimestral de empleo por provincia y sector a 2 dígitos CIIU. La URL tiene un sufijo numérico que cambia con cada publicación.
+#### 3. XLSX totales departamentales OEDE
+**Archivo en repo:** `departamento_serie_empleo_remuneraciones_3.xlsx`  
+**Fuente original:** `https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-provinciales`
+
+12 hojas (T1-T6 empleo, T7-T12 remuneraciones), una por región, con totales de empleo por departamento en puestos reales (no en miles).
+
+**Qué alimenta en el dashboard:**
+- Total por departamento (serie y delta)
+- Total de GBA y Resto de PBA (sumando departamentos correspondientes)
+
+#### 4. CSV sectores departamentales OEDE
+**Archivo en repo:** `departamento_series_empleo_y_salarios_mensual_sector_1.csv`  
+**URL original:** bloqueada por el gobierno (HTTP 403 desde bots)
+
+Tiene 7 sectores por departamento en puestos reales. La columna `Provincia` incluye filas para `40 MUNICIPIOS GBA` y `RESTO DE PBA` que se usan para los sectores de esas subregiones.
+
+**Qué alimenta en el dashboard:**
+- Sectores por departamento
 
 ---
 
@@ -80,85 +94,119 @@ Serie trimestral de empleo por provincia y sector a 2 dígitos CIIU. La URL tien
 
 **Fuente:** Superintendencia de Riesgos del Trabajo (SRT)
 
-Dos archivos descargados directamente desde el servidor de la SRT:
-
 | Archivo | Contenido |
 |---------|-----------|
-| `Serie_historica_Segun_Jurisdiccion - Ubicacion Persona Trabajadora - UP.xlsx` | Parte empleadora asegurada por provincia — Cuadro 6.2 |
-| `Serie_historica_Segun_Sector_de_actividad_economica_CIIUrev4 - UP.xlsx` | Parte empleadora asegurada por sector CIIU Rev.4 — Cuadro 2.2 |
+| `Serie_historica_Segun_Jurisdiccion - Ubicacion Persona Trabajadora - UP.xlsx` | Por provincia — Cuadro 6.2 |
+| `Serie_historica_Segun_Sector_de_actividad_economica_CIIUrev4 - UP.xlsx` | Por sector CIIU Rev.4 — Cuadro 2.2 |
 
-El total nacional se toma del Cuadro 2.2 (fila de total del archivo de sectores), no de la suma de provincias. Esto es equivalente a la metodología utilizada por Fundar en su Monitor Mensual de Empresas. La suma de provincias sobrecontabiliza porque una misma empresa puede operar en varias jurisdicciones.
-
-**Baseline:** noviembre 2023 (último mes antes de la asunción de Milei), equivalente a la metodología de Fundar.
+El total nacional viene del Cuadro 2.2 (fila 26), no de la suma de provincias. Metodología equivalente al Monitor Mensual de Empresas de Fundar.
 
 ---
 
-## Nota metodológica: sectores por provincia
+## Mapa de fuentes por panel del dashboard
 
-Los sectores que se muestran al hacer clic en una provincia **se calculan sumando los departamentos** que pertenecen a esa provincia en el CSV departamental.
-
-Esta aproximación tiene dos limitaciones conocidas:
-
-1. **Cobertura incompleta:** el CSV departamental cubre ~485 de los ~525 departamentos. Los departamentos no cubiertos no se incluyen en la suma, lo que puede subestimar ligeramente el total sectorial provincial.
-
-2. **Desactualización relativa:** el CSV departamental se actualiza semestralmente, mientras que los totales provinciales se actualizan mensualmente desde el SIPA. Esto significa que los sectores provinciales pueden tener un corte temporal anterior al total provincial.
-
-### Alternativa disponible (mejora pendiente)
-
-El OEDE publica una serie trimestral específicamente por provincia y sector (`provinciales_serie_empleo_trimestral_2dig_6.xlsx`) que sería más precisa para los sectores provinciales. Sin embargo, esta fuente presenta una dificultad para el baseline utilizado (noviembre 2023): al ser trimestral, el período más cercano es Q4-2023 (octubre-diciembre), no noviembre exacto.
-
-Una potencial mejora futura sería usar el archivo provincial trimestral para los sectores provinciales, usando Q4-2023 como baseline para el período Milei y Q4-2019 para el período Fernández. Esto requeriría adaptar el generador para manejar los dos cortes temporales distintos (mensual para el total, trimestral para los sectores).
+| Panel | Fuente | ¿Desestacionalizado? | Período |
+|-------|--------|----------------------|---------|
+| Total nacional — serie | SIPA mensual (A.1) | ✅ Sí | nov-2023 → último SIPA |
+| Sectores nacionales (7 macro + 14 ramas) | SIPA mensual (A.2.1/A.2.2) | ✅ Sí | nov-2023 → último SIPA |
+| Total provincial — serie | SIPA mensual (A.5.1/A.5.2) | ✅ Sí | nov-2023 → último SIPA |
+| Sectores provinciales (7 macro + subramas) | OEDE trimestral | ❌ No | Q4-2023 → Q4 último disponible |
+| GBA — serie | OEDE trimestral (fila TOTAL) | ❌ No | Q4-2023 → Q4 último disponible |
+| GBA — sectores | OEDE trimestral | ❌ No | Q4-2023 → Q4 último disponible |
+| Resto de PBA — serie | OEDE trimestral (fila TOTAL) | ❌ No | Q4-2023 → Q4 último disponible |
+| Resto de PBA — sectores | OEDE trimestral | ❌ No | Q4-2023 → Q4 último disponible |
+| Total departamental — serie | OEDE mensual (XLSX) | ❌ No | nov-2023 → último depto |
+| Sectores departamentales | OEDE mensual (CSV) | ❌ No | nov-2023 → último depto |
 
 ---
 
 ## Automatización
 
-### GitHub Actions workflow
+### Cómo decide el workflow si hay datos nuevos
 
-El workflow corre **todos los días a las 9am (hora Argentina)** y además se dispara automáticamente cuando se sube el CSV departamental al repo.
+El workflow corre **todos los días a las 9am (hora Argentina)** y evalúa tres fuentes:
+
+#### SRT (empresas)
+Hace un `HEAD` request a las dos URLs estables de la SRT:
+```
+https://www.srt.gob.ar/estadisticas/series/co/up/Serie_historica_Segun_Jurisdiccion...xlsx
+https://www.srt.gob.ar/estadisticas/series/co/up/Serie_historica_Segun_Sector_de...xlsx
+```
+Toma el header `Last-Modified` de cada respuesta. Si alguno cambió respecto al guardado en `log.json` → descarga los archivos y regenera `empresas.json`.
+
+#### SIPA mensual (empleo)
+Scrapea la página:
+```
+https://www.argentina.gob.ar/trabajo/estadisticas/situacion-y-evolucion-del-trabajo-registrado
+```
+Busca con regex el link al archivo `trabajoregistrado_AAMM_estadisticas.xlsx`. Si la URL es distinta a la guardada en `log.json` → descarga el archivo y regenera `data.json`.
+
+#### CSV departamental OEDE
+Hace un `HEAD` request a:
+```
+https://www.argentina.gob.ar/sites/default/files/departamento_series_empleo_y_salarios_mensual_sector_1.csv
+```
+Si el `Last-Modified` cambió → manda un **mail de aviso** (no descarga automáticamente porque el gobierno bloquea el acceso desde bots).
+
+### Triggers adicionales
+
+El workflow también se dispara automáticamente cuando se sube alguno de estos archivos al repo:
+- `departamento_series_empleo_y_salarios_mensual_sector_1.csv`
+- `departamento_serie_empleo_remuneraciones_3.xlsx`
+- `provinciales_serie_empleo_trimestral_2dig_6.xlsx`
+
+### Flujo completo
 
 ```
 Cron diario (9am AR)
     │
-    ├─ Verifica SRT (empresas)
-    │   └─ Si cambió → regenera empresas.json → commit → mail
+    ├─ HEAD SRT (2 URLs) → Last-Modified cambió?
+    │   └─ Sí → descarga XLSXs → regenera empresas.json → commit → mail
     │
-    ├─ Verifica SIPA (empleo)
-    │   └─ Si cambió → descarga → regenera data.json → commit → mail
+    ├─ Scrapea página SIPA → URL del XLSX cambió?
+    │   └─ Sí → descarga SIPA + lee CSV/XLSX del repo → regenera data.json → commit → mail
     │
-    └─ Verifica CSV departamental en servidor OEDE
-        └─ Si cambió → mail de aviso (actualización manual requerida)
+    └─ HEAD CSV departamental → Last-Modified cambió?
+        └─ Sí → mail de aviso (actualización manual requerida)
 
-Push de CSV departamental al repo
-    └─ Dispara workflow → regenera data.json → commit → mail
+Push de archivo al repo
+    └─ workflow_dispatch → regenera data.json → commit → mail
 ```
 
-### Tipos de notificación por mail
+### Tipos de notificación
 
-**Mail automático** (`franciscocuranga@gmail.com`): cuando el workflow detecta y procesa datos nuevos del SIPA o la SRT. Incluye qué fuente se actualizó y links al repo y al dashboard.
+**Mail automático** — cuando se procesan datos nuevos. Indica qué fuente se actualizó y el último período.
 
-**Mail de aviso manual**: cuando el OEDE actualiza el CSV departamental en su servidor. Indica que hay que bajar el nuevo archivo y subirlo manualmente al repo. Una vez subido, el workflow se dispara automáticamente.
+**Mail de aviso manual** — cuando el OEDE actualiza el CSV departamental. Indica qué bajar y cómo subirlo al repo.
 
-### Proceso de actualización manual del CSV departamental
+---
 
-Cuando recibís el mail de aviso:
+## Actualización manual de archivos OEDE
 
-1. Bajá el nuevo CSV desde:  
+Los tres archivos OEDE se actualizan semestralmente. Cuando recibís el mail de aviso:
+
+1. Bajá los archivos desde:  
    `https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-provinciales`
-2. Subilo al repo como `departamento_series_empleo_y_salarios_mensual_sector_1.csv` (reemplazando el anterior)
-3. El workflow se dispara automáticamente por el push
-4. Recibís el mail de confirmación cuando termina
 
-### Backup y recuperación
+2. Subílos al repo **con el mismo nombre** que ya tienen:
+   - `departamento_series_empleo_y_salarios_mensual_sector_1.csv`
+   - `departamento_serie_empleo_remuneraciones_3.xlsx`
+   - `provinciales_serie_empleo_trimestral_2dig_6.xlsx`
 
-Antes de cada actualización el workflow guarda `data.json.bak` y `empresas.json.bak` en el repo.
+3. El workflow se dispara automáticamente y regenera `data.json`.
+
+**Atención:** si el gobierno cambia el nombre del archivo (ej. `_4.xlsx` en vez de `_3.xlsx`), hay que actualizar la referencia en `scripts/actualizar.py` y `scripts/actualizar.yml`.
+
+---
+
+## Backup y recuperación
+
+Antes de cada actualización el workflow guarda `data.json.bak` y `empresas.json.bak`.
 
 Para volver a la versión anterior:
-1. Abrí `data.json.bak` en GitHub
-2. Copiá el contenido
-3. Pegalo en `data.json` y hacé commit
+1. Abrí `data.json.bak` en GitHub → copiá el contenido → pegalo en `data.json` → commit.
 
-Para ir más atrás, usá el historial de commits en `github.com/FUranga/mapa-empleo/commits/main`.
+Para ir más atrás: `github.com/FUranga/mapa-empleo/commits/main`.
 
 ---
 
@@ -166,25 +214,41 @@ Para ir más atrás, usá el historial de commits en `github.com/FUranga/mapa-em
 
 ### Empleo
 
-| Presidencia | Inicio | Fin |
-|-------------|--------|-----|
-| Alberto Fernández | dic 2019 | nov 2023 |
-| Javier Milei | dic 2023 | último dato SIPA disponible |
+| Presidencia | Baseline | Fin |
+|-------------|----------|-----|
+| Alberto Fernández | nov-2019 | nov-2023 |
+| Javier Milei | nov-2023 | último dato SIPA |
+
+Para sectores provinciales (trimestral): Q4-2019 → Q4-2023 (Fernández) y Q4-2023 → Q4 último disponible (Milei).
 
 ### Empresas
 
 | Presidencia | Baseline | Fin |
 |-------------|----------|-----|
-| Alberto Fernández | nov 2019 | nov 2023 |
-| Javier Milei | nov 2023 | último dato SRT disponible |
+| Alberto Fernández | nov-2019 | nov-2023 |
+| Javier Milei | nov-2023 | último dato SRT |
 
-El baseline de noviembre 2023 para empresas es equivalente al utilizado por Fundar en su Monitor Mensual de Empresas (último mes antes de la asunción de Milei).
+Metodología equivalente al Monitor Mensual de Empresas de Fundar.
+
+---
+
+## Nota metodológica: sectores provinciales
+
+Los sectores provinciales vienen del **OEDE provincial trimestral** — fuente directa y precisa. Para GBA y Resto de PBA, los sectores también vienen del trimestral (hojas `Partidos de GBA` y `Resto de Buenos Aires`).
+
+Los sectores departamentales son estimados por suma de las filas del CSV departamental.
+
+**Una empresa puede operar en varias jurisdicciones**: la suma de empresas por provincia no coincide con el total nacional. El total nacional de empresas se toma de la fila de total del archivo de sectores SRT (Cuadro 2.2, fila 26).
+
+**Los puestos de trabajo no equivalen a trabajadores**: una persona puede tener más de un empleo registrado y contaría múltiples veces. El SIPA registra relaciones laborales, no individuos únicos.
+
+**Las empresas están localizadas donde declaran al personal**, no donde están constituidas legalmente.
 
 ---
 
 ## Embeds para historias
 
-El notebook `generador_embeds.ipynb` (en Google Colab) genera 8 HTMLs autocontenidos con los datos del momento de publicación, listos para insertar en historias con `<iframe>`. Los datos van hardcodeados en el HTML — no se actualizan con el tiempo, lo que garantiza que una historia publicada hoy siempre muestre los mismos números.
+El notebook `generador_embeds.ipynb` (Google Colab) genera 8 HTMLs autocontenidos con los datos del momento de publicación. Los datos van hardcodeados — no se actualizan con el tiempo.
 
 **Embeds disponibles:**
 - `empleo_mapa.html` — mapa provincial de empleo
@@ -200,13 +264,13 @@ El notebook `generador_embeds.ipynb` (en Google Colab) genera 8 HTMLs autoconten
 
 ## Mejoras pendientes
 
-- [ ] **Sectores provinciales desde fuente trimestral:** usar `provinciales_serie_empleo_trimestral_2dig_6.xlsx` en lugar de la suma del departamental, adaptando el baseline a Q4-2023.
-- [ ] **Automatización completa del empleo:** el SIPA mensual ya se procesa automáticamente. El CSV departamental requiere intervención manual semestral.
-- [ ] **Tracker de noticias:** sistema para traer noticias relevantes sobre empleo y empresas con curación manual antes de publicar.
+- [ ] Automatización completa del CSV departamental (bloqueado por HTTP 403 del gobierno)
+- [ ] Tracker de noticias sobre empleo y cierres de empresas
+- [ ] Cuando el OEDE cambia el nombre del archivo trimestral provincial, actualizar manualmente la referencia en `actualizar.py`
 
 ---
 
 ## Fuentes
 
-- **Empleo:** Observatorio de Empleo y Dinámica Empresarial (OEDE), Dirección Nacional de Estadísticas y Estudios Laborales, Secretaría de Trabajo, Empleo y Seguridad Social, Ministerio de Capital Humano, sobre la base del SIPA (ARCA).
-- **Empresas:** Superintendencia de Riesgos del Trabajo (SRT). Metodología equivalente a la del Monitor Mensual de Empresas de Fundar.
+- **Empleo:** Observatorio de Empleo y Dinámica Empresarial (OEDE), sobre la base del SIPA (ARCA), Ministerio de Capital Humano.
+- **Empresas:** Superintendencia de Riesgos del Trabajo (SRT). Metodología equivalente al Monitor Mensual de Empresas de Fundar.
