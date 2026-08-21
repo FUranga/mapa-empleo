@@ -8,6 +8,7 @@ on:
     paths:
       - 'departamento_series_empleo_y_salarios_mensual_sector_1.csv'
       - 'departamento_serie_empleo_remuneraciones_3.xlsx'
+      - 'provinciales_serie_empleo_trimestral_2dig_6.xlsx'
 
 jobs:
   actualizar:
