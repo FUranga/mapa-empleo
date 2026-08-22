@@ -110,17 +110,15 @@ jobs:
               updates.append('XLSX departamental nuevo: ' + log.get('xlsx_dept_web_url',''))
           if log.get('xlsx_trim_needs_manual_update'):
               updates.append('XLSX trimestral provincial nuevo: ' + log.get('xlsx_trim_web_url',''))
-          import sys
           if alerts:
-              print('has_alerts=true', file=open('/tmp/alert_type.txt','w'))
-              print('
-'.join(alerts), file=open('/tmp/alert_body.txt','w'))
+              open('/tmp/alert_type.txt','w').write('has_alerts=true')
+              open('/tmp/alert_body.txt','w').write(' | '.join(alerts))
           elif updates:
-              print('has_updates=true', file=open('/tmp/alert_type.txt','w'))
-              print('
-'.join(updates), file=open('/tmp/alert_body.txt','w'))
+              open('/tmp/alert_type.txt','w').write('has_updates=true')
+              open('/tmp/alert_body.txt','w').write(' | '.join(updates))
           else:
-              print('nothing', file=open('/tmp/alert_type.txt','w'))
+              open('/tmp/alert_type.txt','w').write('nothing')
+              open('/tmp/alert_body.txt','w').write('')
           "
           echo "alert_type=$(cat /tmp/alert_type.txt | head -1)" >> $GITHUB_OUTPUT
           echo "alert_body<<EOF" >> $GITHUB_OUTPUT
