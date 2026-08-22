@@ -120,12 +120,12 @@ def build_empresas(bytes_juris, bytes_sector):
         'Servicios inmobiliarios': 'Inmobiliario',
         'Servicios profesionales, cientificos y tecnicos': 'Servicios profesionales',
         'Actividades administrativas y servicios de apoyo': 'Serv. administrativos',
-        # 'Administracion publica, defensa y seguridad social obligatoria': 'Administración pública',  # excluido — empleador público
+        'Administracion publica, defensa y seguridad social obligatoria': 'Administración pública',
         'Enseñanza': 'Enseñanza',
         'Salud humana y servicios sociales': 'Salud',
         'Servicios artisticos, culturales, deportivos y de esparcimiento': 'Arte y esparcimiento',
         'Servicios de asociaciones y servicios personales': 'Asoc. y serv. personales',
-        # 'Servicios de organizaciones y organos extraterritoriales': 'Org. extraterritoriales',  # excluido — organizaciones extraterritoriales
+        'Servicios de organizaciones y organos extraterritoriales': 'Org. extraterritoriales',
     }
 
     sec_data = {}
