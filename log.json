@@ -1,16 +1,2 @@
 {
-  "srt_signature": "\"5dbba-658f48641b62d-gzip\"|\"5ed96-658f48668b6c5-gzip\"",
-  "srt_last_update": "2026-08-22",
-  "dept_signature": "Thu, 30 Jul 2026 14:42:21 GMT",
-  "dept_last_detected": "2026-08-22",
-  "dept_needs_manual_update": true,
-  "xlsx_dept_web_url": "/sites/default/files/departamento_serie_empleo_remuneraciones_3.xlsx",
-  "xlsx_dept_web_detected": "2026-08-22",
-  "xlsx_dept_needs_manual_update": true,
-  "xlsx_trim_web_url": "/sites/default/files/provinciales_serie_empleo_trimestral_2dig_6.xlsx",
-  "xlsx_trim_web_detected": "2026-08-22",
-  "xlsx_trim_needs_manual_update": true,
-  "oede_signature": "https://www.argentina.gob.ar/sites/default/files/trabajoregistrado_2605_estadisticas.xlsx",
-  "oede_last_update": "2026-08-22",
-  "last_check": "2026-08-22"
-}
+  }
