@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empleo y empresas en Argentina · Visión Desarrollista</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root{
+  --bg:#ffffff;--panel:#ffffff;--ink:#1d1d1f;--muted:#86868b;
+  --hair:#e6e6e8;--hair2:#f0f0f2;
+  --loss:#d0342c;--gain:#1f6f5c;--neutral:#eef0f0;--nodata:#f4f4f5;
+  --accent:#0071e3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
+  font-size:14px;line-height:1.47;-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+.wrap{max-width:1320px;margin:0 auto;padding:26px 28px 48px}
+.mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+
+header{margin-bottom:20px}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+h1{font-weight:800;font-size:44px;line-height:1.03;letter-spacing:-.033em;max-width:22ch}
+.sub{color:var(--muted);margin-top:10px;max-width:66ch;font-size:14px;font-weight:400}
+
+/* ── Main tabs ── */
+.main-tabs{display:flex;gap:0;margin:18px 0 0;border-bottom:2px solid var(--hair)}
+.main-tabs button{font:inherit;font-size:15px;font-weight:600;padding:10px 22px 12px;
+  border:none;background:transparent;cursor:pointer;color:var(--muted);
+  border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;letter-spacing:-.015em}
+.main-tabs button:hover{color:var(--ink)}
+.main-tabs button.on{color:var(--ink);border-bottom-color:var(--ink)}
+.tab-section{display:none;padding-top:20px}.tab-section.on{display:block}
+
+.controls{display:flex;gap:18px;align-items:center;flex-wrap:wrap;
+  margin:0 0 18px;padding-bottom:16px;border-bottom:1px solid var(--hair)}
+.ctl-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);margin-right:9px}
+.seg{display:inline-flex;background:#f5f5f7;border-radius:980px;padding:3px}
+.seg button{font:inherit;font-size:13px;font-weight:500;padding:6px 16px;background:transparent;
+  border:none;cursor:pointer;color:var(--ink);border-radius:980px;transition:all .15s;letter-spacing:-.01em}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12);font-weight:600}
+.seg button:not(.on):hover{color:var(--muted)}
+.linkbtn{font:inherit;font-size:13px;font-weight:500;background:none;border:none;cursor:pointer;
+  color:var(--accent);padding:6px 4px}
+.linkbtn:disabled{color:var(--hair);cursor:default}
+.crumb{margin-left:auto;font-size:13px;font-weight:500;color:var(--muted)}
+.crumb b{color:var(--ink);font-weight:700}
+
+.grid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;align-items:start}
+.card{background:var(--panel);border:1px solid var(--hair);border-radius:16px}
+.mapcard{position:relative;overflow:hidden}
+#map,#emp-map{height:600px;background:#fbfbfd}
+.leaflet-container{background:#fbfbfd;font-family:inherit}
+.leaflet-control-zoom{border:none!important;box-shadow:0 1px 4px rgba(0,0,0,.1)!important}
+.leaflet-control-zoom a{border-radius:8px!important;color:var(--ink)!important}
+.panel{padding:18px 20px}
+.panel h2{font-weight:700;font-size:17px;letter-spacing:-.02em;margin-bottom:2px}
+.panel .note{font-size:12px;color:var(--muted);margin-bottom:14px;font-weight:500}
+.stack{display:flex;flex-direction:column;gap:16px}
+
+.legend{position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.92);
+  border:1px solid var(--hair);border-radius:12px;padding:11px 13px;z-index:500;backdrop-filter:blur(8px)}
+.legend .ltitle{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px}
+.legend .lbar{width:180px;height:8px;border-radius:980px;
+  background:linear-gradient(90deg,var(--loss),var(--neutral),var(--gain))}
+.legend .lrow{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);
+  margin-top:5px;font-weight:500}
+.legend .nd{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:11px;color:var(--muted)}
+.legend .nd i{width:12px;height:12px;border-radius:3px;background:var(--nodata);
+  border:1px solid var(--hair);display:inline-block}
+
+.tip{position:absolute;pointer-events:none;z-index:600;background:var(--ink);color:#fff;
+  padding:7px 10px;border-radius:8px;font-size:12.5px;font-weight:500;opacity:0;
+  transition:opacity .1s;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.tip .d{font-weight:600;font-variant-numeric:tabular-nums}
+
+.chart svg{width:100%;height:auto;display:block}
+.bigrow{display:flex;align-items:baseline;gap:9px;margin-bottom:14px}
+.big{font-size:30px;font-weight:800;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.big.pos{color:var(--gain)}.big.neg{color:var(--loss)}
+.bigrow .u{font-size:12px;color:var(--muted);font-weight:500}
+
+.srow{display:grid;grid-template-columns:1fr 104px 88px 56px;align-items:center;gap:10px;
+  padding:7px 2px;border-bottom:1px solid var(--hair2);cursor:pointer;border-radius:8px;transition:background .12s}
+.srow:last-child{border-bottom:none}
+.srow:hover{background:#f5f5f7}
+.srow.sel{background:#eef5ff}
+.srow .nm{font-size:13px;font-weight:500}
+.srow .dl{font-size:12.5px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.srow .pc{font-size:12px;text-align:right;color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums}
+.srow .dl.neg,.srow .pc.neg{color:var(--loss)}.srow .dl.pos{color:var(--gain)}
+
+.rankwrap{margin-top:16px}
+.rankhead{display:flex;align-items:baseline;justify-content:space-between;padding:16px 20px 10px}
+.rankhead h2{font-weight:700;font-size:17px;letter-spacing:-.02em}
+.rankhead .note{font-size:12px;color:var(--muted);font-weight:500}
+.ranktable{max-height:340px;overflow-y:auto;padding:0 10px 10px}
+.rrow{display:grid;grid-template-columns:26px 1fr 130px 96px 62px;align-items:center;
+  gap:10px;padding:8px 10px;border-radius:10px;cursor:pointer;transition:background .12s}
+.rrow:hover{background:#f5f5f7}.rrow.sel{background:#eef5ff}
+.rrow .rk{font-size:12px;color:var(--muted);font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.rrow .nm{font-size:13.5px;font-weight:500}
+.rrow .nm small{color:var(--muted);font-weight:400}
+.rrow .dl{font-size:13px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.rrow .pc{font-size:12.5px;text-align:right;color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums}
+.rrow .dl.neg,.rrow .pc.neg{color:var(--loss)}.rrow .dl.pos{color:var(--gain)}
+.rankhcols{display:grid;grid-template-columns:26px 1fr 130px 96px 62px;gap:10px;
+  padding:4px 20px;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.rankhcols .r{text-align:right}
+
+.brandbar{display:flex;align-items:center;justify-content:space-between;margin-top:28px;
+  padding-top:16px;border-top:1px solid var(--hair)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:40px;width:auto;display:block}
+.brand span{font-weight:800;font-size:15px;letter-spacing:-.02em}
+.share-btn{font:inherit;font-size:13px;font-weight:600;color:#fff;background:var(--ink);
+  border:none;border-radius:980px;padding:8px 18px;cursor:pointer}
+.share-btn:hover{opacity:.85}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:1000;
+  align-items:center;justify-content:center}
+.modal-bg.on{display:flex}
+.modal{background:#fff;border-radius:16px;padding:24px;max-width:520px;width:90%}
+.modal h3{font-weight:700;font-size:18px;margin-bottom:6px}
+.modal p{font-size:13px;color:var(--muted);margin-bottom:12px}
+.modal textarea{width:100%;height:90px;font-family:ui-monospace,monospace;font-size:12px;
+  border:1px solid var(--hair);border-radius:8px;padding:10px;resize:none}
+.modal-actions{display:flex;gap:16px;margin-top:12px;justify-content:flex-end}
+footer{margin-top:14px;padding-top:16px;border-top:1px solid var(--hair);
+  font-size:12px;color:var(--muted);line-height:1.7;font-weight:400}
+.loading{padding:70px;text-align:center;color:var(--muted)}
+
+.tabs{display:flex;gap:0;margin-bottom:14px;border-bottom:1px solid var(--hair)}
+.tabs button{font:inherit;font-size:13px;font-weight:500;padding:8px 14px 10px;border:none;background:transparent;
+  cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;letter-spacing:-.01em}
+.tabs button:hover{color:var(--ink)}
+.tabs button.on{color:var(--ink);font-weight:600;border-bottom-color:var(--gain)}
+.detail-toggle{margin-top:12px;font:inherit;font-size:12.5px;font-weight:600;color:var(--accent);
+  background:none;border:none;cursor:pointer;padding:6px 0}
+.detail-toggle:hover{opacity:.65}
+.detail-table{margin-top:6px;max-height:260px;overflow-y:auto;border-top:1px solid var(--hair2)}
+.drow{display:grid;grid-template-columns:1fr 84px 56px;gap:8px;align-items:center;
+  padding:6px 2px;border-bottom:1px solid var(--hair2)}
+.drow:last-child{border-bottom:none}
+.drow .nm{font-size:12.5px;font-weight:500}
+.drow .dl{font-size:12px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.drow .pc{font-size:11.5px;text-align:right;color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums}
+.drow .dl.neg,.drow .pc.neg{color:var(--loss)}.drow .dl.pos{color:var(--gain)}
+
+/* ── Empresas: detail toggle sectores ── */
+.emp-detail-toggle{margin-top:12px;font:inherit;font-size:12.5px;font-weight:600;color:var(--accent);
+  background:none;border:none;cursor:pointer;padding:6px 0}
+.emp-detail-toggle:hover{opacity:.65}
+.emp-detail-table{margin-top:6px;max-height:260px;overflow-y:auto;border-top:1px solid var(--hair2)}
+
+/* ── Empresas: panel de provincia clickeada ── */
+.emp-prov-panel{margin-top:16px;display:none}
+.emp-prov-panel.on{display:block}
+
+@media(max-width:920px){.grid{grid-template-columns:1fr}#map,#emp-map{height:420px}h1{font-size:32px}
+  .rrow,.rankhcols{grid-template-columns:22px 1fr 80px 56px}.rrow .bar{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Dónde se destruyeron más empresas y empleo privado con Milei</h1>
+  </header>
+
+  <div class="main-tabs">
+    <button id="mtab-empleo" class="on" onclick="switchTab('empleo')">Empleo</button>
+    <button id="mtab-empresas" onclick="switchTab('empresas')">Empresas</button>
+  </div>
+
+  <!-- ═══ TAB EMPLEO ═══ -->
+  <div class="tab-section on" id="tab-empleo">
+    <div class="controls">
+      <span class="ctl-label">Presidencia</span>
+      <div class="seg" id="seg-presi">
+        <button data-v="Alberto Fernández">Alberto Fernández</button>
+        <button data-v="Milei" class="on">Javier Milei</button>
+      </div>
+      <span class="ctl-label" style="margin-left:8px" id="lbl-nivel">Mapa</span>
+      <div class="seg" id="seg-nivel">
+        <button data-v="provincia" class="on">Provincias</button>
+        <button data-v="departamento">Departamentos</button>
+      </div>
+      <button class="linkbtn" id="btn-volver" disabled>← Volver al país</button>
+      <button class="linkbtn" id="btn-sector-reset" style="display:none">Ver todos los sectores</button>
+      <span id="ctl-desa" style="display:none">
+        <span class="ctl-label" style="margin-left:8px">Serie</span>
+        <div class="seg" id="seg-desa">
+          <button data-v="original">Original</button>
+          <button data-v="desa" class="on">Desestacionalizada</button>
+        </div>
+      </span>
+      <div class="crumb" id="crumb">Argentina</div>
+    </div>
+
+    <div class="grid">
+      <div class="card mapcard">
+        <div id="map"></div>
+        <div class="legend">
+          <div class="ltitle">Variación de puestos</div>
+          <div class="lbar"></div>
+          <div class="lrow"><span id="lg-min">–</span><span>0</span><span id="lg-max">+</span></div>
+          <div class="nd"><i></i> Sin datos publicados</div>
+          <div id="lg-period" style="font-size:9px;color:#86868b;margin-top:4px;text-align:center"></div>
+        </div>
+        <div class="tip" id="tip"></div>
+      </div>
+      <div class="stack">
+        <div class="card panel">
+          <h2 id="t-total">Argentina</h2>
+          <div class="note" id="t-total-note"></div>
+          <div class="tabs" id="ba-tabs" style="display:none">
+            <button data-t="provincia" class="on">Toda la provincia</button>
+            <button data-t="gba">GBA</button>
+            <button data-t="resto">Resto</button>
+          </div>
+          <div class="bigrow">
+            <span class="big" id="big-delta">–</span>
+            <span class="u" id="big-u">puestos en el período</span>
+          </div>
+          <div class="chart" id="chart-line"></div>
+        </div>
+        <div class="card panel" id="sec-card">
+          <h2 id="tit_sec">Variación por sector</h2>
+          <div class="note" id="sec-period-note"></div>
+          <div class="chart" id="chart-bars"></div>
+          <button class="detail-toggle" id="detail-toggle">Ver ramas en detalle ▾</button>
+          <div class="detail-table" id="detail-table" style="display:none"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card rankwrap">
+      <div class="rankhead">
+        <h2 id="rank-title">Ranking por provincia</h2>
+        <span class="note" id="rank-note">Ordenado por puestos perdidos</span>
+      </div>
+      <div class="rankhcols">
+        <span></span><span></span><span></span><span class="r">Puestos</span><span class="r">Var.</span>
+      </div>
+      <div class="ranktable" id="ranktable"></div>
+    </div>
+  </div><!-- /tab-empleo -->
+
+  <!-- ═══ TAB EMPRESAS ═══ -->
+  <div class="tab-section" id="tab-empresas">
+    <div class="controls">
+      <span class="ctl-label">Presidencia</span>
+      <div class="seg" id="emp-seg-presi">
+        <button data-v="Fernández">Alberto Fernández</button>
+        <button data-v="Milei" class="on">Javier Milei</button>
+      </div>
+      <button class="linkbtn" id="emp-btn-volver" disabled>← Volver al país</button>
+      <div class="crumb" id="emp-crumb">Argentina</div>
+    </div>
+
+    <div class="grid">
+      <div class="card mapcard">
+        <div id="emp-map"></div>
+        <div class="legend">
+          <div class="ltitle">Variación de empresas</div>
+          <div class="lbar"></div>
+          <div class="lrow"><span id="emp-lg-min">–</span><span>0</span><span id="emp-lg-max">+</span></div>
+          <div class="nd"><i></i> Sin datos</div>
+        </div>
+        <div class="tip" id="emp-tip"></div>
+      </div>
+
+      <div class="stack">
+        <div class="card panel">
+          <h2 id="emp-t-title">Argentina</h2>
+          <div class="note" id="emp-t-note"></div>
+          <div class="bigrow">
+            <span class="big" id="emp-big-delta">–</span>
+            <span class="u">empresas en el período</span>
+          </div>
+          <div class="chart" id="emp-chart-line"></div>
+        </div>
+        <div class="card panel" id="emp-sec-card">
+          <h2>Variación por sector</h2>
+          <div class="note" id="emp-sec-note"></div>
+          <div class="chart" id="emp-chart-bars"></div>
+          <button class="emp-detail-toggle" id="emp-detail-toggle" style="display:none">Ver ramas en detalle ▾</button>
+          <div class="emp-detail-table" id="emp-detail-table" style="display:none"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card rankwrap">
+      <div class="rankhead">
+        <h2 id="emp-rank-title">Ranking por provincia</h2>
+        <span class="note" id="emp-rank-note"></span>
+      </div>
+      <div class="rankhcols">
+        <span></span><span></span><span></span><span class="r">Empresas</span><span class="r">Var.</span>
+      </div>
+      <div class="ranktable" id="emp-ranktable"></div>
+    </div>
+  </div><!-- /tab-empresas -->
+
+  <div class="brandbar">
+    <div class="brand">
+      <img id="logo-vd" src="logo-vd.png" alt="Visión Desarrollista" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='inline'">
+      <span id="logo-fallback" style="display:none">Visión Desarrollista</span>
+    </div>
+    <button class="share-btn" id="share-btn">Compartir / Insertar</button>
+  </div>
+  <footer id="foot">Cargando…</footer>
+
+  <div class="modal-bg" id="share-modal">
+    <div class="modal">
+      <h3>Embeber este tablero</h3>
+      <p>Copiá este código y pegalo en tu sitio. La herramienta se muestra con la marca de Visión Desarrollista.</p>
+      <textarea id="embed-code" readonly></textarea>
+      <div class="modal-actions">
+        <button class="linkbtn" id="copy-embed">Copiar código</button>
+        <button class="linkbtn" id="close-modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+// SHARED UTILITIES
+// ══════════════════════════════════════════
+const F={ink:'#1d1d1f',muted:'#86868b',hair:'#e6e6e8',loss:'#d0342c',
+  gain:'#1f6f5c',neutral:'#efeff1',nodata:'#f4f4f5'};
+const SECTOR_SHORT={
+  'Agricultura, ganaderia y pesca':'Agro y pesca','Comercio':'Comercio',
+  'Construccion':'Construcción','Electricidad, gas y agua':'Energía y agua',
+  'Explotacion de minas y canteras':'Minas y petróleo',
+  'Industria manufacturera':'Industria','Servicios':'Servicios'};
+const fmt=n=>n==null?'–':(n>=0?'+':'−')+Math.abs(n).toLocaleString('es-AR');
+const fmtPct=n=>n==null?'':(n>=0?'+':'')+n.toFixed(1)+'%';
+function fmtFecha(s){
+  if(!s)return'';
+  if(s.includes('Q')){const[y,q]=s.split('-Q');return'Q'+q+' '+y;}
+  const meses=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  const[y,m]=s.split('-');return meses[parseInt(m)-1]+' '+y;}
+function hex2rgb(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+function lerp(a,b,t){return a.map((x,i)=>Math.round(x+(b[i]-x)*t));}
+function rgb(c){return`rgb(${c[0]},${c[1]},${c[2]})`;}
+const C_LOSS=hex2rgb(F.loss),C_GAIN=hex2rgb(F.gain),C_NEU=hex2rgb(F.neutral);
+function colorFor(d,lim){
+  if(d==null||isNaN(d))return F.nodata;
+  let t=Math.max(-1,Math.min(1,d/lim));
+  return t<0?rgb(lerp(C_NEU,C_LOSS,-t)):rgb(lerp(C_NEU,C_GAIN,t));}
+function pctile(a,p){if(!a.length)return 0;const s=[...a].sort((x,y)=>x-y);
+  return s[Math.min(s.length-1,Math.floor(p/100*s.length))];}
+function niceRound(x){if(x<=0)return 0;const p=Math.pow(10,Math.floor(Math.log10(x)));
+  const n=x/p;let m;if(n<=1)m=1;else if(n<=2)m=2;else if(n<=2.5)m=2.5;else if(n<=5)m=5;else m=10;
+  return m*p;}
+function featId(f,len){return String(f.id??f.properties?.id??'').padStart(len,'0');}
+
+// ── Main tab switch ──
+function switchTab(tab){
+  ['empleo','empresas'].forEach(t=>{
+    document.getElementById('tab-'+t).classList.toggle('on',t===tab);
+    document.getElementById('mtab-'+t).classList.toggle('on',t===tab);
+  });
+  if(tab==='empresas'&&EMP_DATA&&!empMap){initEmpMap();renderEmp();}
+  else if(tab==='empresas'&&EMP_DATA){renderEmp();}
+}
+
+// ══════════════════════════════════════════
+// EMPLEO
+// ══════════════════════════════════════════
+let DATA,GEO_PROV,GEO_DEPTO;
+let state={presi:'Milei',mapLevel:'provincia',nivel:'pais',provCode:null,deptCode:null,baTab:'provincia',serieMode:'desa',sectorFiltro:null};
+function sectorEntry(node,sector){
+  return node&&node.sectores?node.sectores.find(s=>s.sector===sector):null;}
+let map,geoLayer;
+const tip=document.getElementById('tip');
+
+function block(){return DATA.presidencias[state.presi];}
+function provByCode(){const o={},P=block().provincias;
+  for(const n in P)o[P[n].id_prov]={...P[n],nombre:n};return o;}
+function depts(){return block().departamentos;}
+
+Promise.all([
+  fetch('https://raw.githubusercontent.com/FUranga/mapa-empleo/main/data.json').then(r=>r.json()),
+  fetch('https://raw.githubusercontent.com/FUranga/mapa-empleo/main/provincias.geojson').then(r=>r.json()),
+  fetch('https://raw.githubusercontent.com/FUranga/mapa-empleo/main/departamentos.geojson').then(r=>r.json())
+]).then(([d,gp,gd])=>{
+  DATA=d;GEO_PROV=gp;GEO_DEPTO=gd;
+  initMap();wireControls();wireShare();render();
+  const per=DATA.meta.periodos;
+  document.getElementById('foot').innerHTML=
+    `<b>Empleo</b> · Total nacional y provincial: SIPA mensual (OEDE/MTEySS), último dato ${DATA.meta.ultimo_sipa}. `+
+    `Sectores nacionales: SIPA mensual, original y desestacionalizado. `+
+    `Sectores provinciales y GBA/Resto: OEDE trimestral, último trimestre disponible (sin desestacionalizar). `+
+    `Departamentos: OEDE mensual, último dato ${DATA.meta.ultimo_depto} (sin desestacionalizar). `+
+    `Sectores departamentales: estimados por suma de departamentos (OEDE mensual). `+
+    `<b>Empresas</b> · Parte empleadora asegurada con al menos un trabajador declarado en unidades productivas. Fuente: SRT, último dato ${EMP_DATA?.meta?.ultimo||''}. `+
+    `La metodología es equivalente a la del Monitor Mensual de Empresas de Fundar. `+
+    `La suma de empresas por provincia no coincide con el total nacional porque una misma empresa puede operar en más de una jurisdicción. El universo SRT incluye tanto empleadores privados como públicos. Esta medición es consistente con la metodología del Monitor Mensual de Empresas de Fundar. Algunos sectores (Agua, Transporte, Enseñanza, Salud, Administración pública) incluyen empleadores públicos que no es posible desagregar a nivel provincial.`;
+}).catch(e=>{
+  document.getElementById('foot').textContent='Error al cargar datos: '+e.message;});
+
+function initMap(){
+  map=L.map('map',{zoomControl:false,attributionControl:false,scrollWheelZoom:true,
+    doubleClickZoom:false,minZoom:3,maxZoom:9});
+  L.control.zoom({position:'topright'}).addTo(map);
+  map.setView([-40,-63],4);}
+function wireShare(){
+  const bg=document.getElementById('share-modal');
+  const url=location.href.split('#')[0];
+  document.getElementById('embed-code').value=
+    '<iframe src="'+url+'" width="100%" height="900" style="border:1px solid #e6e6e8;border-radius:12px" title="Empleo y empresas - Vision Desarrollista"></iframe>';
+  document.getElementById('share-btn').onclick=()=>bg.classList.add('on');
+  document.getElementById('close-modal').onclick=()=>bg.classList.remove('on');
+  bg.onclick=e=>{if(e.target===bg)bg.classList.remove('on');};
+  document.getElementById('copy-embed').onclick=()=>{
+    const ta=document.getElementById('embed-code');ta.select();
+    document.execCommand('copy');
+    document.getElementById('copy-embed').textContent='¡Copiado!';
+    setTimeout(()=>document.getElementById('copy-embed').textContent='Copiar código',1500);};}
+function wireControls(){
+  document.querySelectorAll('#seg-presi button').forEach(b=>b.onclick=()=>{
+    state.presi=b.dataset.v;
+    document.querySelectorAll('#seg-presi button').forEach(x=>x.classList.toggle('on',x===b));
+    render();});
+  document.querySelectorAll('#seg-nivel button').forEach(b=>b.onclick=()=>{
+    state.mapLevel=b.dataset.v;
+    document.querySelectorAll('#seg-nivel button').forEach(x=>x.classList.toggle('on',x===b));
+    if(state.nivel==='pais')render();});
+  document.getElementById('btn-volver').onclick=()=>{
+    state.nivel='pais';state.provCode=null;state.deptCode=null;state.baTab='provincia';render();};
+  document.getElementById('btn-sector-reset').onclick=()=>{
+    state.sectorFiltro=null;render();};
+  document.getElementById('detail-toggle').onclick=()=>{
+    state.detailOpen=!state.detailOpen;drawDetail(currentEntity().node,state.serieMode==='desa');};
+  document.querySelectorAll('#seg-desa button').forEach(b=>b.onclick=()=>{
+    state.serieMode=b.dataset.v;
+    document.querySelectorAll('#seg-desa button').forEach(x=>x.classList.toggle('on',x===b));
+    drawMap();drawPanels();drawRanking();});
+  document.querySelectorAll('#ba-tabs button').forEach(b=>b.onclick=()=>{
+    state.baTab=b.dataset.t;drawPanels();});}
+
+function render(){
+  try{drawMap();}catch(e){console.error('drawMap:',e);}
+  try{drawPanels();}catch(e){console.error('drawPanels:',e);}
+  try{drawRanking();}catch(e){console.error('drawRanking:',e);}
+  try{updateChrome();}catch(e){console.error('updateChrome:',e);}}
+
+function updateChrome(){
+  const per_m=DATA.meta.periodos[state.presi];
+  const esDepto=state.mapLevel==='departamento'||state.nivel==='provincia'||state.nivel==='departamento';
+  const ult_m=esDepto?DATA.meta.ultimo_depto:DATA.meta.ultimo_sipa;
+  const fin_m=per_m[1]<ult_m?per_m[1]:ult_m;
+  const lgp=document.getElementById('lg-period');
+  if(lgp)lgp.textContent=fmtFecha(per_m[0])+' → '+fmtFecha(fin_m);
+  const pv=provByCode();let c='Argentina';
+  if(state.nivel==='provincia')c=`<b>${pv[state.provCode]?.nombre||''}</b>`;
+  if(state.nivel==='departamento')c=`${pv[state.provCode]?.nombre||''} · <b>${(depts()[state.deptCode]?.label||'').split(' — ')[0]}</b>`;
+  if(state.sectorFiltro)c+=` · <b>${state.sectorFiltro}</b>`;
+  document.getElementById('crumb').innerHTML=c;
+  document.getElementById('btn-volver').disabled=state.nivel==='pais';
+  document.getElementById('btn-sector-reset').style.display=state.sectorFiltro?'inline-block':'none';
+  const enPais=state.nivel==='pais';
+  document.getElementById('seg-nivel').style.display=enPais?'inline-flex':'none';
+  document.getElementById('lbl-nivel').style.display=enPais?'inline':'none';
+  const showDesa=state.nivel!=='departamento'&&!state.sectorFiltro;
+  document.getElementById('ctl-desa').style.display=showDesa?'inline':'none';}
+
+function clampBounds(b){const s=Math.max(b.getSouth(),-56);
+  return L.latLngBounds([[s,b.getWest()],[b.getNorth(),b.getEast()]]);}
+
+function drawMap(){
+  if(geoLayer)map.removeLayer(geoLayer);
+  let features,valueOf,isProv;
+  const useDesa=state.serieMode==='desa';
+  const sf=state.sectorFiltro;
+  if(state.nivel==='pais'&&state.mapLevel==='provincia'){
+    const pv=provByCode();features=GEO_PROV.features;
+    valueOf=f=>{const p=pv[featId(f,2)];
+      if(sf)return sectorEntry(p,sf)?.delta??null;
+      return useDesa?(p?.delta_desa??p?.delta):p?.delta;};
+    isProv=true;
+  }else if(state.nivel==='pais'&&state.mapLevel==='departamento'){
+    const dd=depts();features=GEO_DEPTO.features;
+    valueOf=f=>{const d=dd[featId(f,5)];return sf?(sectorEntry(d,sf)?.delta??null):d?.delta;};
+    isProv=false;
+  }else{
+    const dd=depts(),pc=state.provCode;
+    features=GEO_DEPTO.features.filter(f=>featId(f,5).slice(0,2)===pc);
+    valueOf=f=>{const d=dd[featId(f,5)];return sf?(sectorEntry(d,sf)?.delta??null):d?.delta;};
+    isProv=false;}
+  const vals=features.map(valueOf).filter(v=>v!=null&&!isNaN(v)).map(Math.abs);
+  const lim=Math.max(niceRound(pctile(vals,95)),1);
+  document.getElementById('lg-min').textContent='−'+Math.round(lim).toLocaleString('es-AR');
+  document.getElementById('lg-max').textContent='+'+Math.round(lim).toLocaleString('es-AR');
+  geoLayer=L.geoJSON({type:'FeatureCollection',features},{
+    style:f=>{const sel=state.nivel==='departamento'&&featId(f,5)===state.deptCode;
+      return{fillColor:colorFor(valueOf(f),lim),fillOpacity:.95,
+        color:sel?F.ink:'#ffffff',weight:sel?2.2:.6};},
+    onEachFeature:(f,layer)=>{
+      layer.on('mouseover',e=>{layer.setStyle({weight:1.6,color:F.ink});layer.bringToFront();
+        showTip(e,f,valueOf(f),isProv);});
+      layer.on('mousemove',moveTip);
+      layer.on('mouseout',()=>{geoLayer.resetStyle(layer);
+        if(state.nivel==='departamento'&&featId(f,5)===state.deptCode)
+          layer.setStyle({color:F.ink,weight:2.2});
+        tip.style.opacity=0;});
+      layer.on('click',()=>onClick(f,isProv));}
+  }).addTo(map);
+  try{
+    map.setMinZoom(2);
+    const b=state.nivel==='pais'
+      ?L.latLngBounds([[-55.2,-73.6],[-21.6,-53.5]])
+      :clampBounds(geoLayer.getBounds());
+    map.fitBounds(b,{padding:state.nivel==='pais'?[6,6]:[10,10],animate:false});
+    map.setMinZoom(map.getZoom());map.setMaxBounds(b.pad(0.12));}catch(e){}}
+
+function showTip(e,f,d,isProv){
+  const id=featId(f,isProv?2:5);
+  const nombre=isProv?(provByCode()[id]?.nombre||id):(depts()[id]?.label||id);
+  tip.innerHTML=`${nombre}<br><span class="d">${d==null?'sin datos':fmt(d)+' puestos'}</span>`;
+  tip.style.opacity=1;moveTip(e);}
+function moveTip(e){const r=document.getElementById('map').getBoundingClientRect();
+  const p=e.originalEvent;tip.style.left=(p.clientX-r.left+14)+'px';tip.style.top=(p.clientY-r.top+14)+'px';}
+function onClick(f,isProv){selectEntity(isProv?featId(f,2):featId(f,5),isProv);}
+function selectEntity(code,isProv){
+  state.baTab='provincia';
+  if(state.nivel==='pais'&&state.mapLevel==='provincia'){
+    state.nivel='provincia';state.provCode=code;state.deptCode=null;
+  }else if(state.nivel==='pais'&&state.mapLevel==='departamento'){
+    state.nivel='departamento';state.provCode=code.slice(0,2);state.deptCode=code;
+  }else{
+    if(state.deptCode===code){state.nivel='provincia';state.deptCode=null;}
+    else{state.nivel='departamento';state.deptCode=code;state.provCode=code.slice(0,2);}
+  }render();}
+
+function currentEntity(){
+  if(state.nivel==='pais')return{node:block().pais,nombre:'Argentina'};
+  if(state.nivel==='provincia'){const pv=provByCode();const p=pv[state.provCode];
+    let node=p,nombre=p?.nombre||'';
+    const baNode=block().provincias['Buenos Aires'];
+    if(state.provCode==='06'&&baNode&&baNode.sub&&state.baTab!=='provincia'){
+      node=baNode.sub[state.baTab];
+      nombre='Provincia de Buenos Aires · '+(state.baTab==='gba'?'GBA (40 municipios)':'Resto de la provincia');}
+    else if(state.provCode==='06'){nombre='Provincia de Buenos Aires';}
+    return{node,nombre};}
+  const d=depts()[state.deptCode];return{node:d,nombre:d?.label||''};}
+
+function drawPanels(){
+  const{node,nombre}=currentEntity();
+  const sf=state.sectorFiltro;
+  document.getElementById('t-total').textContent=sf?`${nombre} · ${sf}`:nombre;
+  const per=DATA.meta.periodos[state.presi];
+  const ultimoSIPA=DATA.meta.ultimo_sipa||DATA.meta.ultimo||'';
+  const ultimoDepto=DATA.meta.ultimo_depto||DATA.meta.ultimo||'';
+  const useDesa=state.serieMode==='desa';
+  const finNota=state.nivel==='departamento'?(per[1]<DATA.meta.ultimo_depto?per[1]:DATA.meta.ultimo_depto):per[1];
+  {
+    const isGBAorResto = state.provCode==='06' && state.baTab!=='provincia';
+    const isDept = state.nivel==='departamento';
+    const desaLabel = (!isDept && !isGBAorResto && useDesa) ? ' · desestacionalizada' : ' · sin desestacionalizar';
+    const fuenteLabel = isDept ? ' · OEDE mensual' : (isGBAorResto ? ' · OEDE trimestral' : ' · SIPA mensual');
+    const periodoLabel = isGBAorResto
+      ? `Q4 ${per[0].slice(0,4)} → Q4 2025`
+      : `${fmtFecha(per[0])} → ${fmtFecha(finNota)}`;
+    document.getElementById('t-total-note').textContent=
+      `${state.presi==='Milei'?'Javier Milei':state.presi} · ${periodoLabel}${desaLabel}${fuenteLabel}`;
+  }
+  const titSec=document.getElementById('tit_sec');
+  if(titSec)titSec.textContent='Variación por sector';
+  const secPeriodEl=document.getElementById('sec-period-note');
+  if(secPeriodEl){
+    const isDeptSec = state.nivel==='departamento';
+    const isProvSec = state.nivel==='provincia';
+    const isGBASec = state.provCode==='06' && state.baTab!=='provincia';
+    // Sectores: trimestral para provincia y GBA/Resto, mensual para depto y país
+    const secFuente = (isProvSec || isGBASec) ? ' · OEDE trimestral' : (isDeptSec ? ' · OEDE mensual' : ' · SIPA mensual');
+    const secDesa = (!isDeptSec && !isProvSec && !isGBASec && useDesa) ? ' · desestacionalizada' : ' · sin desestacionalizar';
+    // Período: trimestral muestra Q4
+    const secPer = (isProvSec || isGBASec) ? ` · sectores: Q4 ${per[0].slice(0,4)} → Q4 2025` : '';
+    if(isProvSec || isGBASec){
+      // Sectores provinciales: mostrar período trimestral directamente
+      const finQ4Year = state.presi==='Milei' ? '2025' : per[1].slice(0,4);
+      secPeriodEl.textContent=`Q4 ${per[0].slice(0,4)} → Q4 ${finQ4Year} · sin desestacionalizar · OEDE trimestral`;
+    } else {
+      const fin_label = isDeptSec ? (per[1]<DATA.meta.ultimo_depto?per[1]:DATA.meta.ultimo_depto) : per[1];
+      secPeriodEl.textContent=`${fmtFecha(per[0])} → ${fmtFecha(fin_label)}${secDesa}${secFuente}`;
+    }}
+  const pv=provByCode();
+  const baProv=block().provincias['Buenos Aires'];
+  const isBA=state.nivel==='provincia'&&state.provCode==='06'&&baProv&&baProv.sub;
+  const tabs=document.getElementById('ba-tabs');
+  tabs.style.display=isBA?'inline-flex':'none';
+  if(isBA)tabs.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.t===state.baTab));
+  let serieActual,delta;
+  if(sf){
+    const se=sectorEntry(node,sf);
+    serieActual=se?se.serie:[];
+    delta=se?se.delta:null;
+  }else{
+    serieActual=useDesa&&node&&node.serie_desa&&node.serie_desa.length
+      ?node.serie_desa:(node?node.serie:[]);
+    delta=null;
+    if(serieActual&&serieActual.length)delta=serieActual[serieActual.length-1].v-serieActual[0].v;
+    else if(node&&node.delta!=null)delta=node.delta;
+  }
+  const bd=document.getElementById('big-delta');
+  bd.textContent=fmt(delta);bd.className='big '+(delta>=0?'pos':'neg');
+  const secCard=document.getElementById('sec-card');
+  const mostrarSecCard=!sf||state.nivel==='pais';
+  if(secCard)secCard.style.display=mostrarSecCard?'block':'none';
+  const secDesa=state.nivel==='pais'?block().pais?.sectores_desa:(node?.sectores_desa||null);
+  drawLine(serieActual);
+  if(mostrarSecCard)drawBars(node?node.sectores:[],secDesa);
+  drawDetail(node,state.useDesa);}
+
+function drawLine(serie){
+  const el=document.getElementById('chart-line');
+  if(!serie||!serie.length){el.innerHTML='<div class="note">Sin serie</div>';return;}
+  const W=440,H=156,pl=10,pr=10,pt=16,pb=24;
+  const ys=serie.map(d=>d.v),minY=Math.min(...ys),maxY=Math.max(...ys);
+  const X=i=>pl+(i/(serie.length-1))*(W-pl-pr);
+  const Y=v=>pt+(1-(v-minY)/((maxY-minY)||1))*(H-pt-pb);
+  let d='';serie.forEach((p,i)=>{d+=(i?'L':'M')+X(i).toFixed(1)+' '+Y(p.v).toFixed(1)+' ';});
+  const area=d+`L ${X(serie.length-1)} ${H-pb} L ${X(0)} ${H-pb} Z`;
+  const down=ys[ys.length-1]<ys[0];const col=down?F.loss:F.gain;
+  const esTrim=serie[0]?.t?.includes('-Q');
+  let dots='';serie.forEach((p,i)=>{
+    const esExtremo=(i===0||i===serie.length-1);
+    const esVisible=esTrim?true:(esExtremo||p.t.endsWith('-01'));
+    if(esVisible){const r=esExtremo?3.6:(esTrim?2.6:2.2);
+      dots+=`<circle cx="${X(i).toFixed(1)}" cy="${Y(p.v).toFixed(1)}" r="${r}" fill="#fff" stroke="${col}" stroke-width="1.6"/>"`;}});
+  let hit='';serie.forEach((p,i)=>{
+    hit+=`<circle cx="${X(i).toFixed(1)}" cy="${Y(p.v).toFixed(1)}" r="8" fill="transparent" `+
+         `data-t="${p.t}" data-v="${p.v}" class="ln-hit" style="cursor:pointer"/>`;});
+  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">
+    <path d="${area}" fill="${col}" opacity=".06"/>
+    <path d="${d}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round"/>
+    ${dots}${hit}
+    <text x="${pl}" y="${H-6}" font-size="10.5" fill="${F.muted}" font-weight="500">${esTrim?serie[0].t:fmtFecha(serie[0].t)}</text>
+    <text x="${W-pr}" y="${H-6}" font-size="10.5" fill="${F.muted}" font-weight="500" text-anchor="end">${esTrim?serie[serie.length-1].t:fmtFecha(serie[serie.length-1].t)}</text>
+  </svg>`;
+  let tt=document.getElementById('line-tip');
+  if(!tt){tt=document.createElement('div');tt.id='line-tip';tt.className='tip';
+    el.style.position='relative';el.appendChild(tt);}
+  el.querySelectorAll('.ln-hit').forEach(c=>{
+    c.addEventListener('mouseenter',e=>{
+      const t=c.getAttribute('data-t'),v=parseInt(c.getAttribute('data-v'));
+      tt.innerHTML=`${fmtFecha(t)}<br><span class="d">${v.toLocaleString('es-AR')} puestos</span>`;
+      tt.style.opacity=1;});
+    c.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();
+      tt.style.left=(e.clientX-r.left+10)+'px';tt.style.top=(e.clientY-r.top-6)+'px';});
+    c.addEventListener('mouseleave',()=>{tt.style.opacity=0;});});}
+
+function drawBars(sectors,sectors_desa){
+  const el=document.getElementById('chart-bars');
+  const useDesa=state.serieMode==='desa';
+  const rows_src=useDesa&&sectors_desa&&sectors_desa.length?sectors_desa:sectors;
+  if(!rows_src||!rows_src.length){el.innerHTML='<div class="note">Sin datos sectoriales</div>';return;}
+  sectors=rows_src;
+  let rows=[...sectors].sort((a,b)=>a.delta-b.delta);
+  const maxAbs=Math.max(...rows.map(r=>Math.abs(r.delta||0)),1);
+  const bar=(d)=>{const W=104,cx=W/2,w=(Math.abs(d)/maxAbs)*(W/2),pos=d>=0;
+    const x=pos?cx:cx-w,col=pos?F.gain:F.loss;
+    return`<svg width="${W}" height="12" style="vertical-align:middle"><line x1="${cx}" y1="0" x2="${cx}" y2="12" stroke="${F.hair}"/><rect x="${x.toFixed(1)}" y="2" width="${Math.max(w,1).toFixed(1)}" height="8" rx="2" fill="${col}"/></svg>`;};
+  el.innerHTML=rows.map(r=>{const cls=r.delta>=0?'pos':'neg';
+    const sel=state.sectorFiltro===r.sector?' sel':'';
+    return`<div class="srow${sel}" data-sector="${r.sector}">
+      <span class="nm">${SECTOR_SHORT[r.sector]||r.sector}</span>
+      <span class="bar">${bar(r.delta)}</span>
+      <span class="dl ${cls}">${fmt(r.delta)}</span>
+      <span class="pc ${cls}">${r.pct==null?'':((r.pct>=0?'+':'')+r.pct.toFixed(1)+'%')}</span>
+    </div>`;}).join('');
+  el.querySelectorAll('.srow').forEach(row=>{
+    row.onclick=()=>{state.sectorFiltro=row.dataset.sector;render();};});}
+
+function drawDetail(node,useDesa){
+  const btn=document.getElementById('detail-toggle');
+  const tbl=document.getElementById('detail-table');
+  const detRaw=useDesa&&node&&node.detalle_desa&&node.detalle_desa.length?node.detalle_desa:node&&node.detalle;
+  const det=detRaw&&detRaw.length?detRaw:null;
+  if(!det){btn.style.display='none';tbl.style.display='none';tbl.innerHTML='';return;}
+  btn.style.display='block';
+  btn.textContent=state.detailOpen?'Ocultar ramas en detalle ▴':'Ver ramas en detalle ▾';
+  if(!state.detailOpen){tbl.style.display='none';tbl.innerHTML='';return;}
+  tbl.style.display='block';
+  const rows=[...det].sort((a,b)=>a.delta-b.delta);
+  tbl.innerHTML=rows.map(r=>{const cls=r.delta>=0?'pos':'neg';
+    return`<div class="drow"><span class="nm" title="${r.sector}">${r.sector}</span>`+
+      `<span class="dl ${cls}">${fmt(r.delta)}</span>`+
+      `<span class="pc ${cls}">${r.pct==null?'':((r.pct>=0?'+':'')+r.pct.toFixed(1)+'%')}</span></div>`;}).join('');}
+
+function drawRanking(){
+  const useDesa=state.serieMode==='desa';
+  const sf=state.sectorFiltro;
+  const pref=sf?sf+' · ':'';
+  let rows=[],isProv,titulo,ctx;
+  if(state.nivel==='pais'&&state.mapLevel==='provincia'){
+    const pv=provByCode();
+    rows=Object.values(pv).map(p=>{const se=sf?sectorEntry(p,sf):null;
+      return{code:p.id_prov,nombre:p.nombre,sub:'',
+        delta:sf?(se?se.delta:null):(useDesa?(p.delta_desa??p.delta):p.delta),
+        pct:sf?(se?se.pct:null):(useDesa?(p.pct_desa??p.pct):p.pct)};});
+    isProv=true;titulo=pref+'Ranking por provincia';ctx='Ordenado por puestos perdidos';
+  }else if(state.nivel==='pais'&&state.mapLevel==='departamento'){
+    const dd=depts();
+    rows=Object.entries(dd).map(([code,d])=>{const se=sf?sectorEntry(d,sf):null;
+      return{code,nombre:d.label.split(' — ')[0],sub:d.provincia,
+        delta:sf?(se?se.delta:null):d.delta,pct:sf?(se?se.pct:null):d.pct};});
+    isProv=false;titulo=pref+'Ranking por departamento';ctx='Todo el país · ordenado por puestos perdidos';
+  }else{
+    const dd=depts(),pc=state.provCode,pv=provByCode();
+    rows=Object.entries(dd).filter(([c])=>c.slice(0,2)===pc)
+      .map(([code,d])=>{const se=sf?sectorEntry(d,sf):null;
+        return{code,nombre:d.label.split(' — ')[0],sub:'',
+          delta:sf?(se?se.delta:null):d.delta,pct:sf?(se?se.pct:null):d.pct};});
+    isProv=false;titulo=pref+`Departamentos de ${pv[pc]?.nombre||''}`;ctx='Ordenado por puestos perdidos';}
+  rows.sort((a,b)=>{if(a.delta==null)return 1;if(b.delta==null)return -1;return a.delta-b.delta;});
+  const maxAbs=Math.max(...rows.map(r=>Math.abs(r.delta||0)),1);
+  const rankEsDepto=(state.nivel==='pais'&&state.mapLevel==='departamento')||state.nivel==='provincia'||state.nivel==='departamento';
+  const desaNota=rankEsDepto?' · sin desestacionalizar':(useDesa?' · desestacionalizada':' · sin desestacionalizar');
+  const per2=DATA.meta.periodos[state.presi];
+  const fin_rank=rankEsDepto?(per2[1]<DATA.meta.ultimo_depto?per2[1]:DATA.meta.ultimo_depto):per2[1];
+  document.getElementById('rank-title').textContent=titulo;
+  document.getElementById('rank-note').textContent=`${fmtFecha(per2[0])} → ${fmtFecha(fin_rank)}${desaNota}`;
+  const bar=(d)=>{if(d==null)return'';const W=120,cx=W/2,w=(Math.abs(d)/maxAbs)*(W/2),pos=d>=0;
+    const x=pos?cx:cx-w,col=pos?F.gain:F.loss;
+    return`<svg width="${W}" height="12" style="vertical-align:middle"><line x1="${cx}" y1="0" x2="${cx}" y2="12" stroke="${F.hair}"/><rect x="${x.toFixed(1)}" y="2" width="${Math.max(w,1).toFixed(1)}" height="8" rx="2" fill="${col}"/></svg>`;};
+  const html=rows.map((r,i)=>{
+    const sel=(isProv&&state.provCode===r.code)||(!isProv&&state.deptCode===r.code);
+    const dcls=r.delta==null?'':(r.delta>=0?'pos':'neg');
+    const sub=r.sub?` <small>${r.sub}</small>`:'';
+    return`<div class="rrow ${sel?'sel':''}" data-code="${r.code}" data-prov="${isProv}">
+      <span class="rk">${i+1}</span>
+      <span class="nm">${r.nombre}${sub}</span>
+      <span class="bar">${bar(r.delta)}</span>
+      <span class="dl ${dcls}">${fmt(r.delta)}</span>
+      <span class="pc ${dcls}">${r.delta==null?'s/d':fmtPct(r.pct)}</span>
+    </div>`;}).join('');
+  const tb=document.getElementById('ranktable');
+  tb.innerHTML=html;
+  tb.querySelectorAll('.rrow').forEach(row=>row.onclick=()=>
+    selectEntity(row.dataset.code,row.dataset.prov==='true'));}
+
+// ══════════════════════════════════════════
+// EMPRESAS
+// ══════════════════════════════════════════
+let EMP_DATA=null;
+let empMap=null,empGeoLayer=null;
+const empState={presi:'Milei',provNombre:null};
+const empTip=document.getElementById('emp-tip');
+
+// Períodos por presidencia en empresas
+const EMP_PERIODOS={
+  'Fernández':{inicio:'2019-11',fin:'2023-11'},
+  'Milei':    {inicio:'2023-11',fin:null}  // fin = último disponible
+};
+
+fetch('https://raw.githubusercontent.com/FUranga/mapa-empleo/main/empresas.json').then(r=>r.json()).then(d=>{
+  EMP_DATA=d;
+  EMP_PERIODOS['Milei'].fin=d.meta.ultimo;
+  document.querySelectorAll('#emp-seg-presi button').forEach(b=>b.onclick=()=>{
+    empState.presi=b.dataset.v;empState.provNombre=null;
+    document.querySelectorAll('#emp-seg-presi button').forEach(x=>x.classList.toggle('on',x===b));
+    document.getElementById('emp-btn-volver').disabled=true;
+    document.getElementById('emp-crumb').innerHTML='Argentina';
+    if(empMap)renderEmp();});
+  document.getElementById('emp-btn-volver').onclick=()=>{
+    empState.provNombre=null;
+    document.getElementById('emp-btn-volver').disabled=true;
+    document.getElementById('emp-crumb').innerHTML='Argentina';
+    renderEmp();};
+  if(document.getElementById('tab-empresas').classList.contains('on')){
+    initEmpMap();renderEmp();}
+}).catch(e=>console.warn('empresas.json:',e.message));
+
+function empPer(){return EMP_PERIODOS[empState.presi];}
+
+function empGetSerie(serieCompleta){
+  // Filtra la serie al rango de la presidencia seleccionada
+  const{inicio,fin}=empPer();
+  return serieCompleta.filter(p=>p.t&&p.v!=null&&p.t>=inicio&&p.t<=fin);}
+
+function initEmpMap(){
+  empMap=L.map('emp-map',{zoomControl:false,attributionControl:false,
+    scrollWheelZoom:true,doubleClickZoom:false,minZoom:3,maxZoom:8});
+  L.control.zoom({position:'topright'}).addTo(empMap);
+  empMap.setView([-40,-63],4);}
+
+function renderEmp(){
+  if(!EMP_DATA)return;
+  drawEmpMap();drawEmpPanels();drawEmpRanking();}
+
+function empValorProv(nombre){
+  const p=EMP_DATA.provincias[nombre];if(!p)return null;
+  const{inicio,fin}=empPer();
+  const serie=p.serie;
+  const baseP=serie.find(x=>x.t===inicio);
+  const ultP=serie.find(x=>x.t===fin);
+  if(!baseP||!ultP||baseP.v==null||ultP.v==null)return null;
+  return{delta:ultP.v-baseP.v,pct:baseP.v>0?Math.round((ultP.v-baseP.v)/baseP.v*1000)/10:null,
+    base:baseP.v,ult:ultP.v};}
+
+function drawEmpMap(){
+  if(!empMap||!EMP_DATA||!GEO_PROV)return;
+  if(empGeoLayer)empMap.removeLayer(empGeoLayer);
+
+  // Build name lookup from GeoJSON properties → provincia nombre
+  // provincias.geojson uses property 'nombre' matching OEDE names;
+  // we need to match SRT province names
+  const SRT_MAP={
+    'Ciudad Autónoma de Buenos Aires':'C.A.B.A.',
+    'Buenos Aires':'Buenos Aires',
+  };
+  function getProvNombre(f){
+    const raw=f.properties?.nombre||f.properties?.NAM||'';
+    return SRT_MAP[raw]||raw;}
+
+  const vals=GEO_PROV.features.map(f=>{
+    const v=empValorProv(getProvNombre(f));
+    return v?Math.abs(v.delta):null;}).filter(v=>v!=null);
+  const lim=Math.max(niceRound(pctile(vals,95)),1);
+  document.getElementById('emp-lg-min').textContent='−'+Math.round(lim).toLocaleString('es-AR');
+  document.getElementById('emp-lg-max').textContent='+'+Math.round(lim).toLocaleString('es-AR');
+
+  empGeoLayer=L.geoJSON(GEO_PROV,{
+    style:f=>{
+      const nombre=getProvNombre(f);
+      const v=empValorProv(nombre);
+      const sel=empState.provNombre===nombre;
+      return{fillColor:colorFor(v?v.delta:null,lim),fillOpacity:.95,
+        color:sel?F.ink:'#fff',weight:sel?2.2:.6};},
+    onEachFeature:(f,layer)=>{
+      const nombre=getProvNombre(f);
+      const v=empValorProv(nombre);
+      layer.on('mouseover',e=>{layer.setStyle({weight:1.6,color:F.ink});layer.bringToFront();
+        empTip.innerHTML=`${nombre}<br><span class="d">${v==null?'sin datos':fmt(v.delta)+' empresas'}</span>`;
+        empTip.style.opacity=1;});
+      layer.on('mousemove',e=>{const r=document.getElementById('emp-map').getBoundingClientRect();
+        const p=e.originalEvent;
+        empTip.style.left=(p.clientX-r.left+14)+'px';empTip.style.top=(p.clientY-r.top+14)+'px';});
+      layer.on('mouseout',()=>{empGeoLayer.resetStyle(layer);
+        if(empState.provNombre===nombre)layer.setStyle({color:F.ink,weight:2.2});
+        empTip.style.opacity=0;});
+      layer.on('click',()=>{
+        empState.provNombre=empState.provNombre===nombre?null:nombre;
+        document.getElementById('emp-btn-volver').disabled=!empState.provNombre;
+        document.getElementById('emp-crumb').innerHTML=empState.provNombre?`<b>${nombre}</b>`:'Argentina';
+        renderEmp();});}
+  }).addTo(empMap);
+  try{empMap.fitBounds(L.latLngBounds([[-55.2,-73.6],[-21.6,-53.5]]),{padding:[6,6],animate:false});}catch(e){}}
+
+function drawEmpPanels(){
+  const{inicio,fin}=empPer();
+  const pais=EMP_DATA.pais;
+
+  // Mostrar/ocultar panel de sectores según nivel
+  const empSecCard=document.getElementById('emp-sec-card');
+  if(empSecCard)empSecCard.style.display=empState.provNombre?'none':'block';
+
+  if(empState.provNombre){
+    // Vista de provincia — solo serie temporal, sin sectores
+    const p=EMP_DATA.provincias[empState.provNombre];
+    const v=empValorProv(empState.provNombre);
+    document.getElementById('emp-t-title').textContent=empState.provNombre;
+    document.getElementById('emp-t-note').textContent=
+      `${empState.presi==='Milei'?'Javier Milei':'Alberto Fernández'} · ${fmtFecha(inicio)} → ${fmtFecha(fin)}`;
+    const bd=document.getElementById('emp-big-delta');
+    if(v){bd.textContent=fmt(v.delta);bd.className='big '+(v.delta>=0?'pos':'neg');}
+    else{bd.textContent='–';bd.className='big';}
+    drawEmpLine(empGetSerie(p.serie),'emp-chart-line','empresas');
+  }else{
+    // Vista nacional
+    document.getElementById('emp-t-title').textContent='Argentina';
+    document.getElementById('emp-t-note').textContent=
+      `${empState.presi==='Milei'?'Javier Milei':'Alberto Fernández'} · ${fmtFecha(inicio)} → ${fmtFecha(fin)}`;
+    const serieFilt=empGetSerie(pais.serie);
+    const base=serieFilt[0]?.v||0;
+    const ult=serieFilt[serieFilt.length-1]?.v||0;
+    const delta=ult-base;
+    const bd=document.getElementById('emp-big-delta');
+    bd.textContent=fmt(delta);bd.className='big '+(delta>=0?'pos':'neg');
+    drawEmpLine(serieFilt,'emp-chart-line','empresas');
+    drawEmpBars(pais.sectores||[],inicio,fin,'emp-chart-bars');
+  }
+  document.getElementById('emp-sec-note').textContent=
+    `${fmtFecha(inicio)} → ${fmtFecha(fin)}`;}
+
+function drawEmpLine(serie,elId,unidad){
+  const el=document.getElementById(elId);
+  if(!serie||!serie.length){el.innerHTML='<div class="note">Sin datos</div>';return;}
+  const pts=serie.filter(p=>p.v!=null);
+  if(!pts.length){el.innerHTML='<div class="note">Sin datos</div>';return;}
+  const W=440,H=156,pl=10,pr=10,pt=16,pb=24;
+  const ys=pts.map(p=>p.v),minY=Math.min(...ys),maxY=Math.max(...ys);
+  const X=i=>pl+(i/(pts.length-1||1))*(W-pl-pr);
+  const Y=v=>pt+(1-(v-minY)/((maxY-minY)||1))*(H-pt-pb);
+  let path='';pts.forEach((p,i)=>{path+=(i?'L':'M')+X(i).toFixed(1)+' '+Y(p.v).toFixed(1)+' ';});
+  const area=path+`L ${X(pts.length-1)} ${H-pb} L ${X(0)} ${H-pb} Z`;
+  const down=ys[ys.length-1]<ys[0];const col=down?F.loss:F.gain;
+  let dots='';pts.forEach((p,i)=>{
+    const ext=(i===0||i===pts.length-1);
+    if(ext||p.t.endsWith('-01'))
+      dots+=`<circle cx="${X(i).toFixed(1)}" cy="${Y(p.v).toFixed(1)}" r="${ext?3.6:2.2}" fill="#fff" stroke="${col}" stroke-width="1.6"/>`;});
+  let hit='';pts.forEach((p,i)=>{
+    hit+=`<circle cx="${X(i).toFixed(1)}" cy="${Y(p.v).toFixed(1)}" r="8" fill="transparent" data-t="${p.t}" data-v="${p.v}" class="eln-hit" style="cursor:pointer"/>`;});
+  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">
+    <path d="${area}" fill="${col}" opacity=".06"/>
+    <path d="${path}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round"/>
+    ${dots}${hit}
+    <text x="${pl}" y="${H-6}" font-size="10.5" fill="${F.muted}" font-weight="500">${fmtFecha(pts[0].t)}</text>
+    <text x="${W-pr}" y="${H-6}" font-size="10.5" fill="${F.muted}" font-weight="500" text-anchor="end">${fmtFecha(pts[pts.length-1].t)}</text>
+  </svg>`;
+  const ttId=elId+'-tt';
+  let tt=document.getElementById(ttId);
+  if(!tt){tt=document.createElement('div');tt.id=ttId;tt.className='tip';
+    el.style.position='relative';el.appendChild(tt);}
+  el.querySelectorAll('.eln-hit').forEach(c=>{
+    c.addEventListener('mouseenter',()=>{
+      const v=parseInt(c.getAttribute('data-v'));
+      tt.innerHTML=`${fmtFecha(c.getAttribute('data-t'))}<br><span class="d">${v.toLocaleString('es-AR')} ${unidad}</span>`;
+      tt.style.opacity=1;});
+    c.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();
+      tt.style.left=(e.clientX-r.left+10)+'px';tt.style.top=(e.clientY-r.top-6)+'px';});
+    c.addEventListener('mouseleave',()=>{tt.style.opacity=0;});});}
+
+const EMP_MACRO_GRUPOS={"Agro y pesca": ["Agro y pesca"], "Minería": ["Minería"], "Industria": ["Industria"], "Energía y agua": ["Energía eléctrica", "Agua y saneamiento"], "Construcción": ["Construcción"], "Comercio": ["Comercio"], "Transporte": ["Transporte"], "Servicios": ["Alojamiento y gastronomía", "Info. y comunicaciones", "Finanzas y seguros", "Inmobiliario", "Servicios profesionales", "Serv. administrativos", "Enseñanza", "Salud", "Arte y esparcimiento", "Asoc. y serv. personales", "Administración pública", "Org. extraterritoriales"]};
+
+function empSecDelta(s,inicio,fin){
+  if(!s.serie)return null;
+  const b=s.serie.find(x=>x.t===inicio);
+  const u=s.serie.find(x=>x.t===fin);
+  if(!b||!u||b.v==null||u.v==null)return null;
+  return{delta:u.v-b.v,pct:b.v>0?Math.round((u.v-b.v)/b.v*1000)/10:null};}
+
+function buildMacroRows(sectores,inicio,fin){
+  // Map sector name → delta
+  const byName={};
+  sectores.forEach(s=>{const d=empSecDelta(s,inicio,fin);if(d)byName[s.sector]=d;});
+  // Aggregate into macro groups
+  return Object.entries(EMP_MACRO_GRUPOS).map(([macro,hijos])=>{
+    let delta=0,base=0;
+    hijos.forEach(h=>{
+      if(byName[h]){delta+=byName[h].delta;}});
+    // pct: sum of deltas / sum of bases (approximate via delta/base reconstruction)
+    // simpler: just show delta, pct derived from sum
+    const pct=null; // calculated below
+    return{sector:macro,delta,pct,hijos};
+  }).map(r=>{
+    // recalculate pct from sector series
+    const hijoSeries=sectores.filter(s=>r.hijos.includes(s.sector));
+    let baseSum=0;
+    hijoSeries.forEach(s=>{
+      if(s.serie){const b=s.serie.find(x=>x.t===inicio);if(b&&b.v)baseSum+=b.v;}});
+    r.pct=baseSum>0?Math.round(r.delta/baseSum*1000)/10:null;
+    return r;
+  }).filter(r=>r.delta!==0).sort((a,b)=>a.delta-b.delta);}
+
+function buildDetalleRows(sectores,inicio,fin){
+  return sectores.map(s=>{
+    const d=empSecDelta(s,inicio,fin);
+    if(!d)return null;
+    return{sector:s.sector,delta:d.delta,pct:d.pct};
+  }).filter(Boolean).sort((a,b)=>a.delta-b.delta);}
+
+function renderEmpBarRows(rows){
+  const maxAbs=Math.max(...rows.map(r=>Math.abs(r.delta||0)),1);
+  const bar=dv=>{const W=104,cx=W/2,w=(Math.abs(dv)/maxAbs)*(W/2),pos=dv>=0;
+    const x=pos?cx:cx-w,col=pos?F.gain:F.loss;
+    return`<svg width="${W}" height="12" style="vertical-align:middle"><line x1="${cx}" y1="0" x2="${cx}" y2="12" stroke="${F.hair}"/><rect x="${x.toFixed(1)}" y="2" width="${Math.max(w,1).toFixed(1)}" height="8" rx="2" fill="${col}"/></svg>`;};
+  return rows.map(r=>{const cls=r.delta>=0?'pos':'neg';
+    return`<div class="srow">
+      <span class="nm">${r.sector}</span>
+      <span class="bar">${bar(r.delta)}</span>
+      <span class="dl ${cls}">${fmt(r.delta)}</span>
+      <span class="pc ${cls}">${r.pct==null?'':((r.pct>=0?'+':'')+r.pct.toFixed(1)+'%')}</span>
+    </div>`;}).join('');}
+
+let empDetailOpen=false;
+function drawEmpBars(sectores,inicio,fin,elId){
+  const el=document.getElementById(elId);
+  if(!sectores||!sectores.length){el.innerHTML='<div class="note">Sin datos sectoriales</div>';return;}
+  const macroRows=buildMacroRows(sectores,inicio,fin);
+  const detalleRows=buildDetalleRows(sectores,inicio,fin);
+  el.innerHTML=renderEmpBarRows(macroRows);
+  const btn=document.getElementById('emp-detail-toggle');
+  const tbl=document.getElementById('emp-detail-table');
+  if(btn){
+    btn.style.display='block';
+    btn.textContent=empDetailOpen?'Ocultar ramas en detalle ▴':'Ver ramas en detalle ▾';
+    btn.onclick=()=>{
+      empDetailOpen=!empDetailOpen;
+      btn.textContent=empDetailOpen?'Ocultar ramas en detalle ▴':'Ver ramas en detalle ▾';
+      tbl.style.display=empDetailOpen?'block':'none';
+      if(empDetailOpen){
+        tbl.innerHTML=detalleRows.map(r=>{const cls=r.delta>=0?'pos':'neg';
+          return`<div class="drow"><span class="nm">${r.sector}</span>`+
+            `<span class="dl ${cls}">${fmt(r.delta)}</span>`+
+            `<span class="pc ${cls}">${r.pct==null?'':(r.pct>=0?'+':'')+r.pct.toFixed(1)+'%'}</span></div>`;}).join('');}};
+  }
+}
+
+function drawEmpRanking(){
+  const{inicio,fin}=empPer();
+  const rows=Object.entries(EMP_DATA.provincias).map(([nombre,p])=>{
+    const v=empValorProv(nombre);
+    return{nombre,delta:v?v.delta:null,pct:v?v.pct:null};
+  }).filter(r=>r.delta!=null).sort((a,b)=>a.delta-b.delta);
+
+  document.getElementById('emp-rank-title').textContent='Ranking por provincia';
+  document.getElementById('emp-rank-note').textContent=
+    `${fmtFecha(inicio)} → ${fmtFecha(fin)} · ordenado por variación de empresas`;
+
+  const maxAbs=Math.max(...rows.map(r=>Math.abs(r.delta||0)),1);
+  const bar=dv=>{const W=120,cx=W/2,w=(Math.abs(dv)/maxAbs)*(W/2),pos=dv>=0;
+    const x=pos?cx:cx-w,col=pos?F.gain:F.loss;
+    return`<svg width="${W}" height="12" style="vertical-align:middle"><line x1="${cx}" y1="0" x2="${cx}" y2="12" stroke="${F.hair}"/><rect x="${x.toFixed(1)}" y="2" width="${Math.max(w,1).toFixed(1)}" height="8" rx="2" fill="${col}"/></svg>`;};
+
+  document.getElementById('emp-ranktable').innerHTML=rows.map((r,i)=>{
+    const sel=empState.provNombre===r.nombre;
+    const dcls=r.delta>=0?'pos':'neg';
+    return`<div class="rrow ${sel?'sel':''}" data-nombre="${r.nombre}">
+      <span class="rk">${i+1}</span>
+      <span class="nm">${r.nombre}</span>
+      <span class="bar">${bar(r.delta)}</span>
+      <span class="dl ${dcls}">${fmt(r.delta)}</span>
+      <span class="pc ${dcls}">${fmtPct(r.pct)}</span>
+    </div>`;}).join('');
+
+  document.getElementById('emp-ranktable').querySelectorAll('.rrow').forEach(row=>row.onclick=()=>{
+    const nombre=row.dataset.nombre;
+    empState.provNombre=empState.provNombre===nombre?null:nombre;
+    document.getElementById('emp-btn-volver').disabled=!empState.provNombre;
+    document.getElementById('emp-crumb').innerHTML=empState.provNombre?`<b>${nombre}</b>`:'Argentina';
+    renderEmp();});}
+
+</script>
+</body>
+</html>

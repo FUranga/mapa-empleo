@@ -196,11 +196,14 @@ def parse_departamental(bytes_csv, bytes_xlsx=None):
     content = bytes_csv.decode('utf-8-sig', errors='replace')
     reader = csv.DictReader(io.StringIO(content), delimiter=';')
 
+    # Normalizado al mismo nombre de sector que usan los niveles nacional/provincial
+    # (MACRO_MAP) para que el filtro por industria pueda matchear entre niveles.
     SECTOR_MAP = {
         'Agricultura, ganaderia y pesca': 'Agro y pesca',
         'Explotacion de minas y canteras': 'Minas y petróleo',
-        'Industria manufacturera': 'Industria',
+        'Industria manufacturera': 'Industria manufacturera',
         'Electricidad, gas y agua': 'Electricidad, gas y agua',
+        'Electircidad, gas y agua': 'Electricidad, gas y agua',  # typo tal cual viene en el CSV fuente
         'Construccion': 'Construcción',
         'Comercio': 'Comercio',
         'Servicios': 'Servicios',
@@ -367,7 +370,7 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
         fin_dept = min(fin, ultimo_depto)
 
         # ── Sectores nacionales ──
-        def build_sectores(sec_dict, ini, fin):
+        def build_sectores(sec_dict, macro_series, ini, fin):
             """Agrupa las 14 ramas del SIPA en 7 macros usando MACRO_MAP."""
             secs = []
             for macro, ramas in MACRO_MAP.items():
@@ -384,7 +387,9 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
                         found = True
                 if found and base_total > 0:
                     pct = round(delta_total / base_total * 100, 1)
-                    secs.append({'sector': macro, 'delta': delta_total, 'pct': pct})
+                    serie = [{'t': t, 'v': v} for t, v in sorted(macro_series.get(macro, {}).items())
+                             if ini <= t <= fin]
+                    secs.append({'sector': macro, 'delta': delta_total, 'pct': pct, 'serie': serie})
             return sorted(secs, key=lambda x: x['delta'])
 
         def build_detalle(detalle, ini, fin):
@@ -421,7 +426,8 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
                     if sd2 is None:
                         sd2, sp2 = delta_pct(sd, ini_q, f'{fin_year}-Q3')
                     if sd2 is not None:
-                        secs_prov.append({'sector': sector, 'delta': sd2, 'pct': sp2})
+                        serie_sec = [{'t': t, 'v': v} for t, v in sorted(sd.items()) if ini_q <= t <= fin_q]
+                        secs_prov.append({'sector': sector, 'delta': sd2, 'pct': sp2, 'serie': serie_sec})
                 secs_prov.sort(key=lambda x: x['delta'])
                 # Detalle provincial desde subramas trimestrales
                 det_prov = []
@@ -464,7 +470,8 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
                         if sd3 is None:
                             sd3, sp3 = delta_pct(st, ini_q, f'{fin_year}-Q3')
                         if sd3 is not None:
-                            sub_secs.append({'sector': sec, 'delta': sd3, 'pct': sp3})
+                            serie_sub = [{'t': t, 'v': v} for t, v in sorted(st.items()) if ini_q <= t <= fin_q]
+                            sub_secs.append({'sector': sec, 'delta': sd3, 'pct': sp3, 'serie': serie_sub})
                     # Detalle desde trimestral
                     det_trim = prov_trim_sec.get(f'__det__{trim_key}', {})
                     sub_det = []
@@ -511,7 +518,8 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
             for sec, st in dv['sectores'].items():
                 sd2, sp2 = delta_pct(dict(st), ini, fin_dept)
                 if sd2 is not None:
-                    secs.append({'sector': sec, 'delta': sd2, 'pct': sp2})
+                    secs.append({'sector': sec, 'delta': sd2, 'pct': sp2,
+                                 'serie': slice_t(dict(st), ini, fin_dept)})
             serie_dep = dv['serie_xlsx'] if dv.get('serie_xlsx') else dv.get('serie_sec', {})
             depts_out[codigo] = {
                 'label':    dv['label'],
@@ -538,8 +546,8 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
                 'pct_desa':    nac_pct_d,
                 'serie':       slice_t(dict(nac_orig), ini, fin),
                 'serie_desa':  slice_t(dict(nac_desa), ini, fin),
-                'sectores':    build_sectores(detalle_orig, ini, fin),
-                'sectores_desa': build_sectores(detalle_desa, ini, fin),
+                'sectores':    build_sectores(detalle_orig, macro_orig, ini, fin),
+                'sectores_desa': build_sectores(detalle_desa, macro_desa, ini, fin),
                 'detalle':     build_detalle(detalle_orig, ini, fin),
                 'detalle_desa': build_detalle(detalle_desa, ini, fin),
             },
