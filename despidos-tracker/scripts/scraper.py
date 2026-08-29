@@ -141,7 +141,7 @@ def build_item(entry, source, keywords_cfg, provincias_lookup, fallback_medio):
         "id": make_id(link),
         "title": title_clean,
         "medio": medio,
-        "lugar": provincia or "Nacional",
+        "lugar": provincia,
         "provincia": provincia,
         "departamento": departamento,
         "topic": topic,
