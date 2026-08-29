@@ -612,9 +612,12 @@ function drawPanels(){
 
   {
     const{periodo,fuente}=fuentePeriodo(serieActual,fuenteBase);
+    // El rotulo desestacionalizada/sin desestacionalizar solo tiene sentido
+    // cuando esa serie realmente tiene ambas versiones (SIPA); si no existe
+    // variante (OEDE trimestral/mensual) no decimos nada al respecto — decir
+    // "sin desestacionalizar" ahi sugeriria una opcion que no existe.
     const desaAplica=state.nivel==='pais'||(state.nivel==='provincia'&&!isGBAorResto&&!sf);
-    const desaLabel=desaAplica?(useDesa?' · desestacionalizada':' · sin desestacionalizar')
-      :(fuente==='OEDE trimestral'?' · sin desestacionalizar':'');
+    const desaLabel=desaAplica?(useDesa?' · desestacionalizada':' · sin desestacionalizar'):'';
     document.getElementById('t-total-note').textContent=
       `${state.presi==='Milei'?'Javier Milei':state.presi}${periodo?' · '+periodo:''}${desaLabel} · ${fuente}`;
   }
@@ -629,8 +632,7 @@ function drawPanels(){
     const primerSector=sectoresUsados&&sectoresUsados.length?sectoresUsados[0]:null;
     const{periodo,fuente}=fuentePeriodo(primerSector?primerSector.serie:null,fuenteBaseSec);
     const desaAplicaSec=state.nivel==='pais';
-    const desaLabelSec=desaAplicaSec?(useDesa?' · desestacionalizada':' · sin desestacionalizar')
-      :(fuente==='OEDE trimestral'?' · sin desestacionalizar':'');
+    const desaLabelSec=desaAplicaSec?(useDesa?' · desestacionalizada':' · sin desestacionalizar'):'';
     secPeriodEl.textContent=`${periodo}${desaLabelSec} · ${fuente}`;
   }
 
