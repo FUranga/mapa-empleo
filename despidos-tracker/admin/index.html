@@ -149,16 +149,29 @@ async function ghGetFile(path){
   const metaRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
     headers: {Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json'}
   });
-  if(!metaRes.ok) throw new Error(`GET ${path} -> ${metaRes.status}`);
-  const meta = await metaRes.json();
+  const metaText = await metaRes.text();
+  if(!metaRes.ok){
+    throw new Error(`GET ${path} -> ${metaRes.status}: ${metaText.slice(0,200)}`);
+  }
+  let meta;
+  try{ meta = JSON.parse(metaText); }
+  catch(e){ throw new Error(`GET ${path} devolvio algo que no es JSON (status ${metaRes.status}): "${metaText.slice(0,200)}"`); }
 
   // El contenido real lo traemos via raw.githubusercontent.com: la API de
   // Contents solo devuelve el content inline para archivos <=1MB, y este
   // archivo puede superar ese limite (ej. raw_data.json despues del batch).
   const rawRes = await fetch(`https://raw.githubusercontent.com/${owner}/${repo}/main/${path}?t=${Date.now()}`);
-  if(!rawRes.ok) throw new Error(`GET raw ${path} -> ${rawRes.status}`);
   const text = await rawRes.text();
-  return {sha: meta.sha, json: JSON.parse(text)};
+  if(!rawRes.ok){
+    throw new Error(`GET raw ${path} -> ${rawRes.status}: ${text.slice(0,200)}`);
+  }
+  if(!text || !text.trim()){
+    throw new Error(`GET raw ${path} devolvio vacio (status ${rawRes.status}). Puede ser cache de la CDN, probá de nuevo en unos segundos.`);
+  }
+  let json;
+  try{ json = JSON.parse(text); }
+  catch(e){ throw new Error(`GET raw ${path} devolvio algo que no es JSON: "${text.slice(0,200)}"`); }
+  return {sha: meta.sha, json};
 }
 
 async function ghPutFile(path, obj, sha, message){
