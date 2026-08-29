@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>Curación · Despidos y cierres</title>
+<title>Despidos y cierres · Visión Desarrollista</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,265 +15,156 @@
   --accent:#0071e3;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
 body{background:var(--bg);color:var(--ink);
   font-family:"Inter",-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
   font-size:14px;line-height:1.47;-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
-.wrap{max-width:1100px;margin:0 auto;padding:26px 28px 100px}
+.wrap{max-width:1320px;margin:0 auto;padding:26px 28px 48px}
 a{color:inherit}
 
-header{margin-bottom:16px}
-.kicker{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-h1{font-weight:800;font-size:26px;letter-spacing:-.02em}
-.sub{color:var(--muted);margin-top:6px;font-size:13px}
+header{margin-bottom:20px}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+h1{font-weight:800;font-size:38px;line-height:1.05;letter-spacing:-.03em;max-width:26ch}
+.sub{color:var(--muted);margin-top:10px;max-width:66ch;font-size:14px;font-weight:400}
 
-.auth-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;
-  padding:14px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin-bottom:6px}
-.auth-bar input{
-  font:inherit;font-size:12.5px;font-weight:500;color:var(--ink);
+.controls{display:flex;gap:18px;align-items:center;flex-wrap:wrap;
+  margin:18px 0 0;padding-bottom:16px;border-bottom:1px solid var(--hair)}
+.ctl-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);margin-right:2px}
+select, input[type=text]{
+  font:inherit;font-size:13px;font-weight:500;color:var(--ink);
   background:#f5f5f7;border:none;border-radius:10px;padding:8px 12px;
 }
-.auth-bar input#pat{min-width:280px;flex:1}
-.auth-bar input#repoOwner,.auth-bar input#repoName{width:150px}
+input[type=text]{min-width:220px;flex:1}
+select:focus, input[type=text]:focus{outline:2px solid var(--accent);outline-offset:1px}
+.crumb{margin-left:auto;font-size:13px;font-weight:500;color:var(--muted)}
+.crumb b{color:var(--ink);font-weight:700}
 
-button{font:inherit;font-weight:600;font-size:13px;color:#fff;background:var(--ink);
-  border:none;border-radius:980px;padding:9px 18px;cursor:pointer}
-button.secondary{background:#f5f5f7;color:var(--ink)}
-button.publish{background:var(--gain)}
-button.discard{background:var(--loss)}
-button.revert{background:var(--accent)}
-button.unpublish{background:var(--loss)}
-button:disabled{opacity:.35;cursor:default}
-button:hover:not(:disabled){opacity:.85}
+main{padding-top:20px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:920px){.grid{grid-template-columns:repeat(2,1fr)} h1{font-size:30px}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
 
-.status{font-size:12.5px;color:var(--muted);padding:8px 0}
-.status.ok{color:var(--gain)}
-.status.err{color:var(--loss)}
+.card{background:var(--panel);border:1px solid var(--hair);border-radius:16px;padding:18px 20px;
+  display:flex;flex-direction:column}
 
-.tabs{display:flex;gap:0;margin:14px 0 0;border-bottom:2px solid var(--hair)}
-.tabs button{font:inherit;font-size:14px;font-weight:600;padding:10px 18px 12px;
-  border:none;background:transparent;color:var(--muted);border-bottom:3px solid transparent;
-  margin-bottom:-2px;border-radius:0;transition:all .15s}
-.tabs button:hover:not(:disabled){color:var(--ink);opacity:1}
-.tabs button.active{color:var(--ink);border-bottom-color:var(--ink)}
-.tabs .tab-count{font-size:11px;font-weight:500;color:var(--muted);margin-left:3px}
-.tabs button.active .tab-count{color:var(--ink)}
+.badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 9px;border-radius:980px;background:#f5f5f7;color:var(--muted);margin-bottom:10px}
+.badge.topic-despidos{background:#e6f1fa;color:#2f6690}
+.badge.topic-cierres{background:#f2ecf9;color:#7c5aa6}
 
-main{padding-top:16px}
-
-.row{display:flex;gap:12px;align-items:flex-start;padding:14px 4px;border-bottom:1px solid var(--hair2)}
-.row input[type=checkbox]{margin-top:5px;width:16px;height:16px;accent-color:var(--accent)}
-.row .body{flex:1}
-.dateline{font-size:12px;color:var(--muted);font-weight:500;margin-bottom:4px}
+.dateline{font-size:12px;color:var(--muted);font-weight:500;margin-bottom:6px}
 .dateline b{color:var(--ink);font-weight:600}
-.row h3{font-weight:700;font-size:14.5px;letter-spacing:-.01em;margin-bottom:3px}
-.row h3 a{text-decoration:none}
-.row h3 a:hover{text-decoration:underline}
-.row .snippet{font-size:12.5px;color:var(--muted)}
-.row .source-link{font-size:11.5px;font-weight:600;color:var(--accent);text-decoration:none}
-.edit-title, .edit-snippet, .edit-geo{
-  display:block;font:inherit;color:var(--ink);
-  background:#f5f5f7;border:none;border-radius:8px;padding:6px 9px;margin-bottom:6px;
-}
-.edit-title, .edit-snippet{width:100%}
-.edit-title{font-weight:700;font-size:14px}
-.edit-snippet{font-size:12.5px;color:var(--muted);resize:vertical;min-height:38px;font-family:inherit}
-.edit-title:focus, .edit-snippet:focus, .edit-geo:focus{outline:2px solid var(--accent);outline-offset:1px}
-.geo-row{display:flex;gap:6px;margin-bottom:6px}
-.edit-geo{font-size:11.5px;width:140px}
-.edit-geo::placeholder{color:var(--muted)}
 
-.addf-input{
-  font:inherit;font-size:13px;color:var(--ink);background:#fff;
-  border:1px solid var(--hair);border-radius:8px;padding:8px 10px;
-}
-.addf-input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.card h2{font-weight:700;font-size:16.5px;letter-spacing:-.015em;line-height:1.32;margin-bottom:8px}
+.card h2 a{text-decoration:none}
+.card h2 a:hover{text-decoration:underline}
 
-.action-bar{position:sticky;bottom:0;background:var(--bg);border-top:2px solid var(--hair);
-  padding:14px 0;display:flex;gap:10px;align-items:center;max-width:1100px;margin:0 auto}
-.action-bar .sel-count{font-size:12.5px;color:var(--muted);font-weight:500;margin-right:auto}
-.empty{padding:60px 20px;text-align:center;color:var(--muted);font-size:14px}
+.snippet{font-size:13px;color:var(--muted);line-height:1.5;font-weight:400;flex:1;margin-bottom:12px}
+
+
+.empty{grid-column:1/-1;padding:80px 20px;text-align:center;color:var(--muted);font-size:15px}
+
+.pager{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:32px}
+.pager button{font:inherit;font-size:13px;font-weight:600;color:var(--ink);background:#f5f5f7;
+  border:none;border-radius:980px;padding:8px 18px;cursor:pointer}
+.pager button:disabled{opacity:.35;cursor:default}
+.pager button:hover:not(:disabled){opacity:.7}
+.pager-label{font-size:12.5px;color:var(--muted);font-weight:500}
+
+footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--hair);
+  font-size:12px;color:var(--muted);line-height:1.7;font-weight:400}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header>
-  <div class="kicker">Panel interno · no indexado</div>
-  <h1>Curación — Despidos y cierres</h1>
-  <p class="sub">Pendiente → Publicar o Descartar. Descartar es reversible, nunca se borra.</p>
+  <h1>Últimas noticias sobre despidos y cierres de empresas</h1>
+
+  <div class="controls">
+    <span class="ctl-label">Provincia</span>
+    <select id="filterProvincia"><option value="">Todas</option></select>
+    <span class="ctl-label">Ciudad</span>
+    <select id="filterDepartamento"><option value="">Todas</option></select>
+    <input id="search" type="text" placeholder="Buscar...">
+  </div>
 </header>
 
-<div class="auth-bar">
-  <input id="repoOwner" placeholder="usuario GitHub">
-  <input id="repoName" placeholder="mapa-empleo">
-  <input id="pat" type="password" placeholder="Personal Access Token (repo scope)">
-  <button id="saveAuth" class="secondary">Guardar</button>
-  <button id="reload" class="secondary">Recargar datos</button>
-</div>
-<div id="status" class="status"></div>
-
-<button id="toggleAddForm" class="secondary" style="margin:12px 0 0">+ Agregar noticia manual</button>
-<div id="addForm" style="display:none; margin-top:12px; padding:16px; background:#f9f9fa; border-radius:12px">
-  <div style="display:flex; flex-direction:column; gap:8px; max-width:640px">
-    <input id="newTitle" placeholder="Título" class="addf-input">
-    <textarea id="newSnippet" placeholder="Bajada (opcional)" rows="2" class="addf-input"></textarea>
-    <input id="newUrl" placeholder="Link a la fuente" class="addf-input">
-    <input id="newMedio" placeholder="Medio" class="addf-input">
-    <div style="display:flex; gap:8px">
-      <select id="newTopic" class="addf-input" style="flex:1">
-        <option value="">Sin etiqueta</option>
-        <option value="despidos">Despidos</option>
-        <option value="cierres">Cierre / quiebra</option>
-      </select>
-      <input id="newProvincia" placeholder="Provincia (vacío = Nacional)" class="addf-input" style="flex:1">
-      <input id="newDepartamento" placeholder="Ciudad" class="addf-input" style="flex:1">
-    </div>
-    <input id="newDate" type="date" class="addf-input" style="width:180px">
-    <div style="display:flex; gap:8px; margin-top:4px">
-      <button id="submitAddForm" class="publish">Agregar a Pendientes</button>
-      <button id="cancelAddForm" class="secondary">Cancelar</button>
-    </div>
-  </div>
-</div>
-
-<div class="tabs">
-  <button id="tabPendiente" class="active">Pendientes <span class="tab-count" id="countPendiente"></span></button>
-  <button id="tabPublicado">Publicadas <span class="tab-count" id="countPublicado"></span></button>
-  <button id="tabDescartado">Descartadas <span class="tab-count" id="countDescartado"></span></button>
-</div>
-
-<main id="list"></main>
-
-<div class="action-bar" id="actionBar">
-  <span class="sel-count" id="selCount">0 seleccionadas</span>
-</div>
+<main>
+  <div id="list" class="grid"></div>
+  <div id="pager" class="pager"></div>
+</main>
 </div>
 
 <script>
-const $ = (id) => document.getElementById(id);
-let rawItems = [], curatedItems = [];
-let currentTab = 'pendiente';
-let selected = new Set();
-let rawSha = null, curatedSha = null;
+let allItems = [];
+const PAGE_SIZE = 30;
+let currentPage = 1;
 
-function setStatus(msg, cls){
-  const el = $('status');
-  el.textContent = msg;
-  el.className = 'status ' + (cls || '');
-}
-
-function getAuth(){
-  return {
-    owner: localStorage.getItem('adt_owner') || '',
-    repo: localStorage.getItem('adt_repo') || '',
-    token: localStorage.getItem('adt_pat') || '',
-  };
-}
-
-function initAuthFields(){
-  const a = getAuth();
-  $('repoOwner').value = a.owner;
-  $('repoName').value = a.repo;
-  $('pat').value = a.token;
-}
-
-$('saveAuth').addEventListener('click', () => {
-  localStorage.setItem('adt_owner', $('repoOwner').value.trim());
-  localStorage.setItem('adt_repo', $('repoName').value.trim());
-  localStorage.setItem('adt_pat', $('pat').value.trim());
-  setStatus('Credenciales guardadas en este navegador.', 'ok');
-});
-
-async function ghGetFile(path){
-  const {owner, repo, token} = getAuth();
-  // Traemos el sha via la API (funciona sin importar el tamano del archivo).
-  const metaRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
-    headers: {Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json'}
-  });
-  const metaText = await metaRes.text();
-  if(!metaRes.ok){
-    throw new Error(`GET ${path} -> ${metaRes.status}: ${metaText.slice(0,200)}`);
-  }
-  let meta;
-  try{ meta = JSON.parse(metaText); }
-  catch(e){ throw new Error(`GET ${path} devolvio algo que no es JSON (status ${metaRes.status}): "${metaText.slice(0,200)}"`); }
-
-  // El contenido real lo traemos via raw.githubusercontent.com: la API de
-  // Contents solo devuelve el content inline para archivos <=1MB, y este
-  // archivo puede superar ese limite (ej. raw_data.json despues del batch).
-  const rawRes = await fetch(`https://raw.githubusercontent.com/${owner}/${repo}/main/${path}?t=${Date.now()}`);
-  const text = await rawRes.text();
-  if(!rawRes.ok){
-    throw new Error(`GET raw ${path} -> ${rawRes.status}: ${text.slice(0,200)}`);
-  }
-  if(!text || !text.trim()){
-    throw new Error(`GET raw ${path} devolvio vacio (status ${rawRes.status}). Puede ser cache de la CDN, probá de nuevo en unos segundos.`);
-  }
-  let json;
-  try{ json = JSON.parse(text); }
-  catch(e){ throw new Error(`GET raw ${path} devolvio algo que no es JSON: "${text.slice(0,200)}"`); }
-  return {sha: meta.sha, json};
-}
-
-async function ghPutFile(path, obj, sha, message){
-  const {owner, repo, token} = getAuth();
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2))));
-  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
-    method: 'PUT',
-    headers: {Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json'},
-    body: JSON.stringify({message, content, sha})
-  });
-  if(!res.ok){
-    const err = await res.json().catch(()=>({}));
-    throw new Error(`PUT ${path} -> ${res.status} ${err.message || ''}`);
-  }
-  return res.json();
-}
-
-async function loadAll(){
-  setStatus('Cargando...', '');
+async function loadData(){
   try{
-    const raw = await ghGetFile('despidos-tracker/data/raw_data.json');
-    const curated = await ghGetFile('despidos-tracker/data/curated_data.json');
-    rawItems = raw.json; rawSha = raw.sha;
-    curatedItems = curated.json; curatedSha = curated.sha;
-    curatedItems.forEach(i => i.status = 'publicado');
-    sortByDate(rawItems); sortByDate(curatedItems);
-    selected.clear();
-    setStatus(`Cargado: ${countByStatus('pendiente')} pendientes, ${curatedItems.length} publicadas, ${countByStatus('descartado')} descartadas.`, 'ok');
-    render();
+    const res = await fetch('data/curated_data.json', {cache:'no-store'});
+    allItems = await res.json();
   }catch(e){
-    setStatus('Error cargando datos: ' + e.message, 'err');
+    allItems = [];
   }
+  allItems.sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  populateFilters();
+  render();
 }
 
-function sortByDate(arr){ arr.sort((a,b) => (b.date||'').localeCompare(a.date||'')); }
-function countByStatus(s){ return rawItems.filter(i => i.status === s).length; }
+function populateFilters(){
+  const provincias = [...new Set(allItems.map(i => i.provincia).filter(Boolean))].sort();
+  const provSel = document.getElementById('filterProvincia');
+  provincias.forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p; opt.textContent = p;
+    provSel.appendChild(opt);
+  });
+  provSel.addEventListener('change', () => { currentPage = 1; updateDepartamentos(); render(); });
+  document.getElementById('filterDepartamento').addEventListener('change', () => { currentPage = 1; render(); });
+  document.getElementById('search').addEventListener('input', () => { currentPage = 1; render(); });
+}
 
-function itemsForTab(){
-  if(currentTab === 'pendiente') return rawItems.filter(i => i.status === 'pendiente');
-  if(currentTab === 'descartado') return rawItems.filter(i => i.status === 'descartado');
-  return curatedItems;
+function updateDepartamentos(){
+  const provincia = document.getElementById('filterProvincia').value;
+  const depSel = document.getElementById('filterDepartamento');
+  depSel.innerHTML = '<option value="">Todas</option>';
+  const deps = [...new Set(
+    allItems.filter(i => !provincia || i.provincia === provincia)
+            .map(i => i.departamento).filter(Boolean)
+  )].sort();
+  deps.forEach(d => {
+    const opt = document.createElement('option');
+    opt.value = d; opt.textContent = d;
+    depSel.appendChild(opt);
+  });
 }
 
 function fmtDate(iso){
+  if(!iso) return '';
   const d = new Date(iso);
   if(isNaN(d)) return '';
-  return d.toLocaleDateString('es-AR', {day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'});
+  return d.toLocaleDateString('es-AR', {day:'2-digit', month:'short', year:'numeric'});
 }
-function escapeHtml(str){
-  const div = document.createElement('div');
-  div.textContent = str || '';
-  return div.innerHTML;
+
+function topicLabel(t){
+  if(t === 'despidos') return 'Despidos';
+  if(t === 'cierres') return 'Cierre / quiebra';
+  return 'Nacional';
 }
+
 function stripHtml(html){
   const div = document.createElement('div');
   div.innerHTML = html || '';
   return (div.textContent || div.innerText || '').replace(/\s+/g, ' ').trim();
 }
+
 function cleanTitle(title, medio){
   let t = (title || '').trim();
   if(medio){
+    // saca sufijos tipo "Titulo - Medio" o "Titulo | Medio" que vienen de Google News
     const re = new RegExp(`\\s*[-|–]\\s*${medio.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'i');
     t = t.replace(re, '').trim();
   }
@@ -282,215 +172,64 @@ function cleanTitle(title, medio){
 }
 
 function render(){
-  $('countPendiente').textContent = countByStatus('pendiente');
-  $('countPublicado').textContent = curatedItems.length;
-  $('countDescartado').textContent = countByStatus('descartado');
+  const provincia = document.getElementById('filterProvincia').value;
+  const departamento = document.getElementById('filterDepartamento').value;
+  const q = document.getElementById('search').value.trim().toLowerCase();
 
-  const items = itemsForTab();
-  const list = $('list');
+  const filtered = allItems.filter(i => {
+    if(provincia && i.provincia !== provincia) return false;
+    if(departamento && i.departamento !== departamento) return false;
+    if(q && !(`${i.title} ${i.snippet}`.toLowerCase().includes(q))) return false;
+    return true;
+  });
 
-  const emptyMsg = {
-    pendiente: 'No hay noticias pendientes.',
-    publicado: 'Todavía no publicaste nada.',
-    descartado: 'No hay noticias descartadas.'
-  }[currentTab];
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  if(currentPage > totalPages) currentPage = totalPages;
+  const pageItems = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
 
-  if(items.length === 0){
-    list.innerHTML = `<div class="empty">${emptyMsg}</div>`;
-  } else {
-    list.innerHTML = items.map(i => `
-      <div class="row">
-        <input type="checkbox" data-id="${i.id}" ${selected.has(i.id) ? 'checked' : ''}>
-        <div class="body">
-          <div class="dateline"><b>${escapeHtml(i.medio || '?')}</b> · ${fmtDate(i.date)} · <a class="source-link" href="${i.url}" target="_blank" rel="noopener">abrir fuente ↗</a></div>
-          <input class="edit-title" data-id="${i.id}" data-field="title" value="${escapeHtml(cleanTitle(i.title, i.medio))}">
-          <textarea class="edit-snippet" data-id="${i.id}" data-field="snippet" rows="2">${escapeHtml(stripHtml(i.snippet||''))}</textarea>
-          <div class="geo-row">
-            <input class="edit-geo" data-id="${i.id}" data-field="provincia" value="${escapeHtml(i.provincia||'')}" placeholder="Provincia (vacío = Nacional)">
-            <input class="edit-geo" data-id="${i.id}" data-field="departamento" value="${escapeHtml(i.departamento||'')}" placeholder="Ciudad">
-          </div>
-        </div>
-      </div>
-    `).join('');
-    list.querySelectorAll('input[type=checkbox]').forEach(cb => {
-      cb.addEventListener('change', () => {
-        if(cb.checked) selected.add(cb.dataset.id); else selected.delete(cb.dataset.id);
-        updateActionBar();
-      });
-    });
-    list.querySelectorAll('.edit-title, .edit-snippet, .edit-geo').forEach(el => {
-      el.addEventListener('input', () => {
-        const item = findItemById(el.dataset.id);
-        if(!item) return;
-        item[el.dataset.field] = el.value;
-        if(el.dataset.field === 'provincia') item.lugar = el.value || null;
-      });
-    });
-  }
-  renderActionBar();
-  updateActionBar();
-}
-
-function findItemById(id){
-  return rawItems.find(i => i.id === id) || curatedItems.find(i => i.id === id);
-}
-
-function renderActionBar(){
-  const bar = $('actionBar');
-  let buttonsHtml = '';
-  if(currentTab === 'pendiente'){
-    buttonsHtml = `<button id="btnDiscard" class="discard" disabled>Descartar</button>
-                    <button id="btnPublish" class="publish" disabled>Publish</button>`;
-  } else if(currentTab === 'publicado'){
-    buttonsHtml = `<button id="btnUnpublish" class="unpublish" disabled>Unpublish</button>`;
-  } else {
-    buttonsHtml = `<button id="btnRevert" class="revert" disabled>Revertir a pendiente</button>`;
-  }
-  buttonsHtml += `<button id="btnSaveEdits" class="savechanges secondary">Guardar cambios</button>`;
-  bar.innerHTML = `<span class="sel-count" id="selCount">0 seleccionadas</span>` + buttonsHtml;
-
-  if(currentTab === 'pendiente'){
-    $('btnDiscard').addEventListener('click', () => doAction('descartar'));
-    $('btnPublish').addEventListener('click', () => doAction('publicar'));
-  } else if(currentTab === 'publicado'){
-    $('btnUnpublish').addEventListener('click', () => doAction('unpublish'));
-  } else {
-    $('btnRevert').addEventListener('click', () => doAction('revertir'));
-  }
-  $('btnSaveEdits').addEventListener('click', saveEdits);
-}
-
-function updateActionBar(){
-  $('selCount').textContent = `${selected.size} seleccionada${selected.size===1?'':'s'}`;
-  document.querySelectorAll('.action-bar button.discard, .action-bar button.publish, .action-bar button.unpublish, .action-bar button.revert')
-    .forEach(b => b.disabled = selected.size === 0);
-}
-
-async function saveEdits(){
-  setStatus('Guardando ediciones en GitHub...', '');
-  try{
-    const rawRes = await ghPutFile('despidos-tracker/data/raw_data.json', rawItems, rawSha, 'admin: guarda ediciones de titulo/bajada/geo');
-    rawSha = rawRes.content.sha;
-    const curatedToSave = curatedItems.map(({status, ...rest}) => rest);
-    const curRes = await ghPutFile('despidos-tracker/data/curated_data.json', curatedToSave, curatedSha, 'admin: guarda ediciones de titulo/bajada/geo');
-    curatedSha = curRes.content.sha;
-    setStatus('Cambios guardados.', 'ok');
-  }catch(e){
-    setStatus('Error guardando: ' + e.message, 'err');
-  }
-}
-
-function switchTab(tab){
-  currentTab = tab;
-  selected.clear();
-  ['tabPendiente','tabPublicado','tabDescartado'].forEach(id => $(id).classList.remove('active'));
-  $('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('active');
-  render();
-}
-$('tabPendiente').addEventListener('click', () => switchTab('pendiente'));
-$('tabPublicado').addEventListener('click', () => switchTab('publicado'));
-$('tabDescartado').addEventListener('click', () => switchTab('descartado'));
-$('reload').addEventListener('click', loadAll);
-
-function makeManualId(){
-  return 'manual-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
-}
-
-$('toggleAddForm').addEventListener('click', () => {
-  const f = $('addForm');
-  const opening = f.style.display === 'none';
-  f.style.display = opening ? 'block' : 'none';
-  if(opening && !$('newDate').value){
-    $('newDate').value = new Date().toISOString().slice(0, 10);
-  }
-});
-$('cancelAddForm').addEventListener('click', () => {
-  $('addForm').style.display = 'none';
-  ['newTitle','newSnippet','newUrl','newMedio','newProvincia','newDepartamento'].forEach(id => $(id).value = '');
-  $('newTopic').value = '';
-});
-
-$('submitAddForm').addEventListener('click', async () => {
-  const title = $('newTitle').value.trim();
-  const url = $('newUrl').value.trim();
-  const medio = $('newMedio').value.trim();
-  if(!title || !url || !medio){
-    setStatus('Falta título, link o medio — son obligatorios.', 'err');
+  const list = document.getElementById('list');
+  if(filtered.length === 0){
+    list.innerHTML = '<div class="empty">Todavía no hay noticias publicadas para este filtro.</div>';
+    renderPager(0);
     return;
   }
-  const provincia = $('newProvincia').value.trim() || null;
-  if(!rawSha){
-    setStatus('Primero cargá los datos ("Recargar datos") antes de agregar una noticia.', 'err');
-    return;
-  }
-  const item = {
-    id: makeManualId(),
-    title,
-    medio,
-    lugar: provincia,
-    provincia,
-    departamento: $('newDepartamento').value.trim() || null,
-    topic: $('newTopic').value || null,
-    snippet: $('newSnippet').value.trim(),
-    url,
-    date: ($('newDate').value ? new Date($('newDate').value).toISOString() : new Date().toISOString()),
-    scraped_at: new Date().toISOString(),
-    status: 'pendiente',
-    status_at: null,
-    manual: true,
-  };
-  rawItems = [item, ...rawItems];
-  sortByDate(rawItems);
-  setStatus('Guardando noticia nueva en GitHub...', '');
-  try{
-    const rawRes = await ghPutFile('despidos-tracker/data/raw_data.json', rawItems, rawSha, 'admin: agrega noticia manual');
-    rawSha = rawRes.content.sha;
-    $('cancelAddForm').click();
-    setStatus('Noticia agregada a Pendientes.', 'ok');
-    if(currentTab !== 'pendiente') switchTab('pendiente'); else render();
-  }catch(e){
-    setStatus('Error agregando noticia: ' + e.message, 'err');
-  }
-});
 
-async function doAction(action){
-  setStatus('Aplicando cambios en GitHub...', '');
-  const ids = selected;
-  const now = new Date().toISOString();
-
-  if(action === 'publicar'){
-    const toMove = rawItems.filter(i => ids.has(i.id)).map(i => ({...i, status:'publicado', status_at: now}));
-    rawItems = rawItems.filter(i => !ids.has(i.id));
-    curatedItems = [...toMove, ...curatedItems];
-  } else if(action === 'descartar'){
-    rawItems = rawItems.map(i => ids.has(i.id) ? {...i, status:'descartado', status_at: now} : i);
-  } else if(action === 'revertir'){
-    rawItems = rawItems.map(i => ids.has(i.id) ? {...i, status:'pendiente', status_at: now} : i);
-  } else if(action === 'unpublish'){
-    const toMove = curatedItems.filter(i => ids.has(i.id)).map(i => ({...i, status:'pendiente', status_at: now}));
-    curatedItems = curatedItems.filter(i => !ids.has(i.id));
-    rawItems = [...toMove, ...rawItems];
-  }
-  sortByDate(rawItems); sortByDate(curatedItems);
-
-  try{
-    const rawRes = await ghPutFile('despidos-tracker/data/raw_data.json', rawItems, rawSha, `admin: ${action} ${ids.size} item(s)`);
-    rawSha = rawRes.content.sha;
-    const curatedToSave = curatedItems.map(({status, ...rest}) => rest);
-    const curRes = await ghPutFile('despidos-tracker/data/curated_data.json', curatedToSave, curatedSha, `admin: ${action} ${ids.size} item(s)`);
-    curatedSha = curRes.content.sha;
-
-    selected.clear();
-    setStatus('Listo. Cambios commiteados en GitHub.', 'ok');
-    render();
-  }catch(e){
-    setStatus('Error: ' + e.message, 'err');
-  }
+  list.innerHTML = pageItems.map(i => `
+    <article class="card">
+      <span class="badge topic-${i.topic || 'neutral'}">${topicLabel(i.topic)}</span>
+      <div class="dateline"><b>${escapeHtml(i.medio || 'Fuente desconocida')}</b>${i.provincia ? ` — ${escapeHtml(i.provincia)}` : ''} · ${fmtDate(i.date)}</div>
+      <h2><a href="${i.url}" target="_blank" rel="noopener">${escapeHtml(cleanTitle(i.title, i.medio))}</a></h2>
+      ${i.snippet ? `<p class="snippet">${escapeHtml(stripHtml(i.snippet))}</p>` : ''}
+    </article>
+  `).join('');
+  renderPager(totalPages);
 }
 
-initAuthFields();
-if(getAuth().token) loadAll();
-else setStatus('Cargá tus credenciales de GitHub arriba y hacé click en "Recargar datos".', '');
+function renderPager(totalPages){
+  const pager = document.getElementById('pager');
+  if(!pager) return;
+  if(totalPages <= 1){ pager.innerHTML = ''; return; }
+  let html = '';
+  html += `<button ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage - 1}">← Anterior</button>`;
+  html += `<span class="pager-label">Página ${currentPage} de ${totalPages}</span>`;
+  html += `<button ${currentPage === totalPages ? 'disabled' : ''} data-page="${currentPage + 1}">Siguiente →</button>`;
+  pager.innerHTML = html;
+  pager.querySelectorAll('button').forEach(b => {
+    b.addEventListener('click', () => {
+      currentPage = parseInt(b.dataset.page, 10);
+      render();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+  });
+}
+
+function escapeHtml(str){
+  const div = document.createElement('div');
+  div.textContent = str || '';
+  return div.innerHTML;
+}
+
+loadData();
 </script>
 </body>
 </html>
