@@ -70,6 +70,14 @@ main{padding-top:16px}
 .row h3 a{text-decoration:none}
 .row h3 a:hover{text-decoration:underline}
 .row .snippet{font-size:12.5px;color:var(--muted)}
+.row .source-link{font-size:11.5px;font-weight:600;color:var(--accent);text-decoration:none}
+.edit-title, .edit-snippet{
+  display:block;width:100%;font:inherit;color:var(--ink);
+  background:#f5f5f7;border:none;border-radius:8px;padding:6px 9px;margin-bottom:6px;
+}
+.edit-title{font-weight:700;font-size:14px}
+.edit-snippet{font-size:12.5px;color:var(--muted);resize:vertical;min-height:38px;font-family:inherit}
+.edit-title:focus, .edit-snippet:focus{outline:2px solid var(--accent);outline-offset:1px}
 
 .action-bar{position:sticky;bottom:0;background:var(--bg);border-top:2px solid var(--hair);
   padding:14px 0;display:flex;gap:10px;align-items:center;max-width:1100px;margin:0 auto}
@@ -225,6 +233,19 @@ function escapeHtml(str){
   div.textContent = str || '';
   return div.innerHTML;
 }
+function stripHtml(html){
+  const div = document.createElement('div');
+  div.innerHTML = html || '';
+  return (div.textContent || div.innerText || '').replace(/\s+/g, ' ').trim();
+}
+function cleanTitle(title, medio){
+  let t = (title || '').trim();
+  if(medio){
+    const re = new RegExp(`\\s*[-|–]\\s*${medio.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'i');
+    t = t.replace(re, '').trim();
+  }
+  return t;
+}
 
 function render(){
   $('countPendiente').textContent = countByStatus('pendiente');
@@ -247,9 +268,9 @@ function render(){
       <div class="row">
         <input type="checkbox" data-id="${i.id}" ${selected.has(i.id) ? 'checked' : ''}>
         <div class="body">
-          <div class="dateline"><b>${escapeHtml(i.medio || '?')}</b> — ${escapeHtml(i.lugar || 'Nacional')} · ${fmtDate(i.date)}</div>
-          <h3><a href="${i.url}" target="_blank" rel="noopener">${escapeHtml(i.title)}</a></h3>
-          <p class="snippet">${escapeHtml((i.snippet||'').slice(0,180))}</p>
+          <div class="dateline"><b>${escapeHtml(i.medio || '?')}</b> — ${escapeHtml(i.lugar || 'Nacional')} · ${fmtDate(i.date)} · <a class="source-link" href="${i.url}" target="_blank" rel="noopener">abrir fuente ↗</a></div>
+          <input class="edit-title" data-id="${i.id}" data-field="title" value="${escapeHtml(cleanTitle(i.title, i.medio))}">
+          <textarea class="edit-snippet" data-id="${i.id}" data-field="snippet" rows="2">${escapeHtml(stripHtml(i.snippet||''))}</textarea>
         </div>
       </div>
     `).join('');
@@ -259,9 +280,19 @@ function render(){
         updateActionBar();
       });
     });
+    list.querySelectorAll('.edit-title, .edit-snippet').forEach(el => {
+      el.addEventListener('input', () => {
+        const item = findItemById(el.dataset.id);
+        if(item) item[el.dataset.field] = el.value;
+      });
+    });
   }
   renderActionBar();
   updateActionBar();
+}
+
+function findItemById(id){
+  return rawItems.find(i => i.id === id) || curatedItems.find(i => i.id === id);
 }
 
 function renderActionBar(){
