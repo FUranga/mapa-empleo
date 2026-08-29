@@ -3956,8 +3956,8 @@
     "url": "https://www.lanacion.com.ar/economia/negocios/cicare-evito-la-quiebra-y-entro-en-concurso-preventivo-la-historica-fabricante-de-helicopteros-busca-nid14052026/",
     "date": "2026-05-14T00:00:00.000Z",
     "scraped_at": "2026-08-29T13:34:35.334Z",
-    "status": "pendiente",
-    "status_at": null,
+    "status": "descartado",
+    "status_at": "2026-08-29T13:35:28.944Z",
     "manual": true
   },
   {
