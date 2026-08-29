@@ -1,0 +1,33 @@
+name: Despidos Tracker - Batch (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "Fecha desde la cual scrapear (YYYY-MM-DD)"
+        required: false
+        default: "2024-01-01"
+
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install -r despidos-tracker/scripts/requirements.txt
+
+      - name: Correr batch
+        run: python despidos-tracker/scripts/scraper.py --mode batch --since "${{ github.event.inputs.since }}"
+
+      - name: Commitear cambios
+        run: |
+          git config user.name "despidos-tracker-bot"
+          git config user.email "actions@github.com"
+          git add despidos-tracker/data/raw_data.json
+          git diff --staged --quiet || git commit -m "batch: actualizacion de raw_data.json"
+          git push

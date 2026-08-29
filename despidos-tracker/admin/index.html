@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Curación · Despidos y cierres</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--panel:#ffffff;--ink:#1d1d1f;--muted:#86868b;
+  --hair:#e6e6e8;--hair2:#f0f0f2;
+  --loss:#d0342c;--gain:#1f6f5c;--neutral:#eef0f0;--nodata:#f4f4f5;
+  --accent:#0071e3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
+  font-size:14px;line-height:1.47;-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+.wrap{max-width:1100px;margin:0 auto;padding:26px 28px 100px}
+a{color:inherit}
+
+header{margin-bottom:16px}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+h1{font-weight:800;font-size:26px;letter-spacing:-.02em}
+.sub{color:var(--muted);margin-top:6px;font-size:13px}
+
+.auth-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;
+  padding:14px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin-bottom:6px}
+.auth-bar input{
+  font:inherit;font-size:12.5px;font-weight:500;color:var(--ink);
+  background:#f5f5f7;border:none;border-radius:10px;padding:8px 12px;
+}
+.auth-bar input#pat{min-width:280px;flex:1}
+.auth-bar input#repoOwner,.auth-bar input#repoName{width:150px}
+
+button{font:inherit;font-weight:600;font-size:13px;color:#fff;background:var(--ink);
+  border:none;border-radius:980px;padding:9px 18px;cursor:pointer}
+button.secondary{background:#f5f5f7;color:var(--ink)}
+button.publish{background:var(--gain)}
+button.discard{background:var(--loss)}
+button.revert{background:var(--accent)}
+button.unpublish{background:var(--loss)}
+button:disabled{opacity:.35;cursor:default}
+button:hover:not(:disabled){opacity:.85}
+
+.status{font-size:12.5px;color:var(--muted);padding:8px 0}
+.status.ok{color:var(--gain)}
+.status.err{color:var(--loss)}
+
+.tabs{display:flex;gap:0;margin:14px 0 0;border-bottom:2px solid var(--hair)}
+.tabs button{font:inherit;font-size:14px;font-weight:600;padding:10px 18px 12px;
+  border:none;background:transparent;color:var(--muted);border-bottom:3px solid transparent;
+  margin-bottom:-2px;border-radius:0;transition:all .15s}
+.tabs button:hover:not(:disabled){color:var(--ink);opacity:1}
+.tabs button.active{color:var(--ink);border-bottom-color:var(--ink)}
+.tabs .tab-count{font-size:11px;font-weight:500;color:var(--muted);margin-left:3px}
+.tabs button.active .tab-count{color:var(--ink)}
+
+main{padding-top:16px}
+
+.row{display:flex;gap:12px;align-items:flex-start;padding:14px 4px;border-bottom:1px solid var(--hair2)}
+.row input[type=checkbox]{margin-top:5px;width:16px;height:16px;accent-color:var(--accent)}
+.row .body{flex:1}
+.dateline{font-size:12px;color:var(--muted);font-weight:500;margin-bottom:4px}
+.dateline b{color:var(--ink);font-weight:600}
+.row h3{font-weight:700;font-size:14.5px;letter-spacing:-.01em;margin-bottom:3px}
+.row h3 a{text-decoration:none}
+.row h3 a:hover{text-decoration:underline}
+.row .snippet{font-size:12.5px;color:var(--muted)}
+
+.action-bar{position:sticky;bottom:0;background:var(--bg);border-top:2px solid var(--hair);
+  padding:14px 0;display:flex;gap:10px;align-items:center;max-width:1100px;margin:0 auto}
+.action-bar .sel-count{font-size:12.5px;color:var(--muted);font-weight:500;margin-right:auto}
+.empty{padding:60px 20px;text-align:center;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Panel interno · no indexado</div>
+  <h1>Curación — Despidos y cierres</h1>
+  <p class="sub">Pendiente → Publicar o Descartar. Descartar es reversible, nunca se borra.</p>
+</header>
+
+<div class="auth-bar">
+  <input id="repoOwner" placeholder="usuario GitHub">
+  <input id="repoName" placeholder="mapa-empleo">
+  <input id="pat" type="password" placeholder="Personal Access Token (repo scope)">
+  <button id="saveAuth" class="secondary">Guardar</button>
+  <button id="reload" class="secondary">Recargar datos</button>
+</div>
+<div id="status" class="status"></div>
+
+<div class="tabs">
+  <button id="tabPendiente" class="active">Pendientes <span class="tab-count" id="countPendiente"></span></button>
+  <button id="tabPublicado">Publicadas <span class="tab-count" id="countPublicado"></span></button>
+  <button id="tabDescartado">Descartadas <span class="tab-count" id="countDescartado"></span></button>
+</div>
+
+<main id="list"></main>
+
+<div class="action-bar" id="actionBar">
+  <span class="sel-count" id="selCount">0 seleccionadas</span>
+</div>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let rawItems = [], curatedItems = [];
+let currentTab = 'pendiente';
+let selected = new Set();
+let rawSha = null, curatedSha = null;
+
+function setStatus(msg, cls){
+  const el = $('status');
+  el.textContent = msg;
+  el.className = 'status ' + (cls || '');
+}
+
+function getAuth(){
+  return {
+    owner: localStorage.getItem('adt_owner') || '',
+    repo: localStorage.getItem('adt_repo') || '',
+    token: localStorage.getItem('adt_pat') || '',
+  };
+}
+
+function initAuthFields(){
+  const a = getAuth();
+  $('repoOwner').value = a.owner;
+  $('repoName').value = a.repo;
+  $('pat').value = a.token;
+}
+
+$('saveAuth').addEventListener('click', () => {
+  localStorage.setItem('adt_owner', $('repoOwner').value.trim());
+  localStorage.setItem('adt_repo', $('repoName').value.trim());
+  localStorage.setItem('adt_pat', $('pat').value.trim());
+  setStatus('Credenciales guardadas en este navegador.', 'ok');
+});
+
+async function ghGetFile(path){
+  const {owner, repo, token} = getAuth();
+  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+    headers: {Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json'}
+  });
+  if(!res.ok) throw new Error(`GET ${path} -> ${res.status}`);
+  const data = await res.json();
+  const content = decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
+  return {sha: data.sha, json: JSON.parse(content)};
+}
+
+async function ghPutFile(path, obj, sha, message){
+  const {owner, repo, token} = getAuth();
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2))));
+  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+    method: 'PUT',
+    headers: {Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json'},
+    body: JSON.stringify({message, content, sha})
+  });
+  if(!res.ok){
+    const err = await res.json().catch(()=>({}));
+    throw new Error(`PUT ${path} -> ${res.status} ${err.message || ''}`);
+  }
+  return res.json();
+}
+
+async function loadAll(){
+  setStatus('Cargando...', '');
+  try{
+    const raw = await ghGetFile('despidos-tracker/data/raw_data.json');
+    const curated = await ghGetFile('despidos-tracker/data/curated_data.json');
+    rawItems = raw.json; rawSha = raw.sha;
+    curatedItems = curated.json; curatedSha = curated.sha;
+    curatedItems.forEach(i => i.status = 'publicado');
+    sortByDate(rawItems); sortByDate(curatedItems);
+    selected.clear();
+    setStatus(`Cargado: ${countByStatus('pendiente')} pendientes, ${curatedItems.length} publicadas, ${countByStatus('descartado')} descartadas.`, 'ok');
+    render();
+  }catch(e){
+    setStatus('Error cargando datos: ' + e.message, 'err');
+  }
+}
+
+function sortByDate(arr){ arr.sort((a,b) => (b.date||'').localeCompare(a.date||'')); }
+function countByStatus(s){ return rawItems.filter(i => i.status === s).length; }
+
+function itemsForTab(){
+  if(currentTab === 'pendiente') return rawItems.filter(i => i.status === 'pendiente');
+  if(currentTab === 'descartado') return rawItems.filter(i => i.status === 'descartado');
+  return curatedItems;
+}
+
+function fmtDate(iso){
+  const d = new Date(iso);
+  if(isNaN(d)) return '';
+  return d.toLocaleDateString('es-AR', {day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'});
+}
+function escapeHtml(str){
+  const div = document.createElement('div');
+  div.textContent = str || '';
+  return div.innerHTML;
+}
+
+function render(){
+  $('countPendiente').textContent = countByStatus('pendiente');
+  $('countPublicado').textContent = curatedItems.length;
+  $('countDescartado').textContent = countByStatus('descartado');
+
+  const items = itemsForTab();
+  const list = $('list');
+
+  const emptyMsg = {
+    pendiente: 'No hay noticias pendientes.',
+    publicado: 'Todavía no publicaste nada.',
+    descartado: 'No hay noticias descartadas.'
+  }[currentTab];
+
+  if(items.length === 0){
+    list.innerHTML = `<div class="empty">${emptyMsg}</div>`;
+  } else {
+    list.innerHTML = items.map(i => `
+      <div class="row">
+        <input type="checkbox" data-id="${i.id}" ${selected.has(i.id) ? 'checked' : ''}>
+        <div class="body">
+          <div class="dateline"><b>${escapeHtml(i.medio || '?')}</b> — ${escapeHtml(i.lugar || 'Nacional')} · ${fmtDate(i.date)}</div>
+          <h3><a href="${i.url}" target="_blank" rel="noopener">${escapeHtml(i.title)}</a></h3>
+          <p class="snippet">${escapeHtml((i.snippet||'').slice(0,180))}</p>
+        </div>
+      </div>
+    `).join('');
+    list.querySelectorAll('input[type=checkbox]').forEach(cb => {
+      cb.addEventListener('change', () => {
+        if(cb.checked) selected.add(cb.dataset.id); else selected.delete(cb.dataset.id);
+        updateActionBar();
+      });
+    });
+  }
+  renderActionBar();
+  updateActionBar();
+}
+
+function renderActionBar(){
+  const bar = $('actionBar');
+  let buttonsHtml = '';
+  if(currentTab === 'pendiente'){
+    buttonsHtml = `<button id="btnDiscard" class="discard" disabled>Descartar</button>
+                    <button id="btnPublish" class="publish" disabled>Publish</button>`;
+  } else if(currentTab === 'publicado'){
+    buttonsHtml = `<button id="btnUnpublish" class="unpublish" disabled>Unpublish</button>`;
+  } else {
+    buttonsHtml = `<button id="btnRevert" class="revert" disabled>Revertir a pendiente</button>`;
+  }
+  bar.innerHTML = `<span class="sel-count" id="selCount">0 seleccionadas</span>` + buttonsHtml;
+
+  if(currentTab === 'pendiente'){
+    $('btnDiscard').addEventListener('click', () => doAction('descartar'));
+    $('btnPublish').addEventListener('click', () => doAction('publicar'));
+  } else if(currentTab === 'publicado'){
+    $('btnUnpublish').addEventListener('click', () => doAction('unpublish'));
+  } else {
+    $('btnRevert').addEventListener('click', () => doAction('revertir'));
+  }
+}
+
+function updateActionBar(){
+  $('selCount').textContent = `${selected.size} seleccionada${selected.size===1?'':'s'}`;
+  document.querySelectorAll('.action-bar button:not(.secondary)').forEach(b => b.disabled = selected.size === 0);
+}
+
+function switchTab(tab){
+  currentTab = tab;
+  selected.clear();
+  ['tabPendiente','tabPublicado','tabDescartado'].forEach(id => $(id).classList.remove('active'));
+  $('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('active');
+  render();
+}
+$('tabPendiente').addEventListener('click', () => switchTab('pendiente'));
+$('tabPublicado').addEventListener('click', () => switchTab('publicado'));
+$('tabDescartado').addEventListener('click', () => switchTab('descartado'));
+$('reload').addEventListener('click', loadAll);
+
+async function doAction(action){
+  setStatus('Aplicando cambios en GitHub...', '');
+  const ids = selected;
+  const now = new Date().toISOString();
+
+  if(action === 'publicar'){
+    const toMove = rawItems.filter(i => ids.has(i.id)).map(i => ({...i, status:'publicado', status_at: now}));
+    rawItems = rawItems.filter(i => !ids.has(i.id));
+    curatedItems = [...toMove, ...curatedItems];
+  } else if(action === 'descartar'){
+    rawItems = rawItems.map(i => ids.has(i.id) ? {...i, status:'descartado', status_at: now} : i);
+  } else if(action === 'revertir'){
+    rawItems = rawItems.map(i => ids.has(i.id) ? {...i, status:'pendiente', status_at: now} : i);
+  } else if(action === 'unpublish'){
+    const toMove = curatedItems.filter(i => ids.has(i.id)).map(i => ({...i, status:'pendiente', status_at: now}));
+    curatedItems = curatedItems.filter(i => !ids.has(i.id));
+    rawItems = [...toMove, ...rawItems];
+  }
+  sortByDate(rawItems); sortByDate(curatedItems);
+
+  try{
+    const rawRes = await ghPutFile('despidos-tracker/data/raw_data.json', rawItems, rawSha, `admin: ${action} ${ids.size} item(s)`);
+    rawSha = rawRes.content.sha;
+    const curatedToSave = curatedItems.map(({status, ...rest}) => rest);
+    const curRes = await ghPutFile('despidos-tracker/data/curated_data.json', curatedToSave, curatedSha, `admin: ${action} ${ids.size} item(s)`);
+    curatedSha = curRes.content.sha;
+
+    selected.clear();
+    setStatus('Listo. Cambios commiteados en GitHub.', 'ok');
+    render();
+  }catch(e){
+    setStatus('Error: ' + e.message, 'err');
+  }
+}
+
+initAuthFields();
+if(getAuth().token) loadAll();
+else setStatus('Cargá tus credenciales de GitHub arriba y hacé click en "Recargar datos".', '');
+</script>
+</body>
+</html>

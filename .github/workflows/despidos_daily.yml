@@ -1,0 +1,31 @@
+name: Despidos Tracker - Daily
+
+on:
+  schedule:
+    - cron: "0 10 * * *"   # 07:00 ART
+    - cron: "0 20 * * *"   # 17:00 ART
+  workflow_dispatch: {}
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install -r despidos-tracker/scripts/requirements.txt
+
+      - name: Correr scraper diario
+        run: python despidos-tracker/scripts/scraper.py --mode daily --hours 48
+
+      - name: Commitear cambios
+        run: |
+          git config user.name "despidos-tracker-bot"
+          git config user.email "actions@github.com"
+          git add despidos-tracker/data/raw_data.json
+          git diff --staged --quiet || git commit -m "daily: actualizacion de raw_data.json"
+          git push

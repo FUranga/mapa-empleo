@@ -1,0 +1,27 @@
+name: Despidos Tracker - Weekly cleanup
+
+on:
+  schedule:
+    - cron: "0 6 * * 0"   # domingos 03:00 ART
+  workflow_dispatch: {}
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Correr limpieza
+        run: python despidos-tracker/scripts/cleanup.py --days 7
+
+      - name: Commitear cambios
+        run: |
+          git config user.name "despidos-tracker-bot"
+          git config user.email "actions@github.com"
+          git add despidos-tracker/data/raw_data.json
+          git diff --staged --quiet || git commit -m "cleanup: purga de no publicadas +7 dias"
+          git push

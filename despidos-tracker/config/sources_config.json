@@ -1,0 +1,89 @@
+{
+  "_readme": "Config parametrizable de medios. 'rss_url: null' = sin feed confirmado, se cubre via Google News search en el scraper. 'departamento: null' = cobertura provincial completa (pendiente de sincronizar con el lookup de departamentos de mapa-empleo). Editar este archivo no requiere tocar codigo.",
+  "sources": [
+    { "name": "Infobae", "tier": "nacional", "provincia": null, "departamento": null, "tipo": "diario_digital", "url": "https://www.infobae.com", "rss_url": "https://www.infobae.com/feeds/rss/", "paywall": "none", "active": true },
+    { "name": "TN", "tier": "nacional", "provincia": null, "departamento": null, "tipo": "tv", "url": "https://www.tn.com.ar", "rss_url": null, "paywall": "none", "active": true },
+    { "name": "Ambito Financiero", "tier": "nacional", "provincia": null, "departamento": null, "tipo": "diario_digital", "url": "https://www.ambito.com", "rss_url": "https://www.ambito.com/contenidos/rss.html", "paywall": "none", "active": true },
+    { "name": "Clarin", "tier": "nacional", "provincia": null, "departamento": null, "tipo": "diario_digital", "url": "https://www.clarin.com", "rss_url": "https://www.clarin.com/rss/", "paywall": "soft", "active": true },
+    { "name": "La Nacion", "tier": "nacional", "provincia": null, "departamento": null, "tipo": "diario_digital", "url": "https://www.lanacion.com.ar", "rss_url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml", "paywall": "soft", "active": true },
+    { "name": "Pagina/12", "tier": "nacional", "provincia": null, "departamento": null, "tipo": "diario_digital", "url": "https://www.pagina12.com.ar", "rss_url": "https://www.pagina12.com.ar/rss/portada", "paywall": "none", "active": true },
+    { "name": "Perfil", "tier": "nacional", "provincia": null, "departamento": null, "tipo": "diario_digital", "url": "https://www.perfil.com", "rss_url": "https://www.perfil.com/feed", "paywall": "soft", "active": true },
+    { "name": "El Cronista", "tier": "nacional", "provincia": null, "departamento": null, "tipo": "diario_digital", "url": "https://www.cronista.com", "rss_url": "https://www.cronista.com/files/rss/news.xml", "paywall": "soft", "active": true },
+    { "name": "C5N", "tier": "nacional", "provincia": null, "departamento": null, "tipo": "tv", "url": "https://www.c5n.com", "rss_url": null, "paywall": "none", "active": true },
+    { "name": "A24", "tier": "nacional", "provincia": null, "departamento": null, "tipo": "tv", "url": "https://www.a24.com", "rss_url": null, "paywall": "none", "active": true },
+    { "name": "Radio Mitre", "tier": "nacional", "provincia": null, "departamento": null, "tipo": "radio", "url": "https://radiomitre.cienradios.com", "rss_url": null, "paywall": "none", "active": true },
+    { "name": "Radio Continental", "tier": "nacional", "provincia": null, "departamento": null, "tipo": "radio", "url": "https://www.continental.com.ar", "rss_url": null, "paywall": "none", "active": true, "note": "operativa pero fragil economicamente (vendida feb 2025, atrasos salariales); revisar periodicamente" },
+
+    { "name": "iProfesional", "tier": "sectorial", "provincia": null, "departamento": null, "tipo": "diario_digital", "url": "https://www.iprofesional.com", "rss_url": "https://www.iprofesional.com/rss", "paywall": "soft", "active": true },
+    { "name": "El Economista", "tier": "sectorial", "provincia": null, "departamento": null, "tipo": "diario_digital", "url": "https://eleconomista.com.ar", "rss_url": "https://eleconomista.com.ar/economia/feed/", "paywall": "soft", "active": true },
+    { "name": "BAE Negocios", "tier": "sectorial", "provincia": null, "departamento": null, "tipo": "diario_digital", "url": "https://www.baenegocios.com", "rss_url": null, "paywall": "none", "active": true },
+    { "name": "Bichos de Campo", "tier": "sectorial", "provincia": null, "departamento": null, "tipo": "diario_digital", "url": "https://bichosdecampo.com", "rss_url": "https://bichosdecampo.com/feed/", "paywall": "none", "active": true },
+
+    { "name": "El Dia", "tier": "provincial", "provincia": "Buenos Aires", "departamento": "La Plata", "tipo": "diario_digital", "url": "https://www.eldia.com", "rss_url": "https://www.eldia.com/.rss", "paywall": "soft", "active": true },
+    { "name": "La Nueva", "tier": "provincial", "provincia": "Buenos Aires", "departamento": "Bahia Blanca", "tipo": "diario_digital", "url": "https://www.lanueva.com", "rss_url": null, "paywall": "soft", "active": true },
+    { "name": "La Capital (Mar del Plata)", "tier": "provincial", "provincia": "Buenos Aires", "departamento": "Mar del Plata", "tipo": "diario_digital", "url": "https://www.lacapitalmdp.com", "rss_url": null, "paywall": "none", "active": true },
+    { "name": "Diario El Norte", "tier": "provincial", "provincia": "Buenos Aires", "departamento": "San Nicolas", "tipo": "diario_digital", "url": "https://diarioelnorte.com.ar", "rss_url": null, "paywall": "soft", "active": true, "note": "zona industrial siderurgica, agregado por investigacion" },
+    { "name": "El Debate", "tier": "provincial", "provincia": "Buenos Aires", "departamento": "Zarate", "tipo": "diario_digital", "url": "https://eldebate.com.ar", "rss_url": null, "paywall": "none", "active": true, "note": "cinturon industrial Zarate-Campana, agregado por investigacion" },
+    { "name": "El Eco de Tandil", "tier": "provincial", "provincia": "Buenos Aires", "departamento": "Tandil", "tipo": "diario_digital", "url": "https://www.eleco.com.ar", "rss_url": null, "paywall": "soft", "active": true, "note": "zona metalurgica/agroindustrial, agregado por investigacion" },
+
+    { "name": "El Ancasti", "tier": "provincial", "provincia": "Catamarca", "departamento": null, "tipo": "diario_digital", "url": "https://www.elancasti.com.ar", "rss_url": "https://www.elancasti.com.ar/contenidos/rss.html", "paywall": "soft", "active": true },
+
+    { "name": "Diario Norte", "tier": "provincial", "provincia": "Chaco", "departamento": null, "tipo": "diario_digital", "url": "https://www.diarionorte.com", "rss_url": null, "paywall": "soft", "active": true },
+
+    { "name": "El Chubut", "tier": "provincial", "provincia": "Chubut", "departamento": "Trelew", "tipo": "diario_digital", "url": "https://www.elchubut.com.ar", "rss_url": null, "paywall": "soft", "active": true },
+    { "name": "Jornada", "tier": "provincial", "provincia": "Chubut", "departamento": "Trelew", "tipo": "diario_digital", "url": "https://www.diariojornada.com.ar", "rss_url": null, "paywall": "none", "active": true },
+    { "name": "Diario Cronica", "tier": "provincial", "provincia": "Chubut", "departamento": "Comodoro Rivadavia", "tipo": "diario_digital", "url": "https://www.diariocronica.com.ar", "rss_url": null, "paywall": "none", "active": true, "note": "cuenca petrolera, agregado por investigacion" },
+    { "name": "ADNSur", "tier": "provincial", "provincia": "Chubut", "departamento": "Comodoro Rivadavia", "tipo": "diario_digital", "url": "https://www.adnsur.com.ar", "rss_url": null, "paywall": "none", "active": true, "note": "cuenca petrolera, agregado por investigacion" },
+
+    { "name": "La Voz del Interior", "tier": "provincial", "provincia": "Cordoba", "departamento": null, "tipo": "diario_digital", "url": "https://www.lavoz.com.ar", "rss_url": "https://www.lavoz.com.ar/arc/outboundfeeds/feeds/rss/?outputType=xml", "paywall": "soft", "active": true },
+    { "name": "Cadena 3", "tier": "provincial", "provincia": "Cordoba", "departamento": null, "tipo": "radio", "url": "https://www.cadena3.com", "rss_url": "https://www.cadena3.com/rss.asp", "paywall": "none", "active": true },
+
+    { "name": "El Litoral (Corrientes)", "tier": "provincial", "provincia": "Corrientes", "departamento": null, "tipo": "diario_digital", "url": "https://www.ellitoral.com.ar", "rss_url": null, "paywall": "soft", "active": true },
+
+    { "name": "El Diario", "tier": "provincial", "provincia": "Entre Rios", "departamento": "Parana", "tipo": "diario_digital", "url": "https://www.eldiario.com.ar", "rss_url": null, "paywall": "soft", "active": true },
+    { "name": "Diario UNO Entre Rios", "tier": "provincial", "provincia": "Entre Rios", "departamento": null, "tipo": "diario_digital", "url": "https://www.unoentrerios.com.ar", "rss_url": null, "paywall": "soft", "active": true },
+    { "name": "El Once", "tier": "provincial", "provincia": "Entre Rios", "departamento": "Parana", "tipo": "tv", "url": "https://www.elonce.com", "rss_url": null, "paywall": "none", "active": true },
+
+    { "name": "La Mañana Formosa", "tier": "provincial", "provincia": "Formosa", "departamento": null, "tipo": "diario_digital", "url": "https://www.lamananaonline.com.ar", "rss_url": null, "paywall": "soft", "active": true },
+
+    { "name": "El Tribuno de Jujuy", "tier": "provincial", "provincia": "Jujuy", "departamento": null, "tipo": "diario_digital", "url": "https://eltribunodejujuy.com", "rss_url": null, "paywall": "soft", "active": true },
+
+    { "name": "La Arena", "tier": "provincial", "provincia": "La Pampa", "departamento": "Santa Rosa", "tipo": "diario_digital", "url": "https://www.laarena.com.ar", "rss_url": null, "paywall": "soft", "active": true },
+
+    { "name": "El Independiente", "tier": "provincial", "provincia": "La Rioja", "departamento": null, "tipo": "diario_digital", "url": "https://www.elindependiente.com.ar", "rss_url": null, "paywall": "none", "active": true },
+
+    { "name": "Los Andes", "tier": "provincial", "provincia": "Mendoza", "departamento": null, "tipo": "diario_digital", "url": "https://www.losandes.com.ar", "rss_url": "https://www.losandes.com.ar/arcio/rss", "paywall": "soft", "active": true },
+    { "name": "MDZ Online", "tier": "provincial", "provincia": "Mendoza", "departamento": null, "tipo": "diario_digital", "url": "https://www.mdzol.com", "rss_url": null, "paywall": "none", "active": true },
+
+    { "name": "El Territorio", "tier": "provincial", "provincia": "Misiones", "departamento": null, "tipo": "diario_digital", "url": "https://www.elterritorio.com.ar", "rss_url": "https://www.elterritorio.com.ar/rss", "paywall": "soft", "active": true },
+    { "name": "Misiones Online", "tier": "provincial", "provincia": "Misiones", "departamento": null, "tipo": "diario_digital", "url": "https://misionesonline.net", "rss_url": "https://misionesonline.net/feed/", "paywall": "none", "active": true },
+
+    { "name": "Diario Rio Negro", "tier": "provincial", "provincia": "Neuquen", "departamento": null, "tipo": "diario_digital", "url": "https://www.rionegro.com.ar", "rss_url": "https://www.rionegro.com.ar/feed/", "paywall": "soft", "active": true },
+    { "name": "LM Neuquen", "tier": "provincial", "provincia": "Neuquen", "departamento": null, "tipo": "diario_digital", "url": "https://www.lmneuquen.com", "rss_url": null, "paywall": "soft", "active": true },
+
+    { "name": "LM Cipolletti", "tier": "provincial", "provincia": "Rio Negro", "departamento": "Cipolletti", "tipo": "diario_digital", "url": "https://www.lmcipolletti.com", "rss_url": null, "paywall": "soft", "active": true },
+
+    { "name": "El Tribuno (Salta)", "tier": "provincial", "provincia": "Salta", "departamento": null, "tipo": "diario_digital", "url": "https://www.eltribuno.com", "rss_url": "https://www.eltribuno.com/rss-new/portada.rss", "paywall": "soft", "active": true },
+
+    { "name": "Diario de Cuyo", "tier": "provincial", "provincia": "San Juan", "departamento": null, "tipo": "diario_digital", "url": "https://www.diariodecuyo.com.ar", "rss_url": "https://www.diariodecuyo.com.ar/rss/rss.xml", "paywall": "soft", "active": true },
+    { "name": "Tiempo de San Juan", "tier": "provincial", "provincia": "San Juan", "departamento": null, "tipo": "diario_digital", "url": "https://www.tiempodesanjuan.com", "rss_url": null, "paywall": "none", "active": true },
+
+    { "name": "El Diario de la Republica", "tier": "provincial", "provincia": "San Luis", "departamento": null, "tipo": "diario_digital", "url": "https://www.eldiariodelarepublica.com", "rss_url": null, "paywall": "soft", "active": true },
+
+    { "name": "La Opinion Austral", "tier": "provincial", "provincia": "Santa Cruz", "departamento": "Rio Gallegos", "tipo": "diario_digital", "url": "https://laopinionaustral.com.ar", "rss_url": null, "paywall": "soft", "active": true },
+    { "name": "Tiempo Sur", "tier": "provincial", "provincia": "Santa Cruz", "departamento": "Rio Gallegos", "tipo": "diario_digital", "url": "https://www.tiemposur.com.ar", "rss_url": null, "paywall": "soft", "active": true },
+
+    { "name": "La Capital (Rosario)", "tier": "provincial", "provincia": "Santa Fe", "departamento": "Rosario", "tipo": "diario_digital", "url": "https://www.lacapital.com.ar", "rss_url": null, "paywall": "soft", "active": true },
+    { "name": "El Litoral (Santa Fe)", "tier": "provincial", "provincia": "Santa Fe", "departamento": "La Capital", "tipo": "diario_digital", "url": "https://www.ellitoral.com", "rss_url": null, "paywall": "soft", "active": true },
+    { "name": "Rosario3", "tier": "provincial", "provincia": "Santa Fe", "departamento": "Rosario", "tipo": "diario_digital", "url": "https://www.rosario3.com", "rss_url": null, "paywall": "soft", "active": true },
+
+    { "name": "El Liberal", "tier": "provincial", "provincia": "Santiago del Estero", "departamento": null, "tipo": "diario_digital", "url": "https://www.elliberal.com.ar", "rss_url": null, "paywall": "soft", "active": true },
+    { "name": "Nuevo Diario", "tier": "provincial", "provincia": "Santiago del Estero", "departamento": null, "tipo": "diario_digital", "url": "https://www.nuevodiarioweb.com.ar", "rss_url": "https://www.nuevodiarioweb.com.ar/rss/", "paywall": "soft", "active": true },
+
+    { "name": "El Sureño", "tier": "provincial", "provincia": "Tierra del Fuego", "departamento": "Rio Grande", "tipo": "diario_digital", "url": "https://www.surenio.com.ar", "rss_url": "https://www.surenio.com.ar/feed/", "paywall": "none", "active": true },
+    { "name": "Provincia 23", "tier": "provincial", "provincia": "Tierra del Fuego", "departamento": "Rio Grande", "tipo": "diario_digital", "url": "https://www.provincia23.com.ar", "rss_url": "https://www.provincia23.com.ar/feed/", "paywall": "none", "active": true },
+    { "name": "El Diario del Fin del Mundo", "tier": "provincial", "provincia": "Tierra del Fuego", "departamento": "Ushuaia", "tipo": "diario_digital", "url": "https://eldiariodelfindelmundo.com", "rss_url": null, "paywall": "none", "active": true, "note": "polo electronico Ushuaia, agregado por investigacion" },
+
+    { "name": "La Gaceta", "tier": "provincial", "provincia": "Tucuman", "departamento": null, "tipo": "diario_digital", "url": "https://www.lagaceta.com.ar", "rss_url": "https://feeds.feedburner.com/LaGaceta-General", "paywall": "soft", "active": true }
+  ]
+}

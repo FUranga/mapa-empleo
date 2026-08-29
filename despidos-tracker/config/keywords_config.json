@@ -1,0 +1,32 @@
+{
+  "_readme": "Keywords que definen si una noticia es relevante (topic_keywords) y señales que descartan falsos positivos (noise_signals). Editable sin tocar código. Todo se matchea en minúsculas y sin tildes sobre título+bajada.",
+
+  "topic_keywords": {
+    "despidos": [
+      "despido masivo", "despidos masivos", "despidos en", "despiden a", "despidieron a",
+      "recorte de personal", "reduccion de personal", "reduccion de plantilla",
+      "cesantias", "cesantia colectiva", "procedimiento preventivo de crisis", "ppc",
+      "suspension de trabajadores", "suspensiones de personal", "suspenden a trabajadores",
+      "achicamiento de planta", "achicamiento de personal", "recorte de empleos",
+      "perdida de empleos", "perdieron el empleo", "quedaron sin trabajo", "sin trabajo"
+    ],
+    "cierres": [
+      "cierre de planta", "cierre de fabrica", "cierre de sucursal", "cierre de local",
+      "cierra la planta", "cierra la fabrica", "cierra sus puertas", "baja la persiana",
+      "quiebra", "concurso preventivo", "convocatoria de acreedores", "liquidacion de la empresa",
+      "desguace de la empresa", "paraliza la produccion", "para la produccion",
+      "cese de actividades", "cesa su actividad", "achica operaciones"
+    ]
+  },
+
+  "noise_signals": [
+    "despide el 2024", "despide el 2025", "despide el 2026", "despide el año",
+    "despide a su", "le despide", "despedida de", "fiesta de despedida",
+    "partido despedida", "despide a jugador", "despide al jugador",
+    "homenaje", "retiro del futbol", "se despide de la seleccion",
+    "cierre de campaña", "cierre de listas", "cierre de inscripcion",
+    "cierre del festival", "cierre de temporada", "acto de cierre"
+  ],
+
+  "note_provincia_default": "Si una noticia no matchea ninguna provincia por texto, se le asigna la provincia de la fuente si es tier=provincial. Si es tier=nacional o sectorial y no matchea, provincia queda null (se muestra como 'Nacional' en el tablero)."
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Despidos y cierres · Visión Desarrollista</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--panel:#ffffff;--ink:#1d1d1f;--muted:#86868b;
+  --hair:#e6e6e8;--hair2:#f0f0f2;
+  --loss:#d0342c;--gain:#1f6f5c;--neutral:#eef0f0;--nodata:#f4f4f5;
+  --accent:#0071e3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
+  font-size:14px;line-height:1.47;-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+.wrap{max-width:1320px;margin:0 auto;padding:26px 28px 48px}
+a{color:inherit}
+
+header{margin-bottom:20px}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+h1{font-weight:800;font-size:38px;line-height:1.05;letter-spacing:-.03em;max-width:26ch}
+.sub{color:var(--muted);margin-top:10px;max-width:66ch;font-size:14px;font-weight:400}
+
+.controls{display:flex;gap:18px;align-items:center;flex-wrap:wrap;
+  margin:18px 0 0;padding-bottom:16px;border-bottom:1px solid var(--hair)}
+.ctl-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);margin-right:2px}
+select, input[type=text]{
+  font:inherit;font-size:13px;font-weight:500;color:var(--ink);
+  background:#f5f5f7;border:none;border-radius:10px;padding:8px 12px;
+}
+input[type=text]{min-width:220px;flex:1}
+select:focus, input[type=text]:focus{outline:2px solid var(--accent);outline-offset:1px}
+.crumb{margin-left:auto;font-size:13px;font-weight:500;color:var(--muted)}
+.crumb b{color:var(--ink);font-weight:700}
+
+main{padding-top:20px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:920px){.grid{grid-template-columns:repeat(2,1fr)} h1{font-size:30px}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+
+.card{background:var(--panel);border:1px solid var(--hair);border-radius:16px;padding:18px 20px;
+  display:flex;flex-direction:column}
+
+.badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 9px;border-radius:980px;background:#f5f5f7;color:var(--muted);margin-bottom:10px}
+.badge.topic-despidos{background:#eaf3ff;color:var(--accent)}
+.badge.topic-cierres{background:#fceceb;color:var(--loss)}
+
+.dateline{font-size:12px;color:var(--muted);font-weight:500;margin-bottom:6px}
+.dateline b{color:var(--ink);font-weight:600}
+
+.card h2{font-weight:700;font-size:16.5px;letter-spacing:-.015em;line-height:1.32;margin-bottom:8px}
+.card h2 a{text-decoration:none}
+.card h2 a:hover{text-decoration:underline}
+
+.snippet{font-size:13px;color:var(--muted);line-height:1.5;font-weight:400;flex:1;margin-bottom:12px}
+
+.source-link{font-size:12.5px;font-weight:600;color:var(--accent);text-decoration:none}
+.source-link:hover{opacity:.7}
+
+.empty{grid-column:1/-1;padding:80px 20px;text-align:center;color:var(--muted);font-size:15px}
+
+footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--hair);
+  font-size:12px;color:var(--muted);line-height:1.7;font-weight:400}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Argentina · Economía del trabajo</div>
+  <h1>Despidos y cierres de empresas</h1>
+  <p class="sub">Registro cronológico relevado en medios argentinos: despidos, suspensiones, cierres de planta y quiebras. Curado a mano, actualizado a diario.</p>
+
+  <div class="controls">
+    <span class="ctl-label">Provincia</span>
+    <select id="filterProvincia"><option value="">Todas</option></select>
+    <span class="ctl-label">Departamento</span>
+    <select id="filterDepartamento"><option value="">Todos</option></select>
+    <input id="search" type="text" placeholder="Buscar...">
+    <span class="crumb"><b id="count">0</b> noticias</span>
+  </div>
+</header>
+
+<main>
+  <div id="list" class="grid"></div>
+</main>
+
+<footer>despidos-tracker · Visión Desarrollista · datos curados manualmente, fuente original siempre linkeada</footer>
+</div>
+
+<script>
+let allItems = [];
+
+async function loadData(){
+  try{
+    const res = await fetch('data/curated_data.json', {cache:'no-store'});
+    allItems = await res.json();
+  }catch(e){
+    allItems = [];
+  }
+  allItems.sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  populateFilters();
+  render();
+}
+
+function populateFilters(){
+  const provincias = [...new Set(allItems.map(i => i.provincia).filter(Boolean))].sort();
+  const provSel = document.getElementById('filterProvincia');
+  provincias.forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p; opt.textContent = p;
+    provSel.appendChild(opt);
+  });
+  provSel.addEventListener('change', () => { updateDepartamentos(); render(); });
+  document.getElementById('filterDepartamento').addEventListener('change', render);
+  document.getElementById('search').addEventListener('input', render);
+}
+
+function updateDepartamentos(){
+  const provincia = document.getElementById('filterProvincia').value;
+  const depSel = document.getElementById('filterDepartamento');
+  depSel.innerHTML = '<option value="">Todos</option>';
+  const deps = [...new Set(
+    allItems.filter(i => !provincia || i.provincia === provincia)
+            .map(i => i.departamento).filter(Boolean)
+  )].sort();
+  deps.forEach(d => {
+    const opt = document.createElement('option');
+    opt.value = d; opt.textContent = d;
+    depSel.appendChild(opt);
+  });
+}
+
+function fmtDate(iso){
+  if(!iso) return '';
+  const d = new Date(iso);
+  if(isNaN(d)) return '';
+  return d.toLocaleDateString('es-AR', {day:'2-digit', month:'short', year:'numeric'});
+}
+
+function topicLabel(t){
+  if(t === 'despidos') return 'Despidos';
+  if(t === 'cierres') return 'Cierre / quiebra';
+  return 'Nacional';
+}
+
+function render(){
+  const provincia = document.getElementById('filterProvincia').value;
+  const departamento = document.getElementById('filterDepartamento').value;
+  const q = document.getElementById('search').value.trim().toLowerCase();
+
+  const filtered = allItems.filter(i => {
+    if(provincia && i.provincia !== provincia) return false;
+    if(departamento && i.departamento !== departamento) return false;
+    if(q && !(`${i.title} ${i.snippet}`.toLowerCase().includes(q))) return false;
+    return true;
+  });
+
+  document.getElementById('count').textContent = filtered.length;
+
+  const list = document.getElementById('list');
+  if(filtered.length === 0){
+    list.innerHTML = '<div class="empty">Todavía no hay noticias publicadas para este filtro.</div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map(i => `
+    <article class="card">
+      <span class="badge topic-${i.topic || 'neutral'}">${topicLabel(i.topic)}</span>
+      <div class="dateline"><b>${escapeHtml(i.medio || 'Fuente desconocida')}</b> — ${escapeHtml(i.lugar || 'Nacional')} · ${fmtDate(i.date)}</div>
+      <h2><a href="${i.url}" target="_blank" rel="noopener">${escapeHtml(i.title)}</a></h2>
+      ${i.snippet ? `<p class="snippet">${escapeHtml(i.snippet)}</p>` : '<div class="snippet"></div>'}
+      <a class="source-link" href="${i.url}" target="_blank" rel="noopener">Fuente original →</a>
+    </article>
+  `).join('');
+}
+
+function escapeHtml(str){
+  const div = document.createElement('div');
+  div.textContent = str || '';
+  return div.innerHTML;
+}
+
+loadData();
+</script>
+</body>
+</html>
