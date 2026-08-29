@@ -285,21 +285,6 @@
     "status_at": "2026-08-29T21:12:38.613Z"
   },
   {
-    "id": "28e4c586dfc836b9",
-    "title": "Aquarium Mar del Plata: quiebra, denuncias, 60 animales a la deriva y una decisión para saldar deudas",
-    "medio": "La Nación",
-    "lugar": "Buenos Aires",
-    "provincia": "Buenos Aires",
-    "departamento": null,
-    "topic": "cierres",
-    "snippet": "",
-    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPbkl5MUx1UEUzZ21wSG5iQ2d0aDhqaTZ0Z3dIVVZFTWJVa3VkQ3prOEZrN2RSSXo5V0lpamR1MXJYMnNPR0NyUFBQcC1nLVg0b1c5NG1rTTRhalZQUndxTTNRT19xLVhTUDFSZjQyUS04dzBLTzZYa3JwVmNiQlhpU2tiV3R4aGg2dlg3SGlTZlZwOUhHaVlJRE5DYlQ?oc=5",
-    "date": "2026-08-25T20:34:00+00:00",
-    "scraped_at": "2026-08-29T21:31:44.063505+00:00",
-    "status": "pendiente",
-    "status_at": null
-  },
-  {
     "id": "cc0b3cffefffd755",
     "title": "Quiebra del ex Aquarium de Mar del Plata: tasaron en 40 mil dólares a cuatro pingüinos para pagar deudas - Perfil",
     "medio": "Perfil",
@@ -2501,6 +2486,21 @@
     "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQZGNCTVpJQnlLRmdJRkdPbTVMZmJEYUNRdkZKTjJCZWFMUm5WazJDRlJ4ZDVUSlRjRHZleFlaZUMwTlVXT1B5X2o4dTFtZ1llT0d4YjF3c0pPRjVZOWo0cllGYndNbWR2U3k3NHJoanVjVTdOZGhNSDJhVkJ5MDVvdVZsRmpvdXhJWDVWM011NXZuU3lQMDVQZThQWWJ3SVU5NHQxTWFEUFVkc0RKeVpvMnA1cGVOVjFPaUpDYmwwZFV0dW1PV09VWTVWdFlFdEZx?oc=5",
     "date": "2026-07-02T07:00:00+00:00",
     "scraped_at": "2026-08-29T10:17:33.054533+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "075d320d44988014",
+    "title": "Flybondi enfrenta un pedido de quiebra por una deuda de más de $660 millones con un hotel porteño - Perfil",
+    "medio": "Perfil",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "topic": "cierres",
+    "snippet": "<a href=\"https://news.google.com/rss/articles/CBMi3gFBVV95cUxQZmg3N1o1RWtzMGpJaHNsTlEzb1gzYmNtdldRMjVrUjBGM3BFNzdFcjZ3NGZlQllraVNYUm5IWm10T3U3VUF0Mjhwa1hHTE5VV0I0RmgwWlN3b0J4X0xmbUxsMEZIcWVKM2JtRGtYTUM2cW5WZ0hYYUJVSy10aG5QdmxFVkxNS2xHWjRmLVFKQ09pZG5NTTg3NWVrWGRqbFMydDd5eGFHN3N1dG",
+    "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQZmg3N1o1RWtzMGpJaHNsTlEzb1gzYmNtdldRMjVrUjBGM3BFNzdFcjZ3NGZlQllraVNYUm5IWm10T3U3VUF0Mjhwa1hHTE5VV0I0RmgwWlN3b0J4X0xmbUxsMEZIcWVKM2JtRGtYTUM2cW5WZ0hYYUJVSy10aG5QdmxFVkxNS2xHWjRmLVFKQ09pZG5NTTg3NWVrWGRqbFMydDd5eGFHN3N1dGRWV0gydXp6YlFScjR6bS1VUlZHUVZvTjRFc0NiMXJxTTFHRG5lYWZrYmlReU5kZV9FSlHSAeMBQVVfeXFMTUpFdE1GZHBhWVdzbHJnc1ZPb08wcTRaN05INHVXRnlEcUZTTjhXQVB6YmVSd3RmS3dtUU14aWg0RDhMdmJTTm56MWlWZDRnYnZhRE9HdmhRRHpaU2xMbEFwR085WnNmVE82Wld3Q1RiV242bWZCY0EwU3BiOGhRQXRwWlF3c19RY18wTUdUMWJtQUdRMzRPeFllRzd0Q3NyUDJTUEZuMkVwMHp1T0xNOFdNU1ZGVmJ5MGo5T2lxSm5QQXllQ0dza0E3SktkVkFnSnpjSjNhcFIxUllUc0xHSDFRYjA?oc=5",
+    "date": "2026-07-02T07:00:00+00:00",
+    "scraped_at": "2026-08-29T10:17:33.054879+00:00",
     "status": "pendiente",
     "status_at": null
   },
