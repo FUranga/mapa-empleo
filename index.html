@@ -153,6 +153,7 @@ footer{margin-top:14px;padding-top:16px;border-top:1px solid var(--hair);
 .drow .dl{font-size:12px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
 .drow .pc{font-size:11.5px;text-align:right;color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums}
 .drow .dl.neg,.drow .pc.neg{color:var(--loss)}.drow .dl.pos{color:var(--gain)}
+.drow.sel{background:#eef5ff;border-radius:8px}
 
 /* ── Empresas: detail toggle sectores ── */
 .emp-detail-toggle{margin-top:12px;font:inherit;font-size:12.5px;font-weight:600;color:var(--accent);
@@ -262,6 +263,7 @@ footer{margin-top:14px;padding-top:16px;border-top:1px solid var(--hair);
         <button data-v="Milei" class="on">Javier Milei</button>
       </div>
       <button class="linkbtn" id="emp-btn-volver" disabled>← Volver al país</button>
+      <button class="linkbtn" id="emp-btn-sector-reset" style="display:none">Ver todos los sectores</button>
       <div class="crumb" id="emp-crumb">Argentina</div>
     </div>
 
@@ -381,6 +383,15 @@ let DATA,GEO_PROV,GEO_DEPTO;
 let state={presi:'Milei',mapLevel:'provincia',nivel:'pais',provCode:null,deptCode:null,baTab:'provincia',serieMode:'desa',sectorFiltro:null};
 function sectorEntry(node,sector){
   return node&&node.sectores?node.sectores.find(s=>s.sector===sector):null;}
+function esGBAoResto(){return state.provCode==='06'&&state.baTab!=='provincia';}
+// Deriva el rotulo de fuente/periodo de la serie que efectivamente se va a dibujar,
+// en vez de asumirlo por nivel — asi el chart nunca dice "trimestral" mostrando
+// datos mensuales (o viceversa) si algun dia cambia la cobertura de una fuente.
+function fuentePeriodo(serie,fuenteBase){
+  if(!serie||!serie.length)return{periodo:'',fuente:fuenteBase};
+  const esTrim=serie[0].t.includes('-Q');
+  const periodo=`${fmtFecha(serie[0].t)} → ${fmtFecha(serie[serie.length-1].t)}`;
+  return{periodo,fuente:esTrim?'OEDE trimestral':fuenteBase};}
 let map,geoLayer;
 const tip=document.getElementById('tip');
 
@@ -472,7 +483,11 @@ function updateChrome(){
   const enPais=state.nivel==='pais';
   document.getElementById('seg-nivel').style.display=enPais?'inline-flex':'none';
   document.getElementById('lbl-nivel').style.display=enPais?'inline':'none';
-  const showDesa=state.nivel!=='departamento'&&!state.sectorFiltro;
+  // La desestacionalizacion solo existe en SIPA (pais y provincia-total); OEDE
+  // trimestral/departamental/sectores provinciales-departamentales no la tienen.
+  const showDesa=state.sectorFiltro
+    ? state.nivel==='pais'
+    : (state.nivel==='pais'||(state.nivel==='provincia'&&!esGBAoResto()));
   document.getElementById('ctl-desa').style.display=showDesa?'inline':'none';}
 
 function clampBounds(b){const s=Math.max(b.getSouth(),-56);
@@ -558,52 +573,31 @@ function currentEntity(){
 function drawPanels(){
   const{node,nombre}=currentEntity();
   const sf=state.sectorFiltro;
-  document.getElementById('t-total').textContent=sf?`${nombre} · ${sf}`:nombre;
-  const per=DATA.meta.periodos[state.presi];
-  const ultimoSIPA=DATA.meta.ultimo_sipa||DATA.meta.ultimo||'';
-  const ultimoDepto=DATA.meta.ultimo_depto||DATA.meta.ultimo||'';
   const useDesa=state.serieMode==='desa';
-  const finNota=state.nivel==='departamento'?(per[1]<DATA.meta.ultimo_depto?per[1]:DATA.meta.ultimo_depto):per[1];
-  {
-    const isGBAorResto = state.provCode==='06' && state.baTab!=='provincia';
-    const isDept = state.nivel==='departamento';
-    const desaLabel = (!isDept && !isGBAorResto && useDesa) ? ' · desestacionalizada' : ' · sin desestacionalizar';
-    const fuenteLabel = isDept ? ' · OEDE mensual' : (isGBAorResto ? ' · OEDE trimestral' : ' · SIPA mensual');
-    const periodoLabel = isGBAorResto
-      ? `Q4 ${per[0].slice(0,4)} → Q4 2025`
-      : `${fmtFecha(per[0])} → ${fmtFecha(finNota)}`;
-    document.getElementById('t-total-note').textContent=
-      `${state.presi==='Milei'?'Javier Milei':state.presi} · ${periodoLabel}${desaLabel}${fuenteLabel}`;
-  }
-  const titSec=document.getElementById('tit_sec');
-  if(titSec)titSec.textContent='Variación por sector';
-  const secPeriodEl=document.getElementById('sec-period-note');
-  if(secPeriodEl){
-    const isDeptSec = state.nivel==='departamento';
-    const isProvSec = state.nivel==='provincia';
-    const isGBASec = state.provCode==='06' && state.baTab!=='provincia';
-    // Sectores: trimestral para provincia y GBA/Resto, mensual para depto y país
-    const secFuente = (isProvSec || isGBASec) ? ' · OEDE trimestral' : (isDeptSec ? ' · OEDE mensual' : ' · SIPA mensual');
-    const secDesa = (!isDeptSec && !isProvSec && !isGBASec && useDesa) ? ' · desestacionalizada' : ' · sin desestacionalizar';
-    // Período: trimestral muestra Q4
-    const secPer = (isProvSec || isGBASec) ? ` · sectores: Q4 ${per[0].slice(0,4)} → Q4 2025` : '';
-    if(isProvSec || isGBASec){
-      // Sectores provinciales: mostrar período trimestral directamente
-      const finQ4Year = state.presi==='Milei' ? '2025' : per[1].slice(0,4);
-      secPeriodEl.textContent=`Q4 ${per[0].slice(0,4)} → Q4 ${finQ4Year} · sin desestacionalizar · OEDE trimestral`;
-    } else {
-      const fin_label = isDeptSec ? (per[1]<DATA.meta.ultimo_depto?per[1]:DATA.meta.ultimo_depto) : per[1];
-      secPeriodEl.textContent=`${fmtFecha(per[0])} → ${fmtFecha(fin_label)}${secDesa}${secFuente}`;
-    }}
+  const isGBAorResto=esGBAoResto();
+  document.getElementById('t-total').textContent=sf?`${nombre} · ${sf}`:nombre;
+
   const pv=provByCode();
   const baProv=block().provincias['Buenos Aires'];
   const isBA=state.nivel==='provincia'&&state.provCode==='06'&&baProv&&baProv.sub;
   const tabs=document.getElementById('ba-tabs');
   tabs.style.display=isBA?'inline-flex':'none';
   if(isBA)tabs.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.t===state.baTab));
+
+  // Fuente "esperada" por nivel — fuentePeriodo() la corrige si la serie real
+  // resulta trimestral (o si el fallback mensual entró a tallar en una provincia).
+  // El TOTAL de una provincia siempre sale de SIPA (igual que país); solo los
+  // SECTORES de una provincia dependen de OEDE trimestral (o su fallback).
+  const fuenteBaseTotal=state.nivel==='departamento'?'OEDE mensual':'SIPA mensual';
+  const fuenteBaseSec=state.nivel==='departamento'?'OEDE mensual'
+    :state.nivel==='provincia'?(isGBAorResto?'OEDE trimestral':'OEDE mensual (estimado, suma de departamentos)')
+    :'SIPA mensual';
+  const fuenteBase=sf?fuenteBaseSec:fuenteBaseTotal;
+
   let serieActual,delta;
   if(sf){
-    const se=sectorEntry(node,sf);
+    const secArr=(state.nivel==='pais'&&useDesa)?block().pais?.sectores_desa:(node&&node.sectores);
+    const se=secArr?secArr.find(s=>s.sector===sf):null;
     serieActual=se?se.serie:[];
     delta=se?se.delta:null;
   }else{
@@ -615,12 +609,37 @@ function drawPanels(){
   }
   const bd=document.getElementById('big-delta');
   bd.textContent=fmt(delta);bd.className='big '+(delta>=0?'pos':'neg');
-  const secCard=document.getElementById('sec-card');
-  const mostrarSecCard=!sf||state.nivel==='pais';
-  if(secCard)secCard.style.display=mostrarSecCard?'block':'none';
+
+  {
+    const{periodo,fuente}=fuentePeriodo(serieActual,fuenteBase);
+    const desaAplica=state.nivel==='pais'||(state.nivel==='provincia'&&!isGBAorResto&&!sf);
+    const desaLabel=desaAplica?(useDesa?' · desestacionalizada':' · sin desestacionalizar')
+      :(fuente==='OEDE trimestral'?' · sin desestacionalizar':'');
+    document.getElementById('t-total-note').textContent=
+      `${state.presi==='Milei'?'Javier Milei':state.presi}${periodo?' · '+periodo:''}${desaLabel} · ${fuente}`;
+  }
+
+  const titSec=document.getElementById('tit_sec');
+  if(titSec)titSec.textContent='Variación por sector';
   const secDesa=state.nivel==='pais'?block().pais?.sectores_desa:(node?.sectores_desa||null);
+  const sectoresBase=node?node.sectores:[];
+  const sectoresUsados=(state.nivel==='pais'&&useDesa&&secDesa&&secDesa.length)?secDesa:sectoresBase;
+  const secPeriodEl=document.getElementById('sec-period-note');
+  if(secPeriodEl){
+    const primerSector=sectoresUsados&&sectoresUsados.length?sectoresUsados[0]:null;
+    const{periodo,fuente}=fuentePeriodo(primerSector?primerSector.serie:null,fuenteBaseSec);
+    const desaAplicaSec=state.nivel==='pais';
+    const desaLabelSec=desaAplicaSec?(useDesa?' · desestacionalizada':' · sin desestacionalizar')
+      :(fuente==='OEDE trimestral'?' · sin desestacionalizar':'');
+    secPeriodEl.textContent=`${periodo}${desaLabelSec} · ${fuente}`;
+  }
+
+  // El panel de sectores queda siempre visible: ademas de mostrar la
+  // composicion sectorial del nivel actual, funciona como menu para
+  // cambiar de industria filtrada sin tener que volver al pais primero.
+  document.getElementById('sec-card').style.display='block';
   drawLine(serieActual);
-  if(mostrarSecCard)drawBars(node?node.sectores:[],secDesa);
+  drawBars(sectoresBase,secDesa);
   drawDetail(node,state.useDesa);}
 
 function drawLine(serie){
@@ -756,7 +775,21 @@ function drawRanking(){
 // ══════════════════════════════════════════
 let EMP_DATA=null;
 let empMap=null,empGeoLayer=null;
-const empState={presi:'Milei',provNombre:null};
+const empState={presi:'Milei',provNombre:null,sectorFiltro:null};
+// Serie de un macro-sector de empresas: si agrupa un solo sector crudo de la
+// SRT se reusa su serie tal cual; si agrupa varios (ej. "Servicios"), se suman
+// mes a mes. Tambien sirve para un sector crudo suelto (clic en "detalle"),
+// ya que EMP_MACRO_GRUPOS[nombre] cae al fallback [nombre] si no es macro.
+function empSerieParaSector(nombre,pais){
+  const hijos=(typeof EMP_MACRO_GRUPOS!=='undefined'&&EMP_MACRO_GRUPOS[nombre])||[nombre];
+  if(hijos.length===1){
+    const raw=pais.sectores.find(s=>s.sector===hijos[0]);
+    return raw?raw.serie:null;}
+  const mapa={};
+  hijos.forEach(h=>{
+    const raw=pais.sectores.find(s=>s.sector===h);
+    if(raw&&raw.serie)raw.serie.forEach(p=>{if(p.v!=null)mapa[p.t]=(mapa[p.t]||0)+p.v;});});
+  return Object.keys(mapa).sort().map(t=>({t,v:mapa[t]}));}
 const empTip=document.getElementById('emp-tip');
 
 // Períodos por presidencia en empresas
@@ -779,6 +812,8 @@ fetch('https://raw.githubusercontent.com/FUranga/mapa-empleo/main/empresas.json'
     document.getElementById('emp-btn-volver').disabled=true;
     document.getElementById('emp-crumb').innerHTML='Argentina';
     renderEmp();};
+  document.getElementById('emp-btn-sector-reset').onclick=()=>{
+    empState.sectorFiltro=null;renderEmp();};
   if(document.getElementById('tab-empresas').classList.contains('on')){
     initEmpMap();renderEmp();}
 }).catch(e=>console.warn('empresas.json:',e.message));
@@ -862,10 +897,13 @@ function drawEmpMap(){
 function drawEmpPanels(){
   const{inicio,fin}=empPer();
   const pais=EMP_DATA.pais;
+  const sf=empState.provNombre?null:empState.sectorFiltro; // sin datos de sector por provincia
 
-  // Mostrar/ocultar panel de sectores según nivel
+  // El panel de sectores solo existe a nivel nacional (la SRT no cruza
+  // sector x jurisdiccion) — a nivel provincia no hay nada que mostrar.
   const empSecCard=document.getElementById('emp-sec-card');
   if(empSecCard)empSecCard.style.display=empState.provNombre?'none':'block';
+  document.getElementById('emp-btn-sector-reset').style.display=sf?'inline-block':'none';
 
   if(empState.provNombre){
     // Vista de provincia — solo serie temporal, sin sectores
@@ -873,27 +911,37 @@ function drawEmpPanels(){
     const v=empValorProv(empState.provNombre);
     document.getElementById('emp-t-title').textContent=empState.provNombre;
     document.getElementById('emp-t-note').textContent=
-      `${empState.presi==='Milei'?'Javier Milei':'Alberto Fernández'} · ${fmtFecha(inicio)} → ${fmtFecha(fin)}`;
+      `${empState.presi==='Milei'?'Javier Milei':'Alberto Fernández'} · ${fmtFecha(inicio)} → ${fmtFecha(fin)} · SRT`;
+    document.getElementById('emp-crumb').innerHTML=`<b>${empState.provNombre}</b>`;
     const bd=document.getElementById('emp-big-delta');
     if(v){bd.textContent=fmt(v.delta);bd.className='big '+(v.delta>=0?'pos':'neg');}
     else{bd.textContent='–';bd.className='big';}
     drawEmpLine(empGetSerie(p.serie),'emp-chart-line','empresas');
   }else{
     // Vista nacional
-    document.getElementById('emp-t-title').textContent='Argentina';
+    document.getElementById('emp-t-title').textContent=sf?`Argentina · ${sf}`:'Argentina';
+    document.getElementById('emp-crumb').innerHTML=sf?`<b>${sf}</b>`:'Argentina';
     document.getElementById('emp-t-note').textContent=
-      `${empState.presi==='Milei'?'Javier Milei':'Alberto Fernández'} · ${fmtFecha(inicio)} → ${fmtFecha(fin)}`;
-    const serieFilt=empGetSerie(pais.serie);
-    const base=serieFilt[0]?.v||0;
-    const ult=serieFilt[serieFilt.length-1]?.v||0;
-    const delta=ult-base;
+      `${empState.presi==='Milei'?'Javier Milei':'Alberto Fernández'} · ${fmtFecha(inicio)} → ${fmtFecha(fin)} · SRT`;
+    let serieFilt,delta;
+    if(sf){
+      const serieCompleta=empSerieParaSector(sf,pais);
+      serieFilt=serieCompleta?empGetSerie(serieCompleta):[];
+      delta=(serieFilt[0]?.v!=null&&serieFilt[serieFilt.length-1]?.v!=null)
+        ?serieFilt[serieFilt.length-1].v-serieFilt[0].v:null;
+    }else{
+      serieFilt=empGetSerie(pais.serie);
+      const base=serieFilt[0]?.v||0;
+      const ult=serieFilt[serieFilt.length-1]?.v||0;
+      delta=ult-base;
+    }
     const bd=document.getElementById('emp-big-delta');
     bd.textContent=fmt(delta);bd.className='big '+(delta>=0?'pos':'neg');
     drawEmpLine(serieFilt,'emp-chart-line','empresas');
     drawEmpBars(pais.sectores||[],inicio,fin,'emp-chart-bars');
   }
   document.getElementById('emp-sec-note').textContent=
-    `${fmtFecha(inicio)} → ${fmtFecha(fin)}`;}
+    `${fmtFecha(inicio)} → ${fmtFecha(fin)} · SRT`;}
 
 function drawEmpLine(serie,elId,unidad){
   const el=document.getElementById(elId);
@@ -972,18 +1020,22 @@ function buildDetalleRows(sectores,inicio,fin){
     return{sector:s.sector,delta:d.delta,pct:d.pct};
   }).filter(Boolean).sort((a,b)=>a.delta-b.delta);}
 
-function renderEmpBarRows(rows){
+function renderEmpBarRows(rows,seleccionado){
   const maxAbs=Math.max(...rows.map(r=>Math.abs(r.delta||0)),1);
   const bar=dv=>{const W=104,cx=W/2,w=(Math.abs(dv)/maxAbs)*(W/2),pos=dv>=0;
     const x=pos?cx:cx-w,col=pos?F.gain:F.loss;
     return`<svg width="${W}" height="12" style="vertical-align:middle"><line x1="${cx}" y1="0" x2="${cx}" y2="12" stroke="${F.hair}"/><rect x="${x.toFixed(1)}" y="2" width="${Math.max(w,1).toFixed(1)}" height="8" rx="2" fill="${col}"/></svg>`;};
   return rows.map(r=>{const cls=r.delta>=0?'pos':'neg';
-    return`<div class="srow">
+    const sel=seleccionado===r.sector?' sel':'';
+    return`<div class="srow${sel}" data-sector="${r.sector}">
       <span class="nm">${r.sector}</span>
       <span class="bar">${bar(r.delta)}</span>
       <span class="dl ${cls}">${fmt(r.delta)}</span>
       <span class="pc ${cls}">${r.pct==null?'':((r.pct>=0?'+':'')+r.pct.toFixed(1)+'%')}</span>
     </div>`;}).join('');}
+function wireEmpSectorClicks(containerEl,selector){
+  containerEl.querySelectorAll(selector).forEach(row=>{
+    row.onclick=()=>{empState.sectorFiltro=row.dataset.sector;renderEmp();};});}
 
 let empDetailOpen=false;
 function drawEmpBars(sectores,inicio,fin,elId){
@@ -991,7 +1043,8 @@ function drawEmpBars(sectores,inicio,fin,elId){
   if(!sectores||!sectores.length){el.innerHTML='<div class="note">Sin datos sectoriales</div>';return;}
   const macroRows=buildMacroRows(sectores,inicio,fin);
   const detalleRows=buildDetalleRows(sectores,inicio,fin);
-  el.innerHTML=renderEmpBarRows(macroRows);
+  el.innerHTML=renderEmpBarRows(macroRows,empState.sectorFiltro);
+  wireEmpSectorClicks(el,'.srow');
   const btn=document.getElementById('emp-detail-toggle');
   const tbl=document.getElementById('emp-detail-table');
   if(btn){
@@ -1003,9 +1056,11 @@ function drawEmpBars(sectores,inicio,fin,elId){
       tbl.style.display=empDetailOpen?'block':'none';
       if(empDetailOpen){
         tbl.innerHTML=detalleRows.map(r=>{const cls=r.delta>=0?'pos':'neg';
-          return`<div class="drow"><span class="nm">${r.sector}</span>`+
+          const sel=empState.sectorFiltro===r.sector?' sel':'';
+          return`<div class="drow${sel}" data-sector="${r.sector}" style="cursor:pointer"><span class="nm">${r.sector}</span>`+
             `<span class="dl ${cls}">${fmt(r.delta)}</span>`+
-            `<span class="pc ${cls}">${r.pct==null?'':(r.pct>=0?'+':'')+r.pct.toFixed(1)+'%'}</span></div>`;}).join('');}};
+            `<span class="pc ${cls}">${r.pct==null?'':(r.pct>=0?'+':'')+r.pct.toFixed(1)+'%'}</span></div>`;}).join('');
+        wireEmpSectorClicks(tbl,'.drow');}};
   }
 }
 

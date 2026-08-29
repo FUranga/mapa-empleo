@@ -439,12 +439,15 @@ def build_empleo(bytes_sipa, bytes_dept, bytes_xlsx=None, bytes_prov_trim=None):
                         det_prov.append({'sector': subrama, 'delta': sd2, 'pct': sp2})
                 det_prov.sort(key=lambda x: x['delta'])
             else:
+                # Fallback: sin cobertura trimestral OEDE para esta provincia,
+                # se estima sumando el CSV departamental (mensual, no trimestral).
                 ps_sec = prov_sec.get(nombre, {})
                 secs_prov = []
                 for sector, sd in ps_sec.items():
                     sd2, sp2 = delta_pct(sd, ini, fin_dept)
                     if sd2 is not None:
-                        secs_prov.append({'sector': sector, 'delta': sd2, 'pct': sp2})
+                        secs_prov.append({'sector': sector, 'delta': sd2, 'pct': sp2,
+                                          'serie': slice_t(sd, ini, fin_dept)})
                 secs_prov.sort(key=lambda x: x['delta'])
                 det_prov = []
 
