@@ -197,7 +197,7 @@ function render(){
   list.innerHTML = pageItems.map(i => `
     <article class="card">
       <span class="badge topic-${i.topic || 'neutral'}">${topicLabel(i.topic)}</span>
-      <div class="dateline"><b>${escapeHtml(i.medio || 'Fuente desconocida')}</b>${i.lugar ? ` — ${escapeHtml(i.lugar)}` : ''} · ${fmtDate(i.date)}</div>
+      <div class="dateline"><b>${escapeHtml(i.medio || 'Fuente desconocida')}</b>${i.provincia ? ` — ${escapeHtml(i.provincia)}` : ''} · ${fmtDate(i.date)}</div>
       <h2><a href="${i.url}" target="_blank" rel="noopener">${escapeHtml(cleanTitle(i.title, i.medio))}</a></h2>
       ${i.snippet ? `<p class="snippet">${escapeHtml(stripHtml(i.snippet))}</p>` : ''}
     </article>
