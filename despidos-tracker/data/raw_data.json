@@ -930,6 +930,22 @@
     "status_at": "2026-08-29T17:54:28.664Z"
   },
   {
+    "id": "manual-mtf05atz-f08a5f",
+    "title": "Metalfor despidió a 225 empleados en Córdoba",
+    "medio": "Perfil",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "topic": null,
+    "snippet": "La fabricante de maquinaria agrícola, con un pasivo financiero superior a $52.000 millones, redujo un 60% su plantilla directa en la planta de Marcos Juárez después de que la UOM rechazara una propuesta inicial de la empresa de recortar hasta el 70% del personal.",
+    "url": "https://www.perfil.com/noticias/cordoba/metalfor-confirman-mas-de-200-despidos-por-caida-en-las-ventas-y-proceso-preventivo-de-crisis.phtml",
+    "date": "2026-08-06T00:00:00.000Z",
+    "scraped_at": "2026-08-29T23:18:57.815Z",
+    "status": "pendiente",
+    "status_at": null,
+    "manual": true
+  },
+  {
     "id": "2afe83ee51d6bdf4",
     "title": "De caso de éxito por incorporar flota GNC al concurso preventivo - Punto Biz",
     "medio": "Punto Biz",
