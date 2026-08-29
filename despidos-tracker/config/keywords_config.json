@@ -1,5 +1,5 @@
 {
-  "_readme": "Keywords que definen si una noticia es relevante (topic_keywords) y señales que descartan falsos positivos (noise_signals). Editable sin tocar código. Todo se matchea en minúsculas y sin tildes sobre título+bajada.",
+  "_readme": "Keywords que definen si una noticia es relevante (topic_keywords) y señales que descartan falsos positivos (noise_signals). blocked_medios: nombres de medios a ignorar directamente (agregalos vos cuando veas uno que no querés que vuelva a aparecer, ej. \"El Blog Ese\"). Editable sin tocar código. Todo se matchea en minúsculas y sin tildes sobre título+bajada.",
 
   "topic_keywords": {
     "despidos": [
@@ -28,5 +28,7 @@
     "cierre del festival", "cierre de temporada", "acto de cierre"
   ],
 
-  "note_provincia_default": "Si una noticia no matchea ninguna provincia por texto, se le asigna la provincia de la fuente si es tier=provincial. Si es tier=nacional o sectorial y no matchea, provincia queda null (se muestra como 'Nacional' en el tablero)."
+  "note_provincia_default": "Si una noticia no matchea ninguna provincia por texto, se le asigna la provincia de la fuente si es tier=provincial. Si es tier=nacional o sectorial y no matchea, provincia queda null (se muestra como 'Nacional' en el tablero).",
+
+  "blocked_medios": []
 }
