@@ -346,6 +346,7 @@ function renderActionBar(){
   } else {
     buttonsHtml = `<button id="btnRevert" class="revert" disabled>Revertir a pendiente</button>`;
   }
+  buttonsHtml += `<button id="btnSaveEdits" class="savechanges secondary">Guardar cambios</button>`;
   bar.innerHTML = `<span class="sel-count" id="selCount">0 seleccionadas</span>` + buttonsHtml;
 
   if(currentTab === 'pendiente'){
@@ -356,11 +357,27 @@ function renderActionBar(){
   } else {
     $('btnRevert').addEventListener('click', () => doAction('revertir'));
   }
+  $('btnSaveEdits').addEventListener('click', saveEdits);
 }
 
 function updateActionBar(){
   $('selCount').textContent = `${selected.size} seleccionada${selected.size===1?'':'s'}`;
-  document.querySelectorAll('.action-bar button:not(.secondary)').forEach(b => b.disabled = selected.size === 0);
+  document.querySelectorAll('.action-bar button.discard, .action-bar button.publish, .action-bar button.unpublish, .action-bar button.revert')
+    .forEach(b => b.disabled = selected.size === 0);
+}
+
+async function saveEdits(){
+  setStatus('Guardando ediciones en GitHub...', '');
+  try{
+    const rawRes = await ghPutFile('despidos-tracker/data/raw_data.json', rawItems, rawSha, 'admin: guarda ediciones de titulo/bajada/geo');
+    rawSha = rawRes.content.sha;
+    const curatedToSave = curatedItems.map(({status, ...rest}) => rest);
+    const curRes = await ghPutFile('despidos-tracker/data/curated_data.json', curatedToSave, curatedSha, 'admin: guarda ediciones de titulo/bajada/geo');
+    curatedSha = curRes.content.sha;
+    setStatus('Cambios guardados.', 'ok');
+  }catch(e){
+    setStatus('Error guardando: ' + e.message, 'err');
+  }
 }
 
 function switchTab(tab){
