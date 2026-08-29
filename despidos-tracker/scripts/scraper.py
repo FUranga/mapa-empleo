@@ -16,6 +16,7 @@ Uso:
   python scraper.py --mode daily --hours 48
 """
 import argparse
+import re
 import time
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
@@ -37,6 +38,29 @@ TOPIC_QUERIES = [
 USER_AGENT = "Mozilla/5.0 (compatible; ArgentinaDespidosTracker/1.0)"
 REQUEST_TIMEOUT = 20
 SLEEP_BETWEEN_REQUESTS = 1.5
+
+_TAG_RE = re.compile(r"<[^>]+>")
+
+
+def strip_html(text):
+    """Saca tags HTML (Google News mete <a>, <font>, etc en la descripcion)."""
+    if not text:
+        return ""
+    text = _TAG_RE.sub(" ", text)
+    text = text.replace("&nbsp;", " ").replace("&amp;", "&").replace("&#39;", "'")
+    text = text.replace("&quot;", '"').replace("&lt;", "<").replace("&gt;", ">")
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def clean_title(title, medio):
+    """Saca el sufijo tipo 'Titulo - Medio' que agrega Google News al titulo."""
+    if not title:
+        return title
+    title = title.strip()
+    if medio:
+        pattern = r"\s*[-|\u2013]\s*" + re.escape(medio) + r"\s*$"
+        title = re.sub(pattern, "", title, flags=re.IGNORECASE).strip()
+    return title
 
 
 def fetch_feed(url):
@@ -89,15 +113,21 @@ def build_item(entry, source, keywords_cfg, provincias_lookup, fallback_medio):
     departamento = tag_departamento(title, summary, source, provincias_lookup)
     medio = extract_medio(entry, fallback_medio)
 
+    blocked = {m.strip().lower() for m in keywords_cfg.get("blocked_medios", [])}
+    if medio and medio.strip().lower() in blocked:
+        return None
+
+    clean_snippet = strip_html(summary)[:280]
+
     return {
         "id": make_id(link),
-        "title": title,
+        "title": clean_title(title, medio),
         "medio": medio,
         "lugar": provincia or "Nacional",
         "provincia": provincia,
         "departamento": departamento,
         "topic": topic,
-        "snippet": (summary or "")[:280],
+        "snippet": clean_snippet,
         "url": link,
         "date": date_iso,
         "scraped_at": now_iso(),
