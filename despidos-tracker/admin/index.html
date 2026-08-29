@@ -71,13 +71,23 @@ main{padding-top:16px}
 .row h3 a:hover{text-decoration:underline}
 .row .snippet{font-size:12.5px;color:var(--muted)}
 .row .source-link{font-size:11.5px;font-weight:600;color:var(--accent);text-decoration:none}
-.edit-title, .edit-snippet{
-  display:block;width:100%;font:inherit;color:var(--ink);
+.edit-title, .edit-snippet, .edit-geo{
+  display:block;font:inherit;color:var(--ink);
   background:#f5f5f7;border:none;border-radius:8px;padding:6px 9px;margin-bottom:6px;
 }
+.edit-title, .edit-snippet{width:100%}
 .edit-title{font-weight:700;font-size:14px}
 .edit-snippet{font-size:12.5px;color:var(--muted);resize:vertical;min-height:38px;font-family:inherit}
-.edit-title:focus, .edit-snippet:focus{outline:2px solid var(--accent);outline-offset:1px}
+.edit-title:focus, .edit-snippet:focus, .edit-geo:focus{outline:2px solid var(--accent);outline-offset:1px}
+.geo-row{display:flex;gap:6px;margin-bottom:6px}
+.edit-geo{font-size:11.5px;width:140px}
+.edit-geo::placeholder{color:var(--muted)}
+
+.addf-input{
+  font:inherit;font-size:13px;color:var(--ink);background:#fff;
+  border:1px solid var(--hair);border-radius:8px;padding:8px 10px;
+}
+.addf-input:focus{outline:2px solid var(--accent);outline-offset:1px}
 
 .action-bar{position:sticky;bottom:0;background:var(--bg);border-top:2px solid var(--hair);
   padding:14px 0;display:flex;gap:10px;align-items:center;max-width:1100px;margin:0 auto}
@@ -102,6 +112,30 @@ main{padding-top:16px}
   <button id="reload" class="secondary">Recargar datos</button>
 </div>
 <div id="status" class="status"></div>
+
+<button id="toggleAddForm" class="secondary" style="margin:12px 0 0">+ Agregar noticia manual</button>
+<div id="addForm" style="display:none; margin-top:12px; padding:16px; background:#f9f9fa; border-radius:12px">
+  <div style="display:flex; flex-direction:column; gap:8px; max-width:640px">
+    <input id="newTitle" placeholder="Título" class="addf-input">
+    <textarea id="newSnippet" placeholder="Bajada (opcional)" rows="2" class="addf-input"></textarea>
+    <input id="newUrl" placeholder="Link a la fuente" class="addf-input">
+    <input id="newMedio" placeholder="Medio" class="addf-input">
+    <div style="display:flex; gap:8px">
+      <select id="newTopic" class="addf-input" style="flex:1">
+        <option value="">Sin etiqueta</option>
+        <option value="despidos">Despidos</option>
+        <option value="cierres">Cierre / quiebra</option>
+      </select>
+      <input id="newProvincia" placeholder="Provincia (vacío = Nacional)" class="addf-input" style="flex:1">
+      <input id="newDepartamento" placeholder="Ciudad" class="addf-input" style="flex:1">
+    </div>
+    <input id="newDate" type="date" class="addf-input" style="width:180px">
+    <div style="display:flex; gap:8px; margin-top:4px">
+      <button id="submitAddForm" class="publish">Agregar a Pendientes</button>
+      <button id="cancelAddForm" class="secondary">Cancelar</button>
+    </div>
+  </div>
+</div>
 
 <div class="tabs">
   <button id="tabPendiente" class="active">Pendientes <span class="tab-count" id="countPendiente"></span></button>
@@ -268,9 +302,13 @@ function render(){
       <div class="row">
         <input type="checkbox" data-id="${i.id}" ${selected.has(i.id) ? 'checked' : ''}>
         <div class="body">
-          <div class="dateline"><b>${escapeHtml(i.medio || '?')}</b> — ${escapeHtml(i.lugar || 'Nacional')} · ${fmtDate(i.date)} · <a class="source-link" href="${i.url}" target="_blank" rel="noopener">abrir fuente ↗</a></div>
+          <div class="dateline"><b>${escapeHtml(i.medio || '?')}</b> · ${fmtDate(i.date)} · <a class="source-link" href="${i.url}" target="_blank" rel="noopener">abrir fuente ↗</a></div>
           <input class="edit-title" data-id="${i.id}" data-field="title" value="${escapeHtml(cleanTitle(i.title, i.medio))}">
           <textarea class="edit-snippet" data-id="${i.id}" data-field="snippet" rows="2">${escapeHtml(stripHtml(i.snippet||''))}</textarea>
+          <div class="geo-row">
+            <input class="edit-geo" data-id="${i.id}" data-field="provincia" value="${escapeHtml(i.provincia||'')}" placeholder="Provincia (vacío = Nacional)">
+            <input class="edit-geo" data-id="${i.id}" data-field="departamento" value="${escapeHtml(i.departamento||'')}" placeholder="Ciudad">
+          </div>
         </div>
       </div>
     `).join('');
@@ -280,10 +318,12 @@ function render(){
         updateActionBar();
       });
     });
-    list.querySelectorAll('.edit-title, .edit-snippet').forEach(el => {
+    list.querySelectorAll('.edit-title, .edit-snippet, .edit-geo').forEach(el => {
       el.addEventListener('input', () => {
         const item = findItemById(el.dataset.id);
-        if(item) item[el.dataset.field] = el.value;
+        if(!item) return;
+        item[el.dataset.field] = el.value;
+        if(el.dataset.field === 'provincia') item.lugar = el.value || null;
       });
     });
   }
@@ -334,6 +374,67 @@ $('tabPendiente').addEventListener('click', () => switchTab('pendiente'));
 $('tabPublicado').addEventListener('click', () => switchTab('publicado'));
 $('tabDescartado').addEventListener('click', () => switchTab('descartado'));
 $('reload').addEventListener('click', loadAll);
+
+function makeManualId(){
+  return 'manual-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
+}
+
+$('toggleAddForm').addEventListener('click', () => {
+  const f = $('addForm');
+  const opening = f.style.display === 'none';
+  f.style.display = opening ? 'block' : 'none';
+  if(opening && !$('newDate').value){
+    $('newDate').value = new Date().toISOString().slice(0, 10);
+  }
+});
+$('cancelAddForm').addEventListener('click', () => {
+  $('addForm').style.display = 'none';
+  ['newTitle','newSnippet','newUrl','newMedio','newProvincia','newDepartamento'].forEach(id => $(id).value = '');
+  $('newTopic').value = '';
+});
+
+$('submitAddForm').addEventListener('click', async () => {
+  const title = $('newTitle').value.trim();
+  const url = $('newUrl').value.trim();
+  const medio = $('newMedio').value.trim();
+  if(!title || !url || !medio){
+    setStatus('Falta título, link o medio — son obligatorios.', 'err');
+    return;
+  }
+  const provincia = $('newProvincia').value.trim() || null;
+  if(!rawSha){
+    setStatus('Primero cargá los datos ("Recargar datos") antes de agregar una noticia.', 'err');
+    return;
+  }
+  const item = {
+    id: makeManualId(),
+    title,
+    medio,
+    lugar: provincia,
+    provincia,
+    departamento: $('newDepartamento').value.trim() || null,
+    topic: $('newTopic').value || null,
+    snippet: $('newSnippet').value.trim(),
+    url,
+    date: ($('newDate').value ? new Date($('newDate').value).toISOString() : new Date().toISOString()),
+    scraped_at: new Date().toISOString(),
+    status: 'pendiente',
+    status_at: null,
+    manual: true,
+  };
+  rawItems = [item, ...rawItems];
+  sortByDate(rawItems);
+  setStatus('Guardando noticia nueva en GitHub...', '');
+  try{
+    const rawRes = await ghPutFile('despidos-tracker/data/raw_data.json', rawItems, rawSha, 'admin: agrega noticia manual');
+    rawSha = rawRes.content.sha;
+    $('cancelAddForm').click();
+    setStatus('Noticia agregada a Pendientes.', 'ok');
+    if(currentTab !== 'pendiente') switchTab('pendiente'); else render();
+  }catch(e){
+    setStatus('Error agregando noticia: ' + e.message, 'err');
+  }
+});
 
 async function doAction(action){
   setStatus('Aplicando cambios en GitHub...', '');
