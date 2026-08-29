@@ -63,6 +63,23 @@ def clean_title(title, medio):
     return title
 
 
+def real_snippet(raw_summary, clean_title_text, medio):
+    """Google News mete en la descripcion literalmente 'Titulo Medio' (no es
+    una bajada real). Si el resumen, sacando el nombre del medio, coincide
+    con el titulo, no es contenido nuevo -> devolvemos vacio en vez de
+    duplicar el titulo como si fuera una bajada."""
+    s = strip_html(raw_summary)
+    if not s:
+        return ""
+    s_norm = s.strip().lower().rstrip(".")
+    if medio:
+        s_norm = re.sub(r"\s*" + re.escape(medio.lower()) + r"\s*$", "", s_norm).strip()
+    t_norm = (clean_title_text or "").strip().lower().rstrip(".")
+    if s_norm == t_norm:
+        return ""
+    return s[:280]
+
+
 def fetch_feed(url):
     try:
         resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=REQUEST_TIMEOUT)
@@ -117,11 +134,12 @@ def build_item(entry, source, keywords_cfg, provincias_lookup, fallback_medio):
     if medio and medio.strip().lower() in blocked:
         return None
 
-    clean_snippet = strip_html(summary)[:280]
+    title_clean = clean_title(title, medio)
+    clean_snippet = real_snippet(summary, title_clean, medio)
 
     return {
         "id": make_id(link),
-        "title": clean_title(title, medio),
+        "title": title_clean,
         "medio": medio,
         "lugar": provincia or "Nacional",
         "provincia": provincia,
