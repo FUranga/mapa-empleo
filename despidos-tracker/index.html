@@ -74,24 +74,21 @@ footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--hair);
 <body>
 <div class="wrap">
 
-<header>>
+<header>
   <h1>Últimas noticias sobre despidos y cierres de empresas</h1>
 
   <div class="controls">
     <span class="ctl-label">Provincia</span>
     <select id="filterProvincia"><option value="">Todas</option></select>
-    <span class="ctl-label">Departamento</span>
-    <select id="filterDepartamento"><option value="">Todos</option></select>
+    <span class="ctl-label">Ciudad</span>
+    <select id="filterDepartamento"><option value="">Todas</option></select>
     <input id="search" type="text" placeholder="Buscar...">
-    <span class="crumb"><b id="count">0</b> noticias</span>
   </div>
 </header>
 
 <main>
   <div id="list" class="grid"></div>
 </main>
-
-<footer>despidos-tracker · Visión Desarrollista · datos curados manualmente, fuente original siempre linkeada</footer>
 </div>
 
 <script>
@@ -125,7 +122,7 @@ function populateFilters(){
 function updateDepartamentos(){
   const provincia = document.getElementById('filterProvincia').value;
   const depSel = document.getElementById('filterDepartamento');
-  depSel.innerHTML = '<option value="">Todos</option>';
+  depSel.innerHTML = '<option value="">Todas</option>';
   const deps = [...new Set(
     allItems.filter(i => !provincia || i.provincia === provincia)
             .map(i => i.departamento).filter(Boolean)
@@ -150,6 +147,22 @@ function topicLabel(t){
   return 'Nacional';
 }
 
+function stripHtml(html){
+  const div = document.createElement('div');
+  div.innerHTML = html || '';
+  return (div.textContent || div.innerText || '').replace(/\s+/g, ' ').trim();
+}
+
+function cleanTitle(title, medio){
+  let t = (title || '').trim();
+  if(medio){
+    // saca sufijos tipo "Titulo - Medio" o "Titulo | Medio" que vienen de Google News
+    const re = new RegExp(`\\s*[-|–]\\s*${medio.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'i');
+    t = t.replace(re, '').trim();
+  }
+  return t;
+}
+
 function render(){
   const provincia = document.getElementById('filterProvincia').value;
   const departamento = document.getElementById('filterDepartamento').value;
@@ -162,8 +175,6 @@ function render(){
     return true;
   });
 
-  document.getElementById('count').textContent = filtered.length;
-
   const list = document.getElementById('list');
   if(filtered.length === 0){
     list.innerHTML = '<div class="empty">Todavía no hay noticias publicadas para este filtro.</div>';
@@ -174,8 +185,8 @@ function render(){
     <article class="card">
       <span class="badge topic-${i.topic || 'neutral'}">${topicLabel(i.topic)}</span>
       <div class="dateline"><b>${escapeHtml(i.medio || 'Fuente desconocida')}</b> — ${escapeHtml(i.lugar || 'Nacional')} · ${fmtDate(i.date)}</div>
-      <h2><a href="${i.url}" target="_blank" rel="noopener">${escapeHtml(i.title)}</a></h2>
-      ${i.snippet ? `<p class="snippet">${escapeHtml(i.snippet)}</p>` : '<div class="snippet"></div>'}
+      <h2><a href="${i.url}" target="_blank" rel="noopener">${escapeHtml(cleanTitle(i.title, i.medio))}</a></h2>
+      ${i.snippet ? `<p class="snippet">${escapeHtml(stripHtml(i.snippet))}</p>` : '<div class="snippet"></div>'}
       <a class="source-link" href="${i.url}" target="_blank" rel="noopener">Fuente original →</a>
     </article>
   `).join('');
