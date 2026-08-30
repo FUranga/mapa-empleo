@@ -2,13 +2,13 @@
   "_readme": "Lookup de provincias con aliases y ciudades principales para geo-tagging por keyword sobre titulo+bajada. El nivel de departamento queda pendiente: la idea es reemplazar/enriquecer este archivo con el mismo lookup geografico que ya usa mapa-empleo (mismo geojson/tabla INDEC) para que los dos tableros usen la misma taxonomia. Por ahora el matching de departamento solo funciona para las ciudades listadas en 'ciudades' de sources_config.json.",
 
   "provincias": {
-    "Buenos Aires": ["buenos aires", "provincia de buenos aires", "gran buenos aires", "conurbano", "la plata", "mar del plata", "bahia blanca", "zarate", "campana", "san nicolas", "tandil", "quilmes", "lanus", "avellaneda", "moron", "tigre", "pilar", "lomas de zamora"],
+    "Buenos Aires": ["buenos aires", "provincia de buenos aires", "gran buenos aires", "conurbano", "la plata", "mar del plata", "bahia blanca", "zarate", "campana", "san nicolas", "tandil", "quilmes", "lanus", "avellaneda", "moron", "tigre", "pilar", "lomas de zamora", "la tablada", "la matanza"],
     "CABA": ["ciudad de buenos aires", "caba", "capital federal"],
     "Catamarca": ["catamarca", "san fernando del valle de catamarca"],
     "Chaco": ["chaco", "resistencia"],
     "Chubut": ["chubut", "trelew", "rawson", "comodoro rivadavia", "puerto madryn"],
-    "Cordoba": ["cordoba", "villa maria", "rio cuarto", "villa carlos paz"],
-    "Corrientes": ["corrientes", "goya"],
+    "Cordoba": ["cordoba", "villa maria", "rio cuarto", "villa carlos paz", "marcos juarez", "noetinger"],
+    "Corrientes": ["corrientes", "goya", "virasoro", "gobernador virasoro"],
     "Entre Rios": ["entre rios", "parana", "concordia", "gualeguaychu", "concepcion del uruguay"],
     "Formosa": ["formosa"],
     "Jujuy": ["jujuy", "san salvador de jujuy", "palpala"],
@@ -22,7 +22,7 @@
     "San Juan": ["san juan"],
     "San Luis": ["san luis", "villa mercedes"],
     "Santa Cruz": ["santa cruz", "rio gallegos", "caleta olivia"],
-    "Santa Fe": ["santa fe", "rosario", "rafaela", "venado tuerto", "villa constitucion", "reconquista"],
+    "Santa Fe": ["santa fe", "rosario", "rafaela", "venado tuerto", "villa constitucion", "reconquista", "recreo"],
     "Santiago del Estero": ["santiago del estero"],
     "Tierra del Fuego": ["tierra del fuego", "ushuaia", "rio grande"],
     "Tucuman": ["tucuman", "san miguel de tucuman"]

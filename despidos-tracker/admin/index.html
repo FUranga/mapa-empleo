@@ -302,12 +302,22 @@ function render(){
       <div class="row">
         <input type="checkbox" data-id="${i.id}" ${selected.has(i.id) ? 'checked' : ''}>
         <div class="body">
-          <div class="dateline"><b>${escapeHtml(i.medio || '?')}</b> · ${fmtDate(i.date)} · <a class="source-link" href="${i.url}" target="_blank" rel="noopener">abrir fuente ↗</a></div>
+          <div class="dateline"><a class="source-link" href="${i.url}" target="_blank" rel="noopener">abrir fuente ↗</a></div>
           <input class="edit-title" data-id="${i.id}" data-field="title" value="${escapeHtml(cleanTitle(i.title, i.medio))}">
           <textarea class="edit-snippet" data-id="${i.id}" data-field="snippet" rows="2">${escapeHtml(stripHtml(i.snippet||''))}</textarea>
           <div class="geo-row">
+            <input class="edit-geo" data-id="${i.id}" data-field="medio" value="${escapeHtml(i.medio||'')}" placeholder="Medio">
+            <input class="edit-geo" data-id="${i.id}" data-field="date" type="date" value="${escapeHtml((i.date||'').slice(0,10))}">
+            <select class="edit-geo" data-id="${i.id}" data-field="topic">
+              <option value="" ${!i.topic ? 'selected' : ''}>Sin etiqueta</option>
+              <option value="despidos" ${i.topic==='despidos' ? 'selected' : ''}>Despidos</option>
+              <option value="cierres" ${i.topic==='cierres' ? 'selected' : ''}>Cierre / quiebra</option>
+            </select>
+          </div>
+          <div class="geo-row">
             <input class="edit-geo" data-id="${i.id}" data-field="provincia" value="${escapeHtml(i.provincia||'')}" placeholder="Provincia (vacío = Nacional)">
             <input class="edit-geo" data-id="${i.id}" data-field="departamento" value="${escapeHtml(i.departamento||'')}" placeholder="Ciudad">
+            <input class="edit-geo" data-id="${i.id}" data-field="url" value="${escapeHtml(i.url||'')}" placeholder="Link" style="flex:1;width:auto">
           </div>
         </div>
       </div>
@@ -319,11 +329,17 @@ function render(){
       });
     });
     list.querySelectorAll('.edit-title, .edit-snippet, .edit-geo').forEach(el => {
-      el.addEventListener('input', () => {
+      const evt = el.tagName === 'SELECT' ? 'change' : 'input';
+      el.addEventListener(evt, () => {
         const item = findItemById(el.dataset.id);
         if(!item) return;
-        item[el.dataset.field] = el.value;
-        if(el.dataset.field === 'provincia') item.lugar = el.value || null;
+        const field = el.dataset.field;
+        if(field === 'date'){
+          item.date = el.value ? new Date(el.value).toISOString() : item.date;
+          return;
+        }
+        item[field] = el.value || null;
+        if(field === 'provincia') item.lugar = el.value || null;
       });
     });
   }
