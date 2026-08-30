@@ -2087,7 +2087,7 @@
   },
   {
     "id": "16580a7f7e1dab13",
-    "title": "La Justicia abrió una \"tercera vía\" para evitar la quiebra de Algodonera Avellaneda - El Litoral",
+    "title": "La Justicia abrió una \"tercera vía\" para evitar la quiebra de Algodonera Avellaneda",
     "medio": "El Litoral",
     "lugar": "Buenos Aires",
     "provincia": "Buenos Aires",
@@ -2172,8 +2172,8 @@
     "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPQW94UDdSX3pzMGkzSW4yN2UzejdMUzg2TU1yRHJMLWVMTnBzTjBRenEyNHQyN0tjMm12NkdrcVNlVDVIOGxhQXYwSkFHRHVadUhOdXdkZjdZTFdteTNGT0cwUzRjVWZFZHhYbGUzTlNNdndSbVNUd2d6cU9NVFI0dmtsVDBCODk3ZG56SGNWUk1vOVdOc3B6OHFqZjNMTVBxMzhZVVlqUzNHZHUxWGdSX1FrX3NWU0RvdTNyMkQ3NDFRTTNTeVlBMEVmOHp0Qk13eXFqeFlfeDRvc2NabFV5SEd3?oc=5",
     "date": "2026-07-03T07:00:00+00:00",
     "scraped_at": "2026-08-29T10:17:33.046412+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-08-30T21:26:28.428Z"
   },
   {
     "id": "5d4015bb7c05b022",
@@ -2187,8 +2187,8 @@
     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOVmdfZkV3QWtoMC02WnhUS3p2WDBBRUZsc3hHUWk3ZTBJcU9qcU1OTFBsTkN1cFg5RHpQbEx0OGMtWTluR1hjOVJFQm1BeTdXVUlqZFpyNlJqU2ZuVVBpRExWZ2RXNWtBUFh4ZExtZ1phZ3JDcGVtSUVtejFDMDBjRTJUN09KV2YtTnFwTG8yWWlTcW5PRzI5di1mdDlXelRpY3pWN3hxT0RDNHlMd09mZUdSbWM0V01wRkZfNmdqY3QzTWtGdUE?oc=5",
     "date": "2026-07-03T07:00:00+00:00",
     "scraped_at": "2026-08-29T10:17:33.050096+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-08-30T21:26:28.428Z"
   },
   {
     "id": "b15e69142c0d32dc",
