@@ -300,6 +300,21 @@
     "status_at": "2026-08-30T10:45:48.780Z"
   },
   {
+    "id": "manual-mtgbaqcz-yxtncc",
+    "title": "Crisis en La Lácteo: la empresa de 94 años de historia paralizó su planta por falta de gas, luz y sueldos impagos",
+    "medio": "iProfesional",
+    "lugar": "Córdoba",
+    "provincia": "Córdoba",
+    "departamento": "Ferreyra",
+    "topic": "cierres",
+    "snippet": "La firma cordobesa atraviesa una crisis que se profundiza desde fines de 2023. Sin insumos ni producción, los trabajadores denuncian sueldos adeudados y la pérdida de la obra social.",
+    "url": "https://www.iprofesional.com/negocios/457102-se-derrumba-una-lactea-casi-centenaria-corte-de-luz-deudas-y-su-planta-sufre-vandalismo",
+    "date": "2026-06-11T00:00:00.000Z",
+    "scraped_at": "2026-08-30T21:18:53.171Z",
+    "status_at": "2026-08-30T21:19:02.047Z",
+    "manual": true
+  },
+  {
     "id": "e274f7dc7dda327e",
     "title": " Farmacias Dr. Ahorro cierra de forma definitiva tras la quiebra y despide a 330 empleados",
     "medio": "Perfil",
