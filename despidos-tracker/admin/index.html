@@ -125,6 +125,7 @@ main{padding-top:16px}
         <option value="">Sin etiqueta</option>
         <option value="despidos">Despidos</option>
         <option value="cierres">Cierre / quiebra</option>
+        <option value="suspensiones">Suspensiones</option>
       </select>
       <input id="newProvincia" placeholder="Provincia (vacío = Nacional)" class="addf-input" style="flex:1">
       <input id="newDepartamento" placeholder="Ciudad" class="addf-input" style="flex:1">
@@ -312,6 +313,7 @@ function render(){
               <option value="" ${!i.topic ? 'selected' : ''}>Sin etiqueta</option>
               <option value="despidos" ${i.topic==='despidos' ? 'selected' : ''}>Despidos</option>
               <option value="cierres" ${i.topic==='cierres' ? 'selected' : ''}>Cierre / quiebra</option>
+              <option value="suspensiones" ${i.topic==='suspensiones' ? 'selected' : ''}>Suspensiones</option>
             </select>
           </div>
           <div class="geo-row">

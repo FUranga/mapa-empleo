@@ -52,6 +52,7 @@ main{padding-top:20px}
   padding:3px 9px;border-radius:980px;background:#f5f5f7;color:var(--muted);margin-bottom:10px}
 .badge.topic-despidos{background:#e6f1fa;color:#2f6690}
 .badge.topic-cierres{background:#f2ecf9;color:#7c5aa6}
+.badge.topic-suspensiones{background:#fdf0e0;color:#9a6a1f}
 
 .dateline{font-size:12px;color:var(--muted);font-weight:500;margin-bottom:6px}
 .dateline b{color:var(--ink);font-weight:600}
@@ -152,6 +153,7 @@ function fmtDate(iso){
 function topicLabel(t){
   if(t === 'despidos') return 'Despidos';
   if(t === 'cierres') return 'Cierre / quiebra';
+  if(t === 'suspensiones') return 'Suspensiones';
   return 'Nacional';
 }
 
