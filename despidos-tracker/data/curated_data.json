@@ -1,20 +1,5 @@
 [
   {
-    "id": "manual-mtfknvau-dbeyot",
-    "title": "Solo Empanadas volvió a pedir concurso preventivo para evitar la quiebra",
-    "medio": "Infobae",
-    "lugar": null,
-    "provincia": null,
-    "departamento": null,
-    "topic": "cierres",
-    "snippet": "Divaflo SRL, dueña de las marcas Solo Empanadas, Morita, Kiosco de Empanadas y Fábrica de Pizzas, tiene más de 200 locales en CABA, Gran Buenos Aires, Santa Fe, Rosario y Mar del Plata. Acumula una deuda bancaria de 3.845 millones de pesos y cheques rechazados por más de $1.032 millones",
-    "url": "https://www.infobae.com/economia/2026/07/31/deudas-bancarias-y-230-cheques-rechazados-la-empresa-de-solo-empanadas-pidio-otra-vez-concurso-preventivo/",
-    "date": "2026-07-31T00:00:00.000Z",
-    "scraped_at": "2026-08-30T08:53:16.470Z",
-    "status_at": "2026-08-30T08:57:20.253Z",
-    "manual": true
-  },
-  {
     "id": "4a68230ff498566d",
     "title": "Pampa Energía cerró su planta de caucho sintético en Puerto General San Martín",
     "medio": "El Ciudadano",
@@ -187,6 +172,21 @@
     "manual": true
   },
   {
+    "id": "manual-mtfknvau-dbeyot",
+    "title": "Solo Empanadas volvió a pedir concurso preventivo para evitar la quiebra",
+    "medio": "Infobae",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "topic": "cierres",
+    "snippet": "Divaflo SRL, dueña de las marcas Solo Empanadas, Morita, Kiosco de Empanadas y Fábrica de Pizzas, tiene más de 200 locales en CABA, Gran Buenos Aires, Santa Fe, Rosario y Mar del Plata. Acumula una deuda bancaria de 3.845 millones de pesos y cheques rechazados por más de $1.032 millones",
+    "url": "https://www.infobae.com/economia/2026/07/31/deudas-bancarias-y-230-cheques-rechazados-la-empresa-de-solo-empanadas-pidio-otra-vez-concurso-preventivo/",
+    "date": "2026-07-31T00:00:00.000Z",
+    "scraped_at": "2026-08-30T08:53:16.470Z",
+    "status_at": "2026-08-30T08:57:20.253Z",
+    "manual": true
+  },
+  {
     "id": "07c737a9da28c52a",
     "title": "Papel 2000 busca evitar la quiebra por un juicio laboral de $350 millones",
     "medio": "El Entre Ríos",
@@ -356,6 +356,20 @@
     "scraped_at": "2026-08-30T21:30:17.568Z",
     "status_at": "2026-08-30T21:30:29.004Z",
     "manual": true
+  },
+  {
+    "id": "b9dfb11765dad5db",
+    "title": "La transportista Express Beer cerró en La Matanza y despidió a 220 empleados",
+    "medio": "La Nación",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": "La Matanza",
+    "topic": "cierres",
+    "snippet": "La empresa que distribuye para Cervecería Quilmes entró en cesación de pagos y no pudo afrontar el aumento salarial pactado ni el medio aguinaldo, según denunció el sindicato de Camioneros. Uno de los delegados gremiales de la compañía era Jerónimo Moyano, hijo de Hugo Moyano.",
+    "url": "https://www.lanacion.com.ar/politica/denuncian-220-despidos-en-una-empresa-de-transporte-en-la-que-el-hijo-menor-de-hugo-moyano-era-nid06072026/",
+    "date": "2026-07-06T07:00:00+00:00",
+    "scraped_at": "2026-08-29T10:17:31.034438+00:00",
+    "status_at": "2026-08-30T22:38:32.135Z"
   },
   {
     "id": "5ec71f0c486f0733",
