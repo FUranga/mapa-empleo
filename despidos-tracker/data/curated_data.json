@@ -129,6 +129,21 @@
     "status_at": "2026-08-29T23:34:25.450Z"
   },
   {
+    "id": "manual-mtfknvau-dbeyot",
+    "title": "Solo Empanadas volvió a pedir concurso preventivo para evitar la quiebra",
+    "medio": "Infobae",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "topic": "cierres",
+    "snippet": "Divaflo SRL, dueña de las marcas Solo Empanadas, Morita, Kiosco de Empanadas y Fábrica de Pizzas, tiene más de 200 locales en CABA, Gran Buenos Aires, Santa Fe, Rosario y Mar del Plata. Acumula una deuda bancaria de 3.845 millones de pesos y cheques rechazados por más de $1.032 millones",
+    "url": "https://www.infobae.com/economia/2026/07/31/deudas-bancarias-y-230-cheques-rechazados-la-empresa-de-solo-empanadas-pidio-otra-vez-concurso-preventivo/",
+    "date": "2026-07-31T00:00:00.000Z",
+    "scraped_at": "2026-08-30T08:53:16.470Z",
+    "status_at": "2026-08-30T08:57:01.210Z",
+    "manual": true
+  },
+  {
     "id": "36b8ef2af543aa56",
     "title": "Forestal Tapebicuá designó un interventor y se acerca a la quiebra definitiva",
     "medio": "El Litoral | Novedades de Corrientes",
