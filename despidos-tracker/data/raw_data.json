@@ -2011,6 +2011,22 @@
     "status_at": "2026-08-29T13:31:20.750Z"
   },
   {
+    "id": "manual-mtgbpeg0-zk5z6s",
+    "title": "Crucianelli cerró su planta de Córdoba sin previo aviso y dejó a 32 empleados en la calle",
+    "medio": "La Nación",
+    "lugar": "Córdoba",
+    "provincia": "Córdoba",
+    "departamento": "Córdoba Capital",
+    "topic": "cierres",
+    "snippet": "La autopartista familiar soldó los portones de la fábrica un lunes, sin telegramas ni indemnización, luego de haber despedido a 11 trabajadores en junio. Adeuda salarios, aguinaldo y vacaciones a los 21 empleados restantes. La UOM Córdoba atribuyó el cierre a la caída del 8,9% en la producción autopartista durante los primeros cuatro meses del año.",
+    "url": "https://www.lanacion.com.ar/economia/sin-previo-aviso-cerro-una-autopartista-en-cordoba-nid07072026/",
+    "date": "2026-07-07T00:00:00.000Z",
+    "scraped_at": "2026-08-30T21:30:17.568Z",
+    "status": "pendiente",
+    "status_at": null,
+    "manual": true
+  },
+  {
     "id": "b9dfb11765dad5db",
     "title": "Denuncian 220 despidos en una empresa de transporte en la que el hijo menor de Hugo Moyano era delegado gremial - La Nación",
     "medio": "La Nación",
