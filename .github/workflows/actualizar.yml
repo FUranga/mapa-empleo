@@ -97,6 +97,7 @@ jobs:
       - name: Verificar si OEDE departamental necesita actualización manual
         id: check_dept
         run: |
+          TODAY=$(date -u +'%Y-%m-%d')
           python3 -c "
           import json
           with open('log.json') as f:
@@ -106,9 +107,14 @@ jobs:
           print('needs=' + str(needs).lower())
           print('detected=' + detected)
           " > dept_check.txt
-          grep "needs=true" dept_check.txt && echo "needs_update=true" >> $GITHUB_OUTPUT || echo "needs_update=false" >> $GITHUB_OUTPUT
-          grep "detected=" dept_check.txt | cut -d= -f2 > dept_date.txt
-          echo "detected=$(cat dept_date.txt)" >> $GITHUB_OUTPUT
+          NEEDS=$(grep -q "needs=true" dept_check.txt && echo true || echo false)
+          DETECTED=$(grep "detected=" dept_check.txt | cut -d= -f2)
+          if [ "$NEEDS" = "true" ] && [ "$DETECTED" = "$TODAY" ]; then
+            echo "needs_update=true" >> $GITHUB_OUTPUT
+          else
+            echo "needs_update=false" >> $GITHUB_OUTPUT
+          fi
+          echo "detected=$DETECTED" >> $GITHUB_OUTPUT
 
       - name: Mail — actualización manual requerida (departamental)
         if: steps.check_dept.outputs.needs_update == 'true'
