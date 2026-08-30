@@ -71,6 +71,20 @@
     "status_at": "2026-08-29T19:34:52.650Z"
   },
   {
+    "id": "b0e353792271c013",
+    "title": "Le Blé entró en concurso: despidió al 70% de su plantilla y cerró la mitad de los locales",
+    "medio": "Infobae",
+    "lugar": "CABA",
+    "provincia": "CABA",
+    "departamento": null,
+    "topic": "cierres",
+    "snippet": "Be Larch S.A., la sociedad que opera la cadena de cafeterías, redujo su personal de 49 a 15 empleados y bajó de 39 a  20 sucursales. Acumula una deuda de 1,5 mil millones de pesos. La empresa atribuyó la crisis a haber armado su estructura para una expansión que no se sostuvo, en un contexto de caída del consumo y aumento de costos.",
+    "url": "https://www.infobae.com/economia/2026/08/17/una-tradicional-cafeteria-portena-entro-en-concurso-cerro-locales-despidio-empleados-y-enfrenta-una-deuda-de-1500-millones/",
+    "date": "2026-08-17T00:00:00.000Z",
+    "scraped_at": "2026-08-29T10:17:33.059496+00:00",
+    "status_at": "2026-08-30T09:24:33.000Z"
+  },
+  {
     "id": "manual-mtewkccm-0pnkqa",
     "title": "Flybondi busca combinar su concurso preventivo con el de OCA para evitar la quiebra",
     "medio": "La Nación",
@@ -159,20 +173,6 @@
     "manual": true
   },
   {
-    "id": "b0e353792271c013",
-    "title": "Le Blé entró en concurso: despidió al 70% de su plantilla y cerró la mitad de los locales",
-    "medio": "Infobae",
-    "lugar": "CABA",
-    "provincia": "CABA",
-    "departamento": null,
-    "topic": "cierres",
-    "snippet": "Be Larch S.A., la sociedad que opera la cadena de cafeterías, redujo su personal de 49 a 15 empleados y bajó de 39 a  20 sucursales. Acumula una deuda de 1,5 mil millones de pesos. La empresa atribuyó la crisis a haber armado su estructura para una expansión que no se sostuvo, en un contexto de caída del consumo y aumento de costos.",
-    "url": "https://www.infobae.com/economia/2026/08/17/una-tradicional-cafeteria-portena-entro-en-concurso-cerro-locales-despidio-empleados-y-enfrenta-una-deuda-de-1500-millones/",
-    "date": "2026-08-17T00:00:00.000Z",
-    "scraped_at": "2026-08-29T10:17:33.059496+00:00",
-    "status_at": "2026-08-30T09:24:33.000Z"
-  },
-  {
     "id": "36b8ef2af543aa56",
     "title": "Forestal Tapebicuá designó un interventor y se acerca a la quiebra definitiva",
     "medio": "El Litoral | Novedades de Corrientes",
@@ -228,6 +228,20 @@
     "scraped_at": "2026-08-30T09:12:36.466Z",
     "status_at": "2026-08-30T09:12:53.226Z",
     "manual": true
+  },
+  {
+    "id": "35b3b9a330b08d7b",
+    "title": " Texilo entró en concurso preventivo con una deuda de 2.500 millones de pesos",
+    "medio": "iProfesional",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": "Desvío Arijón",
+    "topic": "cierres",
+    "snippet": "La fábrica de hilos, sogas y lonas que opera bajo las marcas Texilo, Hilos Parval y Caima, estuvo al borde de quedarse sin luz por una deuda. Tiene casi 80 años de trayectoria y busca preservar los 24 puestos de trabajo que le quedan.",
+    "url": "https://www.iprofesional.com/negocios/459125-empresa-textil-con-80-anos-de-historia-cayo-en-concurso-y-casi-apaga-maquinas-para-siempre",
+    "date": "2026-07-03T00:00:00.000Z",
+    "scraped_at": "2026-08-29T10:17:33.049165+00:00",
+    "status_at": "2026-08-30T10:45:48.780Z"
   },
   {
     "id": "e274f7dc7dda327e",
