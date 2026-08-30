@@ -330,6 +330,21 @@
     "status_at": "2026-08-30T10:45:48.780Z"
   },
   {
+    "id": "manual-mtgc3qcz-vz2qtq",
+    "title": "ZF Argentina suspende la producción tres días por mes en su planta de San Francisco",
+    "medio": "El Periódico de San Francisco",
+    "lugar": "Córdoba",
+    "provincia": "Córdoba",
+    "departamento": "San Francisco",
+    "topic": "despidos",
+    "snippet": "La medida, vigente entre junio y agosto, afecta a los empleados que quedan en la única fábrica de amortiguadores del grupo alemán en Sudamérica, luego de que la compañía redujera su plantilla de 420 a 340 con 44 despidos y 30 retiros voluntarios a comienzos de 2026. La UOM local rechazó el pedido de abrir un Procedimiento Preventivo de Crisis y acordó las suspensiones con el 75% del salario garantizado. La compañía atribuyó la crisis al salto de las importaciones chinas.",
+    "url": "https://el-periodico.com.ar/local/crisis-economica--zf-argentina-frena-su-actividad-tres-dias-al-mes-durante-un-trimestre_a6a31c8b25d1d915dd5979476",
+    "date": "2026-06-16T00:00:00.000Z",
+    "scraped_at": "2026-08-30T21:41:26.195Z",
+    "status_at": "2026-08-30T21:41:38.105Z",
+    "manual": true
+  },
+  {
     "id": "manual-mtgbaqcz-yxtncc",
     "title": "Crisis en La Lácteo: la empresa de 94 años de historia paralizó su planta por falta de gas, luz y sueldos impagos",
     "medio": "iProfesional",
