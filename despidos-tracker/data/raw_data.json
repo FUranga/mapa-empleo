@@ -8492,6 +8492,22 @@
     "status_at": "2026-08-29T21:20:07.897Z"
   },
   {
+    "id": "manual-mtflhs1o-hdjmnw",
+    "title": "La fábrica de alfajores La Paila cerró definitivamente tras más de 30 años de actividad",
+    "medio": "El Cronista",
+    "lugar": "Córdoba",
+    "provincia": "Córdoba",
+    "departamento": "Córdoba Capital",
+    "topic": "cierres",
+    "snippet": "La empresa, que llegó a tener unos 15 empleados en sus momentos de mayor actividad, atribuyó el cierre a la imposibilidad de planificar la producción en un contexto de cambios constantes en las reglas económicas.",
+    "url": "https://www.cronista.com/negocios/una-emblematica-fabrica-de-alfajores-de-cordoba-anuncia-su-cierre-definitivo-por-falta-de-previsibilidad/",
+    "date": "2026-02-19T00:00:00.000Z",
+    "scraped_at": "2026-08-30T09:16:31.932Z",
+    "status": "pendiente",
+    "status_at": null,
+    "manual": true
+  },
+  {
     "id": "1ad20ffc9e381c06",
     "title": "El Gobierno suspendió los despidos en Fate por 15 días: Cómo sigue el conflicto - Gente de Salta",
     "medio": "Gente de Salta",
