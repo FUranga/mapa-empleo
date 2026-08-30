@@ -15,6 +15,20 @@
     "manual": true
   },
   {
+    "id": "4a68230ff498566d",
+    "title": "Pampa Energía cerró su planta de caucho sintético en Puerto General San Martín",
+    "medio": "El Ciudadano",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": "Puerto General San Martín",
+    "topic": "cierres",
+    "snippet": "Era la única fábrica de este tipo en el país. De los cerca de 200 trabajadores afectados, 100 aceptaron el retiro voluntario y 25 fueron reubicados en otras plantas del grupo, tras vencer sin acuerdo la conciliación obligatoria el 28 de agosto. El sindicato petroquímico de Santa Fe atribuyó el cierre a la apertura de importaciones, los costos de producción y la falta de gas para nuevas inversiones.",
+    "url": "https://elciudadanoweb.com/cerro-la-planta-de-caucho-de-pampa-energia-100-trabajadores-aceptaron-el-retiro-voluntario/",
+    "date": "2026-08-28T00:00:00.000Z",
+    "scraped_at": "2026-08-29T10:17:31.041265+00:00",
+    "status_at": "2026-08-30T20:44:48.867Z"
+  },
+  {
     "id": "28e4c586dfc836b9",
     "title": "Tras la quiebra, Aquarium de Mar del Plata tasa cuatro pingüinos a 40.000 dólares para pagar deudas",
     "medio": "La Nación",
@@ -171,20 +185,6 @@
     "scraped_at": "2026-08-30T09:07:33.900Z",
     "status_at": "2026-08-30T09:07:50.032Z",
     "manual": true
-  },
-  {
-    "id": "4a68230ff498566d",
-    "title": "Pampa Energía cerró su planta de caucho sintético en Puerto General San Martín",
-    "medio": "El Ciudadano",
-    "lugar": "Santa Fe",
-    "provincia": "Santa Fe",
-    "departamento": "Puerto General San Martín",
-    "topic": "cierres",
-    "snippet": "Era la única fábrica de este tipo en el país. De los cerca de 200 trabajadores afectados, 100 aceptaron el retiro voluntario y 25 fueron reubicados en otras plantas del grupo, tras vencer sin acuerdo la conciliación obligatoria el 28 de agosto. El sindicato petroquímico de Santa Fe atribuyó el cierre a la apertura de importaciones, los costos de producción y la falta de gas para nuevas inversiones.",
-    "url": "https://elciudadanoweb.com/cerro-la-planta-de-caucho-de-pampa-energia-100-trabajadores-aceptaron-el-retiro-voluntario/",
-    "date": "2026-08-28T00:00:00.000Z",
-    "scraped_at": "2026-08-29T10:17:31.041265+00:00",
-    "status_at": "2026-08-30T20:44:48.867Z"
   },
   {
     "id": "07c737a9da28c52a",
