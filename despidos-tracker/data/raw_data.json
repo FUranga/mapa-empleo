@@ -1921,6 +1921,22 @@
     "status_at": "2026-08-29T19:37:27.726Z"
   },
   {
+    "id": "manual-mtflcqcy-plk8pu",
+    "title": "La fabricante de alfajores Alfa Pampa entró en concurso preventivo",
+    "medio": "iProfesional",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": "San Martín",
+    "topic": "cierres",
+    "snippet": "Alfajores Baltazar S.A., dueña de la marca que llegó a producir 1,2 millones de alfajores por mes, enfrenta una crisis por la caída consumo.",
+    "url": "https://www.iprofesional.com/negocios/459477-fabricaba-un-millon-de-alfajores-por-mes-y-ahora-entro-en-concurso-preventivo",
+    "date": "2026-07-08T00:00:00.000Z",
+    "scraped_at": "2026-08-30T09:12:36.466Z",
+    "status": "pendiente",
+    "status_at": null,
+    "manual": true
+  },
+  {
     "id": "d059af4ad87bbe9c",
     "title": "Manifestación institucional en defensa del sistema nuclear argentino: ante los despidos en la CNEA - CONICET Santa Fe",
     "medio": "CONICET Santa Fe",
