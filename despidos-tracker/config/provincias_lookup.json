@@ -9,7 +9,7 @@
     "Chubut": ["chubut", "trelew", "rawson", "comodoro rivadavia", "puerto madryn"],
     "Cordoba": ["cordoba", "villa maria", "rio cuarto", "villa carlos paz", "marcos juarez", "noetinger"],
     "Corrientes": ["corrientes", "goya", "virasoro", "gobernador virasoro"],
-    "Entre Rios": ["entre rios", "parana", "concordia", "gualeguaychu", "concepcion del uruguay"],
+    "Entre Rios": ["entre rios", "parana", "concordia", "gualeguaychu", "concepcion del uruguay", "larroque"],
     "Formosa": ["formosa"],
     "Jujuy": ["jujuy", "san salvador de jujuy", "palpala"],
     "La Pampa": ["la pampa", "santa rosa", "general pico"],
@@ -22,7 +22,7 @@
     "San Juan": ["san juan"],
     "San Luis": ["san luis", "villa mercedes"],
     "Santa Cruz": ["santa cruz", "rio gallegos", "caleta olivia"],
-    "Santa Fe": ["santa fe", "rosario", "rafaela", "venado tuerto", "villa constitucion", "reconquista", "recreo", "desvio arijon"],
+    "Santa Fe": ["santa fe", "rosario", "rafaela", "venado tuerto", "villa constitucion", "reconquista", "recreo", "desvio arijon", "puerto general san martin", "puerto san martin"],
     "Santiago del Estero": ["santiago del estero"],
     "Tierra del Fuego": ["tierra del fuego", "ushuaia", "rio grande"],
     "Tucuman": ["tucuman", "san miguel de tucuman"]
