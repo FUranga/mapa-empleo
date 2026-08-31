@@ -1648,5 +1648,53 @@
     "scraped_at": "2026-08-31T19:18:37.116289+00:00",
     "status_at": "2026-08-31T19:18:37.116303+00:00",
     "manual": true
+  },
+  {
+    "title": "Flybondi lanzó un plan de retiros voluntarios para sus 1.500 empleados en medio de cancelaciones masivas de vuelos",
+    "medio": "Canal26",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Aeronáutica",
+    "topic": "despidos",
+    "snippet": "La aerolínea low cost atribuyó las cancelaciones a negociaciones con proveedores de aviones bajo la modalidad ACMI, tras quedar hasta ocho aeronaves fuera de servicio en una semana. El gobierno de Neuquén la multó por afectar a más de 22.000 pasajeros en enero.",
+    "url": "https://www.canal26.com/economia/2026/03/21/flybondi-activa-retiros-voluntarios-en-medio-de-nuevas-cancelaciones-que-hay-detras-del-plan-que-sacude-a-la-low-cost/",
+    "date": "2026-03-21T00:00:00.000Z",
+    "id": "manual-432c694dd5e2",
+    "scraped_at": "2026-08-31T19:20:41.297610+00:00",
+    "status_at": "2026-08-31T19:20:41.297622+00:00",
+    "manual": true
+  },
+  {
+    "title": "El Gobierno multó a FATE por no pagar sueldos durante la conciliación obligatoria en San Fernando",
+    "medio": "La Nación",
+    "lugar": "San Fernando",
+    "provincia": "Buenos Aires",
+    "departamento": "San Fernando",
+    "sector": "Otros",
+    "topic": "cierres",
+    "snippet": "El Ministerio de Capital Humano inició un sumario por el incumplimiento del pago de salarios de la segunda quincena de febrero y extendió la conciliación obligatoria cinco días más. La fabricante de neumáticos había cerrado la planta el 19 de febrero y despedido a más de 900 empleados, que ocuparon la fábrica en protesta.",
+    "url": "https://www.lanacion.com.ar/politica/el-gobierno-multo-a-fate-por-no-pagar-salarios-y-extendio-la-conciliacion-obligatoria-nid10032026/",
+    "date": "2026-03-10T00:00:00.000Z",
+    "id": "manual-f09849c3a6b1",
+    "scraped_at": "2026-08-31T19:21:28.990967+00:00",
+    "status_at": "2026-08-31T19:21:28.990981+00:00",
+    "manual": true
+  },
+  {
+    "title": "Cervecería Quilmes abrió retiros voluntarios en su planta de Zárate y prevé recortar 60 empleos",
+    "medio": "Ámbito Financiero",
+    "lugar": "Zárate",
+    "provincia": "Buenos Aires",
+    "departamento": "Zárate",
+    "sector": "Alimenticia",
+    "topic": "despidos",
+    "snippet": "El plan afecta al 30% de la dotación de la planta CASA (ex Isenbeck), que produce cerveza Corona y pasó de 240 a 140 operarios en cuatro años. El sindicato FATCA atribuyó la crisis a la caída del consumo y al aumento de las importaciones.",
+    "url": "https://www.ambito.com/negocios/por-la-caida-del-consumo-denuncian-que-quilmes-abrio-retiros-voluntarios-y-planea-recortar-60-empleos-n6249059",
+    "date": "2026-02-27T00:00:00.000Z",
+    "id": "manual-c30fb0e5c791",
+    "scraped_at": "2026-08-31T19:22:09.158219+00:00",
+    "status_at": "2026-08-31T19:22:09.158234+00:00",
+    "manual": true
   }
 ]
