@@ -2352,5 +2352,37 @@
     "scraped_at": "2026-08-31T20:27:24.817841+00:00",
     "status_at": "2026-08-31T20:27:24.817867+00:00",
     "manual": true
+  },
+  {
+    "title": "El Novillo Pampeano acumula 3.078 millones de pesos en cheques rechazados y genera alarma en la cadena cárnica",
+    "medio": "La Nación",
+    "lugar": "Pilar",
+    "provincia": "Buenos Aires",
+    "departamento": "Pilar",
+    "sector": "Alimenticia",
+    "topic": null,
+    "snippet": "La intermediaria de carne vacuna, registrada como Argentine Young Bull SA, tiene 160 cheques pendientes de cancelación. El frigorífico Tresnal, que había endosado esos documentos a sus propios proveedores, reconoció haber levantado todos los cheques de la firma, lo que llevó a productores y consignatarios a reducir sus operaciones con la cadena.",
+    "url": "https://www.lanacion.com.ar/economia/campo/preocupacion-en-el-mercado-una-empresa-del-negocio-de-la-carne-acumula-mas-de-3000-millones-en-nid13072026/",
+    "date": "2026-07-14T00:00:00.000Z",
+    "id": "manual-1eb4de3eb209",
+    "scraped_at": "2026-08-31T20:28:58.302709+00:00",
+    "status_at": "2026-08-31T20:28:58.302734+00:00",
+    "manual": true
+  },
+  {
+    "title": "Alfajores Alfa Pampa entró en concurso preventivo tras perder 1.088 millones de pesos en un año",
+    "medio": "Ámbito Financiero",
+    "lugar": "Villa Maipú",
+    "provincia": "Buenos Aires",
+    "departamento": "General San Martín",
+    "sector": "Alimenticia",
+    "topic": "cierres",
+    "snippet": "La empresa, que llegó a producir hasta un millón de unidades mensuales, ya había reducido personal en agosto de 2025 y hoy tiene 27 empleados. Atribuyó la crisis a la caída del consumo, la concentración de ventas en pocos clientes y el aumento de costos financieros.",
+    "url": "https://www.ambito.com/negocios/la-fabricante-los-alfajores-alfa-pampa-entro-concurso-perder-mas-1000-millones-un-ano-n6297569",
+    "date": "2026-07-10T00:00:00.000Z",
+    "id": "manual-8776a0004d73",
+    "scraped_at": "2026-08-31T20:28:58.432950+00:00",
+    "status_at": "2026-08-31T20:28:58.432970+00:00",
+    "manual": true
   }
 ]
