@@ -1792,5 +1792,37 @@
     "scraped_at": "2026-08-31T19:28:51.769735+00:00",
     "status_at": "2026-08-31T19:28:51.769749+00:00",
     "manual": true
+  },
+  {
+    "title": "SpeedAgro entró en cesación de pagos en medio de la crisis de las agroindustrias",
+    "medio": "La Política Online",
+    "lugar": "Coronda",
+    "provincia": "Santa Fe",
+    "departamento": "San Jerónimo",
+    "sector": "Agro",
+    "topic": "cierres",
+    "snippet": "La empresa de Coronda, que elabora fitosanitarios y opera casi 100.000 hectáreas de siembra, se suma a Los Grobo, Agrofina, Surcos y SanCor en una ola de crisis financieras del sector agropecuario. Atribuyó la insolvencia a condiciones climáticas desfavorables y a problemas en la cadena de suministro.",
+    "url": "https://www.lapoliticaonline.com/campo/speedagro-entra-en-cesacion-de-pagos-y-se-suma-a-la-crisis-de-las-empresas-del-campo/",
+    "date": "2025-06-22T00:00:00.000Z",
+    "id": "manual-4ffb05416d29",
+    "scraped_at": "2026-08-31T19:30:06.237110+00:00",
+    "status_at": "2026-08-31T19:30:06.237126+00:00",
+    "manual": true
+  },
+  {
+    "title": "OCA entró en concurso preventivo con una deuda de 100.000 millones de pesos",
+    "medio": "El Economista",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Transporte",
+    "topic": "cierres",
+    "snippet": "La empresa de correo privado busca preservar 8.500 empleos directos e indirectos. El 80% de la deuda corresponde a la Agencia de Recaudación y Control Aduanero y el resto a 1.600 proveedores. Es la tercera vez que OCA pide concurso preventivo.",
+    "url": "https://eleconomista.com.ar/economia/oca-entro-concurso-acreedores-deuda-100000-millones-8500-empleos-riesgo-n85600",
+    "date": "2025-06-11T00:00:00.000Z",
+    "id": "manual-341ef5e2a538",
+    "scraped_at": "2026-08-31T19:30:36.818628+00:00",
+    "status_at": "2026-08-31T19:30:36.818646+00:00",
+    "manual": true
   }
 ]
