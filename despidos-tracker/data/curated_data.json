@@ -2288,5 +2288,37 @@
     "scraped_at": "2026-08-31T20:23:55.492422+00:00",
     "status_at": "2026-08-31T20:23:55.492440+00:00",
     "manual": true
+  },
+  {
+    "title": "Tradelog entró en concurso preventivo con 1.386 cheques rechazados por 7.600 millones de pesos",
+    "medio": "iProfesional",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Transporte",
+    "topic": "cierres",
+    "snippet": "La logística, que trabaja para clientes como Nestlé, Mondelez, PepsiCo y Huawei, atribuyó la crisis a la caída del consumo, la contracción económica y el aumento de costos operativos, con el gasoil subiendo 146% en un año y una baja de ingresos de entre 30% y 40%.",
+    "url": "https://www.iprofesional.com/negocios/456904-importante-empresa-logistica-acumula-1400-cheques-rechazados-por-7600-millones-de-pesos",
+    "date": "2026-06-16T00:00:00.000Z",
+    "id": "manual-ec44b4063070",
+    "scraped_at": "2026-08-31T20:25:20.228633+00:00",
+    "status_at": "2026-08-31T20:25:20.228647+00:00",
+    "manual": true
+  },
+  {
+    "title": "Ted Bodin entró en concurso preventivo con ocho locales en Buenos Aires y el interior",
+    "medio": "La Nación",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Textil",
+    "topic": "cierres",
+    "snippet": "La marca de indumentaria femenina, con más de 40 años de historia y 34 empleados, atribuyó la crisis a la competencia de plataformas como Shein y Temu, el auge del comercio electrónico y el ajuste de alquileres en los shoppings por encima de la inflación.",
+    "url": "https://www.lanacion.com.ar/economia/negocios/ted-bodin-y-fantome-group-dos-fabricantes-de-indumentaria-entran-en-concurso-preventivo-nid14042026/",
+    "date": "2026-04-10T00:00:00.000Z",
+    "id": "manual-00b28434c683",
+    "scraped_at": "2026-08-31T20:25:20.350257+00:00",
+    "status_at": "2026-08-31T20:25:20.350275+00:00",
+    "manual": true
   }
 ]
