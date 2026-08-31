@@ -2752,5 +2752,37 @@
     "scraped_at": "2026-08-31T20:56:01.480720+00:00",
     "status_at": "2026-08-31T20:56:01.480745+00:00",
     "manual": true
+  },
+  {
+    "title": "Frigorífico Anselmo presentó la quiebra en Tres Arroyos y dejó a más de 100 trabajadores en la calle",
+    "medio": "Mundo Gremial",
+    "lugar": "Tres Arroyos",
+    "provincia": "Buenos Aires",
+    "departamento": "Tres Arroyos",
+    "sector": "Alimenticia",
+    "topic": "cierres",
+    "snippet": "La empresa, con más de siete décadas de historia en la producción y exportación de carne, atribuyó el cierre a la importación de carne y la caída del consumo. Los trabajadores mantuvieron guardias permanentes en la planta para evitar el desmantelamiento de las instalaciones.",
+    "url": "https://mundogremial.com/tres-arroyos-frigorifico-anselmo-presento-quiebra-y-75-trabajadores-resisten-el-cierre/",
+    "date": "2025-09-24T00:00:00.000Z",
+    "id": "manual-ba9adca83bad",
+    "scraped_at": "2026-08-31T20:56:48.720887+00:00",
+    "status_at": "2026-08-31T20:56:48.720904+00:00",
+    "manual": true
+  },
+  {
+    "title": "El frigorífico Swift despidió a 80 trabajadores en su planta de Villa Gobernador Gálvez pese a la conciliación obligatoria",
+    "medio": "Rosario3",
+    "lugar": "Villa Gobernador Gálvez",
+    "provincia": "Santa Fe",
+    "departamento": "Rosario",
+    "sector": "Alimenticia",
+    "topic": "despidos",
+    "snippet": "La empresa, que emplea a 2.000 personas en el establecimiento, notificó las cesantías por telegrama sin previo aviso ni causa y siguió enviando despidos después de que el Ministerio de Trabajo dictara la conciliación obligatoria. El Sindicato de la Carne convocó a una marcha de repudio frente a la planta.",
+    "url": "https://www.rosario3.com/informaciongeneral/Denuncian-80-despidos-en-el-frigorifico-Swift-de-Villa-Gobernador-Galvez-20250916-0042.html",
+    "date": "2025-09-16T00:00:00.000Z",
+    "id": "manual-e3831359ee6e",
+    "scraped_at": "2026-08-31T20:57:16.285690+00:00",
+    "status_at": "2026-08-31T20:57:16.285701+00:00",
+    "manual": true
   }
 ]
