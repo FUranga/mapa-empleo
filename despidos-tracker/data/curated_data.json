@@ -1968,5 +1968,37 @@
     "scraped_at": "2026-08-31T19:46:15.711097+00:00",
     "status_at": "2026-08-31T19:46:15.711115+00:00",
     "manual": true
+  },
+  {
+    "title": "Tenaris despidió a 14 trabajadores más en Valentín Alsina en violación de la conciliación obligatoria",
+    "medio": "InfoGremiales",
+    "lugar": "Lanús",
+    "provincia": "Buenos Aires",
+    "departamento": "Lanús",
+    "sector": "Metalúrgica",
+    "topic": "despidos",
+    "snippet": "Los nuevos despidos, de personal de planta permanente, se suman a los 150 anunciados a fines de junio y representan una reducción cercana al 50% de la dotación. La UOM Avellaneda denunció el incumplimiento ante el Ministerio de Trabajo bonaerense.",
+    "url": "https://www.infogremiales.com.ar/techint-despidio-a-otros-14-trabajadores-en-siat-tenaris-y-la-uom-avellaneda-denuncio-violacion-de-la-conciliacion-obligatoria/",
+    "date": "2026-07-07T00:00:00.000Z",
+    "id": "manual-c0759febff09",
+    "scraped_at": "2026-08-31T20:00:46.328894+00:00",
+    "status_at": "2026-08-31T20:00:46.328907+00:00",
+    "manual": true
+  },
+  {
+    "title": "SanCor entró en quiebra con una deuda de 120 millones de dólares",
+    "medio": "elDiarioAR.com",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Alimenticia",
+    "topic": "cierres",
+    "snippet": "La cooperativa láctea, que mantiene 914 empleados en relación de dependencia, acumula más de 1.500 acreedores verificados y deudas salariales por 12.788 millones de pesos. Había entrado en concurso preventivo en febrero de 2025 sin lograr revertir el deterioro de sus plantas.",
+    "url": "https://www.eldiarioar.com/economia/justicia-declaro-quiebra-sancor-deuda-us-120-millones_1_13164010.amp.html",
+    "date": "2026-04-16T00:00:00.000Z",
+    "id": "manual-a0916ac00423",
+    "scraped_at": "2026-08-31T20:01:44.458945+00:00",
+    "status_at": "2026-08-31T20:01:44.458956+00:00",
+    "manual": true
   }
 ]
