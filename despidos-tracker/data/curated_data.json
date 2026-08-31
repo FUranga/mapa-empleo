@@ -2112,5 +2112,37 @@
     "scraped_at": "2026-08-31T20:08:15.057655+00:00",
     "status_at": "2026-08-31T20:08:15.057669+00:00",
     "manual": true
+  },
+  {
+    "title": "Cabot Argentina cerró su planta de Campana tras 60 años y despidió a 150 trabajadores",
+    "medio": "MinutoUno",
+    "lugar": "Campana",
+    "provincia": "Buenos Aires",
+    "departamento": "Campana",
+    "sector": "Química",
+    "topic": "cierres",
+    "snippet": "La empresa era la única productora del país de negro de humo, un insumo clave para neumáticos, plásticos, tintas y pinturas. El cierre afecta a 90 empleados directos y 60 indirectos de seguridad, limpieza y mantenimiento.",
+    "url": "https://www.minutouno.com/economia/cierra-la-fabrica-cabot-argentina-campana-despues-60-anos-n6275413",
+    "date": "2026-05-08T00:00:00.000Z",
+    "id": "manual-d2e76c49cee9",
+    "scraped_at": "2026-08-31T20:09:08.617270+00:00",
+    "status_at": "2026-08-31T20:09:08.617281+00:00",
+    "manual": true
+  },
+  {
+    "title": "Pirelli suspendió la producción de fines de semana en su planta de Merlo y abrió retiros voluntarios",
+    "medio": "El Economista",
+    "lugar": "Merlo",
+    "provincia": "Buenos Aires",
+    "departamento": "Merlo",
+    "sector": "Automotriz",
+    "topic": "suspensiones",
+    "snippet": "Los 650 trabajadores de la planta perderán hasta el 27% de su salario por la eliminación de las horas extra de fin de semana. Desde 2023 la empresa ya desvinculó a más de 700 empleados entre despidos y retiros voluntarios.",
+    "url": "https://eleconomista.com.ar/economia/pirelli-paraliza-su-planta-elimina-horas-extra-caida-ventas-n95471",
+    "date": "2026-06-03T00:00:00.000Z",
+    "id": "manual-ee6ae9603af3",
+    "scraped_at": "2026-08-31T20:09:36.102630+00:00",
+    "status_at": "2026-08-31T20:09:36.102648+00:00",
+    "manual": true
   }
 ]
