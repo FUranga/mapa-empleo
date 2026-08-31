@@ -2000,5 +2000,37 @@
     "scraped_at": "2026-08-31T20:01:44.458945+00:00",
     "status_at": "2026-08-31T20:01:44.458956+00:00",
     "manual": true
+  },
+  {
+    "title": "Zafra S.A. no pudo pagar una obligación negociable y acumula 100 cheques rechazados por 1.200 millones de pesos",
+    "medio": "iProfesional",
+    "lugar": "San Miguel de Tucumán",
+    "provincia": "Tucumán",
+    "departamento": "Capital",
+    "sector": "Agro",
+    "topic": null,
+    "snippet": "El concesionario tucumano de maquinaria agrícola John Deere, que perdió la concesión oficial de la marca en mayo tras más de 20 años, informó a la Comisión Nacional de Valores que no podrá afrontar el vencimiento con recursos propios y que los garantes de la emisión deberán cubrir el pago a los inversores.",
+    "url": "https://www.iprofesional.com/finanzas/460369-empresa-del-agro-tiene-100-cheques-rechazados-por-1200-m-y-no-pudo-cubrir-su-on",
+    "date": "2026-07-20T00:00:00.000Z",
+    "id": "manual-6d8adb8e5829",
+    "scraped_at": "2026-08-31T20:03:21.600094+00:00",
+    "status_at": "2026-08-31T20:03:21.600106+00:00",
+    "manual": true
+  },
+  {
+    "title": "Metalfor entró en concurso preventivo con un plan para reducir hasta el 70% de su plantilla de 600 empleados",
+    "medio": "LMNeuquén",
+    "lugar": "Córdoba",
+    "provincia": "Córdoba",
+    "departamento": "Marcos Juárez",
+    "sector": "Metalúrgica",
+    "topic": "cierres",
+    "snippet": "La fabricante de maquinaria agrícola enfrenta dos pedidos de quiebra y pagó los últimos sueldos en tramos y con atrasos. Un crédito internacional de 50 millones de dólares obtenido en 2025 no alcanzó para superar la crisis financiera.",
+    "url": "https://masp.lmneuquen.com/agricultura/una-historica-empresa-maquinaria-agricola-entra-concurso-preventivo-y-enfrenta-un-fuerte-ajuste-n1249877",
+    "date": "2026-08-17T00:00:00.000Z",
+    "id": "manual-d4e7f1bc7ef0",
+    "scraped_at": "2026-08-31T20:03:21.701874+00:00",
+    "status_at": "2026-08-31T20:03:21.701888+00:00",
+    "manual": true
   }
 ]
