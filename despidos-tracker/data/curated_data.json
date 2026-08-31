@@ -1760,5 +1760,37 @@
     "scraped_at": "2026-08-31T19:26:28.681437+00:00",
     "status_at": "2026-08-31T19:26:28.681448+00:00",
     "manual": true
+  },
+  {
+    "title": "Industrias Secco despidió a 30 trabajadores en su planta de generación a biogás de San Martín y derivó en conciliación obligatoria",
+    "medio": "Página/12",
+    "lugar": "San Martín",
+    "provincia": "Buenos Aires",
+    "departamento": "General San Martín",
+    "sector": "Energía",
+    "topic": "despidos",
+    "snippet": "El Ministerio de Trabajo bonaerense dictó la conciliación obligatoria tras un desalojo con fuerzas federales en la planta de generación eléctrica a biogás que la empresa opera en el predio del CEAMSE. Entre los despedidos hay delegados sindicales de FETERA.",
+    "url": "https://www.pagina12.com.ar/847806-nacion-reprime-provincia-concilia",
+    "date": "2025-08-07T00:00:00.000Z",
+    "id": "manual-10a0a81301e4",
+    "scraped_at": "2026-08-31T19:28:12.717125+00:00",
+    "status_at": "2026-08-31T19:28:12.717145+00:00",
+    "manual": true
+  },
+  {
+    "title": "NRG Argentina, proveedora de arena para Vaca Muerta, entró en concurso preventivo con una deuda de 710.000 millones de pesos",
+    "medio": "El Cronista",
+    "lugar": "Allen",
+    "provincia": "Río Negro",
+    "departamento": "General Roca",
+    "sector": "Minería",
+    "topic": "cierres",
+    "snippet": "La empresa, con sede en Allen, despidió a unos 180 empleados en diciembre de 2024 y sumó más desvinculaciones después, tras procesar muy por debajo de su capacidad de arena para fracking por el freno de operadoras en la Cuenca Neuquina. Registra más de 500 acreedores.",
+    "url": "https://www.cronista.com/negocios/entra-en-concurso-preventivo-la-proveedora-de-un-insumo-clave-para-vaca-muerta/",
+    "date": "2025-07-11T00:00:00.000Z",
+    "id": "manual-d91f7969fb43",
+    "scraped_at": "2026-08-31T19:28:51.769735+00:00",
+    "status_at": "2026-08-31T19:28:51.769749+00:00",
+    "manual": true
   }
 ]
