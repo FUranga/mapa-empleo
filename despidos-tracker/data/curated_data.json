@@ -2784,5 +2784,21 @@
     "scraped_at": "2026-08-31T20:57:16.285690+00:00",
     "status_at": "2026-08-31T20:57:16.285701+00:00",
     "manual": true
+  },
+  {
+    "title": "Alpargatas despidió a 9 trabajadores y activó retiros voluntarios en su planta de Bella Vista, Corrientes",
+    "medio": "Perfil",
+    "lugar": "Bella Vista",
+    "provincia": "Corrientes",
+    "departamento": "Bella Vista",
+    "sector": "Textil",
+    "topic": "despidos",
+    "snippet": "La fábrica de telas jean, que llegó a producir hasta un millón de kilómetros de tela por mes, redujo ese volumen a menos de 200.000 y pone en riesgo 400 empleos directos. La empresa evalúa paradas productivas intermitentes por la caída del consumo interno y el aumento de las importaciones.",
+    "url": "https://www.perfil.com/noticias/nea/corrientes-la-crisis-textil-golpea-a-alpargatas-y-no-se-descarta-un-cese-de-actividades.phtml",
+    "date": "2025-07-03T00:00:00.000Z",
+    "id": "manual-eb19b9d28b38",
+    "scraped_at": "2026-08-31T20:58:29.263945+00:00",
+    "status_at": "2026-08-31T20:58:29.263954+00:00",
+    "manual": true
   }
 ]
