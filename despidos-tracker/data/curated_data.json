@@ -2672,5 +2672,53 @@
     "scraped_at": "2026-08-31T20:51:41.908973+00:00",
     "status_at": "2026-08-31T20:51:41.909004+00:00",
     "manual": true
+  },
+  {
+    "title": "RefiPampa entró en concurso preventivo con una deuda de 5.500 millones de pesos",
+    "medio": "La Nación",
+    "lugar": "La Pampa",
+    "provincia": "La Pampa",
+    "departamento": null,
+    "sector": "Energía",
+    "topic": "cierres",
+    "snippet": "La refinería pampeana, con 20% de capital estatal a través de Pampetrol, busca reordenar pagos con unos 230 acreedores y pone en riesgo 45 empleos directos. Enfrenta además embargos de ARCA sobre todas sus cuentas bancarias.",
+    "url": "https://www.mejorenergia.com.ar/noticias/2025/10/06/4684-refipampa-busca-reordenar-una-deuda-de-5500-millones-a-traves-de-un-concurso-preventivo",
+    "date": "2025-09-03T00:00:00.000Z",
+    "id": "manual-8bae03d55302",
+    "scraped_at": "2026-08-31T20:52:30.098456+00:00",
+    "status_at": "2026-08-31T20:52:30.098465+00:00",
+    "manual": true
+  },
+  {
+    "title": "Rodó despidió empleados de su local en el shopping Unicenter de Martínez",
+    "medio": "InfoGremiales",
+    "lugar": "Martínez",
+    "provincia": "Buenos Aires",
+    "departamento": "San Isidro",
+    "sector": "Electrodomésticos",
+    "topic": "despidos",
+    "snippet": "Los trabajadores denunciaron desvinculaciones arbitrarias, sin previo aviso, de personal con años de antigüedad, y protestaron dentro del shopping exigiendo la reincorporación. El Sindicato de Comercio Zona Norte atribuyó los recortes a la caída de ventas y al avance del comercio electrónico en las cadenas de electrodomésticos.",
+    "url": "https://www.infogremiales.com.ar/con-una-ruidosa-protesta-los-trabajadores-de-rodo-recorrieron-el-unicenter-para-reclamar-por-su-reincorporacion/",
+    "date": "2025-10-02T00:00:00.000Z",
+    "id": "manual-d8ab5de74751",
+    "scraped_at": "2026-08-31T20:53:11.977710+00:00",
+    "status_at": "2026-08-31T20:53:11.977730+00:00",
+    "manual": true
+  },
+  {
+    "title": "ILVA cerró su fábrica de porcelanatos en Pilar y despidió a sus 300 trabajadores",
+    "medio": "El Destape",
+    "lugar": "Pilar",
+    "provincia": "Buenos Aires",
+    "departamento": "Pilar",
+    "sector": "Construcción",
+    "topic": "cierres",
+    "snippet": "La empresa, propiedad de la familia Zanón, argumentó fuerza mayor por la caída de ventas para pagar indemnizaciones reducidas según el artículo 247 de la Ley de Contrato de Trabajo. Los despedidos bloquearon los accesos al Parque Industrial de Pilar en protesta por la falta de pago de salarios e indemnizaciones.",
+    "url": "https://www.eldestapeweb.com/economia/despidos/300-despedidos-en-fabrica-de-porcelanas-de-pilar-por-la-crisis-de-milei-en-la-calle--202595145311",
+    "date": "2025-09-03T00:00:00.000Z",
+    "id": "manual-6b04d9737aa6",
+    "scraped_at": "2026-08-31T20:53:40.220673+00:00",
+    "status_at": "2026-08-31T20:53:40.220684+00:00",
+    "manual": true
   }
 ]
