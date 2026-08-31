@@ -1472,5 +1472,53 @@
     "scraped_at": "2026-08-31T00:00:00.000Z",
     "status_at": "2026-08-31T00:00:00.000Z",
     "manual": true
+  },
+  {
+    "title": "Aires del Sur, fabricante de los aires acondicionados Electra y Fedders, quebró y despidió a 140 empleados en Río Grande",
+    "medio": "Infobae",
+    "lugar": "Tierra del Fuego",
+    "provincia": "Tierra del Fuego",
+    "departamento": "Río Grande",
+    "sector": "Otros",
+    "topic": "cierres",
+    "snippet": "La empresa, con planta en Río Grande, atribuyó el quiebre a un modelo de financiamiento comercial deficitario, agravado por tasas de interés locales de entre 25% y 30% anual frente a márgenes de apenas 10% a 15%. Un intento de rescate con la china Chigo Group, que ofrecía una inyección de 5 millones de dólares, se cayó en febrero de 2026 cuando la Justicia rechazó el plan de continuidad.",
+    "url": "https://www.infobae.com/economia/2026/05/19/quebro-aires-del-sur-el-fabricante-de-electra-y-fedders-oficializo-su-cierre-tras-una-crisis-irreversible/",
+    "date": "2026-05-19T00:00:00.000Z",
+    "id": "manual-57f494c7-3fcre2",
+    "scraped_at": "2026-08-31T00:00:00.000Z",
+    "status_at": "2026-08-31T00:00:00.000Z",
+    "manual": true
+  },
+  {
+    "title": "La textil Emilio Alal cerró sus plantas de Corrientes y Chaco y despidió a 260 trabajadores",
+    "medio": "Infobae",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Textil",
+    "topic": "cierres",
+    "snippet": "La empresa textil, fundada en 1914, atribuyó el cierre a la apertura indiscriminada de importaciones de hilados, telas y prendas, la caída del poder adquisitivo y los elevados costos financieros, laborales, energéticos e impositivos. Meses después del cierre, más de 460 trabajadores de ambas plantas seguían sin cobrar indemnizaciones.",
+    "url": "https://www.infobae.com/economia/2026/01/27/sigue-la-crisis-en-la-industria-textil-cerro-una-empresa-centenaria-y-despidio-a-260-trabajadores/",
+    "date": "2026-01-27T00:00:00.000Z",
+    "id": "manual-57f494c7-sp4yjx",
+    "scraped_at": "2026-08-31T00:00:00.000Z",
+    "status_at": "2026-08-31T00:00:00.000Z",
+    "manual": true
+  },
+  {
+    "title": "Acindar mantiene suspensiones en su planta de Villa Constitución en medio de la crisis del sector siderúrgico",
+    "medio": "Infobae",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": "Villa Constitución",
+    "sector": "Metalúrgica",
+    "topic": "suspensiones",
+    "snippet": "La siderúrgica opera desde 2024 a la mitad de su capacidad instalada por la caída de la construcción, la debilidad industrial y la competencia del acero subsidiado por China. La empresa reportó 200 suspensiones y el gremio UOM habló de hasta 400, con un esquema de pago del 75% del salario que luego se extendió a 2026 para sus 2.500 empleados directos.",
+    "url": "https://www.infobae.com/economia/2025/09/01/siguen-las-suspensiones-en-la-planta-de-acindar-en-villa-constitucion-en-medio-de-una-critica-situacion-del-sector-siderurgico/",
+    "date": "2025-09-01T00:00:00.000Z",
+    "id": "manual-57f494c7-xrgd76",
+    "scraped_at": "2026-08-31T00:00:00.000Z",
+    "status_at": "2026-08-31T00:00:00.000Z",
+    "manual": true
   }
 ]
