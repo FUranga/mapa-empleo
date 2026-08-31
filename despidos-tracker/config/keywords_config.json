@@ -8,14 +8,17 @@
       "cesantias", "cesantia colectiva", "procedimiento preventivo de crisis", "ppc",
       "suspension de trabajadores", "suspensiones de personal", "suspenden a trabajadores",
       "achicamiento de planta", "achicamiento de personal", "recorte de empleos",
-      "perdida de empleos", "perdieron el empleo", "quedaron sin trabajo", "sin trabajo"
+      "perdida de empleos", "perdieron el empleo", "quedaron sin trabajo", "sin trabajo",
+      "retiro voluntario", "retiros voluntarios", "telegrama de despido", "telegramas de despido",
+      "conciliacion obligatoria", "desvinculo a", "desvinculacion de personal"
     ],
     "cierres": [
       "cierre de planta", "cierre de fabrica", "cierre de sucursal", "cierre de local",
       "cierra la planta", "cierra la fabrica", "cierra sus puertas", "baja la persiana",
       "quiebra", "concurso preventivo", "convocatoria de acreedores", "liquidacion de la empresa",
       "desguace de la empresa", "paraliza la produccion", "para la produccion",
-      "cese de actividades", "cesa su actividad", "achica operaciones"
+      "cese de actividades", "cesa su actividad", "achica operaciones",
+      "cesacion de pagos", "cheques rechazados", "concurso de acreedores"
     ]
   },
 

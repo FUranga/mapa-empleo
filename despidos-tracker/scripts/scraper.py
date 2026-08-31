@@ -34,6 +34,7 @@ GOOGLE_NEWS_SEARCH = "https://news.google.com/rss/search?q={q}&hl=es-419&gl=AR&c
 TOPIC_QUERIES = [
     '("despidos" OR "despido masivo" OR "suspensiones de personal" OR "cesantias") Argentina',
     '("cierre de planta" OR "cierre de fabrica" OR "cierre de sucursal" OR "quiebra" OR "concurso preventivo") Argentina',
+    '("retiros voluntarios" OR "cesación de pagos" OR "conciliación obligatoria" OR "cheques rechazados") empresa Argentina',
 ]
 USER_AGENT = "Mozilla/5.0 (compatible; ArgentinaDespidosTracker/1.0)"
 REQUEST_TIMEOUT = 20

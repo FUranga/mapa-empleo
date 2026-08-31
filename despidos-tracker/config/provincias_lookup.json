@@ -7,17 +7,17 @@
     "Catamarca": ["catamarca", "san fernando del valle de catamarca"],
     "Chaco": ["chaco", "resistencia"],
     "Chubut": ["chubut", "trelew", "rawson", "comodoro rivadavia", "puerto madryn"],
-    "Cordoba": ["cordoba", "villa maria", "rio cuarto", "villa carlos paz", "marcos juarez", "noetinger"],
+    "Cordoba": ["cordoba", "villa maria", "rio cuarto", "villa carlos paz", "marcos juarez", "noetinger", "san francisco", "santa eufemia"],
     "Corrientes": ["corrientes", "goya", "virasoro", "gobernador virasoro"],
-    "Entre Rios": ["entre rios", "parana", "concordia", "gualeguaychu", "concepcion del uruguay", "larroque"],
+    "Entre Rios": ["entre rios", "parana", "concordia", "gualeguaychu", "concepcion del uruguay", "larroque", "general ramirez"],
     "Formosa": ["formosa"],
     "Jujuy": ["jujuy", "san salvador de jujuy", "palpala"],
     "La Pampa": ["la pampa", "santa rosa", "general pico"],
     "La Rioja": ["la rioja"],
     "Mendoza": ["mendoza", "san rafael", "godoy cruz"],
-    "Misiones": ["misiones", "posadas", "oberá", "puerto iguazu"],
+    "Misiones": ["misiones", "posadas", "oberá", "puerto iguazu", "eldorado"],
     "Neuquen": ["neuquen"],
-    "Rio Negro": ["rio negro", "cipolletti", "general roca", "bariloche", "viedma"],
+    "Rio Negro": ["rio negro", "cipolletti", "general roca", "bariloche", "viedma", "catriel"],
     "Salta": ["salta"],
     "San Juan": ["san juan"],
     "San Luis": ["san luis", "villa mercedes"],
@@ -25,6 +25,6 @@
     "Santa Fe": ["santa fe", "rosario", "rafaela", "venado tuerto", "villa constitucion", "reconquista", "recreo", "desvio arijon", "puerto general san martin", "puerto san martin"],
     "Santiago del Estero": ["santiago del estero"],
     "Tierra del Fuego": ["tierra del fuego", "ushuaia", "rio grande"],
-    "Tucuman": ["tucuman", "san miguel de tucuman"]
+    "Tucuman": ["tucuman", "san miguel de tucuman", "los nogales"]
   }
 }
