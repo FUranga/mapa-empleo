@@ -2320,5 +2320,37 @@
     "scraped_at": "2026-08-31T20:25:20.350257+00:00",
     "status_at": "2026-08-31T20:25:20.350275+00:00",
     "manual": true
+  },
+  {
+    "title": "La Central de Vicente López despidió choferes de la línea 148 y la conciliación obligatoria ordenó reincorporarlos",
+    "medio": "Cadena 3 Argentina",
+    "lugar": "Gran Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": "Transporte",
+    "topic": "despidos",
+    "snippet": "El conflicto con el sindicato UTA derivó en un paro de la línea de colectivos en la zona sur del Gran Buenos Aires. El Ministerio de Capital Humano dictó la conciliación obligatoria por 15 días y obligó a la empresa a revertir los despidos y normalizar el servicio.",
+    "url": "https://www.cadena3.com/noticia/sociedad/conciliacion-obligatoria-en-el-conflicto-de-la-linea-148-tras-paro-de-colectivos_551164",
+    "date": "2026-05-13T00:00:00.000Z",
+    "id": "manual-ea3ca5d8c4ca",
+    "scraped_at": "2026-08-31T20:27:24.689882+00:00",
+    "status_at": "2026-08-31T20:27:24.689899+00:00",
+    "manual": true
+  },
+  {
+    "title": "Distribuidora Lactres entró en concurso preventivo con una deuda de 7.665 millones de pesos",
+    "medio": "InfoGremiales",
+    "lugar": "Tres Arroyos",
+    "provincia": "Buenos Aires",
+    "departamento": "Tres Arroyos",
+    "sector": "Comercio",
+    "topic": "cierres",
+    "snippet": "La empresa perdió cerca de la mitad de su facturación mensual tras la suspensión del programa MESA por parte de la provincia de Buenos Aires. Entre sus principales acreedores figuran los bancos Provincia, Galicia, Santander, Macro y Nación, además de proveedores como Cremigal y Molinos Tres Arroyos.",
+    "url": "https://www.infogremiales.com.ar/concurso-preventivo-de-distribuidora-lactres-con-lagunas-en-la-cadena-de-cobros-la-alimenticia-acumulo-una-deuda-millonaria/",
+    "date": "2026-08-12T00:00:00.000Z",
+    "id": "manual-14e417c66692",
+    "scraped_at": "2026-08-31T20:27:24.817841+00:00",
+    "status_at": "2026-08-31T20:27:24.817867+00:00",
+    "manual": true
   }
 ]
