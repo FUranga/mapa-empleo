@@ -2624,5 +2624,53 @@
     "scraped_at": "2026-08-31T20:50:00.271214+00:00",
     "status_at": "2026-08-31T20:50:00.271240+00:00",
     "manual": true
+  },
+  {
+    "title": "SKF cerró su planta de rulemanes en Tortuguitas tras 90 años y despidió a 150 trabajadores",
+    "medio": "Infobae",
+    "lugar": "Tortuguitas",
+    "provincia": "Buenos Aires",
+    "departamento": "Malvinas Argentinas",
+    "sector": "Automotriz",
+    "topic": "cierres",
+    "snippet": "La multinacional sueca, proveedora histórica de la industria automotriz, trasladará su producción a Brasil y se convertirá en importadora en Argentina. La empresa atribuyó el cierre a la necesidad de asegurar su competitividad global.",
+    "url": "https://www.infobae.com/economia/2025/10/28/cerro-la-filial-argentina-de-un-historico-proveedor-de-la-industria-automotriz-y-150-personas-fueron-despedidas/",
+    "date": "2025-10-27T00:00:00.000Z",
+    "id": "manual-fc337d44f925",
+    "scraped_at": "2026-08-31T20:50:49.261304+00:00",
+    "status_at": "2026-08-31T20:50:49.261313+00:00",
+    "manual": true
+  },
+  {
+    "title": "Italar entró en cesación de pagos con una deuda bancaria de 15.224 millones de pesos",
+    "medio": "Bichos de Campo",
+    "lugar": "Charata",
+    "provincia": "Chaco",
+    "departamento": "Chacabuco",
+    "sector": "Agro",
+    "topic": "cierres",
+    "snippet": "La agrícola, que siembra más de 11.000 hectáreas de maíz, girasol, soja y algodón, atribuyó la crisis a la pérdida de hasta el 95% de su capacidad productiva tras campañas consecutivas de bajo rendimiento. Acumula 24 cheques rechazados por 584,7 millones de pesos.",
+    "url": "https://bichosdecampo.com/siguen-los-exitos-en-el-campo-argentino-se-declaro-en-cesacion-de-pagos-la-empresa-chaquena-italar/",
+    "date": "2025-10-17T00:00:00.000Z",
+    "id": "manual-fd6b7f627114",
+    "scraped_at": "2026-08-31T20:51:16.159642+00:00",
+    "status_at": "2026-08-31T20:51:16.159651+00:00",
+    "manual": true
+  },
+  {
+    "title": "Renault desvinculó a 300 trabajadores en su planta de Santa Isabel, Córdoba",
+    "medio": "iProfesional",
+    "lugar": "Santa Isabel",
+    "provincia": "Córdoba",
+    "departamento": "Córdoba Capital",
+    "sector": "Automotriz",
+    "topic": "despidos",
+    "snippet": "El gremio denunció que fueron despidos encubiertos bajo la figura de 'acuerdos mutuos' para evitar el registro formal. La empresa atribuyó la reestructuración al fin de la fabricación de la Nissan Frontier, que compartía línea de producción con la Renault Alaskan.",
+    "url": "https://www.iprofesional.com/economia/439809-crisis-total-en-renault-argentina-avanza-con-despidos-masivos-300-empleados-en-cordoba",
+    "date": "2025-10-13T00:00:00.000Z",
+    "id": "manual-f141ff9a5ca1",
+    "scraped_at": "2026-08-31T20:51:41.908973+00:00",
+    "status_at": "2026-08-31T20:51:41.909004+00:00",
+    "manual": true
   }
 ]
