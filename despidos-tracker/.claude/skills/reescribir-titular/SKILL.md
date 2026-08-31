@@ -50,17 +50,23 @@ Contexto del proyecto: `despidos-tracker` es un tablero de noticias de despidos,
 
 4. **Localización.** Si el usuario pide provincia/ubicación para geo-tagging, identificá la ciudad/localidad concreta de la noticia y mapeala a la provincia (para empresas multi-planta o holdings sin una sede única, usá "Nacional" en vez de forzar una provincia). Lo mismo aplica cuando una crisis puntual pega en plantas de la misma empresa repartidas en varias provincias a la vez (ej. Granja Tres Arroyos con conflictos simultáneos en Córdoba, Buenos Aires y Entre Ríos, o SanCor licitando plantas en Santa Fe y Córdoba juntas): ahí también "Nacional" describe mejor el alcance que forzar una sola provincia. Chequeá `config/provincias_lookup.json`: si la localidad no está en los aliases de esa provincia, avisá y ofrecé agregarla (no lo hagas sin avisar).
 
-5. **Si el usuario pasa varios links sobre lo que parece "la misma" noticia**, no asumas que son la misma cobertura del mismo hecho — primero fijate la fecha de publicación de cada uno. Puede tratarse de etapas distintas de una historia que se fue desarrollando (ej: cierre de planta → pedido de concurso preventivo → designación de interventor, meses después). Si son etapas distintas, decilo explícitamente y armá la cronología en vez de recomendar "la mejor fuente" como si compitieran por el mismo hecho.
+5. **Sector.** Asigná uno de los sectores fijos del tracker (definidos en `config/keywords_config.json` → `sector_keywords`, y ya usados en `data/curated_data.json`): Metalúrgica, Textil, Alimenticia, Calzado, Papel, Química, Agro, Transporte, Comercio, Ecommerce, Construcción, Medios, Seguros, Salud, Minería, Energía, Aeronáutica, Gastronomía, Entretenimiento, Otros. Es una taxonomía propia del tracker (no la de mapa-empleo, que es demasiado genérica para este dominio), armada de abajo hacia arriba a partir de los rubros que ya aparecieron publicados.
+   - Elegí el sector por la actividad concreta de la empresa o planta afectada, no por el rubro del holding controlante si es distinto (ej. Pampa Energía es una petrolera, pero la planta que cerró fabricaba caucho sintético — el sector es Química, no Minería).
+   - Si la nota es un roundup/estadística nacional sin empresa puntual (paso 8), dejá el sector vacío.
+   - Si el rubro no encaja bien en ninguno de los 16 sectores concretos, usá "Otros" y avisale al usuario — si ese mismo rubro vuelve a aparecer en notas futuras, vale la pena proponer sumarlo como categoría nueva en `sector_keywords` en vez de seguir metiéndolo en "Otros".
+   - **El campo es solo para el filtro — el texto tiene que nombrar el rubro en criollo.** Además de asignar el sector como dato aparte, el título o la bajada tienen que nombrar el tipo de negocio en lenguaje natural ("la metalúrgica Apholos", "la textil dueña de Zorba, Mercury y Mutz Sport", "la fabricante de maquinaria agrícola"), no solo mencionar la categoría abstracta — así una búsqueda de texto por "metalúrgica" o "textil" encuentra la nota aunque nadie filtre por sector.
+
+6. **Si el usuario pasa varios links sobre lo que parece "la misma" noticia**, no asumas que son la misma cobertura del mismo hecho — primero fijate la fecha de publicación de cada uno. Puede tratarse de etapas distintas de una historia que se fue desarrollando (ej: cierre de planta → pedido de concurso preventivo → designación de interventor, meses después). Si son etapas distintas, decilo explícitamente y armá la cronología en vez de recomendar "la mejor fuente" como si compitieran por el mismo hecho.
    - **Aunque el usuario pase un solo link, buscá activamente si hay una etapa más reciente y completa antes de dar el título por cerrado** — sobre todo si la nota tiene baches típicos de una etapa temprana: "pedido de quiebra" sin declarar, "cheques rechazados" sin cifra de despidos, un monto de deuda que suena bajo para el tamaño de la empresa, o un "busca evitar" en vez de un hecho consumado. Una búsqueda rápida de `[empresa] + despidos/quiebra/concurso` con el rango de fecha ampliado suele encontrar una nota posterior con datos más duros (pasó con SanCor, el Aquarium, Metalfor, La Suipachense/ARSA y Le Blé — en los cinco casos la nota que el usuario tenía a mano no era la más avanzada). Si aparece una etapa posterior, avisá y proponé reemplazar en vez de sumar.
 
-6. **Si dos fuentes se contradicen en un dato** (nombre de una persona, cifra, fecha), no seas tú quien lo resuelve en silencio eligiendo una versión y listo — señalá la discrepancia al usuario, decí cuál versión es la que aparece más consistentemente en el resto de la cobertura si eso ayuda a mostrar cuál pesa más, pero dejá la decisión final a criterio del usuario si no queda claro.
+7. **Si dos fuentes se contradicen en un dato** (nombre de una persona, cifra, fecha), no seas tú quien lo resuelve en silencio eligiendo una versión y listo — señalá la discrepancia al usuario, decí cuál versión es la que aparece más consistentemente en el resto de la cobertura si eso ayuda a mostrar cuál pesa más, pero dejá la decisión final a criterio del usuario si no queda claro.
 
-7. **Notas de contexto/estadísticas nacionales (no son un hecho de una empresa puntual).** A veces el link no es sobre una empresa sino sobre una encuesta, informe o estadística sectorial (ej. "el 67% de las empresas argentinas despidió personal", una encuesta de Bumeran; el crecimiento de concursos preventivos según la Cámara Comercial de CABA; cifras de La Bancaria sobre cierre de sucursales bancarias). Estas notas también tienen lugar en el tracker, pero no fuerces el formato "[Empresa] [acción]":
+8. **Notas de contexto/estadísticas nacionales (no son un hecho de una empresa puntual).** A veces el link no es sobre una empresa sino sobre una encuesta, informe o estadística sectorial (ej. "el 67% de las empresas argentinas despidió personal", una encuesta de Bumeran; el crecimiento de concursos preventivos según la Cámara Comercial de CABA; cifras de La Bancaria sobre cierre de sucursales bancarias). Estas notas también tienen lugar en el tracker, pero no fuerces el formato "[Empresa] [acción]":
    - Título y bajada se anclan en el dato/porcentaje principal y quién lo midió (ej. "El 67% de las empresas argentinas despidió personal en el primer semestre de 2026, según Bumeran"), no en una empresa como sujeto.
-   - Van sin geo-localización específica (Nacional), salvo que el estudio sea sobre una sola provincia/ciudad.
+   - Van sin geo-localización específica (Nacional), salvo que el estudio sea sobre una sola provincia/ciudad, y sin sector (paso 5) salvo que el estudio sea sobre un solo sector.
    - Mismo filtro de calidad del paso 2: tienen que traer una fuente/metodología identificable (quién hizo el estudio, con qué muestra) y cifras concretas, no una opinión genérica. Un reclamo sectorial sin hecho puntual y sin estudio detrás (ej. una federación empresaria quejándose en general de embargos fiscales, sin cifras propias) no pasa el filtro — avisale al usuario que no encaja como nota individual y dejale elegir si la quiere igual o la descarta.
 
-8. **Formato de salida**, por cada link:
+9. **Formato de salida**, por cada link:
    ```
    [medio, si se identifica] — [link]
 
@@ -69,8 +75,10 @@ Contexto del proyecto: `despidos-tracker` es un tablero de noticias de despidos,
    Bajada: ...
 
    Propuesta:
-   Título: ...
-   Bajada: ...
+   1. Título: ...
+   2. Bajada: ...
+   3. Localización: ...
+   4. Sector: ...
    ```
    Si la nota no pasó el filtro de calidad, reemplazá el bloque "Propuesta" por una nota corta explicando qué falta y la sugerencia de medio alternativo (o el resultado de la búsqueda si ya la hiciste).
 
@@ -96,6 +104,13 @@ Contexto del proyecto: `despidos-tracker` es un tablero de noticias de despidos,
 - Nota de contexto/estadística (no es una empresa puntual): "Despidos en alza: el 67% de las empresas argentinas redujo personal durante 2026" →
   Noticioso: "El 67% de las empresas argentinas despidió personal en el primer semestre de 2026, según Bumeran"
   Bajada: "La proporción subió del 44% registrado en 2025. La reducción de costos fue el motivo más citado (61%), seguido del desempeño insuficiente (37%) y el impacto económico general (30%). Un 35% de las empresas anticipa recortes adicionales para lo que resta del año."
-  (Nota: "redujo personal" es un eufemismo — la propia encuesta lo llama "empresas con despidos"; sin geo-localización específica, va como Nacional.)
+  (Nota: "redujo personal" es un eufemismo — la propia encuesta lo llama "empresas con despidos"; sin geo-localización específica, va como Nacional; sin sector, porque no es de un solo rubro.)
+
+- Sector + mención en criollo: "La UOM volvió a movilizar contra 52 despidos en la histórica metalúrgica Apholos" →
+  Noticioso: "La metalúrgica Apholos despide a 52 trabajadores en su planta de Villa Devoto tras un conflicto de cuatro meses con la UOM"
+  Bajada: "La empresa, fundada a principios del siglo XX y que llegó a emplear a cerca de 300 personas, tramitó las cesantías mediante un Procedimiento Preventivo de Crisis. El gremio denuncia que no garantiza el pago de las indemnizaciones y atribuye el ajuste a la apertura importadora y a una gestión deficiente de la compañía."
+  Localización: Villa Devoto → CABA
+  Sector: Metalúrgica
+  (Nota: el título ya nombra el rubro concreto —"la metalúrgica Apholos"— además de asignar el campo Sector; así una búsqueda de texto por "metalúrgica" encuentra la nota aunque nadie use el filtro.)
 
 No hace falta que el título sea corto a toda costa — que sea directo y completo importa más que la brevedad, pero evitá relleno.

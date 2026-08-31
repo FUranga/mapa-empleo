@@ -130,6 +130,7 @@ main{padding-top:16px}
       <input id="newProvincia" placeholder="Provincia (vacío = Nacional)" class="addf-input" style="flex:1">
       <input id="newDepartamento" placeholder="Ciudad" class="addf-input" style="flex:1">
     </div>
+    <select id="newSector" class="addf-input" style="max-width:220px"></select>
     <input id="newDate" type="date" class="addf-input" style="width:180px">
     <div style="display:flex; gap:8px; margin-top:4px">
       <button id="submitAddForm" class="publish">Agregar a Pendientes</button>
@@ -153,6 +154,15 @@ main{padding-top:16px}
 
 <script>
 const $ = (id) => document.getElementById(id);
+const SECTORES = [
+  'Metalúrgica','Textil','Alimenticia','Calzado','Papel','Química','Agro',
+  'Transporte','Comercio','Ecommerce','Construcción','Medios','Seguros','Salud','Minería','Energía',
+  'Aeronáutica','Gastronomía','Entretenimiento','Otros'
+];
+function sectorOptionsHtml(sel){
+  return `<option value="" ${!sel ? 'selected' : ''}>Sin sector</option>` +
+    SECTORES.map(s => `<option value="${s}" ${sel===s ? 'selected' : ''}>${s}</option>`).join('');
+}
 let rawItems = [], curatedItems = [];
 let currentTab = 'pendiente';
 let selected = new Set();
@@ -315,6 +325,7 @@ function render(){
               <option value="cierres" ${i.topic==='cierres' ? 'selected' : ''}>Cierre / quiebra</option>
               <option value="suspensiones" ${i.topic==='suspensiones' ? 'selected' : ''}>Suspensiones</option>
             </select>
+            <select class="edit-geo" data-id="${i.id}" data-field="sector">${sectorOptionsHtml(i.sector)}</select>
           </div>
           <div class="geo-row">
             <input class="edit-geo" data-id="${i.id}" data-field="provincia" value="${escapeHtml(i.provincia||'')}" placeholder="Provincia (vacío = Nacional)">
@@ -426,6 +437,7 @@ $('cancelAddForm').addEventListener('click', () => {
   $('addForm').style.display = 'none';
   ['newTitle','newSnippet','newUrl','newMedio','newProvincia','newDepartamento'].forEach(id => $(id).value = '');
   $('newTopic').value = '';
+  $('newSector').value = '';
 });
 
 $('submitAddForm').addEventListener('click', async () => {
@@ -448,6 +460,7 @@ $('submitAddForm').addEventListener('click', async () => {
     lugar: provincia,
     provincia,
     departamento: $('newDepartamento').value.trim() || null,
+    sector: $('newSector').value || null,
     topic: $('newTopic').value || null,
     snippet: $('newSnippet').value.trim(),
     url,
@@ -506,6 +519,7 @@ async function doAction(action){
   }
 }
 
+$('newSector').innerHTML = sectorOptionsHtml(null);
 initAuthFields();
 if(getAuth().token) loadAll();
 else setStatus('Cargá tus credenciales de GitHub arriba y hacé click en "Recargar datos".', '');

@@ -88,6 +88,8 @@ footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--hair);
     <select id="filterProvincia"><option value="">Todas</option></select>
     <span class="ctl-label">Ciudad</span>
     <select id="filterDepartamento"><option value="">Todas</option></select>
+    <span class="ctl-label">Sector</span>
+    <select id="filterSector"><option value="">Todos</option></select>
     <input id="search" type="text" placeholder="Buscar...">
   </div>
 </header>
@@ -125,6 +127,16 @@ function populateFilters(){
   });
   provSel.addEventListener('change', () => { currentPage = 1; updateDepartamentos(); render(); });
   document.getElementById('filterDepartamento').addEventListener('change', () => { currentPage = 1; render(); });
+
+  const sectores = [...new Set(allItems.map(i => i.sector).filter(Boolean))].sort();
+  const secSel = document.getElementById('filterSector');
+  sectores.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s; opt.textContent = s;
+    secSel.appendChild(opt);
+  });
+  secSel.addEventListener('change', () => { currentPage = 1; render(); });
+
   document.getElementById('search').addEventListener('input', () => { currentPage = 1; render(); });
 }
 
@@ -176,11 +188,13 @@ function cleanTitle(title, medio){
 function render(){
   const provincia = document.getElementById('filterProvincia').value;
   const departamento = document.getElementById('filterDepartamento').value;
+  const sector = document.getElementById('filterSector').value;
   const q = document.getElementById('search').value.trim().toLowerCase();
 
   const filtered = allItems.filter(i => {
     if(provincia && i.provincia !== provincia) return false;
     if(departamento && i.departamento !== departamento) return false;
+    if(sector && i.sector !== sector) return false;
     if(q && !(`${i.title} ${i.snippet}`.toLowerCase().includes(q))) return false;
     return true;
   });
@@ -199,7 +213,7 @@ function render(){
   list.innerHTML = pageItems.map(i => `
     <article class="card">
       <span class="badge topic-${i.topic || 'neutral'}">${topicLabel(i.topic)}</span>
-      <div class="dateline"><b>${escapeHtml(i.medio || 'Fuente desconocida')}</b>${i.provincia ? ` — ${escapeHtml(i.provincia)}` : ''} · ${fmtDate(i.date)}</div>
+      <div class="dateline"><b>${escapeHtml(i.medio || 'Fuente desconocida')}</b>${i.provincia ? ` — ${escapeHtml(i.provincia)}` : ''} · ${fmtDate(i.date)}${i.sector ? ` · ${escapeHtml(i.sector)}` : ''}</div>
       <h2><a href="${i.url}" target="_blank" rel="noopener">${escapeHtml(cleanTitle(i.title, i.medio))}</a></h2>
       ${i.snippet ? `<p class="snippet">${escapeHtml(stripHtml(i.snippet))}</p>` : ''}
     </article>

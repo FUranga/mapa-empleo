@@ -1,5 +1,5 @@
 {
-  "_readme": "Keywords que definen si una noticia es relevante (topic_keywords) y señales que descartan falsos positivos (noise_signals). blocked_medios: nombres de medios a ignorar directamente (agregalos vos cuando veas uno que no querés que vuelva a aparecer, ej. \"El Blog Ese\"). Editable sin tocar código. Todo se matchea en minúsculas y sin tildes sobre título+bajada.",
+  "_readme": "Keywords que definen si una noticia es relevante (topic_keywords) y señales que descartan falsos positivos (noise_signals). blocked_medios: nombres de medios a ignorar directamente (agregalos vos cuando veas uno que no querés que vuelva a aparecer, ej. \"El Blog Ese\"). sector_keywords: taxonomía propia del tracker (no la de mapa-empleo, que es demasiado genérica para este dominio), armada de abajo hacia arriba a partir de los rubros que efectivamente aparecen publicados; se va a ir ampliando a mano a medida que aparezcan rubros nuevos que no encajen en ninguno. Asignación best-effort a partir de título+bajada scrapeados; con solo eso a veces no alcanza, así que puede quedar null y curarse a mano en el admin. 'Otros' es catch-all manual, sin keywords propias. Editable sin tocar código. Todo se matchea en minúsculas y sin tildes sobre título+bajada.",
 
   "topic_keywords": {
     "despidos": [
@@ -19,6 +19,82 @@
       "desguace de la empresa", "paraliza la produccion", "para la produccion",
       "cese de actividades", "cesa su actividad", "achica operaciones",
       "cesacion de pagos", "cheques rechazados", "concurso de acreedores"
+    ]
+  },
+
+  "sector_keywords": {
+    "Metalúrgica": [
+      "metalurgic", "siderurgic", "autopartista", "autopartes", "amortiguador",
+      "maquinaria agricola", "motores electricos", "fundicion", "laminados metalicos"
+    ],
+    "Textil": [
+      "textil", "hilandera", "hilados", "indumentaria", "confeccion textil",
+      "curtiembre"
+    ],
+    "Alimenticia": [
+      "alimenticia", "lactea", "lacteos", "frigorifico", "molino harinero",
+      "aceitera", "fabrica de bebidas", "alfajores", "golosinas", "panificados",
+      "conservas"
+    ],
+    "Calzado": [
+      "calzado", "zapatillas", "marroquineria"
+    ],
+    "Papel": [
+      "papelera", "celulosa", "pasta celulosica", "envases de carton",
+      "fabrica de rafia", "imprenta", "grafica"
+    ],
+    "Química": [
+      "quimica", "petroquimica", "caucho sintetico", "plasticos industriales"
+    ],
+    "Agro": [
+      "agropecuari", "agricola", "ganadera", "ganadero", "tambo", "tambero",
+      "avicola", "avicultura", "granja avicola", "pesquera", "forestal",
+      "silvicultura", "vitivinicola", "bodega"
+    ],
+    "Transporte": [
+      "transporte de carga", "transportista", "logistica", "aerolinea",
+      "camionero", "flete", "transporte publico", "ferrocarril", "naviera"
+    ],
+    "Comercio": [
+      "cadena de electrodomesticos", "cadena de retail", "supermercado",
+      "cadena de farmacias", "comercio minorista"
+    ],
+    "Ecommerce": [
+      "e-commerce", "ecommerce", "tienda online", "marketplace", "comercio electronico"
+    ],
+    "Construcción": [
+      "constructora", "empresa constructora", "obra publica",
+      "empresa de la construccion"
+    ],
+    "Medios": [
+      "radio", "canal de television", "medio de comunicacion", "editorial",
+      "streaming", "periodistas"
+    ],
+    "Seguros": [
+      "aseguradora", "compañia de seguros", "aseguradora de riesgos del trabajo"
+    ],
+    "Salud": [
+      "prepaga", "sanatorio", "clinica privada", "obra social", "centro medico",
+      "hospital privado", "instituto cardiologico"
+    ],
+    "Minería": [
+      "minera", "mineria", "yacimiento minero", "extraccion minera"
+    ],
+    "Energía": [
+      "petrolera", "petroleo", "hidrocarburos", "vaca muerta",
+      "exploracion petrolera", "extraccion de gas", "generadora electrica",
+      "comercializadora de gas", "central termoelectrica"
+    ],
+    "Aeronáutica": [
+      "aeronautica", "fabricante de helicopteros", "fabrica de aviones"
+    ],
+    "Gastronomía": [
+      "restaurante", "cadena de comidas", "cafeteria", "rotiseria", "panaderia",
+      "heladeria", "fast food", "cadena de empanadas"
+    ],
+    "Entretenimiento": [
+      "parque tematico", "acuario", "cine", "club deportivo",
+      "productora audiovisual", "casino"
     ]
   },
 

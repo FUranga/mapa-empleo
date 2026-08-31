@@ -26,7 +26,7 @@ import requests
 
 from utils import (
     load_sources, load_keywords, load_provincias,
-    is_relevant, tag_provincia, tag_departamento,
+    is_relevant, tag_provincia, tag_departamento, tag_sector,
     make_id, now_iso, load_raw, save_raw, dedupe_merge,
 )
 
@@ -129,6 +129,7 @@ def build_item(entry, source, keywords_cfg, provincias_lookup, fallback_medio):
 
     provincia = tag_provincia(title, summary, source, provincias_lookup)
     departamento = tag_departamento(title, summary, source, provincias_lookup)
+    sector = tag_sector(title, summary, keywords_cfg)
     medio = extract_medio(entry, fallback_medio)
 
     blocked = {m.strip().lower() for m in keywords_cfg.get("blocked_medios", [])}
@@ -145,6 +146,7 @@ def build_item(entry, source, keywords_cfg, provincias_lookup, fallback_medio):
         "lugar": provincia,
         "provincia": provincia,
         "departamento": departamento,
+        "sector": sector,
         "topic": topic,
         "snippet": clean_snippet,
         "url": link,

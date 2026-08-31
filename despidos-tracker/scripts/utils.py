@@ -75,6 +75,19 @@ def tag_provincia(title, summary, source, provincias_lookup):
     return None
 
 
+def tag_sector(title, summary, keywords_cfg):
+    """Best-effort: con solo titulo+bajada no siempre alcanza para identificar
+    el sector economico, asi que suele devolver None y queda para curar a mano
+    en el admin. sector_keywords vive en keywords_config.json (editable sin
+    tocar codigo)."""
+    text = normalize(f"{title} {summary}")
+    for sector, kws in keywords_cfg.get("sector_keywords", {}).items():
+        for kw in kws:
+            if normalize(kw) in text:
+                return sector
+    return None
+
+
 def tag_departamento(title, summary, source, provincias_lookup):
     # Nivel departamento: por ahora solo usamos la ciudad/departamento propio
     # de la fuente (campo "departamento" en sources_config.json) como proxy.
