@@ -266,7 +266,7 @@
   {
     "id": "36b8ef2af543aa56",
     "title": "Forestal Tapebicuá designó un interventor y se acerca a la quiebra definitiva",
-    "medio": "El Territorio",
+    "medio": "El Litoral",
     "lugar": "Corrientes",
     "provincia": "Corrientes",
     "departamento": "Virasoro",
@@ -447,7 +447,7 @@
   },
   {
     "id": "16580a7f7e1dab13",
-    "title": "La Justicia le dio un último plazo a Algodonera Avellaneda para evitar la quiebra",
+    "title": "Algodonera Avellaneda tiene un último plazo de la Justicia para evitar la quiebra",
     "medio": "La Nacion",
     "lugar": "Santa Fe",
     "provincia": "Santa Fe",
@@ -458,7 +458,7 @@
     "url": "https://www.lanacion.com.ar/economia/campo/tiene-360-empleados-la-justicia-le-dio-una-ultima-oportunidad-a-una-historica-algodonera-para-evitar-nid03072026/",
     "date": "2026-07-04T07:00:00+00:00",
     "scraped_at": "2026-08-29T10:17:33.053147+00:00",
-    "status_at": "2026-08-30T22:46:09.893Z"
+    "status_at": "2026-08-31T00:00:00.000Z"
   },
   {
     "id": "b15e69142c0d32dc",
@@ -801,11 +801,11 @@
     "departamento": null,
     "sector": "Alimenticia",
     "topic": "cierres",
-    "snippet": "La Justicia autorizó a Compañía Láctea Suipacha SA, del empresario Pablo Asís, a alquilar la planta, las maquinarias y las marcas. La reactivación arranca con entre 25 y 30 trabajadores, con posibilidad de ampliarse. Tras la quiebra, 140 trabajadores quedaron sin empleo.",
+    "snippet": "Compañía Láctea Suipacha SA, del empresario Pablo Asís, fue autorizada por la Justicia a alquilar la planta, las maquinarias y las marcas. La reactivación arranca con entre 25 y 30 trabajadores, con posibilidad de ampliarse. Tras la quiebra, 140 trabajadores quedaron sin empleo.",
     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdi1rcHNhTEI5OWw1SkJvLWZxdWlrX0RsSzN3VHBtNXhIRk11aTlUTXVtdUZSZHM5b0FkMEdScGw0aXdZUGhOY0t2SC1OUjd0bjhLeHkxYS1pZFRvdHJDbUhQVDU2UVUzeHRnR3k2VWk2b3haRTFVT3I5blRmRi1IdTdOQWw2VnVHc2VubTRzTlZkVEpoZmpHTmhsVEk3MjQ4OUdsYnlnb1lfMklFUVFSWUNFWjZwaWJiQUt2RURGS3R6VEk?oc=5",
     "date": "2026-05-15T07:00:00+00:00",
     "scraped_at": "2026-08-29T10:17:24.803759+00:00",
-    "status_at": "2026-08-29T23:13:39.320Z"
+    "status_at": "2026-08-31T00:00:00.000Z"
   },
   {
     "id": "b24a11eeb9782c11",
@@ -902,7 +902,7 @@
   },
   {
     "id": "manual-057aac1eb-j3ylcg",
-    "title": "La Justicia decretó la quiebra de Bioceres, la biotecnológica agropecuaria fundada en Rosario",
+    "title": "Bioceres, la biotecnológica agropecuaria fundada en Rosario, fue declarada en quiebra",
     "medio": "La Nación",
     "lugar": "Santa Fe",
     "provincia": "Santa Fe",
@@ -913,7 +913,7 @@
     "url": "https://www.lanacion.com.ar/economia/campo/fuerte-decision-la-justicia-decreto-la-quiebra-de-bioceres-sa-la-empresa-del-agro-envuelta-en-una-nid03032026/",
     "date": "2026-03-03T00:00:00.000Z",
     "scraped_at": "2026-08-31T11:53:23.000Z",
-    "status_at": "2026-08-31T11:53:23.000Z",
+    "status_at": "2026-08-31T00:00:00.000Z",
     "manual": true
   },
   {
@@ -934,7 +934,7 @@
   },
   {
     "id": "28e4c586dfc836b9",
-    "title": "La Justicia declaró la quiebra del Aquarium de Mar del Plata, cerrado desde marzo de 2025",
+    "title": "El Aquarium de Mar del Plata fue declarado en quiebra, cerrado desde marzo de 2025",
     "medio": "Infobae",
     "lugar": "Buenos Aires",
     "provincia": "Buenos Aires",
@@ -1084,11 +1084,11 @@
     "departamento": null,
     "sector": "Gastronomía",
     "topic": "cierres",
-    "snippet": "El Juzgado Nacional en lo Comercial N°27 decretó la quiebra de la cadena conocida por sus hamburguesas de entraña, que llegó a operar más de 30 locales bajo el modelo de franquicias. La empresa acumulaba cheques rechazados por casi 5.000 millones de pesos y demandas laborales de ex empleados. Tres meses después, el tribunal revocó la quiebra luego de que la firma depositara 21,4 millones de pesos.",
+    "snippet": "Deniro, la cadena conocida por sus hamburguesas de entraña que llegó a operar más de 30 locales bajo el modelo de franquicias, entró en quiebra. La empresa acumulaba cheques rechazados por casi 5.000 millones de pesos y demandas laborales de ex empleados. Tres meses después, la Justicia revocó la quiebra luego de que la firma depositara 21,4 millones de pesos.",
     "url": "https://www.lanacion.com.ar/economia/negocios/la-cadena-de-hamburgueserias-deniro-entro-en-quiebra-nid11122025/",
     "date": "2025-12-11T00:00:00.000Z",
     "scraped_at": "2026-08-31T11:53:23.000Z",
-    "status_at": "2026-08-31T11:53:23.000Z",
+    "status_at": "2026-08-31T00:00:00.000Z",
     "manual": true
   },
   {
@@ -1109,14 +1109,14 @@
   },
   {
     "id": "manual-mth4dq02-b2y0ql",
-    "title": "La Justicia declaró la quiebra de Radio del Plata y prohibió la salida del país al presidente de la sociedad",
+    "title": "Radio del Plata fue declarada en quiebra y su presidente tiene prohibida la salida del país",
     "medio": "La Nación",
     "lugar": "CABA",
     "provincia": "CABA",
     "departamento": null,
     "sector": "Medios",
     "topic": "cierres",
-    "snippet": "El Juzgado Nacional en lo Comercial N°19 declaró la bancarrota de Radiodifusora del Plata S.A. tras años de incumplimientos con acreedores, y ordenó la inhibición general de bienes y la prohibición de salida del país de Jorge Julián Cerezo, presidente de la sociedad. La emisora, fundada en 1931 y una de las cinco radios más tradicionales del país, deberá clausurar su sede y sus estudios.",
+    "snippet": "Radiodifusora del Plata S.A. fue declarada en bancarrota tras años de incumplimientos con acreedores, con inhibición general de bienes y prohibición de salida del país para Jorge Julián Cerezo, presidente de la sociedad. La emisora, fundada en 1931 y una de las cinco radios más tradicionales del país, deberá clausurar su sede y sus estudios.",
     "url": "https://www.lanacion.com.ar/espectaculos/radio/declararon-la-quiebra-de-radio-del-plata-y-prohiben-la-salida-del-pais-del-presidente-de-la-sociedad-nid26112025/",
     "date": "2025-11-26T00:00:00.000Z",
     "scraped_at": "2026-08-31T00:00:00.000Z",
@@ -1210,11 +1210,11 @@
     "departamento": null,
     "sector": "Energía",
     "topic": "cierres",
-    "snippet": "El Juzgado Comercial N°23 de Buenos Aires decretó la quiebra de la petrolera a pedido de sus propios accionistas, con un pasivo de 56 millones de dólares, tras fallas graves en pozos de Puesto Flores y Estancia Vieja y la pérdida de una línea de crédito clave. Los campos siguieron operando con 40 empleados a través de una contratista mientras la provincia instruyó a la estatal EDHIPSA a asumir el control transitorio por 180 días para proteger la continuidad laboral.",
+    "snippet": "President Petroleum entró en quiebra a pedido de sus propios accionistas, con un pasivo de 56 millones de dólares, tras fallas graves en pozos de Puesto Flores y Estancia Vieja y la pérdida de una línea de crédito clave. Los campos siguieron operando con 40 empleados a través de una contratista mientras la provincia instruyó a la estatal EDHIPSA a asumir el control transitorio por 180 días para proteger la continuidad laboral.",
     "url": "https://www.rionegro.com.ar/energia/la-justicia-dicto-la-quiebra-de-una-petrolera-en-rio-negro-y-se-abre-la-incognita-por-sus-empleados-4252124/",
     "date": "2025-08-12T00:00:00.000Z",
     "scraped_at": "2026-08-31T11:53:23.000Z",
-    "status_at": "2026-08-31T11:53:23.000Z",
+    "status_at": "2026-08-31T00:00:00.000Z",
     "manual": true
   },
   {
@@ -1225,7 +1225,7 @@
     "departamento": "Rosario",
     "sector": "Química",
     "topic": "cierres",
-    "snippet": "La Justicia comercial rosarina había decretado la quiebra de Laboratorio Polybius en julio, pero un mes después la firma logró convertirla en un proceso de concurso preventivo. El exdirector técnico, con 13 años en la empresa, renunció a comienzos de 2024 sin cobrar un año de trabajo adeudado.",
+    "snippet": "Laboratorio Polybius había sido declarado en quiebra en julio, pero un mes después la firma logró convertirla en un proceso de concurso preventivo. El exdirector técnico, con 13 años en la empresa, renunció a comienzos de 2024 sin cobrar un año de trabajo adeudado.",
     "url": "https://puntobiz.com.ar/negocios/laboratorio-logro-convertir-quiebra-en-concurso-aunque-enfrenta-una-clausura-2025102600",
     "date": "2025-08-08T00:00:00.000Z",
     "id": "manual-mth7hitp-72qobw",
@@ -1321,7 +1321,7 @@
     "departamento": "Rosario",
     "sector": "Comercio",
     "topic": "cierres",
-    "snippet": "La Justicia decretó la quiebra de Centro SA, la concesionaria manejada por la familia Pasqualini, luego de que su último responsable no lograra revertir la caída del negocio y pidiera la liquidación de los activos restantes. El local céntrico de Ayacucho quedó vacío, con las marcas del rombo de Renault todavía visibles en la fachada.",
+    "snippet": "Centro SA, la concesionaria manejada por la familia Pasqualini, entró en quiebra luego de que su último responsable no lograra revertir la caída del negocio y pidiera la liquidación de los activos restantes. El local céntrico de Ayacucho quedó vacío, con las marcas del rombo de Renault todavía visibles en la fachada.",
     "url": "https://puntobiz.com.ar/negocios/tradicional-concesionario-oficial-renault-incumplio-pagos-y-fue-a-la-quiebra-202531600",
     "date": "2025-03-01T00:00:00.000Z",
     "id": "manual-mth7hil3-ufseox",
@@ -1353,7 +1353,7 @@
     "departamento": "Rosario",
     "sector": "Agro",
     "topic": "cierres",
-    "snippet": "La Justicia decretó la quiebra de la firma, con oficinas en el centro rosarino y vinculada al Mercado Físico de Granos de Rosario, a pedido de un acreedor que reclamaba el pago de una deuda de unos 70 millones de pesos. La empresa, parte del Grupo América del empresario Pablo Arcamone, dijo que mantenía negociaciones activas para revertir la declaración.",
+    "snippet": "América Agrocomercial, con oficinas en el centro rosarino y vinculada al Mercado Físico de Granos de Rosario, entró en quiebra a pedido de un acreedor que reclamaba el pago de una deuda de unos 70 millones de pesos. La empresa, parte del Grupo América del empresario Pablo Arcamone, dijo que mantenía negociaciones activas para revertir la declaración.",
     "url": "https://puntobiz.com.ar/agro/firma-rosarina-dedicada-al-corretaje-entro-en-quiebra-202410231170",
     "date": "2024-10-23T00:00:00.000Z",
     "id": "manual-mth7hj0x-e974em",
@@ -1402,11 +1402,11 @@
     "departamento": "Paraná",
     "sector": "Salud",
     "topic": "cierres",
-    "snippet": "El Juzgado Civil y Comercial N°9 de Paraná decretó la quiebra del centro médico a pedido de sus propios directores, que adeudaban a los 40 trabajadores medio aguinaldo de diciembre y los sueldos de abril, mayo y junio, además de las vacaciones. El sindicato ATSA calificó la presentación como fraudulenta y denunció vaciamiento.",
+    "snippet": "El Instituto Cardiológico de Entre Ríos entró en quiebra a pedido de sus propios directores, que adeudaban a los 40 trabajadores medio aguinaldo de diciembre y los sueldos de abril, mayo y junio, además de las vacaciones. El sindicato ATSA calificó la presentación como fraudulenta y denunció vaciamiento.",
     "url": "https://www.unoentrerios.com.ar/la-provincia/parana-icer-presentara-quiebra-y-dejara-trabajo-40-personas-n10141215.html",
     "date": "2024-07-01T00:00:00.000Z",
     "scraped_at": "2026-08-31T11:53:23.000Z",
-    "status_at": "2026-08-31T11:53:23.000Z",
+    "status_at": "2026-08-31T00:00:00.000Z",
     "manual": true
   },
   {
@@ -1434,11 +1434,11 @@
     "departamento": null,
     "sector": "Aeronáutica",
     "topic": "cierres",
-    "snippet": "El Juzgado Comercial N°26 decretó la quiebra de Avian Líneas Aéreas, que operaba comercialmente como Avianca Argentina, a pedido de la propia empresa por falta de actividad y sin perspectivas de reanudar vuelos. La aerolínea había operado desde Aeroparque entre noviembre de 2017 y junio de 2019, cuando pidió una suspensión de operaciones de 90 días para reestructurarse y nunca volvió a volar.",
+    "snippet": "Avian Líneas Aéreas, que operaba comercialmente como Avianca Argentina, entró en quiebra a pedido de la propia empresa por falta de actividad y sin perspectivas de reanudar vuelos. La aerolínea había operado desde Aeroparque entre noviembre de 2017 y junio de 2019, cuando pidió una suspensión de operaciones de 90 días para reestructurarse y nunca volvió a volar.",
     "url": "https://aviacionenargentina.com.ar/avianca-argetina-va-a-la-quiebra-solo-volo-un-ano-y-medio-porque-la-desregulacion-que-la-vio-nacer-la-mato-un-final-que-no-sorprende/",
     "date": "2024-04-22T00:00:00.000Z",
     "scraped_at": "2026-08-31T11:53:23.000Z",
-    "status_at": "2026-08-31T11:53:23.000Z",
+    "status_at": "2026-08-31T00:00:00.000Z",
     "manual": true
   },
   {
