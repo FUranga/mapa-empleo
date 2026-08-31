@@ -9569,9 +9569,9 @@
     "date": "2025-12-07T00:00:00.000Z",
     "id": "manual-mth7hj2u-zv6k7q",
     "scraped_at": "2026-08-31T00:00:00.000Z",
-    "status_at": "2026-08-31T12:57:38.000Z",
+    "status_at": "2026-08-31T12:55:23.000Z",
     "manual": true,
-    "status": "pendiente"
+    "status": "descartado"
   },
   {
     "id": "edae790d124ae032",
@@ -11071,9 +11071,9 @@
     "url": "https://www.lanacion.com.ar/economia/negocios/albanesi-una-firma-del-grupo-entro-en-concurso-preventivo-nid02102025/",
     "date": "2025-10-02T00:00:00.000Z",
     "scraped_at": "2026-08-31T00:00:00.000Z",
-    "status_at": "2026-08-31T12:57:38.000Z",
+    "status_at": "2026-08-31T12:55:23.000Z",
     "manual": true,
-    "status": "pendiente"
+    "status": "descartado"
   },
   {
     "id": "55358c164713b2ac",
