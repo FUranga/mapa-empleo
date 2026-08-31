@@ -2384,5 +2384,37 @@
     "scraped_at": "2026-08-31T20:28:58.432950+00:00",
     "status_at": "2026-08-31T20:28:58.432970+00:00",
     "manual": true
+  },
+  {
+    "title": "El frigorífico creador de Paty entró en concurso preventivo con una deuda de 34.000 millones de pesos",
+    "medio": "La Nación",
+    "lugar": "Trenel",
+    "provincia": "La Pampa",
+    "departamento": "Trenel",
+    "sector": "Alimenticia",
+    "topic": "cierres",
+    "snippet": "El frigorífico General Pico, fundado por la familia Lowenstein, ya había suspendido a 500 trabajadores en enero. Acumula 1.186 cheques rechazados y responsabilizó a un grupo financiero que es a la vez accionista y acreedor por bloquear alternativas para evitar el concurso.",
+    "url": "https://www.lanacion.com.ar/economia/campo/tras-fracasar-un-intento-de-venta-el-frigorifico-de-una-de-las-familias-que-creo-la-marca-paty-ira-a-nid31032026/",
+    "date": "2026-03-31T00:00:00.000Z",
+    "id": "manual-73f0b13e0c8c",
+    "scraped_at": "2026-08-31T20:30:27.716681+00:00",
+    "status_at": "2026-08-31T20:30:27.716696+00:00",
+    "manual": true
+  },
+  {
+    "title": "La Justicia declaró la quiebra del frigorífico La Taba en Cruz del Eje y pone en riesgo 50 empleos",
+    "medio": "InfoGremiales",
+    "lugar": "Cruz del Eje",
+    "provincia": "Córdoba",
+    "departamento": "Cruz del Eje",
+    "sector": "Alimenticia",
+    "topic": "cierres",
+    "snippet": "El tribunal exhortó a los sindicatos, la municipalidad y la secretaría de trabajo a colaborar en la reactivación de la planta. La empresa reconoció el deterioro del escenario económico-financiero y la imposibilidad de ofrecer una propuesta viable a sus acreedores.",
+    "url": "https://www.infogremiales.com.ar/declararon-la-quiebra-del-frigorifico-la-taba-en-cruz-del-eje-y-peligran-otros-50-puestos-de-trabajo-en-cordoba/",
+    "date": "2026-03-16T00:00:00.000Z",
+    "id": "manual-8286bf122a0f",
+    "scraped_at": "2026-08-31T20:30:27.878697+00:00",
+    "status_at": "2026-08-31T20:30:27.878715+00:00",
+    "manual": true
   }
 ]
