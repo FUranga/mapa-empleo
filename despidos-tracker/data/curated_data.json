@@ -1696,5 +1696,53 @@
     "scraped_at": "2026-08-31T19:22:09.158219+00:00",
     "status_at": "2026-08-31T19:22:09.158234+00:00",
     "manual": true
+  },
+  {
+    "title": "Lácteos Verónica paralizó sus tres plantas en Santa Fe y acumula 13.600 millones de pesos en cheques rechazados",
+    "medio": "El Economista",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": null,
+    "sector": "Alimenticia",
+    "topic": "cierres",
+    "snippet": "La empresa dejó de pagar sueldos a sus 700 empleados desde diciembre y sus plantas de Lehmann, Suardi y Clason permanecen sin producción desde mediados de enero. También arrastra una deuda con tamberos estimada en 60 millones de dólares.",
+    "url": "https://eleconomista.com.ar/economia/una-principales-lacteas-pais-borde-colapso-13600-millones-cheques-rechazados-n92884",
+    "date": "2026-02-25T00:00:00.000Z",
+    "id": "manual-489c8875eb02",
+    "scraped_at": "2026-08-31T19:23:01.380233+00:00",
+    "status_at": "2026-08-31T19:23:01.380244+00:00",
+    "manual": true
+  },
+  {
+    "title": "FATE mantuvo cerrada su planta de San Fernando pese a la conciliación obligatoria que ordenaba reabrirla",
+    "medio": "Infobae",
+    "lugar": "San Fernando",
+    "provincia": "Buenos Aires",
+    "departamento": "San Fernando",
+    "sector": "Otros",
+    "topic": "cierres",
+    "snippet": "El sindicato SUTNA denunció que la fábrica siguió con los portones cerrados con candado cuando los 920 despedidos se presentaron a trabajar tras la orden del Gobierno. La empresa insistió en que el cierre es definitivo y no habrá marcha atrás.",
+    "url": "https://www.infobae.com/politica/2026/02/20/obreros-de-fate-denunciaron-que-la-planta-sigue-cerrada-pese-a-la-conciliacion-obligatoria/",
+    "date": "2026-02-20T00:00:00.000Z",
+    "id": "manual-e79af27b4104",
+    "scraped_at": "2026-08-31T19:23:40.459084+00:00",
+    "status_at": "2026-08-31T19:23:40.459100+00:00",
+    "manual": true
+  },
+  {
+    "title": "La actividad textil cayó 24% interanual y perdió más de 16.000 empleos desde 2023, según FITA",
+    "medio": "BAE Negocios",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": null,
+    "snippet": "La capacidad instalada del sector descendió al 32,5%, un nivel similar al de la pandemia. En septiembre de 2025 la industria empleaba a 105.000 trabajadores formales, con una pérdida de 2.000 puestos por mes según la Federación de Industrias Textiles Argentinas.",
+    "url": "https://www.baenegocios.com/negocios/caida-de-la-actividad-despidos-y-cierre-de-plantas/",
+    "date": "2026-02-01T00:00:00.000Z",
+    "id": "manual-c91a4abd43ab",
+    "scraped_at": "2026-08-31T19:25:14.754402+00:00",
+    "status_at": "2026-08-31T19:25:14.754418+00:00",
+    "manual": true
   }
 ]
