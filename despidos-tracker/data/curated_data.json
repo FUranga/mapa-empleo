@@ -2032,5 +2032,37 @@
     "scraped_at": "2026-08-31T20:03:21.701874+00:00",
     "status_at": "2026-08-31T20:03:21.701888+00:00",
     "manual": true
+  },
+  {
+    "title": "Caromar entró en concurso preventivo tras cerrar cuatro sucursales y despedir a 120 empleados",
+    "medio": "Ámbito Financiero",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Comercio",
+    "topic": "cierres",
+    "snippet": "El mayorista, dueño de la marca de limpieza El Coloso, tuvo una caída de ventas del 42% entre noviembre de 2024 y noviembre de 2025. Cerró sus locales de Mar del Plata, Burzaco, La Tablada y San Justo, y atribuyó la crisis a la recesión, la competencia de precios y el cierre de su planta de jabón en polvo en 2024.",
+    "url": "https://www.ambito.com/negocios/supermercado-mayorista-entro-concurso-acreedores-desplome-ventas-cierre-sucursales-y-mas-100-despidos-n6263941",
+    "date": "2026-04-07T00:00:00.000Z",
+    "id": "manual-faba07876e90",
+    "scraped_at": "2026-08-31T20:04:17.026026+00:00",
+    "status_at": "2026-08-31T20:04:17.026037+00:00",
+    "manual": true
+  },
+  {
+    "title": "Emood SRL, empresa de ecommerce que vendía en Mercado Libre, entró en concurso preventivo con 159 cheques rechazados",
+    "medio": "iProfesional",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Ecommerce",
+    "topic": "cierres",
+    "snippet": "La firma, que también operaba en tiendas virtuales de bancos, acumula más de 1.300 millones de pesos en cheques rechazados y una deuda impositiva de 41,9 millones de pesos con ARCA. Los problemas de pago comenzaron a manifestarse en los primeros meses de 2026.",
+    "url": "https://www.iprofesional.com/negocios/456914-empresa-de-ecommerce-entro-en-concurso-159-cheques-rechazados-por-1300-millones-de-pesos",
+    "date": "2026-06-10T00:00:00.000Z",
+    "id": "manual-fac2019fdbcf",
+    "scraped_at": "2026-08-31T20:04:46.094852+00:00",
+    "status_at": "2026-08-31T20:04:46.094866+00:00",
+    "manual": true
   }
 ]
