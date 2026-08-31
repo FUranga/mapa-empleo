@@ -2064,5 +2064,21 @@
     "scraped_at": "2026-08-31T20:04:46.094852+00:00",
     "status_at": "2026-08-31T20:04:46.094866+00:00",
     "manual": true
+  },
+  {
+    "title": "Pan Danés entró en concurso preventivo tras una caída de ventas de más del 50%",
+    "medio": "Infobae",
+    "lugar": "CABA",
+    "provincia": "CABA",
+    "departamento": null,
+    "sector": "Alimenticia",
+    "topic": "cierres",
+    "snippet": "La cadena de panaderías, con más de 150 empleados y una planta de 1.700 m² con capacidad para abastecer hasta 50 locales, acumuló 56 cheques rechazados por unos 55 millones de pesos en pocos meses. La empresa atribuyó la crisis a la incertidumbre, la recesión y el aumento de costos.",
+    "url": "https://www.infobae.com/economia/2026/04/09/deuda-concurso-y-cheques-rechazados-una-reconocida-cadena-de-panaderias-portena-sufre-una-grave-crisis/",
+    "date": "2026-04-09T00:00:00.000Z",
+    "id": "manual-ab1ee43b2720",
+    "scraped_at": "2026-08-31T20:06:33.278589+00:00",
+    "status_at": "2026-08-31T20:06:33.278603+00:00",
+    "manual": true
   }
 ]
