@@ -1504,5 +1504,37 @@
     "scraped_at": "2026-08-31T00:00:00.000Z",
     "status_at": "2026-08-31T00:00:00.000Z",
     "manual": true
+  },
+  {
+    "title": "Mirgor despidió a 300 empleados en su planta de Río Grande en medio de un conflicto gremial con la UOM",
+    "medio": "Infobae",
+    "lugar": "Río Grande",
+    "provincia": "Tierra del Fuego",
+    "departamento": "Río Grande",
+    "sector": "Electrodomésticos",
+    "topic": "despidos",
+    "snippet": "El gobierno de Tierra del Fuego dictó la conciliación obligatoria por 15 días para suspender los despidos. La empresa, que ensambla celulares, televisores y electrónica de consumo y fabrica autopartes bajo el sistema just in time, atribuyó la decisión a los paros de la UOM y no a una caída en la producción o el consumo.",
+    "url": "https://www.infobae.com/economia/2026/08/10/mirgor-desvinculo-a-300-empleados-por-paros-gremiales-y-el-gobierno-de-tierra-del-fuego-dispuso-la-conciliacion-obligatoria/",
+    "date": "2026-08-10T00:00:00.000Z",
+    "id": "manual-0e620e200e9d",
+    "scraped_at": "2026-08-31T19:02:58.466126+00:00",
+    "status_at": "2026-08-31T19:02:58.466139+00:00",
+    "manual": true
+  },
+  {
+    "title": "Los cheques rechazados subieron 6,6% en julio y siguen en niveles récord, según Fidelitas",
+    "medio": "Noticias Argentinas",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": null,
+    "snippet": "El volumen ronda los 80.000 cheques rechazados mensuales, según el informe de la firma de información crediticia. La mora de deudores bajó 4,9% tras el máximo histórico de mayo, pero el CEO de Fidelitas, Félix El Idd, señaló que la economía real transita un escenario exigente por las tasas elevadas y la escasa disponibilidad de crédito, con impacto mayor en las pymes.",
+    "url": "https://noticiasargentinas.com/economia/aumentaron-un-6-6--los-cheques-rechazados-y-son-una-clara-senal-de-la-falta-de-recuperacion-del-credito_a6a7f7986724932da9d52b8f8",
+    "date": "2026-08-16T00:00:00.000Z",
+    "id": "manual-68c9494de2a8",
+    "scraped_at": "2026-08-31T19:04:01.476352+00:00",
+    "status_at": "2026-08-31T19:04:01.476364+00:00",
+    "manual": true
   }
 ]
