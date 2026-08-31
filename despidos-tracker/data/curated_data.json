@@ -60,6 +60,22 @@
     "status_at": "2026-08-29T19:34:52.650Z"
   },
   {
+    "id": "manual-057aac1ee-3qfmwn",
+    "title": "La Anónima despidió a 85 empleados en Tierra del Fuego en lo que va de 2026",
+    "medio": "El Sureño",
+    "lugar": "Tierra del Fuego",
+    "provincia": "Tierra del Fuego",
+    "departamento": "Río Grande",
+    "sector": "Comercio",
+    "topic": "despidos",
+    "snippet": "La cadena de supermercados notificó cinco cesantías el 18 de agosto en Río Grande y Tolhuin, que el sindicato mercantil atribuyó a una reestructuración por la caída de ventas. La empresa acumula una morosidad de su tarjeta propia que llevó los créditos incobrables a 19.255 millones de pesos, un salto de casi 600% interanual, con una baja de 5,11% en las ventas del período.",
+    "url": "https://www.surenio.com.ar/supermercado-inicia-despidos-en-rio-grande-y-tolhuin/",
+    "date": "2026-08-18T00:00:00.000Z",
+    "scraped_at": "2026-08-31T11:53:23.000Z",
+    "status_at": "2026-08-31T00:00:00.000Z",
+    "manual": true
+  },
+  {
     "id": "b0e353792271c013",
     "title": "Le Blé entró en concurso: despidió al 70% de su plantilla y cerró la mitad de los locales",
     "medio": "Infobae",
@@ -131,7 +147,7 @@
     "departamento": "La Tablada",
     "sector": "Otros",
     "topic": "despidos",
-    "snippet": "La marca de electrodomésticos quedó con 111 empleados tras una serie de despidos y retiros voluntarios. Llegó a tener más de 350 en 2023, en el marco de un concurso preventivo iniciado en abril. La empresa trasladó parte de la producción a Paraguay y atribuyó el cierre a la pérdida de competitividad frente a las importaciones.",
+    "snippet": "La marca de electrodomésticos quedó con 111 empleados tras una serie de despidos y retiros voluntarios. Llegó a tener más de 350 en 2023. La empresa trasladó parte de la producción a Paraguay y atribuyó el cierre a la pérdida de competitividad frente a las importaciones.",
     "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQRFVBaHFveDYyQ0xVOFNzTmpyZkF5ZWxzQ3R2bmc5dEk5cjl3dlJLbGRxUmh3NV91djJDY3VSRERZOWtrbFdfN0R4Si10T2dvWkxBb3N2d3Y4YlFuSTdFeUZ0TEQ1c0FGdzdYQkRINUlWblppcGxSZlI4eWJNd29kZGxOZTROTlFxR0IyMG5xbGVqajlRMk9qUmtNMDZKRWNNS3pHTUpkVmpPbnhpQWRWaENXdE82amV3UHFXTkZ1WkFKSG5mSjRXdHNmaXRHUdIB4gFBVV95cUxOZlllSklJRm8yazdUT0lKRXFTa2VzS1NOOVE4ZEhPVGl0ajJnMWFlSzdUMmNMTVNkT3R6TVhQYVROckdvMkFleFdVRF9JQm1TQWJJUm11NzVaWWlLZEdoZVNWNzRQNlEtQllWaEhqN2lKYWJXM3pIYTJrS3doMzFremVyN0kwQklmdHBKb2NhN3d0eHRFRmh5akFObVp0RXFTR21qd2Zjd1MyRWw1T0pJREJXX1B1M2txZ2FobFhOcVp0UVNUcTZZU1g4M3NuTTlocmpLRnJBSjZLUEVPOG9QU2pB?oc=5",
     "date": "2026-08-08T07:00:00+00:00",
     "scraped_at": "2026-08-29T10:17:35.059719+00:00",
@@ -980,22 +996,6 @@
     "manual": true
   },
   {
-    "id": "manual-057aac1ee-3qfmwn",
-    "title": "La Anónima despidió a 85 empleados en Tierra del Fuego en lo que va de 2026",
-    "medio": "El Sureño",
-    "lugar": "Tierra del Fuego",
-    "provincia": "Tierra del Fuego",
-    "departamento": "Río Grande",
-    "sector": "Comercio",
-    "topic": "despidos",
-    "snippet": "La cadena de supermercados notificó cinco cesantías el 18 de agosto en Río Grande y Tolhuin, que el sindicato mercantil atribuyó a una reestructuración por la caída de ventas. La empresa acumula una morosidad de su tarjeta propia que llevó los créditos incobrables a 19.255 millones de pesos, un salto de casi 600% interanual, con una baja de 5,11% en las ventas del período.",
-    "url": "https://www.surenio.com.ar/supermercado-inicia-despidos-en-rio-grande-y-tolhuin/",
-    "date": "2026-08-18T00:00:00.000Z",
-    "scraped_at": "2026-08-31T11:53:23.000Z",
-    "status_at": "2026-08-31T00:00:00.000Z",
-    "manual": true
-  },
-  {
     "title": "FATE cerró definitivamente su planta de neumáticos en San Fernando y despidió a sus 920 empleados",
     "medio": "La Nación",
     "lugar": "Buenos Aires",
@@ -1209,7 +1209,7 @@
     "departamento": null,
     "sector": "Comercio",
     "topic": "cierres",
-    "snippet": "Viajes On Line S.A., que llegó a ser la tercera agencia de viajes online del país detrás de Despegar y Almundo, atribuyó la crisis al incumplimiento de su alianza de pagos con Turismo City, la caída de ventas en el Hot Sale 2025 y las restricciones de las aerolíneas al acceso a mejores tarifas. Los acreedores tienen plazo hasta el 3 de febrero de 2026 para presentar sus créditos.",
+    "snippet": "Viajes On Line S.A., que llegó a ser la tercera agencia de viajes online del país detrás de Despegar y Almundo, presentó el concurso ante el Juzgado Nacional en lo Comercial N°23. La empresa atribuyó la crisis al incumplimiento de su alianza de pagos con Turismo City, la caída de ventas en el Hot Sale 2025 y las restricciones de las aerolíneas al acceso a mejores tarifas; los acreedores tienen plazo hasta el 3 de febrero de 2026 para presentar sus créditos.",
     "url": "https://www.cronista.com/negocios/de-sonar-con-pelearle-a-despegar-al-aterrizaje-brusco-en-tribunales-una-agencia-online-cayo-en-concurso-preventivo/",
     "date": "2025-09-25T00:00:00.000Z",
     "id": "manual-mth7hiwr-86ww9g",
