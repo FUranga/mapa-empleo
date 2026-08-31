@@ -1920,5 +1920,21 @@
     "scraped_at": "2026-08-31T19:35:33.364993+00:00",
     "status_at": "2026-08-31T19:35:33.365005+00:00",
     "manual": true
+  },
+  {
+    "title": "GCDI, la constructora de la Rueda de Buenos Aires y el Más Monumental, entró en concurso preventivo",
+    "medio": "La Nación",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Construcción",
+    "topic": "cierres",
+    "snippet": "La empresa, antes conocida como TGLT, tuvo un patrimonio neto negativo de 7.605 millones de pesos y un resultado operativo negativo de 17.000 millones de pesos en 2025. Incumplió el pago de intereses de obligaciones negociables y dijo buscar preservar las fuentes de trabajo con el proceso concursal.",
+    "url": "https://www.lanacion.com.ar/economia/negocios/gcdi-declara-el-default-de-su-deuda-y-solicita-concurso-preventivo-nid12052026/",
+    "date": "2026-05-12T00:00:00.000Z",
+    "id": "manual-41510f454509",
+    "scraped_at": "2026-08-31T19:44:24.483551+00:00",
+    "status_at": "2026-08-31T19:44:24.483563+00:00",
+    "manual": true
   }
 ]
