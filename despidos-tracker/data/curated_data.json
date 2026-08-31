@@ -2576,5 +2576,53 @@
     "scraped_at": "2026-08-31T20:47:32.302865+00:00",
     "status_at": "2026-08-31T20:47:32.302888+00:00",
     "manual": true
+  },
+  {
+    "title": "Newsan despidió a más de 150 trabajadores en su planta de Ushuaia",
+    "medio": "Conclusión",
+    "lugar": "Ushuaia",
+    "provincia": "Tierra del Fuego",
+    "departamento": "Ushuaia",
+    "sector": "Electrónica",
+    "topic": "despidos",
+    "snippet": "La empresa incumplió un acuerdo con la UOM que garantizaba estabilidad laboral hasta diciembre. Los despidos se dieron sin previo aviso, en un contexto de apertura de importaciones y recorte de beneficios del régimen de promoción industrial fueguino.",
+    "url": "https://www.conclusion.com.ar/gremiales/tierra-del-fuego-mas-de-150-trabajadores-despedidos-en-newsan-la-fabrica-visitada-por-milei/11/2025/",
+    "date": "2025-11-06T00:00:00.000Z",
+    "id": "manual-f56661ebddde",
+    "scraped_at": "2026-08-31T20:49:21.430923+00:00",
+    "status_at": "2026-08-31T20:49:21.430931+00:00",
+    "manual": true
+  },
+  {
+    "title": "El Grupo Rivarola entró en concurso preventivo con 2.700 cheques rechazados por casi 18.000 millones de pesos",
+    "medio": "Radio Estación",
+    "lugar": "Arroyito",
+    "provincia": "Córdoba",
+    "departamento": "San Justo",
+    "sector": "Agro",
+    "topic": "cierres",
+    "snippet": "El conglomerado agropecuario y lácteo integrado por Guaymallén, Lacticiniis, El Talalo y Espartana arrastra una deuda total estimada en 30 millones de dólares que afecta a contratistas rurales, transportistas y proveedores de la región.",
+    "url": "https://www.radioestacion.com.ar/millonaria-deuda-del-grupo-rivarola-pidio-concurso-preventivo-en-san-francisco-y-genera-preocupacion-en-la-region/",
+    "date": "2025-11-04T00:00:00.000Z",
+    "id": "manual-76d2d7af00ae",
+    "scraped_at": "2026-08-31T20:49:50.538371+00:00",
+    "status_at": "2026-08-31T20:49:50.538382+00:00",
+    "manual": true
+  },
+  {
+    "title": "Essen despidió a 29 empleados en su planta de Venado Tuerto, Santa Fe",
+    "medio": "Infobae",
+    "lugar": "Venado Tuerto",
+    "provincia": "Santa Fe",
+    "departamento": "General López",
+    "sector": "Metalúrgica",
+    "topic": "despidos",
+    "snippet": "La fabricante de ollas y cacerolas atribuyó los recortes a la caída del consumo interno, aunque el sindicato UOM denunció que la empresa reemplazó etapas de fabricación local como fundición y mecanizado con piezas importadas de Asia. Es la tercera tanda de bajas en tres meses, con unas 58 previas.",
+    "url": "https://www.infobae.com/economia/2025/11/25/crisis-en-la-fabrica-de-ollas-essen-despidio-a-mas-de-30-trabajadores-por-bajo-consumo-y-suba-de-importaciones/",
+    "date": "2025-11-25T00:00:00.000Z",
+    "id": "manual-8843882d63ff",
+    "scraped_at": "2026-08-31T20:50:00.271214+00:00",
+    "status_at": "2026-08-31T20:50:00.271240+00:00",
+    "manual": true
   }
 ]
