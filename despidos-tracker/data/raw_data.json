@@ -1,5 +1,21 @@
 [
   {
+    "id": "ecbc5413cdd0d7aa",
+    "title": "Pampa Energía consumó el cierre de la única planta productora de caucho sintético del país: «Casi 100 compañeros tuvieron que agarrar el acuerdo»",
+    "medio": "InfoGremiales",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": "Química",
+    "topic": "despidos",
+    "snippet": "Tras el vencimiento de la conciliación, Pampa Energía confirmó el cierre de lo que era la única planta productora de caucho sintético del país. Hubo unos 200 empleados afectados y unos 100 tuvieron que aceptar un acuerdo de retiro voluntario. «Esta empresa cierra por la apertura ",
+    "url": "https://www.infogremiales.com.ar/pampa-energia-consumo-el-cierre-de-la-unica-planta-productora-de-caucho-sintetico-del-pais-casi-100-companeros-tuvieron-que-agarrar-el-acuerdo/",
+    "date": "2026-08-30T21:28:24+00:00",
+    "scraped_at": "2026-08-31T17:26:39.149668+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "0d0a9fd120c17adb",
     "title": "Se quedó sin trabajo y encontró una insólita salida laboral: saca piojos a domicilio",
     "medio": "La Gaceta",
@@ -9574,23 +9590,6 @@
     "scraped_at": "2026-08-29T10:17:02.891008+00:00",
     "status": "descartado",
     "status_at": "2026-08-31T12:20:29.000Z"
-  },
-  {
-    "title": "Las ART advierten sobre un posible colapso del sistema por la 'industria del juicio' y el riesgo de quiebras masivas",
-    "medio": "La Política Online",
-    "lugar": "Nacional",
-    "provincia": null,
-    "departamento": null,
-    "sector": "Seguros",
-    "topic": "cierres",
-    "snippet": "Las aseguradoras de riesgos del trabajo, que cubren a más de 10 millones de trabajadores, denuncian que la litigiosidad laboral -que supera los 130.000 juicios por año- amenaza con llevar al sistema al colapso. Galeno ART, que entró en liquidación, podría dejar a 400 trabajadores en la calle, y el sector advierte que un eventual colapso del sistema trasladaría el costo de las indemnizaciones directamente a los empleadores.",
-    "url": "https://www.lapoliticaonline.com/politica/las-art-al-borde-del-colapso-temen-quiebras-masivas-por-la-industria-del-juicio/",
-    "date": "2025-12-07T00:00:00.000Z",
-    "id": "manual-mth7hj2u-zv6k7q",
-    "scraped_at": "2026-08-31T00:00:00.000Z",
-    "status_at": "2026-08-31T16:20:21.563Z",
-    "manual": true,
-    "status": "pendiente"
   },
   {
     "title": "Las ART advierten sobre un posible colapso del sistema por la 'industria del juicio' y el riesgo de quiebras masivas",
