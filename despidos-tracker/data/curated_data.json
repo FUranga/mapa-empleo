@@ -2416,5 +2416,37 @@
     "scraped_at": "2026-08-31T20:30:27.878697+00:00",
     "status_at": "2026-08-31T20:30:27.878715+00:00",
     "manual": true
+  },
+  {
+    "title": "Las tecnológicas despidieron a 2.000 empleados en Argentina en el último año",
+    "medio": "BAE Negocios",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": null,
+    "snippet": "Globant recortó 900 puestos en junio, Santander Tecnología y PWC 200 cada una, y Mercado Libre 32. Un referente del sector atribuyó los despidos a factores financieros y cambiarios, no a un reemplazo por inteligencia artificial.",
+    "url": "https://www.baenegocios.com/negocios/las-empresas-tecnologicas-despidieron-a-2-000-empleados-en-el-ultimo-ano-y-la-ia-no-es-la-unica-razon/",
+    "date": "2026-04-20T00:00:00.000Z",
+    "id": "manual-7eaa853c699e",
+    "scraped_at": "2026-08-31T20:32:36.841821+00:00",
+    "status_at": "2026-08-31T20:32:36.841843+00:00",
+    "manual": true
+  },
+  {
+    "title": "Los cheques rechazados se triplicaron en marzo, según datos del Banco Central",
+    "medio": "Diario Río Negro",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": null,
+    "snippet": "En marzo se rechazaron 112.000 cheques por falta de fondos por un total de 357.700 millones de pesos, frente a los 55.000 cheques por 119.800 millones del mismo mes de 2025. El dato confirma el retroceso en la capacidad de pago de las pymes.",
+    "url": "https://www.rionegro.com.ar/economia/aumento-en-la-morosidad-se-triplicaron-los-cheques-rechazados-en-un-ano-el-dato-que-enciende-las-alarmas-en-las-pymes-4514140/",
+    "date": "2026-03-25T00:00:00.000Z",
+    "id": "manual-c426f05539a2",
+    "scraped_at": "2026-08-31T20:33:24.788510+00:00",
+    "status_at": "2026-08-31T20:33:24.788530+00:00",
+    "manual": true
   }
 ]
