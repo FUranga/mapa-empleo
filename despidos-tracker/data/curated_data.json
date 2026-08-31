@@ -1824,5 +1824,53 @@
     "scraped_at": "2026-08-31T19:30:36.818628+00:00",
     "status_at": "2026-08-31T19:30:36.818646+00:00",
     "manual": true
+  },
+  {
+    "title": "Cerámica Fanelli despidió a 30 operarios en su planta de Los Hornos, La Plata",
+    "medio": "El Ciudadano",
+    "lugar": "Los Hornos",
+    "provincia": "Buenos Aires",
+    "departamento": "La Plata",
+    "sector": "Construcción",
+    "topic": "despidos",
+    "snippet": "La empresa, con más de 180 empleados, atribuyó los recortes a un proceso de reestructuración por la caída de la demanda, tras la paralización de la obra pública y el desplome de la construcción privada durante 2024.",
+    "url": "https://elciudadanoweb.com/crisis-en-la-construccion-despidos-en-fabricas-de-ladrillos-y-ceramicas-afecta-a-mas-de-130-trabajadores/",
+    "date": "2025-04-09T00:00:00.000Z",
+    "id": "manual-0c0a8d130923",
+    "scraped_at": "2026-08-31T19:31:40.272334+00:00",
+    "status_at": "2026-08-31T19:31:40.272346+00:00",
+    "manual": true
+  },
+  {
+    "title": "Cerro Negro cerró su línea de pisos en Olavarría y despidió a 100 trabajadores",
+    "medio": "El Ciudadano",
+    "lugar": "Olavarría",
+    "provincia": "Buenos Aires",
+    "departamento": "Olavarría",
+    "sector": "Construcción",
+    "topic": "cierres",
+    "snippet": "El Ministerio de Trabajo bonaerense dictó la conciliación obligatoria por 15 días tras las protestas del sindicato SOECO. La empresa, parte del holding Sociedad Comercial del Plata, atribuyó el ajuste a la caída de la actividad de la construcción.",
+    "url": "https://elciudadanoweb.com/crisis-en-la-construccion-despidos-en-fabricas-de-ladrillos-y-ceramicas-afecta-a-mas-de-130-trabajadores/",
+    "date": "2025-04-09T00:00:00.000Z",
+    "id": "manual-4c2e284ef70a",
+    "scraped_at": "2026-08-31T19:31:40.370217+00:00",
+    "status_at": "2026-08-31T19:31:40.370231+00:00",
+    "manual": true
+  },
+  {
+    "title": "Volkswagen Argentina redujo su plantilla en 300 empleados con retiros voluntarios en Pacheco y Córdoba",
+    "medio": "Infobae",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Automotriz",
+    "topic": "despidos",
+    "snippet": "La automotriz atribuyó el ajuste a la caída del mercado automotor, con una baja de ventas del 19% y de producción del 24% en el sector durante 2024. Un grupo de trabajadores denunció despidos encubiertos entre quienes rechazaron los retiros.",
+    "url": "https://www.infobae.com/autos/2024/08/22/volkswagen-argentina-recorto-300-empleos-por-el-derrumbe-de-las-ventas-del-mercado-automotor/",
+    "date": "2024-08-22T00:00:00.000Z",
+    "id": "manual-09576e8dd0c4",
+    "scraped_at": "2026-08-31T19:32:38.348943+00:00",
+    "status_at": "2026-08-31T19:32:38.348957+00:00",
+    "manual": true
   }
 ]
