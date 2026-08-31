@@ -884,6 +884,22 @@
     "manual": true
   },
   {
+    "id": "manual-mth4c2f1-mlq093",
+    "title": "Mercado Libre despidió a 32 empleados en Argentina dentro de un recorte regional de 119 puestos en equipos de UX",
+    "medio": "Ambito",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Ecommerce",
+    "topic": "despidos",
+    "snippet": "La empresa desvinculó a 119 personas en toda América Latina, un tercio de ellas en Argentina, en las áreas de Diseño y Contenido de sus equipos de Experiencia de Usuario. Atribuyó la medida a la integración de inteligencia artificial para lograr estructuras más ágiles, la calificó de 'puntual' y aseguró que en 2025 había creado más de 42.000 puestos nuevos en la región.",
+    "url": "https://www.ambito.com/economia/alerta-despidos-mercado-libre-recortaron-mas-100-empleos-la-region-pero-solo-un-tercio-es-argentina-n6232621",
+    "date": "2026-01-09T08:00:00.000Z",
+    "scraped_at": "2026-08-31T00:00:00.000Z",
+    "status_at": "2026-08-31T00:00:00.000Z",
+    "manual": true
+  },
+  {
     "id": "manual-mtgcfdlh-c1cr5m",
     "title": "Karikal pidió un procedimiento preventivo de crisis en sus dos plantas de San Francisco",
     "medio": "La Voz de San Justo",
@@ -1032,7 +1048,7 @@
     "lugar": "Buenos Aires",
     "provincia": "Buenos Aires",
     "departamento": null,
-    "sector": "Seguros",
+    "sector": "Salud",
     "topic": "cierres",
     "snippet": "La empresa familiar, creada en 2018 al comprar parte de la prepaga Valmed, pidió su propia quiebra en junio de 2024. Un artículo del DNU 70/2023 había derogado la obligación de la autoridad sanitaria de trasladar la cobertura de los afiliados de prepagas quebradas a otros prestadores, dejando en la incertidumbre a sus cerca de 2.800 afiliados en CABA y el conurbano bonaerense.",
     "url": "https://www.cronista.com/economia-politica/una-importante-prepaga-pidio-la-quiebra-y-afectara-a-miles-de-afiliados-que-pasara-con-el-servicio/",
@@ -1048,7 +1064,7 @@
     "lugar": "Entre Ríos",
     "provincia": "Entre Ríos",
     "departamento": "Paraná",
-    "sector": "Otros",
+    "sector": "Salud",
     "topic": "cierres",
     "snippet": "El Juzgado Civil y Comercial N°9 de Paraná decretó la quiebra del centro médico a pedido de sus propios directores, que adeudaban a los 40 trabajadores medio aguinaldo de diciembre y los sueldos de abril, mayo y junio, además de las vacaciones. El sindicato ATSA calificó la presentación como fraudulenta y denunció vaciamiento.",
     "url": "https://www.unoentrerios.com.ar/la-provincia/parana-icer-presentara-quiebra-y-dejara-trabajo-40-personas-n10141215.html",
@@ -1087,6 +1103,22 @@
     "date": "2026-03-19T00:00:00.000Z",
     "scraped_at": "2026-08-31T11:53:23.000Z",
     "status_at": "2026-08-31T11:53:23.000Z",
+    "manual": true
+  },
+  {
+    "id": "manual-mth4c31a-w2ptbe",
+    "title": "Vorterix, la radio online de Mario Pergolini, entró en concurso preventivo con una deuda de más de 645 millones de pesos",
+    "medio": "La Nación",
+    "lugar": "CABA",
+    "provincia": "CABA",
+    "departamento": null,
+    "sector": "Medios",
+    "topic": "cierres",
+    "snippet": "La empresa acumula una deuda de al menos 645 millones de pesos con ARCA, su principal acreedor, además de compromisos menores con otros proveedores y socios. Pergolini había cubierto los déficits con aportes personales; en 2024 la compañía dejó de transmitir por FM 92.1 y pasó a operar de forma online tras el aumento de las tarifas eléctricas.",
+    "url": "https://www.lanacion.com.ar/economia/negocios/vorterix-en-concurso-preventivo-por-deuda-millonaria-nid28052025/",
+    "date": "2025-05-28T00:00:00.000Z",
+    "scraped_at": "2026-08-31T00:00:00.000Z",
+    "status_at": "2026-08-31T00:00:00.000Z",
     "manual": true
   }
 ]
