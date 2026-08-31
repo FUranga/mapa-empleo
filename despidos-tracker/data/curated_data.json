@@ -2720,5 +2720,37 @@
     "scraped_at": "2026-08-31T20:53:40.220673+00:00",
     "status_at": "2026-08-31T20:53:40.220684+00:00",
     "manual": true
+  },
+  {
+    "title": "ERSA entró en concurso preventivo de acreedores en el transporte urbano de Corrientes",
+    "medio": "Ámbito Financiero",
+    "lugar": "Corrientes",
+    "provincia": "Corrientes",
+    "departamento": null,
+    "sector": "Transporte",
+    "topic": "cierres",
+    "snippet": "La empresa, mayoritaria en el servicio de colectivos de la ciudad, presentó un procedimiento preventivo de crisis ante la Secretaría de Trabajo. Atribuyó la situación a la devaluación, el aumento de costos operativos por la inflación y el atraso tarifario.",
+    "url": "https://www.ambito.com/negocios/colectivos/la-empresa-ersa-entro-concurso-preventivo-acreedores-n5015328",
+    "date": "2025-09-05T00:00:00.000Z",
+    "id": "manual-622259c02841",
+    "scraped_at": "2026-08-31T20:54:24.755113+00:00",
+    "status_at": "2026-08-31T20:54:24.755121+00:00",
+    "manual": true
+  },
+  {
+    "title": "Molinos Río de la Plata despidió trabajadores en Esteban Echeverría y no acató la conciliación obligatoria",
+    "medio": "InfoGremiales",
+    "lugar": "Esteban Echeverría",
+    "provincia": "Buenos Aires",
+    "departamento": "Esteban Echeverría",
+    "sector": "Alimenticia",
+    "topic": "despidos",
+    "snippet": "El conflicto comenzó el 9 de mayo con una primera tanda de despidos y se agravó el 17 de junio con seis cesantías más, lo que llevó a un paro indefinido del sindicato STIA. La empresa presiona además por una rebaja salarial y no reincorporó a los despedidos pese a la conciliación obligatoria dictada por el Ministerio de Trabajo bonaerense.",
+    "url": "https://www.infogremiales.com.ar/molinos-rio-de-la-plata-anuncio-mas-despidos-y-la-imposicion-de-una-rebaja-salarial/",
+    "date": "2025-06-19T00:00:00.000Z",
+    "id": "manual-f14f0ff7d556",
+    "scraped_at": "2026-08-31T20:56:01.480720+00:00",
+    "status_at": "2026-08-31T20:56:01.480745+00:00",
+    "manual": true
   }
 ]
