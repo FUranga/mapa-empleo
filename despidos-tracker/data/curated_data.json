@@ -2144,5 +2144,37 @@
     "scraped_at": "2026-08-31T20:09:36.102630+00:00",
     "status_at": "2026-08-31T20:09:36.102648+00:00",
     "manual": true
+  },
+  {
+    "title": "FAdeA redujo su plantilla de 1.100 a 720 empleados y pagó los sueldos en partes",
+    "medio": "La Voz del Interior",
+    "lugar": "Córdoba",
+    "provincia": "Córdoba",
+    "departamento": "Córdoba Capital",
+    "sector": "Aeronáutica",
+    "topic": "despidos",
+    "snippet": "La fabricante estatal de aviones depositó solo 450.000 pesos de cada sueldo, sin fecha para completar el pago. La crisis se originó por la falta de contratos firmados con el Estado nacional, que representa el 80% de sus ingresos a través de la Fuerza Aérea.",
+    "url": "https://www.cba24n.com.ar/cordoba/se-agrava-la-crisis-en-fadea--trabajadores-denuncian-el-pago-parcial-de-salarios_a69d8f9e4e7704c4561503f38",
+    "date": "2026-04-09T00:00:00.000Z",
+    "id": "manual-587a50400b0b",
+    "scraped_at": "2026-08-31T20:10:39.248399+00:00",
+    "status_at": "2026-08-31T20:10:39.248412+00:00",
+    "manual": true
+  },
+  {
+    "title": "Frimetal dejó de fabricar heladeras Electrolux en Rosario y recortará 100 empleos",
+    "medio": "El Destape",
+    "lugar": "Rosario",
+    "provincia": "Santa Fe",
+    "departamento": "Rosario",
+    "sector": "Electrodomésticos",
+    "topic": "despidos",
+    "snippet": "La planta, que llegó a tener 750 trabajadores y hoy cuenta con 250, quedará con unos 150 tras el ajuste. La empresa, que ensambla la marca Electrolux, atribuyó la decisión a la caída de ventas y al avance de electrodomésticos importados tras la liberalización comercial.",
+    "url": "https://diariocastellanos.com.ar/nacionales/2026/04/24/electrolux-cierra-su-linea-de-heladeras-en-argentina-y-operara-con-menos-de-un-tercio-de-su-personal.htm",
+    "date": "2026-04-24T00:00:00.000Z",
+    "id": "manual-78ce59d0de31",
+    "scraped_at": "2026-08-31T20:11:06.909380+00:00",
+    "status_at": "2026-08-31T20:11:06.909393+00:00",
+    "manual": true
   }
 ]
