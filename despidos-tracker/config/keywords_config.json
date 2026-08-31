@@ -59,6 +59,11 @@
       "cadena de electrodomesticos", "cadena de retail", "supermercado",
       "cadena de farmacias", "comercio minorista"
     ],
+    "Electrodomésticos": [
+      "fabricante de electrodomesticos", "fabrica de electrodomesticos",
+      "linea blanca", "aire acondicionado", "heladeras", "lavarropas",
+      "electronica de consumo", "electrodomesticos de linea blanca"
+    ],
     "Ecommerce": [
       "e-commerce", "ecommerce", "tienda online", "marketplace", "comercio electronico"
     ],
