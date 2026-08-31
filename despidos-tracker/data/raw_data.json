@@ -1524,22 +1524,6 @@
     "status_at": "2026-08-29T22:31:58.877Z"
   },
   {
-    "id": "ca5613c31ddb4fe2",
-    "title": "Peabody CERRÓ su planta y dejó de producir en Argentina: DESPIDOS, CRISIS y una DEUDA MILLONARIA",
-    "medio": "iProfesional",
-    "lugar": null,
-    "provincia": null,
-    "departamento": null,
-    "sector": null,
-    "topic": "cierres",
-    "snippet": "",
-    "url": "https://www.iprofesional.com/negocios/461748-peabody-cerro-su-fabrica-recorto-personal-y-sus-ventas-no-dejan-de-caer",
-    "date": "2026-08-07T00:00:00.000Z",
-    "scraped_at": "2026-08-31T17:47:53.111064+00:00",
-    "status": "descartado",
-    "status_at": "2026-08-31T19:40:08.000Z"
-  },
-  {
     "id": "7e656f74c27f6365",
     "title": "Flybondi queda al borde de la quiebra pese a las promesas de un aliado de Milei - Bloomberg Línea",
     "medio": "Bloomberg Línea",
@@ -1583,6 +1567,22 @@
     "scraped_at": "2026-08-29T10:17:37.074040+00:00",
     "status": "descartado",
     "status_at": "2026-08-29T17:54:28.664Z"
+  },
+  {
+    "id": "ca5613c31ddb4fe2",
+    "title": "Peabody CERRÓ su planta y dejó de producir en Argentina: DESPIDOS, CRISIS y una DEUDA MILLONARIA",
+    "medio": "iProfesional",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "",
+    "url": "https://www.iprofesional.com/negocios/461748-peabody-cerro-su-fabrica-recorto-personal-y-sus-ventas-no-dejan-de-caer",
+    "date": "2026-08-07T00:00:00.000Z",
+    "scraped_at": "2026-08-31T17:47:53.111064+00:00",
+    "status": "descartado",
+    "status_at": "2026-08-31T19:40:08.000Z"
   },
   {
     "id": "9545f6d6e79a827a",
@@ -5181,6 +5181,23 @@
     "scraped_at": "2026-08-31T17:47:42.686655+00:00",
     "status": "descartado",
     "status_at": "2026-08-31T20:15:55.000Z"
+  },
+  {
+    "title": "Correo Argentino despidió el 40% de su personal en San Luis con presiones para aceptar retiros voluntarios",
+    "medio": "InfoMerlo.com",
+    "lugar": "San Luis",
+    "provincia": "San Luis",
+    "departamento": null,
+    "sector": "Transporte",
+    "topic": "despidos",
+    "snippet": "En Villa Mercedes la dotación cayó de 45 a 23 empleados y en Justo Daract de 4 a 1, según el sindicato AATRAC, que denunció presiones para aceptar los retiros. La empresa estatal perdió 5.449 trabajadores a nivel nacional desde diciembre de 2023, la mayor reducción de personal de un organismo estatal, según un informe del CEPA.",
+    "url": "https://www.infomerlo.com/noticias/2026/06/01/53488-el-correo-argentino-perdio-hasta-el-40por_ciento-de-su-personal-en-san-luis-y-denuncian-presiones-para-aceptar-retiros-voluntarios",
+    "date": "2026-06-01T00:00:00.000Z",
+    "id": "manual-27a6926cf449",
+    "scraped_at": "2026-08-31T20:15:55.167652+00:00",
+    "status_at": "2026-08-31T21:58:43.725Z",
+    "manual": true,
+    "status": "pendiente"
   },
   {
     "id": "f79f8e0b78d9f40c",
