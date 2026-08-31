@@ -185,6 +185,22 @@
     "manual": true
   },
   {
+    "id": "manual-mth49v1n-4o7ic6",
+    "title": "El sector textil perdió más de 15.000 empleos en el último año y cerraron 330 fábricas",
+    "medio": "Infobae",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Textil",
+    "topic": "despidos",
+    "snippet": "Entre abril de 2025 y abril de 2026 se perdieron 15.468 puestos de trabajo formales, un promedio de 1.200 por mes, en el marco de una caída del 25,6% interanual en la producción. La capacidad instalada del sector cayó a 42,2%, muy por debajo del promedio industrial, y las importaciones de maquinaria bajaron 28% ante la falta de inversión. Desde diciembre de 2023 el sector acumula 25.683 empleos perdidos y 383 establecimientos cerrados.",
+    "url": "https://www.infobae.com/economia/2026/07/31/la-industria-textil-perdio-mas-de-15000-empleos-en-el-ultimo-ano/",
+    "date": "2026-07-31T00:00:00.000Z",
+    "scraped_at": "2026-08-31T00:00:00.000Z",
+    "status_at": "2026-08-31T12:34:31.335Z",
+    "manual": true
+  },
+  {
     "id": "manual-mtfknvau-dbeyot",
     "title": "Solo Empanadas volvió a pedir concurso preventivo para evitar la quiebra",
     "medio": "Infobae",
