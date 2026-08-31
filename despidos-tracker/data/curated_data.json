@@ -877,7 +877,7 @@
     "departamento": "Aguilares",
     "sector": "Calzado",
     "topic": "despidos",
-    "snippet": "La marca deportiva, fundada en Argentina en 1975, redujo su capacidad instalada a menos del 30% en su planta de Aguilares. La apertura de importaciones y la caída del poder adquisitivo llevaron a la empresa a evaluar reemplazar la producción local por importación desde Brasil, lo que implicaría el cierre definitivo de la fábrica.",
+    "snippet": "La marca deportiva, fundada en Argentina en 1975, redujo su capacidad instalada a menos del 30% en su planta de Aguilares. La apertura de importaciones y la caída del poder adquisitivo llevaron a la empresa a evaluar el reemplazo de la producción local por importación desde Brasil, lo que implicaría el cierre definitivo de la fábrica.",
     "url": "https://www.ambito.com/negocios/ajuste-topper-despidos-salarios-recortados-y-dudas-el-futuro-la-fabrica-tucumana-n6255829",
     "date": "2026-03-12T00:00:00.000Z",
     "id": "manual-mth7hirq-kuhi26",
@@ -899,22 +899,6 @@
     "date": "2026-03-05T08:00:00+00:00",
     "scraped_at": "2026-08-29T10:17:16.566538+00:00",
     "status_at": "2026-08-29T13:53:35.915Z"
-  },
-  {
-    "title": "De Garbarino a FATE: el mapa de las quiebras, despidos y cierres que golpean a la industria argentina",
-    "medio": "elDiarioAR.com",
-    "lugar": "Nacional",
-    "provincia": null,
-    "departamento": null,
-    "sector": null,
-    "topic": "cierres",
-    "snippet": "Tras la quiebra de Garbarino y el cierre de FATE, se multiplican los casos: ARSA (postres y yogures SanCor) despidió a 400 trabajadores en dos plantas, Aires del Sur (dueña de Electra y Fedders) despidió a 140 tras su quiebra, Emilio Alal cerró fábricas en Corrientes y Chaco con 260 despidos, y Acindar acumula suspensiones desde 2024.",
-    "url": "https://www.eldiarioar.com/economia/garbarino-fate-mapa-quiebras-despidos-cierres-industria_1_13045036.html",
-    "date": "2026-03-05T00:00:00.000Z",
-    "id": "manual-mth7hj2o-hsa6ou",
-    "scraped_at": "2026-08-31T00:00:00.000Z",
-    "status_at": "2026-08-31T00:00:00.000Z",
-    "manual": true
   },
   {
     "id": "manual-057aac1eb-j3ylcg",
