@@ -2544,5 +2544,37 @@
     "scraped_at": "2026-08-31T20:43:28.983551+00:00",
     "status_at": "2026-08-31T20:43:28.983571+00:00",
     "manual": true
+  },
+  {
+    "title": "Bodega Norton entró en concurso preventivo con una deuda de 44.000 millones de pesos",
+    "medio": "iProfesional",
+    "lugar": "Luján de Cuyo",
+    "provincia": "Mendoza",
+    "departamento": "Luján de Cuyo",
+    "sector": "Alimenticia",
+    "topic": "cierres",
+    "snippet": "La firma mendocina acumula más de 100 cheques rechazados por unos 1.100 millones de pesos. La Justicia fijó el cronograma del proceso: el síndico debe presentar su informe antes de abril y los acreedores tienen hasta junio para verificar sus créditos.",
+    "url": "https://www.iprofesional.com/legales/447353-una-historica-bodega-oficializo-su-concurso-preventivo-cuales-seran-las-fechas-clave",
+    "date": "2026-02-02T00:00:00.000Z",
+    "id": "manual-083a545cda45",
+    "scraped_at": "2026-08-31T20:46:50.136842+00:00",
+    "status_at": "2026-08-31T20:46:50.136861+00:00",
+    "manual": true
+  },
+  {
+    "title": "FAdeA abrió retiros voluntarios para recortar 200 puestos en su planta de Córdoba",
+    "medio": "Cba24n",
+    "lugar": "Córdoba",
+    "provincia": "Córdoba",
+    "departamento": "Córdoba Capital",
+    "sector": "Aeronáutica",
+    "topic": "despidos",
+    "snippet": "La fabricante estatal de aviones, con el personal cobrando el 80% del sueldo por suspensiones rotativas desde junio, atribuyó el ajuste a la baja productividad y a una reactivación económica que no llega. Es el segundo recorte del actual gobierno, tras 230 desvinculaciones en 2024.",
+    "url": "https://www.cba24n.com.ar/cordoba/nuevo-ajuste-en-fadea--abren-retiros-voluntarios-y-buscan-recortar-200-puestos_a69381ce90aa5c1666413140d",
+    "date": "2025-12-09T00:00:00.000Z",
+    "id": "manual-ad430cc9cda3",
+    "scraped_at": "2026-08-31T20:47:32.302865+00:00",
+    "status_at": "2026-08-31T20:47:32.302888+00:00",
+    "manual": true
   }
 ]
