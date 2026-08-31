@@ -1744,5 +1744,21 @@
     "scraped_at": "2026-08-31T19:25:14.754402+00:00",
     "status_at": "2026-08-31T19:25:14.754418+00:00",
     "manual": true
+  },
+  {
+    "title": "La bodega sanjuanina Casa Montes acumula más de 180 cheques rechazados y embargos bancarios",
+    "medio": "Ámbito Financiero",
+    "lugar": "San Juan",
+    "provincia": "San Juan",
+    "departamento": null,
+    "sector": "Alimenticia",
+    "topic": null,
+    "snippet": "La empresa, dueña de las marcas Ampakama, Fuego Negro, Baltazar y Alzamora, suma más de 300 millones de pesos en cheques rechazados y una deuda de más de 500 millones de pesos con el Banco Nación. Se suma a Bodega Norton y Bodegas Bianchi en una crisis del sector marcada por la caída del consumo interno y las exportaciones en mínimos de una década.",
+    "url": "https://www.ambito.com/negocios/cheques-rechazados-y-embargos-una-bodega-sanjuanina-se-suma-la-lista-firmas-crisis-n6240333",
+    "date": "2026-01-23T00:00:00.000Z",
+    "id": "manual-69b96963d221",
+    "scraped_at": "2026-08-31T19:26:28.681437+00:00",
+    "status_at": "2026-08-31T19:26:28.681448+00:00",
+    "manual": true
   }
 ]
