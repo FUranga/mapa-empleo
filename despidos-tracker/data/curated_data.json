@@ -2800,5 +2800,37 @@
     "scraped_at": "2026-08-31T20:58:29.263945+00:00",
     "status_at": "2026-08-31T20:58:29.263954+00:00",
     "manual": true
+  },
+  {
+    "title": "Kenvue cerró su planta de Pilar y dejará de fabricar Siempre Libre y Johnson's Baby en Argentina",
+    "medio": "Ámbito Financiero",
+    "lugar": "Pilar",
+    "provincia": "Buenos Aires",
+    "departamento": "Pilar",
+    "sector": "Química",
+    "topic": "cierres",
+    "snippet": "La empresa, escindida de Johnson & Johnson, ya había reducido su plantilla a 32 empleados tras despedir al 85% del personal en marzo. Desde noviembre de 2025 importará los productos desde plantas en Brasil y Colombia, y la planta de Pilar quedará como centro logístico.",
+    "url": "https://www.ambito.com/negocios/siempre-libre-y-johnsons-baby-dejaran-producirse-la-argentina-n6169444",
+    "date": "2025-07-22T00:00:00.000Z",
+    "id": "manual-fd66bc7c8c38",
+    "scraped_at": "2026-08-31T20:59:58.820819+00:00",
+    "status_at": "2026-08-31T20:59:58.820828+00:00",
+    "manual": true
+  },
+  {
+    "title": "Banco Santander cerró sucursales en Neuquén y avanza con un plan de 1.500 despidos a nivel nacional",
+    "medio": "Diario Río Negro",
+    "lugar": "Neuquén",
+    "provincia": "Neuquén",
+    "departamento": null,
+    "sector": "Otros",
+    "topic": "despidos",
+    "snippet": "El banco cerró cinco sucursales en la provincia, donde pasó de 68 a 31 empleados desde 2019. El sindicato La Bancaria denunció que la entidad presiona a los trabajadores para que acepten retiros individuales y evitar conflictos legales.",
+    "url": "https://www.rionegro.com.ar/gremios/cierres-del-banco-santander-en-neuquen-denuncian-violacion-de-derechos-de-trabajadores-y-despidos-masivos-4214793/",
+    "date": "2025-07-17T00:00:00.000Z",
+    "id": "manual-88bf00ee9e95",
+    "scraped_at": "2026-08-31T21:00:30.096385+00:00",
+    "status_at": "2026-08-31T21:00:30.096410+00:00",
+    "manual": true
   }
 ]
