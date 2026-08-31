@@ -1936,5 +1936,37 @@
     "scraped_at": "2026-08-31T19:44:24.483551+00:00",
     "status_at": "2026-08-31T19:44:24.483563+00:00",
     "manual": true
+  },
+  {
+    "title": "FATE pidió que no se renueve la conciliación obligatoria mientras avanzan los retiros voluntarios en su planta cerrada",
+    "medio": "Ámbito Financiero",
+    "lugar": "San Fernando",
+    "provincia": "Buenos Aires",
+    "departamento": "San Fernando",
+    "sector": "Otros",
+    "topic": "cierres",
+    "snippet": "Más de 670 de los 920 despedidos originales ya firmaron acuerdos de extinción, con 239 contratos aún activos. El sindicato SUTNA denunció que la empresa no pagó los salarios de la segunda quincena de febrero pese a la conciliación vigente.",
+    "url": "https://www.ambito.com/negocios/cierre-fate-hoy-vence-la-conciliacion-obligatoria-y-la-empresa-pide-que-no-sea-renovada-n6266044",
+    "date": "2026-04-13T00:00:00.000Z",
+    "id": "manual-d174a738ba69",
+    "scraped_at": "2026-08-31T19:45:31.780685+00:00",
+    "status_at": "2026-08-31T19:45:31.780694+00:00",
+    "manual": true
+  },
+  {
+    "title": "Trewelyn cerró el casino de Esquel y despidió a 50 empleados sin pagarles marzo ni la indemnización completa",
+    "medio": "Diario Jornada",
+    "lugar": "Esquel",
+    "provincia": "Chubut",
+    "departamento": "Futaleufú",
+    "sector": "Entretenimiento",
+    "topic": "cierres",
+    "snippet": "La empresa alegó que la licencia de Lotería del Chubut había expirado, algo que el organismo provincial negó. No se presentó a la audiencia de conciliación obligatoria dictada por la Secretaría de Trabajo y ofreció pagar solo el 50% de las indemnizaciones.",
+    "url": "https://www.diariojornada.com.ar/415125/economia/vence_la_conciliacion_obligatoria_y_no_aparecen_ni_la_empresa_ni_la_plata",
+    "date": "2026-04-20T00:00:00.000Z",
+    "id": "manual-fa18610fe702",
+    "scraped_at": "2026-08-31T19:46:15.711097+00:00",
+    "status_at": "2026-08-31T19:46:15.711115+00:00",
+    "manual": true
   }
 ]
