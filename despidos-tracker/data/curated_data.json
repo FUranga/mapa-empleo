@@ -1904,5 +1904,21 @@
     "scraped_at": "2026-08-31T19:34:38.063603+00:00",
     "status_at": "2026-08-31T19:34:38.063625+00:00",
     "manual": true
+  },
+  {
+    "title": "Zijin-Liex despidió a 8 operarios en su proyecto de litio Tres Quebradas en Catamarca",
+    "medio": "Página/12",
+    "lugar": "Fiambalá",
+    "provincia": "Catamarca",
+    "departamento": "Tinogasta",
+    "sector": "Minería",
+    "topic": "despidos",
+    "snippet": "Los trabajadores denunciaron despidos sin causa, jornadas extenuantes y maltrato en la minera china y bloquearon el acceso a la planta de tratamiento en Fiambalá. El Gobierno dictó la conciliación obligatoria, pero el conflicto continuó sin resolverse.",
+    "url": "https://www.pagina12.com.ar/700834-despidos-en-la-minera-de-litio-zijin-liex/",
+    "date": "2024-01-04T00:00:00.000Z",
+    "id": "manual-f015c5965766",
+    "scraped_at": "2026-08-31T19:35:33.364993+00:00",
+    "status_at": "2026-08-31T19:35:33.365005+00:00",
+    "manual": true
   }
 ]
