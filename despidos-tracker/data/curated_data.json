@@ -2240,5 +2240,53 @@
     "scraped_at": "2026-08-31T20:17:52.029962+00:00",
     "status_at": "2026-08-31T20:17:52.029983+00:00",
     "manual": true
+  },
+  {
+    "title": "Damluc cerró y despidió a sus 80 trabajadores tras perder el contrato con Ternium en Ramallo",
+    "medio": "BAE Negocios",
+    "lugar": "Ramallo",
+    "provincia": "Buenos Aires",
+    "departamento": "Ramallo",
+    "sector": "Metalúrgica",
+    "topic": "cierres",
+    "snippet": "La empresa, contratista exclusiva de la acerera en la planta General Savio del Parque Industrial Comirsa, invocó la causal de fuerza mayor del artículo 247 de la Ley de Contrato de Trabajo. El sindicato UOM cuestiona la figura y negocia indemnizaciones completas en el Ministerio de Trabajo bonaerense.",
+    "url": "https://www.baenegocios.com/negocios/cerro-una-contratista-de-ternium-y-despidio-a-sus-80-trabajadores/",
+    "date": "2026-06-03T00:00:00.000Z",
+    "id": "manual-ff9fd46325da",
+    "scraped_at": "2026-08-31T20:23:55.250248+00:00",
+    "status_at": "2026-08-31T20:23:55.250265+00:00",
+    "manual": true
+  },
+  {
+    "title": "Welding Alloys Argentina despidió a 8 metalúrgicos en Comirsa tras dos años de baja actividad",
+    "medio": "Meta FM",
+    "lugar": "San Nicolás",
+    "provincia": "Buenos Aires",
+    "departamento": "San Nicolás",
+    "sector": "Metalúrgica",
+    "topic": "despidos",
+    "snippet": "La empresa de capitales ingleses, con 25 años de presencia en el Parque Industrial Comirsa, atribuyó los despidos a la caída sostenida en la demanda de trabajos de ingeniería antidesgaste para siderurgia, cemento, minería y agro.",
+    "url": "https://metafm.com.ar/otra-empresa-del-parque-industrial-comirsa-inicio-despidos-en-medio-de-la-caida-de-la-actividad/",
+    "date": "2026-06-02T00:00:00.000Z",
+    "id": "manual-bddf418fed73",
+    "scraped_at": "2026-08-31T20:23:55.368930+00:00",
+    "status_at": "2026-08-31T20:23:55.368948+00:00",
+    "manual": true
+  },
+  {
+    "title": "Carrefour Market despidió personal en Río Gallegos y la conciliación obligatoria ordenó retrotraer los despidos",
+    "medio": "La Opinión Austral",
+    "lugar": "Río Gallegos",
+    "provincia": "Santa Cruz",
+    "departamento": "Güer Aike",
+    "sector": "Comercio",
+    "topic": "despidos",
+    "snippet": "La Secretaría de Trabajo de Santa Cruz dispuso la conciliación obligatoria tras el cierre del local y convocó a audiencias entre el gremio mercantil y la empresa. Carrefour aceptó pagar los sueldos de los 40 despedidos mientras dure la negociación.",
+    "url": "https://laopinionaustral.com.ar/politica-y-economia/despedidos-de-carrefour-esperan-que-se-dicte-la-conciliacion-obligatoria-si-el-gremio-no-avanza-con-la-negociacion-686808.html",
+    "date": "2026-08-03T00:00:00.000Z",
+    "id": "manual-e7c8d39e359b",
+    "scraped_at": "2026-08-31T20:23:55.492422+00:00",
+    "status_at": "2026-08-31T20:23:55.492440+00:00",
+    "manual": true
   }
 ]
