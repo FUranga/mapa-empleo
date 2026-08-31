@@ -7247,6 +7247,23 @@
     "status_at": "2026-08-31T11:58:01.000Z"
   },
   {
+    "title": "De Garbarino a FATE: el mapa de las quiebras, despidos y cierres que golpean a la industria argentina",
+    "medio": "elDiarioAR.com",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "Tras la quiebra de Garbarino y el cierre de FATE, se multiplican los casos: ARSA (postres y yogures SanCor) despidió a 400 trabajadores en dos plantas, Aires del Sur (dueña de Electra y Fedders) despidió a 140 tras su quiebra, Emilio Alal cerró fábricas en Corrientes y Chaco con 260 despidos, y Acindar acumula suspensiones desde 2024.",
+    "url": "https://www.eldiarioar.com/economia/garbarino-fate-mapa-quiebras-despidos-cierres-industria_1_13045036.html",
+    "date": "2026-03-05T00:00:00.000Z",
+    "id": "manual-mth7hj2o-hsa6ou",
+    "scraped_at": "2026-08-31T00:00:00.000Z",
+    "status_at": "2026-08-31T13:06:06.343Z",
+    "manual": true,
+    "status": "pendiente"
+  },
+  {
     "id": "8b766ae10dcd1f13",
     "title": "Crisis del consumo: despidos masivos en ChangoMás y alarma en La Anónima - La Vanguardia Noticias - Caleta Olivia",
     "medio": "La Vanguardia Noticias - Caleta Olivia",
