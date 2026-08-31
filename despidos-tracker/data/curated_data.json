@@ -2496,5 +2496,53 @@
     "scraped_at": "2026-08-31T20:41:27.986958+00:00",
     "status_at": "2026-08-31T20:41:27.986974+00:00",
     "manual": true
+  },
+  {
+    "title": "Cencosud cerró sucursales de Vea en cinco provincias por la caída del consumo",
+    "medio": "El Cronista",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Comercio",
+    "topic": "cierres",
+    "snippet": "La cadena de supermercados, controlada por el grupo chileno Cencosud, cerró locales en Buenos Aires, Catamarca, San Juan, Mendoza y Tucumán. En Guaymallén, Mendoza, el cierre dejó a 14 empleados sin trabajo. El sindicato advirtió por despidos y reubicaciones forzadas.",
+    "url": "https://www.cronista.com/informacion-gral/una-historica-cadena-de-supermercados-cierra-sucursales-en-todo-el-pais-por-caida-de-ventas/",
+    "date": "2025-11-13T00:00:00.000Z",
+    "id": "manual-07692f4c686c",
+    "scraped_at": "2026-08-31T20:42:19.485172+00:00",
+    "status_at": "2026-08-31T20:42:19.485186+00:00",
+    "manual": true
+  },
+  {
+    "title": "Acerías Berisso cerró la planta y despidió a trabajadores violando la conciliación obligatoria",
+    "medio": "InfoGremiales",
+    "lugar": "Berisso",
+    "provincia": "Buenos Aires",
+    "departamento": "Berisso",
+    "sector": "Metalúrgica",
+    "topic": "cierres",
+    "snippet": "La UOM denunció que la siderúrgica desconoció la orden del Ministerio de Trabajo bonaerense, adeuda sueldos a más de 50 empleados desde hace mes y medio y no se presentó a la audiencia de conciliación.",
+    "url": "https://www.infogremiales.com.ar/la-uom-denuncia-despidos-en-medio-de-la-conciliacion-obligatoria-en-acerias-berisso/",
+    "date": "2025-11-12T00:00:00.000Z",
+    "id": "manual-d7ce81aefc8e",
+    "scraped_at": "2026-08-31T20:42:49.665725+00:00",
+    "status_at": "2026-08-31T20:42:49.665744+00:00",
+    "manual": true
+  },
+  {
+    "title": "Galeno ART presentó quiebra y dejó a 470 trabajadores en la calle",
+    "medio": "Gestión Sindical",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Seguros",
+    "topic": "cierres",
+    "snippet": "La aseguradora de riesgos del trabajo registró un déficit de capital de 12.954 millones de pesos y la Superintendencia de Seguros dispuso la inhibición general de sus bienes. El sindicato de Seguros reclama el pago de los salarios adeudados a los despedidos.",
+    "url": "https://gestionsindical.com/quiebra-galeno-art-marcha-reclamar-salarios-los-470-trabajadores-despedidos/",
+    "date": "2026-03-05T00:00:00.000Z",
+    "id": "manual-aacd9e189e3f",
+    "scraped_at": "2026-08-31T20:43:28.983551+00:00",
+    "status_at": "2026-08-31T20:43:28.983571+00:00",
+    "manual": true
   }
 ]
