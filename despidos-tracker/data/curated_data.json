@@ -1872,5 +1872,37 @@
     "scraped_at": "2026-08-31T19:32:38.348943+00:00",
     "status_at": "2026-08-31T19:32:38.348957+00:00",
     "manual": true
+  },
+  {
+    "title": "Canale cerró su planta de Real del Padre, San Rafael, y despidió a sus 38 empleados",
+    "medio": "El Cronista",
+    "lugar": "Real del Padre",
+    "provincia": "Mendoza",
+    "departamento": "San Rafael",
+    "sector": "Alimenticia",
+    "topic": "cierres",
+    "snippet": "La conservera, con 80 años de trayectoria y propiedad de Alimentos Vegetales Argentinos desde 2019, trasladará su producción a Ugarteche, Luján de Cuyo. La empresa atribuyó el cierre al desplome del consumo interno, con una caída acumulada del 16,2% en las ventas minoristas pyme según CAME.",
+    "url": "https://www.cronista.com/negocios/cerro-la-planta-de-canale-en-mendoza-y-despidieron-a-todos-los-empleados/",
+    "date": "2024-07-02T00:00:00.000Z",
+    "id": "manual-ceb5a0a79f40",
+    "scraped_at": "2026-08-31T19:33:56.893809+00:00",
+    "status_at": "2026-08-31T19:33:56.893826+00:00",
+    "manual": true
+  },
+  {
+    "title": "Toyota lanzó un plan de retiros voluntarios para reducir 400 puestos en su planta de Zárate",
+    "medio": "Ámbito Financiero",
+    "lugar": "Zárate",
+    "provincia": "Buenos Aires",
+    "departamento": "Zárate",
+    "sector": "Automotriz",
+    "topic": "despidos",
+    "snippet": "La automotriz proyecta fabricar 25.000 unidades menos en 2024 (de 186.000 a 160.000) por la caída de la demanda local y las exportaciones. Antes del plan ya había reducido las horas extra y paralizado la producción los lunes.",
+    "url": "https://www.ambito.com/autos/toyota-busca-reducir-400-puestos-trabajo-y-lanza-plan-retiros-voluntarios-n5970988",
+    "date": "2024-03-26T00:00:00.000Z",
+    "id": "manual-de726afb1dbe",
+    "scraped_at": "2026-08-31T19:34:38.063603+00:00",
+    "status_at": "2026-08-31T19:34:38.063625+00:00",
+    "manual": true
   }
 ]
