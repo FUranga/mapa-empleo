@@ -2448,5 +2448,53 @@
     "scraped_at": "2026-08-31T20:33:24.788510+00:00",
     "status_at": "2026-08-31T20:33:24.788530+00:00",
     "manual": true
+  },
+  {
+    "title": "Goldmund, fabricante de los electrodomésticos Peabody, entró en concurso preventivo",
+    "medio": "La Nación",
+    "lugar": "La Matanza",
+    "provincia": "Buenos Aires",
+    "departamento": "La Matanza",
+    "sector": "Electrodomésticos",
+    "topic": "cierres",
+    "snippet": "La empresa atribuyó la decisión a la pérdida de competitividad frente a las importaciones y a la caída de la actividad. Meses después trasladaría parte de la producción a Paraguay, donde el dueño Dante Choi señaló salarios menores y menor carga impositiva que en Argentina.",
+    "url": "https://www.lanacion.com.ar/economia/negocios/el-fabricante-de-electrodomesticos-peabody-entra-en-concurso-preventivo-nid03032026/",
+    "date": "2026-03-03T00:00:00.000Z",
+    "id": "manual-31b76251c962",
+    "scraped_at": "2026-08-31T20:39:46.808808+00:00",
+    "status_at": "2026-08-31T20:39:46.808822+00:00",
+    "manual": true
+  },
+  {
+    "title": "The New Brighton, restaurante notable del microcentro porteño, fue declarado en quiebra",
+    "medio": "Infobae",
+    "lugar": "CABA",
+    "provincia": "CABA",
+    "departamento": null,
+    "sector": "Gastronomía",
+    "topic": "cierres",
+    "snippet": "El histórico local de calle Sarmiento, reconocido Bar Notable de la Ciudad y con más de un siglo de historia, atribuyó el cierre a la caída del consumo diario en el microcentro por la migración de oficinas y la lenta recuperación del turismo.",
+    "url": "https://www.infobae.com/economia/2026/03/18/quebro-uno-de-los-restaurantes-mas-emblematicos-de-la-city-portena/",
+    "date": "2026-03-17T00:00:00.000Z",
+    "id": "manual-f84781089317",
+    "scraped_at": "2026-08-31T20:40:19.353972+00:00",
+    "status_at": "2026-08-31T20:40:19.353995+00:00",
+    "manual": true
+  },
+  {
+    "title": "Dr. Ahorro pidió el concurso preventivo tras cerrar 11 locales y despedir a más de 100 empleados",
+    "medio": "El Cronista",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Comercio",
+    "topic": "cierres",
+    "snippet": "La cadena de farmacias, que llegó a operar 47 sucursales propias y franquiciadas, declaró un pasivo de 7.333 millones de pesos y acumula cinco cheques rechazados por 37 millones. La empresa atribuyó la crisis a atrasos con proveedores, alquileres e impuestos.",
+    "url": "https://www.cronista.com/negocios/una-conocida-cadena-de-farmacias-cerro-11-locales-y-pidio-el-concurso-preventivo-por-su-delicada-situacion-financiera/",
+    "date": "2026-01-08T00:00:00.000Z",
+    "id": "manual-050caa790086",
+    "scraped_at": "2026-08-31T20:41:27.986958+00:00",
+    "status_at": "2026-08-31T20:41:27.986974+00:00",
+    "manual": true
   }
 ]
