@@ -1584,5 +1584,37 @@
     "scraped_at": "2026-08-31T19:13:18.190824+00:00",
     "status_at": "2026-08-31T19:13:18.190837+00:00",
     "manual": true
+  },
+  {
+    "title": "Fantome Group, fabricante textil de Reebok, Cheeky, Kappa y Kevingston en Argentina, entró en concurso preventivo",
+    "medio": "Infobae",
+    "lugar": "Villa Devoto",
+    "provincia": "CABA",
+    "departamento": null,
+    "sector": "Textil",
+    "topic": "cierres",
+    "snippet": "La empresa, que llegó a tener 120 empleados y hoy tiene 20, acumula 33 cheques rechazados por 44,9 millones de pesos y embargos judiciales por más de 130 millones de pesos. Atribuyó la crisis a la pérdida de Kevingston como cliente principal en 2020, la competencia de productos importados y la caída del consumo interno.",
+    "url": "https://www.infobae.com/economia/2026/04/13/competencia-diabolica-el-fabricante-de-reebok-kappa-y-kevingston-entro-en-concurso-ante-la-presion-importadora/",
+    "date": "2026-04-13T00:00:00.000Z",
+    "id": "manual-34501703917c",
+    "scraped_at": "2026-08-31T19:14:32.803119+00:00",
+    "status_at": "2026-08-31T19:14:32.803135+00:00",
+    "manual": true
+  },
+  {
+    "title": "Viamo entró en concurso preventivo con una deuda de 4.240 millones de pesos",
+    "medio": "Infobae",
+    "lugar": "Villa Lugano",
+    "provincia": "CABA",
+    "departamento": null,
+    "sector": "Calzado",
+    "topic": "cierres",
+    "snippet": "La marca de calzado, con planta en Villa Lugano, pasó de más de 300 a 77 empleados desde 2023 y redujo su red de más de 25 locales propios. Acumula 64 cheques rechazados por más de 85 millones de pesos. La empresa atribuyó la crisis a la caída del consumo y al avance de productos importados hasta 40% más baratos.",
+    "url": "https://www.infobae.com/economia/2026/04/14/crisis-en-el-calzado-viamo-entro-en-concurso-preventivo-tras-despidos-cheques-rechazados-y-caida-de-ventas/",
+    "date": "2026-04-14T00:00:00.000Z",
+    "id": "manual-2d68ec7a3276",
+    "scraped_at": "2026-08-31T19:15:13.449742+00:00",
+    "status_at": "2026-08-31T19:15:13.449757+00:00",
+    "manual": true
   }
 ]
