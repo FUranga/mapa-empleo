@@ -1,5 +1,37 @@
 [
   {
+    "id": "760c7cdc95cd0230",
+    "title": "El Hospital Garrahan desvinculó a la gremialista Norma Lezana por \"no ocupar su puesto de trabajo\"",
+    "medio": "Infobae",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "Así lo precisó el nosocomio esta tarde a través de un comunicado. \"El proceso sumarial iniciado respecto de Lezana concluyó con la decisión al acreditar que no atendió a ningún paciente, incumpliendo las tareas correspondientes a su puesto durante 2025\", informaron",
+    "url": "https://www.infobae.com/politica/2026/08/31/el-hospital-garrahan-desvinculo-a-la-gremialista-norma-lezana-por-no-ocupar-su-puesto-de-trabajo/",
+    "date": "2026-08-31T23:01:23+00:00",
+    "scraped_at": "2026-08-31T23:27:17.259230+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "1e71215cec839867",
+    "title": "Volkswagen elimina turno nocturno en Puebla y deja sin trabajo a hasta 786 empleados",
+    "medio": "Infobae",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La armadora atribuye la decisión a un entorno adverso para el sector automotriz",
+    "url": "https://www.infobae.com/mexico/2026/08/31/volkswagen-elimina-turno-nocturno-en-puebla-y-deja-sin-trabajo-a-hasta-786-empleados/",
+    "date": "2026-08-31T22:21:00+00:00",
+    "scraped_at": "2026-08-31T23:27:17.265896+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "288b36be0c6aa9a2",
     "title": "Di María y De Paul despidieron a Messi: “Gracias Capitán, el más grande de toda la historia”",
     "medio": "El Tribuno (Salta)",
