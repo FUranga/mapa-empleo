@@ -1,5 +1,21 @@
 [
   {
+    "id": "025f8b04cbbfc635",
+    "title": "Comercio en alerta: advierten por el cierre de locales, falta de pago y \"despidos hormiga\"",
+    "medio": "Perfil",
+    "lugar": "Corrientes",
+    "provincia": "Corrientes",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "El Sindicato de Empleados de Comercio de Corrientes denunció que la recesión y la caída del consumo impactan en todos los rubros de la capital. Leer más",
+    "url": "https://www.perfil.com/noticias/nea/comercio-en-alerta-en-corrientes-advierten-por-el-cierre-de-locales-falta-de-pago-y-despidos-hormiga.phtml",
+    "date": "2026-09-02T12:14:23+00:00",
+    "scraped_at": "2026-09-02T14:10:13.476126+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "69b6a6856e083cee",
     "title": "Más de 120 trabajadores quedarán en la calle tras el cierre de 20 sucursales de Musimundo",
     "medio": "Conclusion",
