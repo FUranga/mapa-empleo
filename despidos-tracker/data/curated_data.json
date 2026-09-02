@@ -6016,5 +6016,37 @@
     "scraped_at": "2026-08-31T19:35:33.364993+00:00",
     "status_at": "2026-08-31T19:35:33.365005+00:00",
     "manual": true
+  },
+  {
+    "id": "manual-e2e2d7db0cfb",
+    "title": "Musimundo cierra 20 sucursales en el Nordeste y despide a más de 120 trabajadores",
+    "medio": "BAE Negocios",
+    "lugar": "Nordeste",
+    "provincia": "Nacional",
+    "departamento": null,
+    "sector": "Electrodomésticos",
+    "topic": "cierres",
+    "snippet": "La cadena de electrodomésticos, controlada por Carsa, cerró locales en Chaco, Formosa, Corrientes y Misiones menos de dos meses después de pedir el concurso preventivo por una deuda que supera los 63.500 millones de pesos. Varios empleados se enteraron del cierre al terminar el turno del sábado, sin telegrama de despido formal.",
+    "url": "https://www.baenegocios.com/negocios/musimundo-cerro-20-sucursales-y-despidio-a-mas-de-120-trabajadores-en-cuatro-provincias-del-nordeste/",
+    "date": "2026-08-31T00:00:00.000Z",
+    "scraped_at": "2026-09-02T11:55:08.000Z",
+    "status_at": "2026-09-02T11:55:08.000Z",
+    "manual": true
+  },
+  {
+    "id": "manual-0ae1ce1b4dc8",
+    "title": "Black despide a al menos 20 empleados en Salta en medio de denuncias por salarios adeudados y renuncias forzadas",
+    "medio": "InfoGremiales",
+    "lugar": "Salta",
+    "provincia": "Salta",
+    "departamento": null,
+    "sector": "Electrónica",
+    "topic": "despidos",
+    "snippet": "El Sindicato de Empleados de Comercio pidió la conciliación obligatoria ante la Subsecretaría de Trabajo salteña después de que un grupo de exempleados de la cadena de electrónica e importados denunciara despidos sin causa, presión para firmar renuncias y trabajo no registrado. El subsecretario José Gómez calificó la situación de la empresa como \"cobarde\".",
+    "url": "https://www.infogremiales.com.ar/salta-despedidos-de-la-importadora-black-denuncian-salarios-adeudados-y-renuncias-forzadas-mientras-el-sindicato-de-comercio-pidio-la-conciliacion-obligatoria/",
+    "date": "2026-09-01T00:00:00.000Z",
+    "scraped_at": "2026-09-02T11:55:08.000Z",
+    "status_at": "2026-09-02T11:55:08.000Z",
+    "manual": true
   }
 ]
