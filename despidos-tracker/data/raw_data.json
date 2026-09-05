@@ -1,5 +1,21 @@
 [
   {
+    "id": "0c77ce87ecda184d",
+    "title": "Tras la orden del gobierno bonaerense para que reincorpore 1.200 trabajadores, Granja Tres Arroyos se presentaría en convocatoria de acreedores",
+    "medio": "Infobae",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": "Agro",
+    "topic": "despidos",
+    "snippet": "Las dificultades de la empresa avícola se profundizaron con el cierre y paralización de fábricas y una fuerte reducción de actividad. La cartera laboral de la provincia ordenó la conciliación obligatoria. Lo que sigue",
+    "url": "https://www.infobae.com/economia/2026/09/05/tras-la-orden-del-gobierno-bonaerense-para-que-reincorpore-1200-trabajadores-granja-tres-arroyos-se-presentaria-en-convocatoria-de-acreedores/",
+    "date": "2026-09-05T20:59:23+00:00",
+    "scraped_at": "2026-09-05T21:44:33.578618+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "fb80cb2887bb9a22",
     "title": "Caso Wenance: cómo sigue la causa tras la quiebra",
     "medio": "iProUP",
@@ -60,6 +76,22 @@
     "url": "https://www.infogremiales.com.ar/la-quiebra-de-la-empresa-duena-de-musimundo-dejo-mas-de-100-despidos-y-cientos-de-familias-sin-cobrar-sus-indemnizaciones/",
     "date": "2026-09-05T05:18:17+00:00",
     "scraped_at": "2026-09-05T13:17:51.770269+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "15329d34be8a364f",
+    "title": "La Provincia dictó la conciliación obligatoria por 1.200 despidos en Granja Tres Arroyos",
+    "medio": "Ambito Financiero",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La medida regirá durante 15 días hábiles y contempla la reincorporación de los trabajadores. Las partes volverán a reunirse el jueves para intentar alcanzar un acuerdo.",
+    "url": "https://www.ambito.com/politica/la-provincia-dicto-la-conciliacion-obligatoria-1200-despidos-granja-tres-arroyos-n6318802",
+    "date": "2026-09-05T02:23:00+00:00",
+    "scraped_at": "2026-09-05T21:44:35.396875+00:00",
     "status": "pendiente",
     "status_at": null
   },
@@ -126,6 +158,22 @@
     "scraped_at": "2026-09-04T14:04:54.080223+00:00",
     "status": "descartado",
     "status_at": "2026-09-05T12:46:24.432Z"
+  },
+  {
+    "id": "1c75a32dfa8d577a",
+    "title": "Quiebra de Musimundo: la firma acumulaba más de $2.200 millones en deudas",
+    "medio": "La Gaceta",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQRnhmZE9Sa1BIaklqR0FMNG15dkJ5UzdtQ190dEJIUEVvVHNFUUQyWXR4eDJrc01KS0ZKTmpSMXVBMFB0WHB3UG1ENkFrd1pXUGVBQktNTkdQRGhzczJFbEY3LWh5cG5QdUtqZlJ5dFBmTkNFRUhvMVZzR0tZTGtVZldOUjZlVXFrd1owVk9MeEQ2N2ZUUFBUc2tmMFlzaVlSWVhNY080X21PQzJMYXlIODZwd9IBuAFBVV95cUxNMzJwbjZ2dWxyRjVyUkFycGNXOVVMZVR4N0VBM3RVTWstZHYtTHowUWhsUW52VnV1R1NreV9OWXRsajlzdTh6NmRqR3NEX2cwMHVUQnUtdC16bk1wQ0J1dTh2Y2tabVpQTGhBQ0V4Z2pmNV8za3kyZ1RESTk3LTVYUWJlUVV3SENVUDN0QnZwQk1iZm1KWmUwQjFzV2NKSDFlTUJMVUkxczdwRXRnUEhOVklHSE5IU3lY?oc=5",
+    "date": "2026-09-04T13:26:57+00:00",
+    "scraped_at": "2026-09-05T21:45:14.941997+00:00",
+    "status": "pendiente",
+    "status_at": null
   },
   {
     "id": "abf8e54453448175",
@@ -206,6 +254,22 @@
     "scraped_at": "2026-09-04T14:04:51.970506+00:00",
     "status": "descartado",
     "status_at": "2026-09-05T12:46:24.432Z"
+  },
+  {
+    "id": "58f149f4bface94d",
+    "title": "La Justicia revocó el concurso preventivo de Carsa, dueña de Musimundo, y decretó la quiebra",
+    "medio": "La Nación",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNX0tSaG1ScC1tVjVMNXhLWm56d0N0SUtkdW5fdFBrSy1sb21Ba0tybzgxQkVVSFhpN0lTVmJ5YVBGMnN0M0MxcWw1SXVuYjJsQ1RaR0JKTFhNYWlKa3RGejllaFZ1a1Jabk1VZVR3ZEU2UTFwcXU1NC1XNmdmc1REZy1QdmJINHMxWTNGVmdjSTUyWXhyYmR4SXVKM01oVFR0RHhuOTBXcFdDX0Y5bGhrdGpEaDUwQjc1c3lOV1htSXp2TkRab2c?oc=5",
+    "date": "2026-09-03T23:08:00+00:00",
+    "scraped_at": "2026-09-05T21:45:14.937136+00:00",
+    "status": "pendiente",
+    "status_at": null
   },
   {
     "id": "65dc1b75bd59f337",
