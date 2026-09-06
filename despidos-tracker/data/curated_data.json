@@ -1,7 +1,7 @@
 [
   {
     "id": "0c77ce87ecda184d",
-    "title": "Ganja Tres Arroyos y Wade se presentarán en convocatoria de acreedores tras la orden de reincorporar a 1.200 trabajadores",
+    "title": "Granja Tres Arroyos y Wade se presentarán en convocatoria de acreedores tras la orden de reincorporar a 1.200 trabajadores",
     "medio": "Infobae",
     "lugar": "Buenos Aires",
     "provincia": "Buenos Aires",
@@ -43,21 +43,6 @@
     "date": "2026-09-04T20:39:17+00:00",
     "scraped_at": "2026-09-04T21:53:18.014969+00:00",
     "status_at": "2026-09-05T12:56:30.508Z"
-  },
-  {
-    "id": "e37c57d22f904a96",
-    "title": "La Justicia decretó la quiebra definitiva de la dueña de Musimundo",
-    "medio": "Perfil",
-    "lugar": "Corrientes",
-    "provincia": "Corrientes",
-    "departamento": null,
-    "sector": null,
-    "topic": "cierres",
-    "snippet": "La empresa controlante, Carsa SA , había anunciado el cierre de 20 sucursales en Chaco, Misiones y Corrientes. El Sindicato de Empleados de Comercio entregará un auxilio económico de $300.000 a los afectados mientras interviene un síndico judicial.",
-    "url": "https://www.perfil.com/noticias/nea/la-justicia-decreto-la-quiebra-de-carsa-sa-y-el-sec-otorgara-un-subsidio-a-los-despedidos-de-musimundo.phtml",
-    "date": "2026-09-04T12:14:43+00:00",
-    "scraped_at": "2026-09-04T14:04:16.931441+00:00",
-    "status_at": "2026-09-05T12:58:14.014Z"
   },
   {
     "id": "58f149f4bface94d",
@@ -6152,6 +6137,22 @@
     "id": "manual-f015c5965766",
     "scraped_at": "2026-08-31T19:35:33.364993+00:00",
     "status_at": "2026-08-31T19:35:33.365005+00:00",
+    "manual": true
+  },
+  {
+    "id": "manual-fd15f942f533",
+    "title": "La textil Alter SAIC despidió a 25 trabajadores y volvió a pedir su concurso preventivo tras el rechazo de su primera presentación",
+    "medio": "iProfesional",
+    "lugar": "Berazategui",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": "Textil",
+    "topic": "cierres",
+    "snippet": "La fabricante de tejidos de punto y tintorería industrial, con planta en Berazategui, redujo su plantilla de 103 a 75 empleados en medio de lo que definió como la mayor crisis financiera de su historia. La Justicia había rechazado el primer pedido de concurso el 6 de agosto por no completar los requisitos formales; el directorio resolvió una nueva presentación al día siguiente. La empresa atribuyó la crisis a la apertura de importaciones y la caída del consumo, y todavía no informó el monto actualizado de su pasivo.",
+    "url": "https://www.iprofesional.com/negocios/463536-textil-con-60-anos-de-historia-entra-en-concurso-por-importaciones",
+    "date": "2026-08-07T00:00:00.000Z",
+    "scraped_at": "2026-09-06T22:06:07.153763+00:00",
+    "status_at": "2026-09-06T22:06:07.153763+00:00",
     "manual": true
   }
 ]
