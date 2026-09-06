@@ -172,8 +172,8 @@
     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQRnhmZE9Sa1BIaklqR0FMNG15dkJ5UzdtQ190dEJIUEVvVHNFUUQyWXR4eDJrc01KS0ZKTmpSMXVBMFB0WHB3UG1ENkFrd1pXUGVBQktNTkdQRGhzczJFbEY3LWh5cG5QdUtqZlJ5dFBmTkNFRUhvMVZzR0tZTGtVZldOUjZlVXFrd1owVk9MeEQ2N2ZUUFBUc2tmMFlzaVlSWVhNY080X21PQzJMYXlIODZwd9IBuAFBVV95cUxNMzJwbjZ2dWxyRjVyUkFycGNXOVVMZVR4N0VBM3RVTWstZHYtTHowUWhsUW52VnV1R1NreV9OWXRsajlzdTh6NmRqR3NEX2cwMHVUQnUtdC16bk1wQ0J1dTh2Y2tabVpQTGhBQ0V4Z2pmNV8za3kyZ1RESTk3LTVYUWJlUVV3SENVUDN0QnZwQk1iZm1KWmUwQjFzV2NKSDFlTUJMVUkxczdwRXRnUEhOVklHSE5IU3lY?oc=5",
     "date": "2026-09-04T13:26:57+00:00",
     "scraped_at": "2026-09-05T21:45:14.941997+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-09-06T22:02:41.372Z"
   },
   {
     "id": "abf8e54453448175",
@@ -401,15 +401,15 @@
   },
   {
     "id": "968ef1f32843b37f",
-    "title": "La textil argentina Alter volvió a pedir su concurso preventivo de quiebra",
-    "medio": "FashionNetwork France",
+    "title": "La textil Alter SAIC volvió a pedir su concurso preventivo tras el rechazo de una primera presentación",
+    "medio": "iProfesional",
     "lugar": null,
     "provincia": null,
     "departamento": null,
     "sector": "Textil",
     "topic": "cierres",
     "snippet": "",
-    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPSU5EQmhQaU5DYkRmNGJsRk14Tl81M3MwbUk1a2hLNno2SFo5TkJ0cUt2V1ZUOGRmMDVTb2ZDNUdSZXE3M3NiQnl5SG5iNHJKeHNsSk0wM25hZDhMNFctNXYtTE1ubGtLYTE0eTRnNHAwWE43bUVCNTliQWlZVXdfNXpEMGZJNHUwS0l6bHhVblJqX3BXUVNUWDZZbkdHcjBXN1NGU3JNNmkwOTJWQWdiNnM2M2thQk1KdmNOb2dGNA?oc=5",
+    "url": "https://www.iprofesional.com/negocios/463536-textil-con-60-anos-de-historia-entra-en-concurso-por-importaciones",
     "date": "2026-09-02T21:33:44+00:00",
     "scraped_at": "2026-09-03T14:13:51.384438+00:00",
     "status": "pendiente",
