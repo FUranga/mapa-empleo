@@ -1,5 +1,21 @@
 [
   {
+    "id": "08e76c7b38c16b6d",
+    "title": "Una textil bonaerense a concurso: la radiografía del castigado sector",
+    "medio": "El Dia",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": "La Plata",
+    "sector": "Textil",
+    "topic": "cierres",
+    "snippet": "La empresa de Berazategui volvió a pedir el concurso preventivo tras el rechazo de la Justicia del primer pedido. Causas y actualidad",
+    "url": "https://www.eldia.com/economia-dominical/una-textil-bonaerense-a-concurso-la-radiografia-del-castigado-sector-economia-dominical_1788675079",
+    "date": "2026-09-06T06:11:19+00:00",
+    "scraped_at": "2026-09-06T21:47:14.366419+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "c3f1666c6cb9e9aa",
     "title": "Crisis en Granja Tres Arroyos: Buenos Aires ordena reincorporar trabajadores despedidos y el jueves se realiza una audiencia para intentar preservar los empleos",
     "medio": "Bichos de Campo",
