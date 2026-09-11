@@ -388,6 +388,22 @@
     "status_at": "2026-08-29T22:50:07.337Z"
   },
   {
+    "id": "manual-fd15f942f533",
+    "title": "La textil Alter SAIC despidió a 25 trabajadores y volvió a pedir su concurso preventivo tras el rechazo de su primera presentación",
+    "medio": "iProfesional",
+    "lugar": "Berazategui",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": "Textil",
+    "topic": "cierres",
+    "snippet": "La fabricante de tejidos de punto y tintorería industrial, con planta en Berazategui, redujo su plantilla de 103 a 75 empleados en medio de lo que definió como la mayor crisis financiera de su historia. La Justicia había rechazado el primer pedido de concurso el 6 de agosto por no completar los requisitos formales; el directorio resolvió una nueva presentación al día siguiente. La empresa atribuyó la crisis a la apertura de importaciones y la caída del consumo, y todavía no informó el monto actualizado de su pasivo.",
+    "url": "https://www.iprofesional.com/negocios/463536-textil-con-60-anos-de-historia-entra-en-concurso-por-importaciones",
+    "date": "2026-08-07T00:00:00.000Z",
+    "scraped_at": "2026-09-06T22:06:07.153763+00:00",
+    "status_at": "2026-09-06T22:06:07.153763+00:00",
+    "manual": true
+  },
+  {
     "id": "manual-mtf05atz-f08a5f",
     "title": "Metalfor despidió a 225 empleados en Córdoba",
     "medio": "Perfil",
@@ -6137,22 +6153,6 @@
     "id": "manual-f015c5965766",
     "scraped_at": "2026-08-31T19:35:33.364993+00:00",
     "status_at": "2026-08-31T19:35:33.365005+00:00",
-    "manual": true
-  },
-  {
-    "id": "manual-fd15f942f533",
-    "title": "La textil Alter SAIC despidió a 25 trabajadores y volvió a pedir su concurso preventivo tras el rechazo de su primera presentación",
-    "medio": "iProfesional",
-    "lugar": "Berazategui",
-    "provincia": "Buenos Aires",
-    "departamento": null,
-    "sector": "Textil",
-    "topic": "cierres",
-    "snippet": "La fabricante de tejidos de punto y tintorería industrial, con planta en Berazategui, redujo su plantilla de 103 a 75 empleados en medio de lo que definió como la mayor crisis financiera de su historia. La Justicia había rechazado el primer pedido de concurso el 6 de agosto por no completar los requisitos formales; el directorio resolvió una nueva presentación al día siguiente. La empresa atribuyó la crisis a la apertura de importaciones y la caída del consumo, y todavía no informó el monto actualizado de su pasivo.",
-    "url": "https://www.iprofesional.com/negocios/463536-textil-con-60-anos-de-historia-entra-en-concurso-por-importaciones",
-    "date": "2026-08-07T00:00:00.000Z",
-    "scraped_at": "2026-09-06T22:06:07.153763+00:00",
-    "status_at": "2026-09-06T22:06:07.153763+00:00",
     "manual": true
   }
 ]
