@@ -32,6 +32,23 @@
     "status_at": "2026-09-11T16:12:32.000Z"
   },
   {
+    "title": "Argentina perdió más de 31.000 empresas desde el inicio del gobierno de Milei, según un informe de Fundar",
+    "medio": "Perfil",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "El estudio calcula un promedio de 33 cierres por día entre diciembre de 2023 y septiembre de 2026, con Transporte, Comercio, Industria e Inmobiliario como los sectores más golpeados. En el mismo período el consumo masivo cayó 10% y los costos de los servicios públicos subieron 249% en términos reales.",
+    "url": "https://www.perfil.com/noticias/politica/mientras-milei-festejaba-la-baja-de-la-inflacion-un-informe-revelo-que-argentina-perdio-mas-de-30000-empresas-durante-este-gobierno.phtml",
+    "date": "2026-09-11T00:00:00.000Z",
+    "id": "manual-1986bb50c10f",
+    "scraped_at": "2026-09-11T16:12:21.519284+00:00",
+    "status_at": "2026-09-11T16:25:30.822Z",
+    "manual": true,
+    "status": "pendiente"
+  },
+  {
     "id": "08a8a673e9e2a54b",
     "title": "Crucero del Norte al borde la quiebra: suspendió sus viajes a destinos nacionales",
     "medio": "Diario Digital Conclusión",
