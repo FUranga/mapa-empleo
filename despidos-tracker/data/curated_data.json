@@ -6362,5 +6362,53 @@
     "scraped_at": "2026-09-13T23:14:54.000Z",
     "status_at": "2026-09-13T23:14:54.000Z",
     "manual": true
+  },
+  {
+    "title": "Algodonera Avellaneda, ligada a la familia Vicentin, entra en salvataje judicial para evitar la quiebra en Reconquista",
+    "medio": "La Nación",
+    "lugar": "Reconquista",
+    "provincia": "Santa Fe",
+    "departamento": null,
+    "sector": "Agro",
+    "topic": "cierres",
+    "snippet": "La empresa santafesina, con 360 empleados, acumula una deuda de más de 260 millones de dólares con el Banco Nación y opera al 60% de su capacidad por problemas en la maquinaria de hilandería. Si no aparecen interesados en adquirir la compañía, la Justicia podría decretar la quiebra.",
+    "url": "https://www.lanacion.com.ar/economia/campo/tiene-360-empleados-la-justicia-abrio-el-salvataje-de-una-reconocida-algodonera-para-evitar-su-nid14092026/",
+    "date": "2026-09-14T00:00:00.000Z",
+    "id": "manual-1bce03965a7655ee57",
+    "scraped_at": "2026-09-14T22:39:37.000Z",
+    "status_at": "2026-09-14T22:39:37.000Z",
+    "manual": true
+  },
+  {
+    "title": "La fundición San Cayetano, la mayor del país, entró en concurso preventivo con una deuda de 34.187 millones de pesos",
+    "medio": "iProfesional",
+    "lugar": "Burzaco",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": "Metalúrgica",
+    "topic": "cierres",
+    "snippet": "La metalúrgica, con planta en el Parque Industrial de Almirante Brown, tiene 260 empleados y siete décadas de historia, y exporta el 80% de su producción. La empresa atribuyó la crisis a la apertura de importaciones, la competencia de productos chinos y el aumento de las tasas de financiamiento, y acumula cheques rechazados por más de 1.000 millones de pesos.",
+    "url": "https://www.iprofesional.com/negocios/464324-historica-metalurgica-entro-en-concurso-y-debe-mas-de-34000-millones",
+    "date": "2026-09-12T00:00:00.000Z",
+    "id": "manual-b177213f49926547f7",
+    "scraped_at": "2026-09-14T22:39:37.000Z",
+    "status_at": "2026-09-14T22:39:37.000Z",
+    "manual": true
+  },
+  {
+    "title": "Galasur despide a 19 trabajadores en su cantera de Olavarría en medio de una crisis que ya golpeó a 400 empleos mineros",
+    "medio": "BAE Negocios",
+    "lugar": "Olavarría",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": "Minería",
+    "topic": "despidos",
+    "snippet": "La empresa, cuya razón social es Canteras Unidas de Sierra Chica y que llegó a tener unos 120 empleados, ofrece solo el 50% de la indemnización. Atribuyó la decisión a la paralización de la obra pública y a una deuda de 1.800 millones de pesos que le adeudan Vialidad Nacional y Trenes Argentinos. El Ministerio de Trabajo bonaerense dictó la conciliación obligatoria, a la que la compañía no asistió.",
+    "url": "https://www.baenegocios.com/negocios/la-principal-cantera-de-olavarria-despidio-trabajadores-por-la-falta-de-obra-publica-y-lo-que-les-debe-el-estado/",
+    "date": "2026-09-08T00:00:00.000Z",
+    "id": "manual-2816344ce2bcd60d51",
+    "scraped_at": "2026-09-14T22:39:37.000Z",
+    "status_at": "2026-09-14T22:39:37.000Z",
+    "manual": true
   }
 ]
