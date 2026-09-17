@@ -6458,5 +6458,53 @@
     "scraped_at": "2026-09-16T23:24:34.000Z",
     "status_at": "2026-09-16T23:24:34.000Z",
     "manual": true
+  },
+  {
+    "title": "Rheem despidió al 10% de su personal y refinanció una deuda de 9,48 millones de dólares",
+    "medio": "Infobae",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Electrodomésticos",
+    "topic": "despidos",
+    "snippet": "La fabricante de termotanques y calefones, controlada por el grupo Garovaglio y Zorraquín, desvinculó a unos 27 trabajadores sobre una dotación de 273 empleados. La refinanciación extendió el vencimiento del préstamo hasta diciembre de 2028 y el costo de las indemnizaciones representó unos 1.000 millones de pesos, según informó el grupo a la Bolsa.",
+    "url": "https://www.infobae.com/economia/2026/09/17/la-controlante-de-una-tradicional-marca-de-termotanques-y-calefones-despidio-al-10-de-su-personal/",
+    "date": "2026-09-17T00:00:00.000Z",
+    "id": "manual-11297756221a",
+    "scraped_at": "2026-09-17T19:51:45.000Z",
+    "status_at": "2026-09-17T19:51:45.000Z",
+    "manual": true
+  },
+  {
+    "title": "Granja Tres Arroyos pidió el concurso de acreedores en medio de una crisis avícola con 1.730 despidos denunciados",
+    "medio": "La Nación",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Alimenticia",
+    "topic": "despidos",
+    "snippet": "La firma, la más importante del grupo avícola GTA, es la segunda del conglomerado en solicitar el concurso, después de Wade SA. El grupo enfrenta ejecuciones judiciales y plantas paralizadas en Buenos Aires, Entre Ríos y Córdoba, con un pasivo estimado en 350,9 millones de dólares, y atribuyó la crisis a la \"fuerza mayor\" generada por la gripe aviar.",
+    "url": "https://www.lanacion.com.ar/economia/campo/crisis-en-la-mayor-avicola-granja-tres-arroyos-se-presento-en-concurso-de-acreedores-ante-la-nid15092026/",
+    "date": "2026-09-16T00:00:00.000Z",
+    "id": "manual-718b6cea340e",
+    "scraped_at": "2026-09-17T19:51:45.000Z",
+    "status_at": "2026-09-17T19:51:45.000Z",
+    "manual": true
+  },
+  {
+    "title": "Fundición San Cayetano entró en concurso preventivo pero descartó despidos entre sus 260 trabajadores",
+    "medio": "Infobae",
+    "lugar": "Burzaco",
+    "provincia": "Buenos Aires",
+    "departamento": "Almirante Brown",
+    "sector": "Metalúrgica",
+    "topic": "despidos",
+    "snippet": "La empresa metalúrgica, con planta en el Parque Industrial de Almirante Brown, acumula una deuda de 22.355 millones de pesos con entidades financieras y 198 cheques rechazados por 1.129 millones de pesos. Atribuyó la crisis al aumento de tasas de interés, la caída de la actividad industrial y la competencia de importaciones, y aseguró que la actividad productiva y comercial continúa con normalidad.",
+    "url": "https://www.infobae.com/economia/2026/09/16/mora-record-de-empresas-una-de-las-fundiciones-mas-grandes-del-pais-con-260-empleados-entro-en-concurso-preventivo/",
+    "date": "2026-09-16T00:00:00.000Z",
+    "id": "manual-d3280079f8fa",
+    "scraped_at": "2026-09-17T19:51:45.000Z",
+    "status_at": "2026-09-17T19:51:45.000Z",
+    "manual": true
   }
 ]
