@@ -1,5 +1,21 @@
 [
   {
+    "id": "a6077b33a2832265",
+    "title": "En RDC analizaron cómo la IA empieza a ocupar un lugar estructural en la economía mundial",
+    "medio": "Perfil",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": "Medios",
+    "topic": "despidos",
+    "snippet": "Marcelo Molina, periodista desde España, analizó el impacto económico de la inteligencia artificial en diálogo con Ronda de Corresponsales (RDC) por +Perfil, el nuevo canal de Editorial Perfil. Leer más",
+    "url": "https://www.perfil.com/noticias/masperfil/inteligencia-artificial-en-rdc-por-que-los-tokens-podrian-convertirse-en-un-nuevo-factor-de-produccion.phtml",
+    "date": "2026-09-18T21:17:25+00:00",
+    "scraped_at": "2026-09-18T21:58:26.060099+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "716ac53419d408af",
     "title": "Cambios en la Quinta de Olivos: qué se sabe de los despidos que ordenó Milei en su residencia",
     "medio": "La Nacion",
@@ -16,6 +32,22 @@
     "status_at": null
   },
   {
+    "id": "a5eefb6f0b919a62",
+    "title": "Aerolíneas Argentinas: despidos masivos y seguridad en riesgo",
+    "medio": "AM 530 - Somos Radio",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": "Transporte",
+    "topic": "despidos",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQLUN1NENxVW5mXzFibkV3LXRHNGl5VXBYWDY1RFpfT21zeXFOYUFOYlJTaTBLMElfeFVlLXFESlIxUzUtQmtYRVBiUzhRdDZQOVBDcEU2dURRbk1PdGx1M25iZFcteXdnNEo2ZDdRM1RiNC1aZlNKamVjV21UM29WUElKdlZWdGlZNGZhdVRoRHJrVk3SAZMBQVVfeXFMUC1DdTRDcVVuZl8xYm5Fdy10RzRpeVVwWFg2NURaX09tc3lxTmFBTmJSU2kwSzBJX3hVZS1xREpSMVM1LUJrWEVQYlM4UXQ2UDlQQ3BFNnVEUW5NT3RsdTNuYmRXLXl3ZzRKNmQ3UTNUYjQtWmZTSmplY1dtVDNvVlBJSnZWVnRpWTRmYXVUaERya1ZN?oc=5",
+    "date": "2026-09-18T12:34:24+00:00",
+    "scraped_at": "2026-09-18T21:58:55.800033+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "c9f3ba745a865d04",
     "title": "El Gobierno confirma 12 despidos en la quinta de Olivos y le pasa la seguridad completa a la Casa Militar",
     "medio": "La Nación",
@@ -28,6 +60,22 @@
     "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOU0MxdmI2ZC14RUdxeURtZHpGejJWdU9adUE0bndjM25JQzlUZ1VNbXFyWnBPTUw4UlFjNDk0by1DWF9lQm1jNVBnQkJ0NnNXbWFFc1Q1ZlluWkJHd25abHdhdDFzZnhvVkFRbW5YR2J6OXRGZWpRU0l5M1ZDX2pQeTNuUjl2TmdxRkJKRXd4X0czNFU1VWhmMlBEV3JFZ0YxNGk4R3ZoZEpMWmhmUThYYno3bnZIbWZvemFFVDJiQzY1ak5YTFZZc0FXNktwaFZodkhxanhhVXpsX3VnZ1E?oc=5",
     "date": "2026-09-18T12:04:00+00:00",
     "scraped_at": "2026-09-18T14:11:54.924137+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "f76597a71ade8979",
+    "title": "Despidos masivos en la Quinta de Olivos: cuál es la explicación oficial del Gobierno",
+    "medio": "La Gaceta",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQTzhmVmNtZjAxVWFibmJycExDRE5FRnRRRWJSdjVfZXllZGVQQVNPNFRoQ3dJS3ltVlpITUR5ZWw3NTVuOWtKeHkyZVdvZWdHOG5TOVpjVUx0RFdoY1lNVC1BaXY0RjBCbVlQZFJqeFBGaWdNZVZOOU52di1ZdHJvTk1tLVIzWkIxNlpza1BPR1FOZTdVeFM5RjBnSEJIcHVFWm5YaEJyaFJKdmljamZTaVhKUEJXMUFTN2VV0gHAAUFVX3lxTE5KM1B4Mk51bF9QV3FjZUJhekJPeTliejFwOXVia0dkTXlxMjNiVWgwdzFSSWpZWVpha2dxVHhpVzJUbGdFa01CODRpVTZfNS0yb3ByZzhKcWdEZHdod3JxMVJTajl0UXJ4SDlXeXR3NXg3WlA4V0ZSNnBJS3IzejlWR1c0Mlo5S3lsMFhCMjZqZ3VpdkpGMlhOWDNaS1l2TjVyRkIzWWw1NUExWjVjdDdBdFYyS1BVUUZ6Y3VmSE85Tg?oc=5",
+    "date": "2026-09-18T10:13:16+00:00",
+    "scraped_at": "2026-09-18T21:58:55.800846+00:00",
     "status": "pendiente",
     "status_at": null
   },
