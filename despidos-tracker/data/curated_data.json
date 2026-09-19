@@ -6506,5 +6506,37 @@
     "scraped_at": "2026-08-31T19:35:33.364993+00:00",
     "status_at": "2026-08-31T19:35:33.365005+00:00",
     "manual": true
+  },
+  {
+    "title": "El desempleo nacional llegó al 7,9% en el segundo trimestre de 2026, según el INDEC",
+    "medio": "El Día",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La cifra equivale a 1,8 millones de personas sin trabajo. En el Gran La Plata la desocupación trepó a 8,7%, con 43.000 personas buscando empleo y otras 125.000 ocupadas que buscan cambiar de trabajo.",
+    "url": "https://www.eldia.com/politica-y-economia/en-el-gran-la-plata-el-desempleo-llego-al-8-7-y-125-mil-trabajadores-buscan-otro-trabajo-politica-y-economia-la-ciudad_1789673460",
+    "date": "2026-09-18T00:00:00.000Z",
+    "id": "manual-9b26d4964c33",
+    "scraped_at": "2026-09-19T10:59:33.000Z",
+    "status_at": "2026-09-19T10:59:33.000Z",
+    "manual": true
+  },
+  {
+    "title": "Granja Tres Arroyos declaró un pasivo de 536.000 millones de pesos en su concurso preventivo",
+    "medio": "La Nación",
+    "lugar": "Nacional",
+    "provincia": null,
+    "departamento": null,
+    "sector": "Alimenticia",
+    "topic": "despidos",
+    "snippet": "La avícola detalló ante la Justicia más de 4.800 acreedores y 126.000 millones de pesos en cheques rechazados, con una deuda laboral de 46.000 millones de pesos. El juez mantuvo los embargos sobre las cuentas de la empresa, aunque habilitó una cuenta protegida en el Banco Ciudad para el pago de sueldos e impuestos.",
+    "url": "https://www.lanacion.com.ar/economia/campo/gigante-concursado-granja-tres-arroyos-declaro-un-pasivo-de-536000-millones-y-mas-de-126000-millones-nid17092026/",
+    "date": "2026-09-17T00:00:00.000Z",
+    "id": "manual-73db0e2dceed",
+    "scraped_at": "2026-09-19T10:59:33.000Z",
+    "status_at": "2026-09-19T10:59:33.000Z",
+    "manual": true
   }
 ]
