@@ -1,5 +1,37 @@
 [
   {
+    "id": "2e9b56a26b188178",
+    "title": "Despidieron a Mariano Coronel con un emotivo acompañamiento de ciclistas",
+    "medio": "El Sureño",
+    "lugar": "Tierra del Fuego",
+    "provincia": "Tierra del Fuego",
+    "departamento": "Rio Grande",
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "Familiares, amigos y numerosos ciclistas acompañaron este sábado el cortejo hasta el Cementerio de Río Grande, donde quedaron los restos del hombre que murió tras ser atropellado en la Ruta&#8230; La entrada Despidieron a Mariano Coronel con un emotivo acompañamiento de ciclistas",
+    "url": "https://www.surenio.com.ar/despidieron-a-mariano-coronel-con-un-emotivo-acompanamiento-de-ciclistas/",
+    "date": "2026-09-19T19:13:50+00:00",
+    "scraped_at": "2026-09-19T21:49:49.959712+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "614728af30fba720",
+    "title": "Pagano se metió en la polémica por los despidos en Olivos: «Milei echó a uno solo, el resto fue humo para tapar lo inevitable»",
+    "medio": "Conclusion",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La legisladora ofreció su propia versión de las cesantías, puso en duda el destino de la carne que se compraba y mencionó nombres cercanos a Karina Milei",
+    "url": "https://www.conclusion.com.ar/politica/pagano-se-metio-en-la-polemica-por-los-despidos-en-olivos-milei-echo-a-uno-solo-el-resto-fue-humo-para-tapar-lo-inevitable/09/2026/",
+    "date": "2026-09-19T18:40:45+00:00",
+    "scraped_at": "2026-09-19T21:49:47.822949+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "b076df7c0a9d7dc8",
     "title": "Según el plan: el número de empresas en mora subió 18,7% entre enero y julio y ya son más de 57 mil",
     "medio": "El Ciudadano",
