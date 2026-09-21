@@ -1,5 +1,37 @@
 [
   {
+    "id": "e39ee24d659a3be6",
+    "title": "En Ronda de Economistas debatieron cómo evitar el cierre de empresas y la pérdida de empleos en la industria",
+    "medio": "Perfil",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": "Medios",
+    "topic": "despidos",
+    "snippet": "Daniel Rosato, empresario industrial y dirigente de Industriales Pymes Argentinos, e Isaías Marini, economista, analizaron la situación de las PYMES, el RIGI y las políticas de alivio para la industria en diálogo con Ronda de Economistas (RDEco), por +Perfil, el nuevo canal de Ed",
+    "url": "https://www.perfil.com/noticias/masperfil/pymes-e-industria-argentina-en-rdeco-reclaman-alivio-fiscal-y-advierten-por-la-perdida-de-empresas-y-empleo.phtml",
+    "date": "2026-09-21T22:16:39+00:00",
+    "scraped_at": "2026-09-21T22:52:26.883084+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "3349aad2342d1b7f",
+    "title": "Granja Tres Arroyos ofreció pagar salarios con pollos: qué pasará con su planta en Córdoba",
+    "medio": "Perfil",
+    "lugar": "Cordoba",
+    "provincia": "Cordoba",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "La propuesta de pagar parte de los haberes con mercadería se conoció mientras la compañía busca reordenar sus cuentas ante una deuda de $536.000 millones. El concurso preventivo también alcanza a Avex, la empresa del grupo que concentra su actividad productiva en Río Cuarto. Leer",
+    "url": "https://www.perfil.com/noticias/cordoba/granja-tres-arroyos-ofrecio-pagar-salarios-con-pollos-que-pasa-con-su-planta-en-cordoba.phtml",
+    "date": "2026-09-21T21:18:48+00:00",
+    "scraped_at": "2026-09-21T22:52:26.886526+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "50cd92f191aeab14",
     "title": "Economía panameña crece a 6.4% durante el segundo trimestre del 2026, de acuerdo con el Ministerio de Economía y finanzas",
     "medio": "Infobae",
