@@ -1,5 +1,37 @@
 [
   {
+    "id": "bb70f9e2f1d32abb",
+    "title": "Argentina presentó una “protesta formal” contra el Reino Unido por la explotación de hidrocarburos en Malvinas",
+    "medio": "Conclusion",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": null,
+    "sector": "Energía",
+    "topic": "cierres",
+    "snippet": "El Gobierno cuestionó la extensión de licencias para la producción offshore y la participación de la empresa Navitas Petroleum Atlantic Limited en una licencia de explotación. La presentación fue instruida por el canciller Pablo Quirno, un día antes de la exposición del president",
+    "url": "https://www.conclusion.com.ar/politica/argentina-presento-una-protesta-formal-contra-el-reino-unido-por-la-explotacion-de-hidrocarburos-en-malvinas/09/2026/",
+    "date": "2026-09-22T21:57:11+00:00",
+    "scraped_at": "2026-09-22T22:27:34.675581+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "ef24cb56331689ae",
+    "title": "Se define este viernes el futuro de 50 trabajadores de Granja Tres Arroyos: La empresa había ofrecido pagar una parte con pollos",
+    "medio": "InfoGremiales",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La conciliación obligatoria que mantiene suspendidos los despidos en Granja Tres Arroyos vence este viernes 25 para los trabajadores representados por el STIA, aunque podría extenderse hasta el 2 de octubre. La empresa, que atraviesa un concurso preventivo con deudas por más de $",
+    "url": "https://www.infogremiales.com.ar/se-define-este-viernes-el-futuro-de-50-trabajadores-de-granja-tres-arroyos-la-empresa-habia-ofrecido-pagar-una-parte-con-pollos/",
+    "date": "2026-09-22T17:15:49+00:00",
+    "scraped_at": "2026-09-22T22:27:19.822180+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "21a4fd13253eaeb8",
     "title": "Paro universitario hoy: qué universidades adhieren, dónde no hay clases y cuánto dura",
     "medio": "Clarin",
