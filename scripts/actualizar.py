@@ -7,6 +7,7 @@ los baja, regenera los JSONs y los guarda en el repo.
 import requests
 import openpyxl
 import json
+import hashlib
 import os
 import sys
 from datetime import datetime
@@ -33,6 +34,11 @@ LOG_PATH    = 'log.json'
 EMP_PATH    = 'data.json'
 EMP_PATH_E  = 'empresas.json'
 
+# Archivos OEDE que se suben a mano al repo (el gobierno bloquea la descarga desde Actions)
+DEPT_CSV    = 'departamento_series_empleo_y_salarios_mensual_sector_1.csv'
+DEPT_XLSX   = 'departamento_serie_empleo_remuneraciones_3.xlsx'
+PROV_TRIM   = 'provinciales_serie_empleo_trimestral_2dig_6.xlsx'
+
 # ── Logging ───────────────────────────────────────────────────────
 def load_log():
     if os.path.exists(LOG_PATH):
@@ -52,6 +58,17 @@ def get_last_modified(url):
     except Exception as e:
         print(f'  ⚠ No se pudo verificar {url}: {e}')
         return None
+
+def read_local(path):
+    """Lee un archivo del checkout; None si no existe."""
+    if not os.path.exists(path):
+        return None
+    with open(path, 'rb') as f:
+        return f.read()
+
+def local_hash(path):
+    data = read_local(path)
+    return hashlib.md5(data).hexdigest()[:12] if data else 'none'
 
 def download(url):
     """Descarga un archivo y devuelve sus bytes."""
@@ -220,12 +237,14 @@ def main():
 
         # SIPA mensual: trabajoregistrado_AAMM_estadisticas.xlsx
         url_nac  = find_url(PAGE_SIPA, r'(/sites/default/files/trabajoregistrado_\d+_estadisticas\.xlsx)')
-        url_dept = 'https://raw.githubusercontent.com/FUranga/mapa-empleo/main/departamento_series_empleo_y_salarios_mensual_sector_1.csv'
 
         print(f'  URL SIPA mensual:  {url_nac}')
-        print(f'  URL departamental: {url_dept}')
 
-        oede_sig = url_nac or ''
+        # La firma incluye el hash de los archivos subidos a mano: si se reemplaza
+        # alguno, data.json se regenera sin esperar al próximo SIPA mensual.
+        local_sig = '|'.join(local_hash(p) for p in (DEPT_CSV, DEPT_XLSX, PROV_TRIM))
+        oede_sig = f'{url_nac or ""}|{local_sig}'
+        prev_local_sig = (log.get('oede_signature') or '').split('|', 1)[-1]
 
         # Verificar CSV departamental (URL estable)
         url_dept_oede = 'https://www.argentina.gob.ar/sites/default/files/departamento_series_empleo_y_salarios_mensual_sector_1.csv'
@@ -241,25 +260,38 @@ def main():
             updated_dept = False
             print(f'  Sin cambios en departamental (última detección: {log.get("dept_last_detected", "nunca")})')
 
+        # Trimestral provincial: detectar cambio de nombre (_6 → _7) o actualización en el lugar
+        url_prov_page = find_url(PAGE_DEPT, r'(/sites/default/files/provinciales_serie_empleo_trimestral_2dig_\d+\.xlsx)')
+        prov_name = url_prov_page.rsplit('/', 1)[-1] if url_prov_page else None
+        prov_sig = get_last_modified(url_prov_page) if url_prov_page else None
+        if prov_name and prov_name != PROV_TRIM:
+            print(f'  📬 El OEDE renombró el trimestral provincial: {prov_name} (el script usa {PROV_TRIM})')
+            if log.get('prov_renamed_to') != prov_name:
+                log['prov_renamed_to'] = prov_name
+                log['prov_last_detected'] = today
+                log['prov_needs_manual_update'] = True
+        elif prov_sig and prov_sig != log.get('prov_signature'):
+            if log.get('prov_signature'):
+                print('  📬 Trimestral provincial actualizado — avisando por mail')
+                log['prov_last_detected'] = today
+                log['prov_needs_manual_update'] = True
+            log['prov_signature'] = prov_sig
+        else:
+            print(f'  Sin cambios en trimestral provincial (última detección: {log.get("prov_last_detected", "nunca")})')
+
 
         if oede_sig != log.get('oede_signature'):
             print('  ✓ Hay datos nuevos en OEDE — descargando...')
             bytes_nac  = download(url_nac)  if url_nac  else None
-            bytes_dept = download(url_dept)
+            bytes_dept = read_local(DEPT_CSV)
             # XLSX de totales departamentales (opcional, mejora precisión)
-            url_xlsx = 'https://raw.githubusercontent.com/FUranga/mapa-empleo/main/departamento_serie_empleo_remuneraciones_3.xlsx'
-            try:
-                bytes_xlsx = download(url_xlsx)
-            except:
-                bytes_xlsx = None
+            bytes_xlsx = read_local(DEPT_XLSX)
+            if not bytes_xlsx:
                 print('  ⚠ XLSX departamental no disponible — usando solo CSV')
 
             # XLSX trimestral provincial (sectores por provincia)
-            url_prov_trim = 'https://raw.githubusercontent.com/FUranga/mapa-empleo/main/provinciales_serie_empleo_trimestral_2dig_6.xlsx'
-            try:
-                bytes_prov_trim = download(url_prov_trim)
-            except:
-                bytes_prov_trim = None
+            bytes_prov_trim = read_local(PROV_TRIM)
+            if not bytes_prov_trim:
                 print('  ⚠ Trimestral provincial no disponible — usando departamental')
 
             if bytes_nac and bytes_dept:
@@ -270,6 +302,14 @@ def main():
                 with open(EMP_PATH, 'w', encoding='utf-8') as f:
                     json.dump(empleo, f, ensure_ascii=False, separators=(',', ':'))
                 print(f'  ✓ data.json actualizado — último período: {empleo["meta"]["ultimo_sipa"]}')
+                # Si se subió a mano un archivo nuevo, el aviso correspondiente queda resuelto
+                prev, cur = prev_local_sig.split('|'), local_sig.split('|')
+                if len(prev) == 3:
+                    if cur[0] != prev[0]:
+                        log['dept_needs_manual_update'] = False
+                    if cur[2] != prev[2]:
+                        log['prov_needs_manual_update'] = False
+                        log.pop('prov_renamed_to', None)
                 log['oede_signature'] = oede_sig
                 log['oede_last_update'] = today
                 updated = True

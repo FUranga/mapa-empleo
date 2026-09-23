@@ -141,3 +141,49 @@ jobs:
             3. El workflow detectará el cambio y regenerará data.json automáticamente.
 
             Ver repo: https://github.com/FUranga/mapa-empleo
+
+      - name: Verificar si el trimestral provincial necesita actualización manual
+        id: check_prov
+        run: |
+          TODAY=$(date -u +'%Y-%m-%d')
+          python3 -c "
+          import json
+          log = json.load(open('log.json'))
+          print('needs=' + str(log.get('prov_needs_manual_update', False)).lower())
+          print('detected=' + log.get('prov_last_detected', ''))
+          print('renamed=' + log.get('prov_renamed_to', ''))
+          " > prov_check.txt
+          DETECTED=$(grep "detected=" prov_check.txt | cut -d= -f2)
+          if grep -q "needs=true" prov_check.txt && [ "$DETECTED" = "$TODAY" ]; then
+            echo "needs_update=true" >> $GITHUB_OUTPUT
+          else
+            echo "needs_update=false" >> $GITHUB_OUTPUT
+          fi
+          echo "detected=$DETECTED" >> $GITHUB_OUTPUT
+          echo "renamed=$(grep "renamed=" prov_check.txt | cut -d= -f2)" >> $GITHUB_OUTPUT
+
+      - name: Mail — actualización manual requerida (trimestral provincial)
+        if: steps.check_prov.outputs.needs_update == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: franciscocuranga@gmail.com
+          password: ${{ secrets.GMAIL_PASSWORD }}
+          subject: "Dashboard Argentina — acción requerida: trimestral provincial actualizado"
+          to: franciscocuranga@gmail.com
+          from: Dashboard Argentina <franciscocuranga@gmail.com>
+          body: |
+            El OEDE publicó una versión nueva del trimestral provincial de empleo (2 dígitos).
+
+            Fecha de detección: ${{ steps.check_prov.outputs.detected }}
+            Archivo renombrado a (vacío si mantiene el nombre): ${{ steps.check_prov.outputs.renamed }}
+
+            1. Bajá el archivo desde:
+               https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-provinciales
+            2. Subilo al repo. Si cambió el nombre, actualizá PROV_TRIM en scripts/actualizar.py
+               y el path en el trigger push de .github/workflows/actualizar.yml.
+            3. El workflow regenera data.json al detectar el archivo nuevo.
+
+            Ver repo: https://github.com/FUranga/mapa-empleo

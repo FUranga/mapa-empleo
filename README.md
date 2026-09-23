@@ -177,7 +177,7 @@ Push de archivo al repo
 
 **Mail automático** — cuando se procesan datos nuevos. Indica qué fuente se actualizó y el último período.
 
-**Mail de aviso manual** — cuando el OEDE actualiza el CSV departamental. Indica qué bajar y cómo subirlo al repo.
+**Mail de aviso manual** — cuando el OEDE actualiza el CSV departamental o el trimestral provincial (incluido un cambio de nombre, ej. `_6` → `_7`). Indica qué bajar y cómo subirlo al repo.
 
 ---
 
@@ -193,9 +193,9 @@ Los tres archivos OEDE se actualizan semestralmente. Cuando recibís el mail de 
    - `departamento_serie_empleo_remuneraciones_3.xlsx`
    - `provinciales_serie_empleo_trimestral_2dig_6.xlsx`
 
-3. El workflow se dispara automáticamente y regenera `data.json`.
+3. El workflow se dispara automáticamente y regenera `data.json` (la firma de OEDE incluye un hash de estos archivos, así que cualquier reemplazo fuerza la regeneración).
 
-**Atención:** si el gobierno cambia el nombre del archivo (ej. `_4.xlsx` en vez de `_3.xlsx`), hay que actualizar la referencia en `scripts/actualizar.py` y `scripts/actualizar.yml`.
+**Atención:** si el gobierno cambia el nombre del archivo (ej. `_4.xlsx` en vez de `_3.xlsx`), hay que actualizar la constante correspondiente (`DEPT_CSV`, `DEPT_XLSX`, `PROV_TRIM`) en `scripts/actualizar.py` y el trigger `push.paths` de `.github/workflows/actualizar.yml`. Para el trimestral provincial el cambio de nombre se detecta solo y llega por mail.
 
 ---
 
@@ -265,8 +265,8 @@ El notebook `generador_embeds.ipynb` (Google Colab) genera 8 HTMLs autocontenido
 ## Mejoras pendientes
 
 - [ ] Automatización completa del CSV departamental (bloqueado por HTTP 403 del gobierno)
-- [ ] Tracker de noticias sobre empleo y cierres de empresas
-- [ ] Cuando el OEDE cambia el nombre del archivo trimestral provincial, actualizar manualmente la referencia en `actualizar.py`
+- [x] Tracker de noticias sobre empleo y cierres de empresas (`despidos-tracker/`)
+- [x] Detectar automáticamente cuando el OEDE cambia el nombre del archivo trimestral provincial (aviso por mail; el reemplazo sigue siendo manual)
 
 ---
 
