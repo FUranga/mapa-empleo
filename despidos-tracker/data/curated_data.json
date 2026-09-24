@@ -6618,5 +6618,53 @@
     "scraped_at": "2026-09-23T18:30:00.000Z",
     "status_at": "2026-09-23T18:30:00.000Z",
     "manual": true
+  },
+  {
+    "title": "Dánica cierra definitivamente su planta de margarinas de Llavallol y despide a los últimos 30 trabajadores",
+    "medio": "La Nación",
+    "lugar": "Llavallol",
+    "provincia": "Buenos Aires",
+    "departamento": "Lomas de Zamora",
+    "sector": "Alimenticia",
+    "topic": "cierres",
+    "snippet": "La empresa, fundada en 1939 y hoy parte del Grupo Beltrán, había cerrado la fábrica a fines de 2024 y la reabrió en enero de 2025 con unos 40 operarios tras un acuerdo con el gremio aceitero y el gobierno bonaerense, que vence el 30 de septiembre. Atribuyó la decisión a costos laborales elevados, problemas logísticos y la caída de las ventas; la marca seguirá en el mercado con producción tercerizada.",
+    "url": "https://www.lanacion.com.ar/economia/negocios/danica-cierra-definitivamente-su-planta-de-llavallol-y-desvincula-a-los-ultimos-30-trabajadores-nid22092026/",
+    "date": "2026-09-22T00:00:00.000Z",
+    "id": "manual-57f435140623",
+    "scraped_at": "2026-09-24T20:05:05.000Z",
+    "status_at": "2026-09-24T20:05:05.000Z",
+    "manual": true
+  },
+  {
+    "title": "Márquez 4 Elementos, la desarrollista del grupo Márquez & Asociados, fue declarada en quiebra en Córdoba",
+    "medio": "Perfil",
+    "lugar": "Córdoba",
+    "provincia": "Córdoba",
+    "departamento": "Capital",
+    "sector": "Construcción",
+    "topic": "cierres",
+    "snippet": "La firma inmobiliaria, creada en 2017 para comprar inmuebles y financiar lotes, quedó en cesación de pagos con sus bienes inmovilizados por embargos y medidas cautelares. La quiebra la pidió un abogado que reclamaba honorarios de un juicio laboral, y se suma a la de la constructora Márquez & Asociados, declarada en 2025.",
+    "url": "https://www.perfil.com/noticias/cordoba/marquez-4-elementos-srl-declararon-la-quiebra-de-la-desarrollista.phtml",
+    "date": "2026-09-22T00:00:00.000Z",
+    "id": "manual-5ade99887565",
+    "scraped_at": "2026-09-24T20:05:05.000Z",
+    "status_at": "2026-09-24T20:05:05.000Z",
+    "manual": true
+  },
+  {
+    "title": "La marca de ropa femenina Zhoue cierra locales y liquida stock con deudas por 2.300 millones de pesos",
+    "medio": "iProfesional",
+    "lugar": "Villa Adelina",
+    "provincia": "Buenos Aires",
+    "departamento": "San Isidro",
+    "sector": "Textil",
+    "topic": "cierres",
+    "snippet": "Zowner SA, la empresa dueña de la marca fundada en 1998, llegó a tener ocho locales propios, más de 24 franquicias y una planta con más de 180 empleados; hoy no tiene franquicias y vende mercadería desde su fábrica de Villa Adelina y por internet. Acumula 618 cheques rechazados por más de 1.200 millones de pesos y enfrenta cinco pedidos de quiebra, todavía sin resolver.",
+    "url": "https://www.iprofesional.com/negocios/464958-zhoue-liquida-franquicias-remata-ropa-deudas-millonarias-septiembre-2026",
+    "date": "2026-09-23T00:00:00.000Z",
+    "id": "manual-f0f839dd8ede",
+    "scraped_at": "2026-09-24T20:05:05.000Z",
+    "status_at": "2026-09-24T20:05:05.000Z",
+    "manual": true
   }
 ]
