@@ -17,7 +17,7 @@ mapa-empleo/
 ├── departamentos.geojson              # Geometrías departamentales (estático)
 ├── departamento_series_empleo_y_salarios_mensual_sector_1.csv   # CSV sectores por departamento
 ├── departamento_serie_empleo_remuneraciones_3.xlsx              # XLSX totales por departamento
-├── provinciales_serie_empleo_trimestral_2dig_6.xlsx             # XLSX sectores provinciales trimestrales
+├── provinciales_serie_empleo_trimestral_2dig_7.xlsx             # XLSX sectores provinciales trimestrales
 ├── scripts/
 │   ├── actualizar.py                  # Script principal del workflow
 │   └── generar_empleo.py              # Generador de data.json
@@ -57,7 +57,7 @@ Los valores se multiplican por 1.000 al procesar.
 - Total por provincia (original y desestacionalizado)
 
 #### 2. XLSX provincial trimestral OEDE
-**Archivo en repo:** `provinciales_serie_empleo_trimestral_2dig_6.xlsx`  
+**Archivo en repo:** `provinciales_serie_empleo_trimestral_2dig_7.xlsx`  
 **Fuente original:** `https://www.argentina.gob.ar/trabajo/estadisticas/oede-estadisticas-provinciales`
 
 Una hoja por provincia/región con sectores a 2 dígitos CIIU y subramas. Incluye hojas separadas para `Partidos de GBA`, `Capital Federal` y `Resto de Buenos Aires`.
@@ -153,7 +153,7 @@ Si el `Last-Modified` cambió → manda un **mail de aviso** (no descarga autom�
 El workflow también se dispara automáticamente cuando se sube alguno de estos archivos al repo:
 - `departamento_series_empleo_y_salarios_mensual_sector_1.csv`
 - `departamento_serie_empleo_remuneraciones_3.xlsx`
-- `provinciales_serie_empleo_trimestral_2dig_6.xlsx`
+- `provinciales_serie_empleo_trimestral_2dig_7.xlsx`
 
 ### Flujo completo
 
@@ -191,7 +191,7 @@ Los tres archivos OEDE se actualizan semestralmente. Cuando recibís el mail de 
 2. Subílos al repo **con el mismo nombre** que ya tienen:
    - `departamento_series_empleo_y_salarios_mensual_sector_1.csv`
    - `departamento_serie_empleo_remuneraciones_3.xlsx`
-   - `provinciales_serie_empleo_trimestral_2dig_6.xlsx`
+   - `provinciales_serie_empleo_trimestral_2dig_7.xlsx`
 
 3. El workflow se dispara automáticamente y regenera `data.json` (la firma de OEDE incluye un hash de estos archivos, así que cualquier reemplazo fuerza la regeneración).
 

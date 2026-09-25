@@ -590,6 +590,7 @@ def _is_gba(codigo):
 SHEET_TO_PROV = {
     'Partidos de GBA':      '__gba__',
     'Capital Federal':      'C.A.B.A.',
+    'CABA':                 'C.A.B.A.',
     'Resto de Buenos Aires':'__resto__',
     'Catamarca':            'Catamarca',
     'Cordoba':              'Córdoba',

@@ -37,7 +37,7 @@ EMP_PATH_E  = 'empresas.json'
 # Archivos OEDE que se suben a mano al repo (el gobierno bloquea la descarga desde Actions)
 DEPT_CSV    = 'departamento_series_empleo_y_salarios_mensual_sector_1.csv'
 DEPT_XLSX   = 'departamento_serie_empleo_remuneraciones_3.xlsx'
-PROV_TRIM   = 'provinciales_serie_empleo_trimestral_2dig_6.xlsx'
+PROV_TRIM   = 'provinciales_serie_empleo_trimestral_2dig_7.xlsx'
 
 # ── Logging ───────────────────────────────────────────────────────
 def load_log():
