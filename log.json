@@ -6,6 +6,9 @@
   "dept_needs_manual_update": false,
   "oede_signature": "https://www.argentina.gob.ar/sites/default/files/trabajoregistrado_2606_estadisticas.xlsx|f600d8494b49|fc47137fd9ae|c76efcd0fa94",
   "oede_last_update": "2026-09-24",
-  "last_check": "2026-09-24",
-  "prov_signature": "Fri, 19 Jun 2026 16:28:14 GMT"
+  "last_check": "2026-09-25",
+  "prov_signature": "Fri, 19 Jun 2026 16:28:14 GMT",
+  "prov_renamed_to": "provinciales_serie_empleo_trimestral_2dig_7.xlsx",
+  "prov_last_detected": "2026-09-25",
+  "prov_needs_manual_update": true
 }
