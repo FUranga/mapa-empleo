@@ -1,5 +1,37 @@
 [
   {
+    "id": "f2e4bc92d9239f5b",
+    "title": "Manisur se rinde ante la crisis: pidió su propia quiebra y dejó una deuda de $20.337 millones",
+    "medio": "Perfil",
+    "lugar": "Cordoba",
+    "provincia": "Cordoba",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "La empresa atribuye el deterioro de su situación a la falta de materia prima, la ausencia de financiamiento y una fuerte caída de sus resultados. Leer más",
+    "url": "https://www.perfil.com/noticias/cordoba/manisur-se-rinde-ante-la-crisis-pidio-su-propia-quiebra-y-dejo-una-deuda-de-20337-millones.phtml",
+    "date": "2026-09-25T14:06:12+00:00",
+    "scraped_at": "2026-09-25T15:03:05.716769+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "8d6be40666b09f44",
+    "title": "Sin avances en el conflicto de Galasur: la empresa insiste con pagar la mitad de la indemnización en diez cuotas",
+    "medio": "InfoGremiales",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": "Construcción",
+    "topic": "despidos",
+    "snippet": "La audiencia virtual entre la empresa Galasur, el sindicato AOMA y el Ministerio de Trabajo bonaerense terminó sin acuerdo. Los trabajadores siguen sin poder ingresar a la planta pese a que la conciliación obligatoria ordenó retrotraer los despidos. La firma atribuye los ceses a ",
+    "url": "https://www.infogremiales.com.ar/sin-avances-en-el-conflicto-de-galasur-la-empresa-insiste-con-pagar-la-mitad-de-la-indemnizacion-en-diez-cuotas/",
+    "date": "2026-09-25T03:02:53+00:00",
+    "scraped_at": "2026-09-25T15:03:15.219396+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "4afe6cc2c2cb5d6b",
     "title": "La firma argentina de moda femenina Zhoue se declara al borde de la quiebra",
     "medio": "FashionNetwork France",
