@@ -1,5 +1,21 @@
 [
   {
+    "id": "3f33b3b67e4168ea",
+    "title": "Quiénes pueden pedir la ayuda económica de la Anses para personas sin trabajo y cómo realizar el trámite",
+    "medio": "Infobae",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La prestación está destinada a trabajadores registrados que perdieron su empleo y reúnen las condiciones establecidas por el organismo previsional",
+    "url": "https://www.infobae.com/economia/2026/09/26/quienes-pueden-pedir-la-ayuda-economica-de-la-anses-para-personas-sin-trabajo-y-como-realizar-el-tramite/",
+    "date": "2026-09-26T20:47:41+00:00",
+    "scraped_at": "2026-09-26T22:13:31.070769+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "2a4ffee5e27b2555",
     "title": "Concursos y quiebras de empresas: San Francisco transfiere a Córdoba 61 causas por saturación judicial",
     "medio": "El Periodico (San Francisco)",
