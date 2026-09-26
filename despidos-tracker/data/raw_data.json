@@ -1,5 +1,37 @@
 [
   {
+    "id": "2a4ffee5e27b2555",
+    "title": "Concursos y quiebras de empresas: San Francisco transfiere a Córdoba 61 causas por saturación judicial",
+    "medio": "El Periodico (San Francisco)",
+    "lugar": "Cordoba",
+    "provincia": "Cordoba",
+    "departamento": "San Justo",
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "El Tribunal Superior de Justicia hizo lugar al pedido de los tres jueces civiles de la sede local, que argumentaron una sobrecarga de trabajo ante el aumento sostenido de causas, muchas derivadas por la situación económica que afecta a industrias y empresas de la región.",
+    "url": "https://el-periodico.com.ar/local/concursos-y-quiebras-de-empresas--san-francisco-transfiere-a-cordoba-61-causas-por-saturacion-judicial-_a6ab6f1b472e942775a917851",
+    "date": "2026-09-26T10:50:00+00:00",
+    "scraped_at": "2026-09-26T14:12:58.441607+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "ff05fddd5a177f33",
+    "title": "Avex, la planta de Río Cuarto, entró en el concurso de acreedores de Granja Tres Arroyos: 350 trabajadores en incertidumbre",
+    "medio": "InfoGremiales",
+    "lugar": "Cordoba",
+    "provincia": "Cordoba",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "La planta Avex que el Grupo Tres Arroyos controla en Río Cuarto quedó incluida en la presentación judicial de la empresa madre, que declaró una deuda de US$ 350,9 millones. Los empleados acumulan meses sin cobrar la totalidad de sus haberes y la producción permanece paralizada po",
+    "url": "https://www.infogremiales.com.ar/avex-la-planta-de-rio-cuarto-entro-en-el-concurso-de-acreedores-de-granja-tres-arroyos-350-trabajadores-en-incertidumbre/",
+    "date": "2026-09-26T05:07:38+00:00",
+    "scraped_at": "2026-09-26T14:12:54.200141+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "7a20d2c1bfb3aa61",
     "title": "Manisur pidió su propia quiebra: la histórica procesadora de maní de Córdoba se quedó sin materia prima, no puede pagar la luz y hay 70 trabajadores afectados",
     "medio": "InfoGremiales",
