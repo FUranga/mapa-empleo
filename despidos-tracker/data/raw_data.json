@@ -1,5 +1,37 @@
 [
   {
+    "id": "3153b20e468f20f8",
+    "title": "Aumentan 81,8% las quiebras y concursos en Santa Fe: los datos de la Corte Suprema que encienden alarmas",
+    "medio": "El Ciudadano",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": "Rosario",
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "Entre febrero y agosto de 2026 se registraron casi 2.000 ingresos judiciales por insolvencia en toda la provincia. Rosario lidera el salto en concursos preventivos, mientras que la capital provincial concentra tres de cada cuatro quiebras. La entrada Aumentan 81,8% las quiebras y",
+    "url": "https://elciudadanoweb.com/aumentan-818-las-quiebras-y-concursos-en-santa-fe-los-datos-de-la-corte-suprema-que-encienden-alarmas/",
+    "date": "2026-09-27T13:00:36+00:00",
+    "scraped_at": "2026-09-27T15:01:37.733880+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "8aa3bc3674672d4c",
+    "title": "Septiembre negro para la industria: cierran fábricas en Tierra del Fuego, Córdoba, Buenos Aires y Rosario",
+    "medio": "Conclusion",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "En los primeros nueve meses de 2026 se concretaron quiebras en más de 150 empresas, una cifra similar a la registrada durante todo 2025. El deterioro golpea a distintos sectores industriales y deja miles de trabajadores afectados por despidos, suspensiones y cierres de plantas.",
+    "url": "https://www.conclusion.com.ar/gremiales/septiembre-negro-para-la-industria-cierran-fabricas-en-tierra-del-fuego-cordoba-buenos-aires-y-rosario/09/2026/",
+    "date": "2026-09-27T02:21:00+00:00",
+    "scraped_at": "2026-09-27T15:01:39.883213+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "3f33b3b67e4168ea",
     "title": "Quiénes pueden pedir la ayuda económica de la Anses para personas sin trabajo y cómo realizar el trámite",
     "medio": "Infobae",
