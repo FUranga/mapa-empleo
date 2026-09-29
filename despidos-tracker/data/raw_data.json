@@ -1,5 +1,37 @@
 [
   {
+    "id": "3ccaac3221392795",
+    "title": "La UOM Rosario logró frenar los despidos en Electrolux: dictaron conciliación obligatoria hasta el 20 de octubre",
+    "medio": "InfoGremiales",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": null,
+    "sector": "Metalúrgica",
+    "topic": "despidos",
+    "snippet": "La multinacional sueca Electrolux despidió a unos 200 trabajadores sin cumplir el Procedimiento Preventivo de Crisis y anunció que importará todos sus productos. Tras la movilización del gremio metalúrgico al Ministerio de Trabajo de Santa Fe, la cartera laboral dictó la concilia",
+    "url": "https://www.infogremiales.com.ar/la-uom-rosario-logro-frenar-los-despidos-en-electrolux-dictaron-conciliacion-obligatoria-hasta-el-20-de-octubre/",
+    "date": "2026-09-28T21:46:52+00:00",
+    "scraped_at": "2026-09-28T23:59:46.367714+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "87c6c80433fa32f3",
+    "title": "Efecto dominó: Una semillera e insumera de Santa Fe entró en concurso preventivo como consecuencia de la caída de otras empresas del rubro",
+    "medio": "Bichos de Campo",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "n las últimas horas se conoció un nuevo caso de una empresa de insumos que atraviesa momentos de zozobra. Con la publicación del edicto oficial en el Diario Castellanos de Rafaela se hizo pública la apertura del concurso preventivo de Boagro Agronegocios S.A., una empresa de semi",
+    "url": "https://bichosdecampo.com/efecto-domino-una-semillera-e-insumera-de-santa-fe-entro-en-concurso-preventivo-como-consecuencia-de-la-caida-de-otras-empresas-del-rubro/",
+    "date": "2026-09-28T19:41:18+00:00",
+    "scraped_at": "2026-09-28T23:59:43.646890+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "780a67889259bc4d",
     "title": "Los despidos en suspenso hasta el 20 de octubre",
     "medio": "Página|12",
