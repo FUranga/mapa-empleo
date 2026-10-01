@@ -1,5 +1,37 @@
 [
   {
+    "id": "c9f8727a6ae935c0",
+    "title": "La caída de un contrato clave derivó en 53 despidos en Potigian y abrió un conflicto sindical",
+    "medio": "El Cronista",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "",
+    "url": "https://www.cronista.com/economia-politica/la-caida-de-un-contrato-clave-derivo-en-53-despidos-en-potigian-y-abrio-un-conflicto-sindical/",
+    "date": "2026-10-01T19:00:19+00:00",
+    "scraped_at": "2026-10-01T23:30:16.783325+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "f4bf1bf8add0a9e4",
+    "title": "Granja Tres Arroyos, bajo presión: denuncian vaciamiento en sus plantas y ordenan inhibir todos sus bienes",
+    "medio": "El Cronista",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": "Agro",
+    "topic": "cierres",
+    "snippet": "Así lo resolvió la Justicia tras denuncias realizadas por extrabajadores de Wade y la sindicatura de la quiebra de Rasic Hermanos, hoy acreedora de la avícola",
+    "url": "https://www.cronista.com/negocios/granja-tres-arroyos-bajo-presion-denuncian-vaciamiento-en-sus-plantas-y-ordenan-inhibir-todos-sus-bienes/",
+    "date": "2026-10-01T18:16:56+00:00",
+    "scraped_at": "2026-10-01T23:30:16.780908+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "8ca78edf56844b90",
     "title": "Mirgor, el grupo empresario de los Caputo, despidió a otros 100 trabajadores en Río Grande, incluidos delegados: «Desmantelan el trabajo fueguino»",
     "medio": "InfoGremiales",
