@@ -12,8 +12,8 @@
     "url": "https://www.infobae.com/sociedad/policiales/2026/10/03/quebrados-por-la-usura-la-iniciativa-de-un-grupo-de-reconocidos-abogados-que-ayuda-gratis-a-los-endeudados/",
     "date": "2026-10-03T13:37:52+00:00",
     "scraped_at": "2026-10-03T14:35:30.506961+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "68e45a415b6025e5",
@@ -28,8 +28,8 @@
     "url": "https://bichosdecampo.com/seguridad-caminos-y-produccion-las-tres-banderas-que-leonardo-gonzalez-kees-levanta-como-nuevo-director-de-la-sociedad-rural-en-santa-fe/",
     "date": "2026-10-03T11:12:02+00:00",
     "scraped_at": "2026-10-03T14:35:44.822574+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "38c8fcdc830c8ff9",
@@ -44,8 +44,8 @@
     "url": "https://www.perfil.com/noticias/economia/pandanes-presento-quiebra-150-despidos-y-25-sucursales-cerradas.phtml",
     "date": "2026-10-03T05:45:00+00:00",
     "scraped_at": "2026-10-03T14:35:37.896026+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "f5e2d044c7df2217",
@@ -60,24 +60,8 @@
     "url": "https://www.conclusion.com.ar/gremiales/cerro-una-importante-cadena-de-panaderias-y-los-despidos-fueron-comunicados-a-la-madrugada-por-whatsapp/10/2026/",
     "date": "2026-10-02T22:42:29+00:00",
     "scraped_at": "2026-10-02T23:20:08.221744+00:00",
-    "status": "pendiente",
-    "status_at": null
-  },
-  {
-    "id": "1cd13e56dc7073df",
-    "title": "Pandanés: la cadena de panaderías cerró sus 25 locales y despidió a 150 empleados",
-    "medio": "Clarin",
-    "lugar": null,
-    "provincia": null,
-    "departamento": null,
-    "sector": "Gastronomía",
-    "topic": "cierres",
-    "snippet": "La empresa atravesaba una crisis financiera, estaba en concurso preventivo y comunicó que solicitará la quiebra. Los trabajadores recibieron el aviso durante la madrugada de este viernes y no pudieron ingresar a los locales para retirar sus pertenencias.",
-    "url": "https://www.clarin.com/economia/pandanes-cadena-panaderias-cerro-25-locales-despidio-150-empleados_0_SFzlWbvhGt.html",
-    "date": "2026-10-02T22:36:09+00:00",
-    "scraped_at": "2026-10-02T23:19:41.498957+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "bd2ad9a779d8fa40",
@@ -92,8 +76,8 @@
     "url": "https://www.infobae.com/america/agencias/2026/10/02/familiares-y-estudiantes-despiden-a-subdirectora-de-escuela-asesinada-en-norte-de-mexico/",
     "date": "2026-10-02T22:30:28+00:00",
     "scraped_at": "2026-10-02T23:19:38.149928+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "2aeb990c8c7073e0",
@@ -108,8 +92,8 @@
     "url": "https://www.infogremiales.com.ar/la-multinacional-lactea-savencia-cierra-su-planta-de-la-ex-ilolay-en-el-trebol-54-trabajadores-en-vilo-y-la-fabrica-puesta-en-venta/",
     "date": "2026-10-02T21:59:27+00:00",
     "scraped_at": "2026-10-02T23:19:54.923424+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "4af12c5bf4e65c96",
@@ -124,8 +108,8 @@
     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNWlQ1aWstQ3VxcUpNSjB3MFVXNTZvTW5JWlJOb3V6UFZ6YzV3OHdfTUwxZk1hS2xxYmRfMHUwaEVWT04xTXNuNjFsUDB4bDV2dFQ0SktRUjNhc2FDdnlRZ3VKcm9EMnR5X3JCZDE1d0NleEs0N3d5V1k4aGs1RXVfbEY0aHB2NnFPb0lFaEFBbUYzVzRsVTUxdUVjU2w2T0Exck9OS3M3S3NfVDA0R2dYenlZc2NFVjctTmJfX0t2cnVMX2tnd3V3?oc=5",
     "date": "2026-10-02T21:01:35+00:00",
     "scraped_at": "2026-10-03T14:36:14.842390+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "94aa7603eb244552",
@@ -140,8 +124,8 @@
     "url": "https://www.infogremiales.com.ar/para-evitar-un-vaciamiento-la-justicia-inhibio-los-bienes-de-granja-tres-arroyos-y-sus-filiales/",
     "date": "2026-10-02T20:21:47+00:00",
     "scraped_at": "2026-10-02T23:19:54.924057+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "b1b4799e88d7e098",
@@ -156,24 +140,8 @@
     "url": "https://www.infogremiales.com.ar/mirgor-el-grupo-empresario-de-los-caputo-dejo-sin-efecto-temporalmente-los-100-despidos-en-tierra-del-fuego-pero-los-convirtio-en-suspensiones-hasta-el-8-de-octubre/",
     "date": "2026-10-02T14:02:43+00:00",
     "scraped_at": "2026-10-02T16:08:42.636704+00:00",
-    "status": "pendiente",
-    "status_at": null
-  },
-  {
-    "id": "c9f8727a6ae935c0",
-    "title": "La caída de un contrato clave derivó en 53 despidos en Potigian y abrió un conflicto sindical",
-    "medio": "El Cronista",
-    "lugar": null,
-    "provincia": null,
-    "departamento": null,
-    "sector": null,
-    "topic": "despidos",
-    "snippet": "",
-    "url": "https://www.cronista.com/economia-politica/la-caida-de-un-contrato-clave-derivo-en-53-despidos-en-potigian-y-abrio-un-conflicto-sindical/",
-    "date": "2026-10-01T19:00:19+00:00",
-    "scraped_at": "2026-10-01T23:30:16.783325+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "f4bf1bf8add0a9e4",
@@ -188,8 +156,8 @@
     "url": "https://www.cronista.com/negocios/granja-tres-arroyos-bajo-presion-denuncian-vaciamiento-en-sus-plantas-y-ordenan-inhibir-todos-sus-bienes/",
     "date": "2026-10-01T18:16:56+00:00",
     "scraped_at": "2026-10-01T23:30:16.780908+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "8ca78edf56844b90",
@@ -204,8 +172,8 @@
     "url": "https://www.infogremiales.com.ar/mirgor-el-grupo-empresario-de-los-caputo-despidio-a-otros-100-trabajadores-en-rio-grande-incluidos-delegados-desmantelan-el-trabajo-fueguino/",
     "date": "2026-10-01T14:08:04+00:00",
     "scraped_at": "2026-10-01T16:55:33.164808+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "4842f92825d56dc9",
@@ -220,8 +188,8 @@
     "url": "https://www.infogremiales.com.ar/la-distribuidora-de-golosinas-potigian-despidio-a-53-trabajadores-de-comercio-en-su-planta-de-esteban-echeverria-y-podrian-acercarse-a-100-al-sumar-camioneros/",
     "date": "2026-09-30T21:29:15+00:00",
     "scraped_at": "2026-09-30T23:14:46.293310+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "897b9ee495608c09",
@@ -236,8 +204,8 @@
     "url": "https://bichosdecampo.com/el-socorro-empresa-que-habia-sido-apuntada-como-responsable-de-la-quiebra-de-manisur-salio-desligarse-de-la-crisis-jamas-existio-acuerdo/",
     "date": "2026-09-30T19:51:02+00:00",
     "scraped_at": "2026-09-30T23:14:43.875552+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "a2634a2e7f47af76",
@@ -252,24 +220,8 @@
     "url": "https://www.infogremiales.com.ar/ecocarnes-la-crisis-del-frigorifico-de-san-fernando-pone-en-vilo-a-550-trabajadores-que-llevan-meses-sin-obra-social/",
     "date": "2026-09-30T19:34:49+00:00",
     "scraped_at": "2026-09-30T23:14:46.294684+00:00",
-    "status": "pendiente",
-    "status_at": null
-  },
-  {
-    "id": "27e6dde322c42885",
-    "title": "Grupo Mirgor avanza con una nueva ola de despidos en Tierra del Fuego: desvinculó a más de 100 trabajadores",
-    "medio": "Ambito Financiero",
-    "lugar": "Tierra del Fuego",
-    "provincia": "Tierra del Fuego",
-    "departamento": null,
-    "sector": null,
-    "topic": "despidos",
-    "snippet": "En agosto, la ensambladora de Nicolás Caputo ya había dado de baja a 300 empleados. Ahora, tras la caída de la conciliación obligatoria, avanzó con medidas similares. Crece el conflicto con la UOM.",
-    "url": "https://www.ambito.com/ambito-nacional/grupo-mirgor-avanza-una-nueva-ola-despidos-tierra-del-fuego-desvinculo-mas-100-trabajadores-n6328463",
-    "date": "2026-09-30T15:59:00+00:00",
-    "scraped_at": "2026-09-30T16:17:55.715254+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "bb870d2ae00bfa01",
@@ -284,8 +236,8 @@
     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5tSFZEZ0IzX1hhTW1oRFR3S0g0dWJ3RnlRejQyVnVRdmEwN1RIUWkxYzk4VENrNVotN0Z2TXJWYXVqOGJ5a3Jja1laNnR0VWR6ckNNcGk2SjVvYnNweDBJalZQb0tYYm5mejM1bHRlaHhjMEpCSnBuRTNn?oc=5",
     "date": "2026-09-30T15:45:37+00:00",
     "scraped_at": "2026-09-30T16:18:53.611731+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "d2d1971e42b130ce",
@@ -300,8 +252,8 @@
     "url": "https://www.conclusion.com.ar/politica/economia/la-multinacional-sueca-que-tuvo-mas-de-mil-empleados-y-ahora-dejo-de-producir-en-rosario-quienes-son-los-duenos-de-electrolux/09/2026/",
     "date": "2026-09-30T15:09:41+00:00",
     "scraped_at": "2026-09-30T16:18:26.158463+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "d0d2caa95f8958ee",
@@ -316,8 +268,8 @@
     "url": "https://www.perfil.com/noticias/economia/carne-argentina-a-japon-tras-20-anos-acordaron-la-reapertura-de-un-mercado-de-mas-de-us3000-millones-a40.phtml",
     "date": "2026-09-30T12:05:00+00:00",
     "scraped_at": "2026-09-30T16:18:01.405520+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "a75b07eb677f343a",
@@ -332,8 +284,8 @@
     "url": "https://www.perfil.com/noticias/nea/empleo-publico-en-chaco-el-presupuesto-2027-vincula-la-planta-estatal-a-los-retiros-voluntarios.phtml",
     "date": "2026-09-30T11:00:00+00:00",
     "scraped_at": "2026-09-30T16:18:01.406754+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "64b774641489416f",
@@ -352,22 +304,6 @@
     "status_at": null
   },
   {
-    "id": "0aa907687856d33e",
-    "title": "Exempleados de Flybondi reclamaron por los despidos y las indemnizaciones no pagadas",
-    "medio": "La Nacion",
-    "lugar": null,
-    "provincia": null,
-    "departamento": null,
-    "sector": null,
-    "topic": "despidos",
-    "snippet": "Se reunieron con la subsecretaria de Trabajo y pidieron la intervención del Gobierno; afirman que los trabajadores que siguen vinculados no cobran sus sueldos y que tampoco se cumple con los pagos de los retiros voluntarios",
-    "url": "https://www.lanacion.com.ar/economia/exempleados-de-flybondi-reclamaron-por-los-despidos-y-las-indemnizaciones-no-pagadas-nid29092026/",
-    "date": "2026-09-29T22:06:05+00:00",
-    "scraped_at": "2026-09-29T23:14:24.356609+00:00",
-    "status": "pendiente",
-    "status_at": null
-  },
-  {
     "id": "ab53df31c5dd5232",
     "title": "Crisis textil: proveedora de Portsaid, Rapsodia y Le Utthe entra en concurso de acreedores",
     "medio": "Perfil",
@@ -380,8 +316,8 @@
     "url": "https://www.perfil.com/noticias/economia/crisis-textil-proveedora-de-portsaid-rapsodia-y-le-utthe-entra-en-concurso-de-acreedores-a40.phtml",
     "date": "2026-09-29T20:52:00+00:00",
     "scraped_at": "2026-09-29T23:14:26.102635+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "48dd27d67c805e4a",
@@ -396,8 +332,8 @@
     "url": "https://www.infogremiales.com.ar/la-textil-jutex-fabricante-de-prendas-para-portsaid-rapsodia-y-la-martina-entro-en-concurso-preventivo/",
     "date": "2026-09-29T20:06:45+00:00",
     "scraped_at": "2026-09-29T23:14:35.069089+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "1d338de177e24026",
@@ -412,24 +348,8 @@
     "url": "https://bichosdecampo.com/apurate-que-viene-la-tucura-inicio-la-temporada-de-nacimientos-de-esta-plaga-en-la-patagonia-y-senasa-llamo-a-intensificar-los-monitoreos/",
     "date": "2026-09-29T13:58:45+00:00",
     "scraped_at": "2026-09-29T16:22:32.427548+00:00",
-    "status": "pendiente",
-    "status_at": null
-  },
-  {
-    "id": "63b4da6525133dfc",
-    "title": "Granja Tres Arroyos, de racha: ahora la tercera sociedad del grupo pidió el concurso, ¿podría caer en quiebra?",
-    "medio": "El Cronista",
-    "lugar": null,
-    "provincia": null,
-    "departamento": null,
-    "sector": "Agro",
-    "topic": "cierres",
-    "snippet": "La avícola presentó su pedido ante la Justicia mientras el grupo espera una definición sobre el trámite conjunto de sus concursos. Perdió $ 24.319 millones en 2025 y advierte sobre su futuro",
-    "url": "https://www.cronista.com/negocios/granja-tres-arroyos-de-racha-ahora-la-tercera-sociedad-del-grupo-pidio-el-concurso-podria-caer-en-quiebra/",
-    "date": "2026-09-29T11:50:44+00:00",
-    "scraped_at": "2026-09-29T16:22:28.299136+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "3ccaac3221392795",
@@ -444,24 +364,8 @@
     "url": "https://www.infogremiales.com.ar/la-uom-rosario-logro-frenar-los-despidos-en-electrolux-dictaron-conciliacion-obligatoria-hasta-el-20-de-octubre/",
     "date": "2026-09-28T21:46:52+00:00",
     "scraped_at": "2026-09-28T23:59:46.367714+00:00",
-    "status": "pendiente",
-    "status_at": null
-  },
-  {
-    "id": "87c6c80433fa32f3",
-    "title": "Efecto dominó: Una semillera e insumera de Santa Fe entró en concurso preventivo como consecuencia de la caída de otras empresas del rubro",
-    "medio": "Bichos de Campo",
-    "lugar": "Santa Fe",
-    "provincia": "Santa Fe",
-    "departamento": null,
-    "sector": null,
-    "topic": "cierres",
-    "snippet": "n las últimas horas se conoció un nuevo caso de una empresa de insumos que atraviesa momentos de zozobra. Con la publicación del edicto oficial en el Diario Castellanos de Rafaela se hizo pública la apertura del concurso preventivo de Boagro Agronegocios S.A., una empresa de semi",
-    "url": "https://bichosdecampo.com/efecto-domino-una-semillera-e-insumera-de-santa-fe-entro-en-concurso-preventivo-como-consecuencia-de-la-caida-de-otras-empresas-del-rubro/",
-    "date": "2026-09-28T19:41:18+00:00",
-    "scraped_at": "2026-09-28T23:59:43.646890+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "780a67889259bc4d",
@@ -476,8 +380,8 @@
     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOdXI4bnROVTdCdnlBUlVhYTk1OEdUUmpaQS1JVlhMZUIwclBVcDMxZXVRT3dDTW40aVRjSU5ES1FEYUNQcDhZQTV4enNla04zbnRvN1g0YUp1eVVnR2NUcGhuODBJa2NVVldIbTRSbXRrTW5ob0hBdHhCM0hkcmQ3MWlscmo5bS1UYm5NNU9FYnk?oc=5",
     "date": "2026-09-28T17:16:53+00:00",
     "scraped_at": "2026-09-28T18:00:28.648480+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "0adbb8c4cb75fbca",
@@ -492,8 +396,8 @@
     "url": "https://www.conclusion.com.ar/gremiales/dictaron-la-conciliacion-obligatoria-en-electrolux-hasta-el-20-de-octubre-la-cgt-rosario-anticipa-paros-regionales/09/2026/",
     "date": "2026-09-28T15:40:24+00:00",
     "scraped_at": "2026-09-28T18:00:19.567354+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "89771f5e8136c460",
@@ -508,8 +412,8 @@
     "url": "https://www.cronista.com/negocios/una-crisis-externa-amenaza-la-produccion-de-la-mayor-papelera-del-pais-en-manos-de-un-hombre-clave-de-la-city/",
     "date": "2026-09-28T15:00:31+00:00",
     "scraped_at": "2026-09-28T17:59:52.346607+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "4406213b35b0851b",
@@ -524,8 +428,8 @@
     "url": "https://www.conclusion.com.ar/gremiales/buscan-evitar-200-despidos-en-electrolux-la-empresa-quiere-importar-absolutamente-todo/09/2026/",
     "date": "2026-09-28T14:20:42+00:00",
     "scraped_at": "2026-09-28T18:00:19.568030+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "6012f3367f88c34d",
@@ -540,8 +444,8 @@
     "url": "https://www.infogremiales.com.ar/con-ventas-en-baja-las-concesionarias-de-autos-comenzaron-un-fuerte-ajuste-de-personal-con-despidos-y-retiros-voluntarios/",
     "date": "2026-09-28T14:13:24+00:00",
     "scraped_at": "2026-09-28T17:59:59.598475+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "185bf79ab7bb939c",
@@ -572,8 +476,8 @@
     "url": "https://www.infogremiales.com.ar/electrolux-la-uom-va-al-ministerio-de-trabajo-de-santa-fe-para-exigir-la-nulidad-absoluta-de-todos-los-telegramas-de-despido/",
     "date": "2026-09-28T12:43:39+00:00",
     "scraped_at": "2026-09-28T17:59:59.598851+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "848bc548bb00bc99",
@@ -588,8 +492,8 @@
     "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQcmlHU3B2bmlqUkQ1WkdSY3J6NEpXem5pZHhseWxlckdsci1PZHBaUkNKX0ZNSEo2alBUYzRJZzE4WWpBQVJBZlljdEZhLVVCMUhrb24zbGF0UGVwbHE4NDUwTC11Zk16R3Zham5mNzliUE1XeVlXN1lkWjd2TTZFa05waWc3YlROSXB1bzVhWXlXSno3U2RLbUNEUUdmV0ZGZmRvOEpoSVl0SGFJUlJxU3paQXBxTElQSHRFbjZZdnBHMW4tQjhVZWJLRW4?oc=5",
     "date": "2026-09-28T02:33:57+00:00",
     "scraped_at": "2026-09-28T18:00:30.827743+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "ed410fef68e69afc",
@@ -604,8 +508,8 @@
     "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOT05FUmFTU1BGZUkyUnd5LUxfaUpKSnhNYXJKVWx4Ti1RYXdNOE5NTzA4TE0zTE5wUVhHZThqQXJNcXhCNnVPeWU1aGRESFNlYlEtYTJYQ2x0UmZPRXc1bWJsZFQxbWhFUWdQem9rdk5HT1k0SzYweXJQOFlUSmoyVm5ETGtMdVFKaXh1WE5udWRxdnhPeHhzYlZLQVZYQUE5Y0ctQmE1ZDhHT2ROcS1HY0xkMi1oYlFTOGpsRzFJaGdzS2ZBYmNVbUtPZnM5dGRNdVlnUXR3?oc=5",
     "date": "2026-09-28T02:33:57+00:00",
     "scraped_at": "2026-09-29T16:22:59.306742+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "1ccdc0331d74270c",
@@ -652,8 +556,8 @@
     "url": "https://www.conclusion.com.ar/gremiales/septiembre-negro-para-la-industria-cierran-fabricas-en-tierra-del-fuego-cordoba-buenos-aires-y-rosario/09/2026/",
     "date": "2026-09-27T02:21:00+00:00",
     "scraped_at": "2026-09-27T15:01:39.883213+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "3f33b3b67e4168ea",
@@ -668,8 +572,8 @@
     "url": "https://www.infobae.com/economia/2026/09/26/quienes-pueden-pedir-la-ayuda-economica-de-la-anses-para-personas-sin-trabajo-y-como-realizar-el-tramite/",
     "date": "2026-09-26T20:47:41+00:00",
     "scraped_at": "2026-09-26T22:13:31.070769+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "2a4ffee5e27b2555",
@@ -684,8 +588,8 @@
     "url": "https://el-periodico.com.ar/local/concursos-y-quiebras-de-empresas--san-francisco-transfiere-a-cordoba-61-causas-por-saturacion-judicial-_a6ab6f1b472e942775a917851",
     "date": "2026-09-26T10:50:00+00:00",
     "scraped_at": "2026-09-26T14:12:58.441607+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "ff05fddd5a177f33",
@@ -700,8 +604,8 @@
     "url": "https://www.infogremiales.com.ar/avex-la-planta-de-rio-cuarto-entro-en-el-concurso-de-acreedores-de-granja-tres-arroyos-350-trabajadores-en-incertidumbre/",
     "date": "2026-09-26T05:07:38+00:00",
     "scraped_at": "2026-09-26T14:12:54.200141+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "7a20d2c1bfb3aa61",
@@ -716,8 +620,8 @@
     "url": "https://www.infogremiales.com.ar/manisur-pidio-su-propia-quiebra-la-historica-procesadora-de-mani-de-cordoba-se-quedo-sin-materia-prima-no-puede-pagar-la-luz-y-hay-70-trabajadores-afectados/",
     "date": "2026-09-25T20:47:50+00:00",
     "scraped_at": "2026-09-25T22:51:36.502808+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "544f2609a8306285",
@@ -732,8 +636,8 @@
     "url": "https://www.conclusion.com.ar/gremiales/empresa-procesadora-de-mani-solicito-la-quiebra-y-cerca-de-un-centenar-de-trabajadores-podrian-quedar-en-la-calle/09/2026/",
     "date": "2026-09-25T19:32:19+00:00",
     "scraped_at": "2026-09-25T22:51:52.978032+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "52315af03e14bb63",
@@ -752,38 +656,6 @@
     "status_at": null
   },
   {
-    "id": "00216397013a63b9",
-    "title": "Rosario: Electrolux cierra su fábrica y deja a 200 empleados en la calle",
-    "medio": "El Periodico (San Francisco)",
-    "lugar": "Santa Fe",
-    "provincia": "Santa Fe",
-    "departamento": "San Justo",
-    "sector": "Metalúrgica",
-    "topic": "despidos",
-    "snippet": "En abril unos 100 operarios habían tomado la opción del retiro voluntario ante un achique productivo. La Unión Obrera Metalúrgica estima una pérdida total de 800 empleos desde la asunción del nuevo gobierno.",
-    "url": "https://el-periodico.com.ar/region/rosario--electrolux-cierra-su-fabrica-y-deja-a-200-empleados-en-la-calle_a6ab696e372e942775a891231",
-    "date": "2026-09-25T15:47:04+00:00",
-    "scraped_at": "2026-09-25T22:51:40.884223+00:00",
-    "status": "pendiente",
-    "status_at": null
-  },
-  {
-    "id": "f2e4bc92d9239f5b",
-    "title": "Manisur se rinde ante la crisis: pidió su propia quiebra y dejó una deuda de $20.337 millones",
-    "medio": "Perfil",
-    "lugar": "Cordoba",
-    "provincia": "Cordoba",
-    "departamento": null,
-    "sector": null,
-    "topic": "cierres",
-    "snippet": "La empresa atribuye el deterioro de su situación a la falta de materia prima, la ausencia de financiamiento y una fuerte caída de sus resultados. Leer más",
-    "url": "https://www.perfil.com/noticias/cordoba/manisur-se-rinde-ante-la-crisis-pidio-su-propia-quiebra-y-dejo-una-deuda-de-20337-millones.phtml",
-    "date": "2026-09-25T14:06:12+00:00",
-    "scraped_at": "2026-09-25T15:03:05.716769+00:00",
-    "status": "pendiente",
-    "status_at": null
-  },
-  {
     "id": "9a176254935cd7b9",
     "title": "Manisur pidió su propia quiebra: la empresa cordobesa de maní acumuló deudas por más de $20.000 millones",
     "medio": "La Gaceta",
@@ -796,8 +668,8 @@
     "url": "https://www.lagaceta.com.ar/nota/1155502/sociedad/manisur-pidio-propia-quiebra-empresa-cordobesa-mani-acumulo-deudas-mas-20000-millones.html",
     "date": "2026-09-25T12:41:00+00:00",
     "scraped_at": "2026-09-25T22:52:01.303835+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "8d6be40666b09f44",
@@ -828,8 +700,8 @@
     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQTHduZjFzOERxRS1QMmJpU1BId0xsd2xJMlJkMUxqWlp3QjBOUl9rbk8yenB4Ukx0UUQyNzZ6X3JFV3hORER5Szd6bGl4WVBPN19xVGVKR2ctTlBNSmx3RlY0MHNjRkVwZE81Q2pWeDdGYmRobXBKWVd0LThHZEJLclM1eDBVS29Gb2Y4QkFCYUNoTFNtNFBxb0g3UTN6aWQ0LUlsRW5CbEQzZm1lR1p6WEdOZVJpYWhtOXlvdjRqUGQ?oc=5",
     "date": "2026-09-24T21:51:45+00:00",
     "scraped_at": "2026-09-24T22:45:35.533297+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "f9319bc61595b120",
@@ -844,8 +716,8 @@
     "url": "https://www.infogremiales.com.ar/trabajadores-despedidos-de-granja-tres-arroyos-acampan-en-la-planta-de-pilar-denuncian-que-la-empresa-no-cumplio-la-conciliacion-y-les-debe-sueldos-desde-mayo/",
     "date": "2026-09-24T20:53:10+00:00",
     "scraped_at": "2026-09-24T22:45:12.161447+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "5e304fdd5de306dc",
@@ -860,8 +732,8 @@
     "url": "https://bichosdecampo.com/manisur-historica-industria-manisera-cordobesa-pidio-su-propia-quiebra-al-quedarse-sin-materia-prima-y-no-poder-pagar-la-factura-de-luz/",
     "date": "2026-09-24T19:52:29+00:00",
     "scraped_at": "2026-09-24T22:45:09.816389+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
     "id": "148bda6986634d0a",
