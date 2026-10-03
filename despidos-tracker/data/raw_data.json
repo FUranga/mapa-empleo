@@ -300,8 +300,8 @@
     "url": "https://www.infogremiales.com.ar/en-medio-de-rumores-de-600-despidos-el-gobierno-mando-a-vallar-la-sede-de-iosfa-y-desde-ate-hablan-del-choreo-libertario/",
     "date": "2026-09-30T07:34:36+00:00",
     "scraped_at": "2026-09-30T16:18:10.365923+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T18:47:04.848Z"
   },
   {
     "id": "ab53df31c5dd5232",
@@ -448,22 +448,6 @@
     "status_at": "2026-10-03T15:53:22.601Z"
   },
   {
-    "id": "185bf79ab7bb939c",
-    "title": "Conciliación obligatoria: suspendieron los 200 despidos en Electrolux",
-    "medio": "El Ciudadano",
-    "lugar": "Santa Fe",
-    "provincia": "Santa Fe",
-    "departamento": "Rosario",
-    "sector": null,
-    "topic": "despidos",
-    "snippet": "En la audiencia fijada en el Ministerio de Trabajo para este lunes, Pablo Cerra y el cuerpo de delegados denunciaron la paralización de la producción local en Rosario La entrada Conciliación obligatoria: suspendieron los 200 despidos en Electrolux se publicó primero en El Ciudada",
-    "url": "https://elciudadanoweb.com/conciliacion-obligatoria-suspendieron-los-200-despidos-en-electrolux/",
-    "date": "2026-09-28T14:04:03+00:00",
-    "scraped_at": "2026-09-28T18:00:15.911697+00:00",
-    "status": "pendiente",
-    "status_at": null
-  },
-  {
     "id": "4625315b34a79743",
     "title": "Electrolux: La UOM va al Ministerio de Trabajo de Santa Fe para exigir la «nulidad absoluta» de todos los telegramas de despido",
     "medio": "InfoGremiales",
@@ -510,38 +494,6 @@
     "scraped_at": "2026-09-29T16:22:59.306742+00:00",
     "status": "descartado",
     "status_at": "2026-10-03T15:53:22.601Z"
-  },
-  {
-    "id": "1ccdc0331d74270c",
-    "title": "Alivio parcial en la cadena de pagos: volvió a caer la cantidad de cheques rechazados, pero sigue 14% por encima de 2025",
-    "medio": "Infobae",
-    "lugar": null,
-    "provincia": null,
-    "departamento": null,
-    "sector": null,
-    "topic": "cierres",
-    "snippet": "Los rechazos por fondos insuficientes se contrajeron 16,2% e hilvanaron el segundo mes consecutivo de baja, aunque todavía superan los niveles de un año atrás",
-    "url": "https://www.infobae.com/economia/2026/09/27/alivio-parcial-en-la-cadena-de-pagos-volvio-a-caer-la-cantidad-de-cheques-rechazados-pero-sigue-14-por-encima-de-2025/",
-    "date": "2026-09-27T21:33:35+00:00",
-    "scraped_at": "2026-09-27T22:36:40.881569+00:00",
-    "status": "pendiente",
-    "status_at": null
-  },
-  {
-    "id": "3153b20e468f20f8",
-    "title": "Aumentan 81,8% las quiebras y concursos en Santa Fe: los datos de la Corte Suprema que encienden alarmas",
-    "medio": "El Ciudadano",
-    "lugar": "Santa Fe",
-    "provincia": "Santa Fe",
-    "departamento": "Rosario",
-    "sector": null,
-    "topic": "cierres",
-    "snippet": "Entre febrero y agosto de 2026 se registraron casi 2.000 ingresos judiciales por insolvencia en toda la provincia. Rosario lidera el salto en concursos preventivos, mientras que la capital provincial concentra tres de cada cuatro quiebras. La entrada Aumentan 81,8% las quiebras y",
-    "url": "https://elciudadanoweb.com/aumentan-818-las-quiebras-y-concursos-en-santa-fe-los-datos-de-la-corte-suprema-que-encienden-alarmas/",
-    "date": "2026-09-27T13:00:36+00:00",
-    "scraped_at": "2026-09-27T15:01:37.733880+00:00",
-    "status": "pendiente",
-    "status_at": null
   },
   {
     "id": "8aa3bc3674672d4c",
@@ -652,8 +604,8 @@
     "url": "https://www.conclusion.com.ar/gremiales/trabajadores-de-fravega-tech-denuncian-hasta-180-despidos-en-una-sola-jornada/09/2026/",
     "date": "2026-09-25T19:30:47+00:00",
     "scraped_at": "2026-09-25T22:51:52.978643+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T18:47:04.848Z"
   },
   {
     "id": "9a176254935cd7b9",
@@ -684,8 +636,8 @@
     "url": "https://www.infogremiales.com.ar/sin-avances-en-el-conflicto-de-galasur-la-empresa-insiste-con-pagar-la-mitad-de-la-indemnizacion-en-diez-cuotas/",
     "date": "2026-09-25T03:02:53+00:00",
     "scraped_at": "2026-09-25T15:03:15.219396+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T18:47:04.848Z"
   },
   {
     "id": "4afe6cc2c2cb5d6b",
@@ -748,8 +700,8 @@
     "url": "https://www.infogremiales.com.ar/denuncian-despidos-masivos-en-fravega-tech-se-habla-de-180-trabajadores-desvinculados-en-una-jornada/",
     "date": "2026-09-24T17:33:20+00:00",
     "scraped_at": "2026-09-24T22:45:12.162525+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T18:47:04.848Z"
   },
   {
     "id": "d5f91d7a309b8c3c",
@@ -764,8 +716,8 @@
     "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOTng3R2daNGprcE5FT3lySkc0Rk5rdWNlalNZNDNvSDJZa2E5QTVfalVSdU40RHo0OTBGZUMwMnR4em91ZFhPOWQ2RmszWFhVS2pBRW8xZkVyampNaG03QnVLT25RRkh6M3FGOXBGUlVkemdVOWlULW0xZ2hseEN2NFg5WHBJdUxHdVpuNmM3Y2dDelk4ZzhDeGVCS2NfMzVYLW5UcG0zMXJHZG1qS21WRU9sdDNiRG5uS3Y3Y3BnUnRicGpfVGx5MWkzY1hfZzdRSWNnaFVDeG41YlZnbDBhUUpB?oc=5",
     "date": "2026-09-24T16:05:01+00:00",
     "scraped_at": "2026-09-24T22:45:35.538039+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T18:47:04.848Z"
   },
   {
     "id": "c87a84b2b9c394b5",
@@ -780,8 +732,8 @@
     "url": "https://www.infogremiales.com.ar/ate-acordo-con-el-gobierno-la-reincorporacion-de-los-empleados-despedidos-de-olivos-pero-seran-reubicados-fuera-de-la-quinta/",
     "date": "2026-09-24T15:50:50+00:00",
     "scraped_at": "2026-09-24T22:45:12.163411+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-10-03T18:47:04.848Z"
   },
   {
     "id": "10afcd3e19b32883",
