@@ -1,5 +1,37 @@
 [
   {
+    "id": "abdc28320385937b",
+    "title": "De crear una marca de agua premium patagónica con u$s 500.000 al Pupi Zanetti y los Emiratos Árabes",
+    "medio": "El Cronista",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "Nació de una planta neuquina que estuvo al borde de la quiebra, se reposicionó como una marca premium y hoy produce hasta 8 millones de litros al año.",
+    "url": "https://www.cronista.com/negocios/de-crear-una-marca-de-agua-premium-patagonica-con-us-500000-al-pupi-zanetti-y-los-emiratos-arabes/",
+    "date": "2026-10-04T11:00:00+00:00",
+    "scraped_at": "2026-10-04T15:11:06.020869+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "94016724e0bdb2bf",
+    "title": "Pandanés cerró sus 25 sucursales, despidió a 150 trabajadores y pedirá la quiebra: los despidos se comunicaron por WhatsApp a las 4 de la mañana",
+    "medio": "InfoGremiales",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": "Gastronomía",
+    "topic": "cierres",
+    "snippet": "La cadena de panaderías artesanales Pandanés dejó de operar este viernes tras meses de concurso preventivo. Los trabajadores se enteraron por un mensaje enviado durante la madrugada, encontraron las cerraduras cambiadas y no pudieron retirar sus pertenencias. La empresa acumulaba",
+    "url": "https://www.infogremiales.com.ar/pandanes-cerro-sus-25-sucursales-despidio-a-150-trabajadores-y-pedira-la-quiebra-los-despidos-se-comunicaron-por-whatsapp-a-las-4-de-la-manana/",
+    "date": "2026-10-03T22:59:08+00:00",
+    "scraped_at": "2026-10-04T15:11:12.372087+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "8c2fd3894a45635e",
     "title": "Quebrados por la usura: la iniciativa de un grupo de reconocidos abogados que ayuda a los endeudados",
     "medio": "Infobae",
