@@ -1,5 +1,37 @@
 [
   {
+    "id": "5e6d692b917e77ac",
+    "title": "Ajuste interminable: ahora el Gobierno prepara un decreto con un plan de retiros voluntarios para empleados públicos",
+    "medio": "InfoGremiales",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La medida será anunciada por el Gobierno oficialmente en los próximos días y la inscripción comenzará en noviembre. Abarcará a trabajadores de la administración pública nacional centralizada y organismos desconcentrados. Ajuste sobre el ajuste para que cierren las cuentas. El Gob",
+    "url": "https://www.infogremiales.com.ar/ajuste-interminable-ahora-el-gobierno-prepara-un-decreto-con-un-plan-de-retiros-voluntarios-para-empleados-publicos/",
+    "date": "2026-10-04T22:01:57+00:00",
+    "scraped_at": "2026-10-04T22:34:14.500442+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "364d9fa74a5686f3",
+    "title": "Capital Humano: cómo acceder a la ayuda de $190.000 para personas sin trabajo",
+    "medio": "La Gaceta",
+    "lugar": "Tucuman",
+    "provincia": "Tucuman",
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "El beneficio está destinado a personas que sean seleccionadas para realizar un entrenamiento laboral en una empresa. La ayuda se entrega durante la capacitación y el acceso requiere cumplir una serie de pasos a través de Portal Empleo.",
+    "url": "https://www.lagaceta.com.ar/nota/1156689/sociedad/capital-humano-como-acceder-ayuda-190000-para-personas-sin-trabajo.html",
+    "date": "2026-10-04T11:15:00+00:00",
+    "scraped_at": "2026-10-04T22:34:36.910027+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "abdc28320385937b",
     "title": "De crear una marca de agua premium patagónica con u$s 500.000 al Pupi Zanetti y los Emiratos Árabes",
     "medio": "El Cronista",
