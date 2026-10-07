@@ -1,5 +1,37 @@
 [
   {
+    "title": "La industria textil de Tierra del Fuego acumula 850 despidos, según la cámara industrial fueguina",
+    "medio": "InfoGremiales",
+    "lugar": "Tierra del Fuego",
+    "provincia": "Tierra del Fuego",
+    "departamento": null,
+    "sector": "Textil",
+    "topic": "despidos",
+    "snippet": "La Cámara Fueguina de la Industria Nacional atribuyó la pérdida de puestos a la caída del consumo, el aumento de las importaciones y las plataformas de comercio electrónico chinas, que según la entidad ya captan cerca del 40% del mercado de confección. A nivel nacional, la producción textil cayó 22,6% en los primeros siete meses de 2026, según la federación del sector (FITA).",
+    "url": "https://www.infogremiales.com.ar/tierra-del-fuego-ya-suma-850-despidos-en-la-industria-textil/",
+    "date": "2026-10-06T00:00:00.000Z",
+    "id": "manual-4d4815a878c0",
+    "scraped_at": "2026-10-07T16:04:37.681835+00:00",
+    "status_at": "2026-10-07T16:04:37.681835+00:00",
+    "manual": true
+  },
+  {
+    "title": "Los gremios del tabaco denuncian despidos encubiertos en British American Tobacco Argentina, la ex Nobleza Piccardo",
+    "medio": "iProfesional",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": "Otros",
+    "topic": "despidos",
+    "snippet": "El sindicato tabacalero de CABA y provincia de Buenos Aires y la federación del sector (FTTRA) se declararon en estado de alerta y movilización: denuncian que la tabacalera reduce su plantilla con renuncias inducidas, retiros voluntarios forzados y jubilaciones anticipadas, sin pasar por despidos formales, además de congelar salarios. La empresa no respondió públicamente a las denuncias.",
+    "url": "https://www.iprofesional.com/management/465952-denuncian-despidos-encubiertos-en-la-tabacalera-british-american-tabacco-argentina",
+    "date": "2026-10-05T00:00:00.000Z",
+    "id": "manual-725d52714124",
+    "scraped_at": "2026-10-07T16:04:37.681835+00:00",
+    "status_at": "2026-10-07T16:04:37.681835+00:00",
+    "manual": true
+  },
+  {
     "id": "manual-0dc608f100cb",
     "title": "Algodonera Avellaneda, ligada a la familia Vicentin, queda al borde de la quiebra tras vencer el salvataje sin ofertas",
     "medio": "El Cronista",
