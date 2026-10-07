@@ -1,5 +1,37 @@
 [
   {
+    "id": "18ef72fd2ff3f186",
+    "title": "Contra el vaciamiento de Vialidad Nacional, el STVyARA rechazó los retiros voluntarios impulsados por el Gobierno: “El 90% de quienes se retiraron, hoy están arrepentidos”",
+    "medio": "InfoGremiales",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "El gremio de trabajadores viales STVyARA rechazó la segunda etapa de retiros voluntarios en Vialidad Nacional y advirtió que «el 90% de quienes se retiraron hoy manifiestan estar arrepentidos». Graciela Aleñá sostuvo que «cada trabajador que se va es conocimiento, experiencia y c",
+    "url": "https://www.infogremiales.com.ar/contra-el-vaciamiento-de-vialidad-nacional-el-stvyara-rechazo-los-retiros-voluntarios-impulsados-por-el-gobierno-el-90-de-quienes-se-retiraron-hoy-estan-arrepentidos/",
+    "date": "2026-10-07T21:31:00+00:00",
+    "scraped_at": "2026-10-07T23:54:04.104430+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "0ac8d3506cb85592",
+    "title": "Unionbat entró en concurso de acreedores tras cerrar su planta en Gualeguaychú y despedir a 100 empleados",
+    "medio": "InfoGremiales",
+    "lugar": "Entre Rios",
+    "provincia": "Entre Rios",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "Unionbat, la histórica fabricante de las baterías Willard y proveedora de terminales automotrices, se presentó en concurso preventivo de acreedores tras acumular deudas por más de $40.000 millones y una pérdida de casi $22.000 millones en apenas un año. La compañía cerró su plant",
+    "url": "https://www.infogremiales.com.ar/unionbat-entro-en-concurso-de-acreedores-tras-cerrar-su-planta-en-gualeguaychu-y-despedir-a-100-empleados/",
+    "date": "2026-10-07T17:37:33+00:00",
+    "scraped_at": "2026-10-07T23:54:04.105493+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "8b00890da3f3381a",
     "title": "Fuerte crecimiento del desempleo en la era Milei: “Hoy hay 1.800.000 desocupados en Argentina”",
     "medio": "Perfil",
