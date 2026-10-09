@@ -1,5 +1,21 @@
 [
   {
+    "id": "6fab5195a70e8ff1",
+    "title": "A 5 meses de su cierre y con deudas laborales pendientes, la Justicia decretó la quiebra de Linor: Incautarán sus bienes y uno de sus dueños no podrá salir del país",
+    "medio": "Bichos de Campo",
+    "lugar": "Misiones",
+    "provincia": "Misiones",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "A 5 meses del cierre del aserradero y el despido de sus 130 trabajadores, la Justicia decretó finalmente la quiebra de Linor SRL, que supo ser una de las plantas madereras más importantes de Misiones y quien abastecía de pallets a las principales firmas de consumo masivo del país",
+    "url": "https://bichosdecampo.com/a-5-meses-de-su-cierre-y-con-deudas-laborales-pendientes-la-justicia-decreto-la-quiebra-de-linor-incautaran-sus-bienes-y-uno-de-sus-duenos-no-podra-salir-del-pais/",
+    "date": "2026-10-09T15:04:39+00:00",
+    "scraped_at": "2026-10-09T16:51:41.238087+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "28c42fcfe99c42cc",
     "title": "ATE manifestó su rechazo al plan de retiros voluntarios en la Administración Pública: «Venían a destruir el Estado, pero antes de que terminen tenemos que destruirlos a ellos»",
     "medio": "InfoGremiales",
@@ -44,6 +60,22 @@
     "url": "https://www.infogremiales.com.ar/denuncian-despidos-encubiertos-y-vaciamiento-en-la-tabacalera-british-american-tobacco-argentina-ex-nobleza-piccardo/",
     "date": "2026-10-08T18:29:04+00:00",
     "scraped_at": "2026-10-09T00:00:12.748266+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "17410e52ae8b5ca6",
+    "title": "Denuncian despidos encubiertos y vaciamiento en la tabacalera British American Tobacco Argentina, ex Nobleza Piccardo",
+    "medio": "InfoGremiales",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPWE1HV2tBMWpsUUlkQ0Uta05LNVJEaHlBcTZKX2dfNnZ1MWtIaWFqeVB5RVVQZEZFMjRlUnV4c0R5VEhlbE9pWVVfRjJfblNEMnFnb3dCMlhtcHJydDk2Y29wNmtZcG1XMUFuMmQ4U1pWUmVYVVRhRHJOWkFrSUlUakxzWEQxSHU4bjZ3d1ZIQ2doT0dxdlBRT2pzc0N6SWhqXzktX3ZQVFB4VFlya205X1AyTGxjckpCNURMRHVNT1FzQk9qblh3T05MdWFhRmpTVFVKWDZHbWFKNk94Y1lYR0NqYmw?oc=5",
+    "date": "2026-10-08T18:29:04+00:00",
+    "scraped_at": "2026-10-09T16:52:09.850126+00:00",
     "status": "pendiente",
     "status_at": null
   },
