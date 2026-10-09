@@ -1,5 +1,37 @@
 [
   {
+    "id": "a0975827024d5e07",
+    "title": "Peaje de Devoto: una infraestructura sin uso y 35 trabajadores sin empleo",
+    "medio": "El Periodico (San Francisco)",
+    "lugar": "Cordoba",
+    "provincia": "Cordoba",
+    "departamento": "San Justo",
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "El vencimiento de la concesión de Corredores Viales S.A. dejó sin trabajo a unas 600 personas en 11 provincias. Un total de 35 trabajaban en la estación entre San Francisco y Devoto.",
+    "url": "https://el-periodico.com.ar/local/peaje-de-devoto--una-infraestructura-sin-uso-y-35-trabajadores-sin-empleo_a6ac92ff55a3f655cd26d80c2",
+    "date": "2026-10-09T19:14:39+00:00",
+    "scraped_at": "2026-10-09T23:37:01.466744+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "1bdaf7253113cc20",
+    "title": "El desempleo y los despidos en Argentina se colaron en el inicio de la campaña por el balotaje brasilero",
+    "medio": "InfoGremiales",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "Lula Da Silva, el presidente de Brasil, publicó un video de campaña con declaraciones de argentinos sobre la situación en el país. Allí cuestionan directamente al gobierno de Javier Milei. «Relatos da Argentina de Milei, referência de Flávio Bolsonaro», es el slogam. El president",
+    "url": "https://www.infogremiales.com.ar/el-desempleo-y-los-despidos-en-argentina-se-colaron-en-el-inicio-de-la-campana-por-el-balotaje-brasilero/",
+    "date": "2026-10-09T17:46:30+00:00",
+    "scraped_at": "2026-10-09T23:36:57.366264+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "6fab5195a70e8ff1",
     "title": "A 5 meses de su cierre y con deudas laborales pendientes, la Justicia decretó la quiebra de Linor: Incautarán sus bienes y uno de sus dueños no podrá salir del país",
     "medio": "Bichos de Campo",
