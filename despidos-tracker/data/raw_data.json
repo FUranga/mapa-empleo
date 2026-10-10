@@ -1,5 +1,21 @@
 [
   {
+    "id": "65a93c910ed74cb7",
+    "title": "Quiebra del aserradero Linor en Misiones: 130 trabajadores sobreviven con ayuda alimentaria y reclaman salarios e indemnizaciones",
+    "medio": "InfoGremiales",
+    "lugar": "Misiones",
+    "provincia": "Misiones",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "El aserradero Linor, de la localidad misionera Azara, cerró sus puertas en mayo y dejó alrededor de 130 familias sin empleo. La Justicia decretó la quiebra de la empresa esta semana y dispuso la incautación de bienes y el bloqueo de cuentas. El sindicato de la industria de la mad",
+    "url": "https://www.infogremiales.com.ar/quiebra-del-aserradero-linor-en-azara-130-trabajadores-sobreviven-con-ayuda-alimentaria-y-reclaman-salarios-e-indemnizaciones/",
+    "date": "2026-10-10T03:47:29+00:00",
+    "scraped_at": "2026-10-10T15:46:31.516906+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "a0975827024d5e07",
     "title": "Peaje de Devoto: una infraestructura sin uso y 35 trabajadores sin empleo",
     "medio": "El Periodico (San Francisco)",
@@ -28,6 +44,22 @@
     "url": "https://www.infogremiales.com.ar/el-desempleo-y-los-despidos-en-argentina-se-colaron-en-el-inicio-de-la-campana-por-el-balotaje-brasilero/",
     "date": "2026-10-09T17:46:30+00:00",
     "scraped_at": "2026-10-09T23:36:57.366264+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "a3fd2a5cd6f8b1d3",
+    "title": "El desempleo y los despidos en Argentina se colaron en el inicio de la campaña por el balotaje brasilero",
+    "medio": "InfoGremiales",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQNGNDck02cktQNmdtTUJXMlloVXFzY1V6UnZJejFGZkVXOGpvUF9YcUdiRUdMb0FlWk9OS1JwaWtLNmMxLUNwTEh0VnZtdWZXeXdvNDgweDRHYUthY0s5MERvU2hieV9MTFFmY3ZGQmRhTjJqS0dQaS1JUXVGRGRVdmdVcnJXYzRLQTJLYjFRc3gtRUN4enhubjFlQjJUejB6a0QwWm51eXBablRhVFFQdC1LRXhDUS1yS3lMcFJfMnV0bHRqaEpEWV9XVlQ3eG9CN29YSg?oc=5",
+    "date": "2026-10-09T17:46:30+00:00",
+    "scraped_at": "2026-10-10T15:46:55.575372+00:00",
     "status": "pendiente",
     "status_at": null
   },
