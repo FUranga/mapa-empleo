@@ -1,5 +1,21 @@
 [
   {
+    "id": "a5db0bf2406b906c",
+    "title": "Médicos sudafricanos reciben diez años de formación en Cuba y ahora están sin trabajo",
+    "medio": "Infobae",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "Veinticuatro graduados completaron sus estudios, la pasantía y el servicio comunitario, pero el sistema público no tiene fondos para contratarlos. Mientras tanto, Sudáfrica acumula más de 1.200 médicos calificados sin empleo y 2.147 vacantes sin financiación confirmada.",
+    "url": "https://www.infobae.com/cuba/2026/10/11/medicos-sudafricanos-reciben-diez-anos-de-formacion-en-cuba-y-ahora-estan-sin-trabajo/",
+    "date": "2026-10-11T22:06:12+00:00",
+    "scraped_at": "2026-10-11T23:14:49.195495+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "65a93c910ed74cb7",
     "title": "Quiebra del aserradero Linor en Misiones: 130 trabajadores sobreviven con ayuda alimentaria y reclaman salarios e indemnizaciones",
     "medio": "InfoGremiales",
