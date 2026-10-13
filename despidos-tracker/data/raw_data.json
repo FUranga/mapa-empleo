@@ -1,5 +1,37 @@
 [
   {
+    "id": "d3fd1caf00dfbf14",
+    "title": "Quebró uno de los principales aserraderos del país: dejó a 130 trabajadores en la calle y ordenaron incautar sus bienes",
+    "medio": "Conclusion",
+    "lugar": "Misiones",
+    "provincia": "Misiones",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "La Justicia de Misiones decretó la quiebra de Linor SRL, fabricante de pallets de madera con sede en Azara, tras incumplir el acuerdo preventivo de acreedores. La firma había cerrado su planta en mayo de 2026 y acumulaba una deuda fiscal superior a los $500 millones. La resolució",
+    "url": "https://www.conclusion.com.ar/gremiales/quebro-uno-de-los-principales-aserraderos-del-pais-dejo-a-130-trabajadores-en-la-calle-y-ordenaron-incautar-sus-bienes/10/2026/",
+    "date": "2026-10-13T20:10:01+00:00",
+    "scraped_at": "2026-10-13T23:28:34.229801+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "c2b80217df44ce63",
+    "title": "La empresa de biotecnología Moolec anuncia que pedirá su propia liquidación y crecen las dudas sobre el futuro de la cordobesa ValoraSoy",
+    "medio": "Bichos de Campo",
+    "lugar": "CABA",
+    "provincia": "CABA",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "El proceso de quiebra de Bioceres SA –empresa que era controlada por Moolec Science SA, firma registrada en las Islas Caimán– acaba de sumar un nuevo capítulo que complejiza aún más una trama ya de por sí difícil. Es que Moolec convocó para el próximo 20 de octubre a sus accionis",
+    "url": "https://bichosdecampo.com/la-empresa-de-biotecnologia-moolec-anuncia-que-pedira-su-propia-liquidacion-y-crecen-las-dudas-sobre-el-futuro-de-la-cordobesa-valorasoy/",
+    "date": "2026-10-13T19:42:25+00:00",
+    "scraped_at": "2026-10-13T23:28:17.470759+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "24dbb0ed6d468700",
     "title": "San Lorenzo evalúa ir a convocatoria de acreedores y Culotta descartó su renuncia",
     "medio": "La Gaceta",
