@@ -1,5 +1,37 @@
 [
   {
+    "id": "547080b53e6e042e",
+    "title": "Autoridades agropecuarias de Panamá interceptan 961 plagas en productos importados",
+    "medio": "Infobae",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": "Agro",
+    "topic": "cierres",
+    "snippet": "Se detectó un escarabajo que representa un riesgo directo para la producción agrícola nacional",
+    "url": "https://www.infobae.com/panama/2026/10/14/autoridades-agropecuarias-de-panama-interceptan-961-plagas-en-productos-importados/",
+    "date": "2026-10-14T22:19:16+00:00",
+    "scraped_at": "2026-10-14T22:44:02.765564+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "6663cec94aa22c6f",
+    "title": "Sin salida, la Justicia decretó la quiebra de Algodonera Avellaneda",
+    "medio": "El Cronista",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": "Textil",
+    "topic": "cierres",
+    "snippet": "La decisión fue tomada luego de que fracasara el proceso de salvataje de la textil de la familia Vicentin. Su deuda supera los u$s 260 millones",
+    "url": "https://www.cronista.com/negocios/sin-salida-la-justicia-decreto-la-quiebra-de-algodonera-avellaneda/",
+    "date": "2026-10-14T21:11:55+00:00",
+    "scraped_at": "2026-10-14T22:44:13.165462+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "d3fd1caf00dfbf14",
     "title": "Quebró uno de los principales aserraderos del país: dejó a 130 trabajadores en la calle y ordenaron incautar sus bienes",
     "medio": "Conclusion",
