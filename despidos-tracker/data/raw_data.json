@@ -1,5 +1,37 @@
 [
   {
+    "id": "c818854207725e36",
+    "title": "¿Patrimonio en riesgo? los bienes que pueden ser alcanzados al entrar en quiebra",
+    "medio": "El Cronista",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "El proceso puede alcanzar inmuebles, vehículos, dinero, inversiones y otros bienes de contenido patrimonial, aunque la legislación también contempla activos que quedan fuera del desapoderamiento y establece protecciones específicas.",
+    "url": "https://www.cronista.com/economia-politica/patrimonio-en-riesgo-los-bienes-que-pueden-ser-alcanzados-al-entrar-en-quiebra/",
+    "date": "2026-10-16T20:58:43+00:00",
+    "scraped_at": "2026-10-16T22:15:17.266916+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "79f3bf98abb5ab79",
+    "title": "Presti dispuso extender el ajuste a la obra social de las Fuerzas Armadas: despidos masivos, cierre de farmacias y prestaciones en caída libre",
+    "medio": "InfoGremiales",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": "Salud",
+    "topic": "despidos",
+    "snippet": "El Ministerio de Defensa que conduce Carlos Presti dispuso reducir la planta de la Obra Social de las Fuerzas Armadas OSFA (ex IOSFA) de 2.450 a 1.000 trabajadores a partir de febrero de 2027 y ordenó el cierre de 30 farmacias propias. Los afiliados denuncian suspensiones de ciru",
+    "url": "https://www.infogremiales.com.ar/presti-dispuso-extender-el-ajuste-a-la-obra-social-de-las-fuerzas-armadas-despidos-masivos-cierre-de-farmacias-y-prestaciones-en-caida-libre/",
+    "date": "2026-10-16T19:21:51+00:00",
+    "scraped_at": "2026-10-16T22:15:23.999483+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "649c1e92cb182b96",
     "title": "El Gobierno dictó la conciliación obligatoria y la ADP deberá suspender el paro de 72 horas",
     "medio": "El Tribuno (Salta)",
