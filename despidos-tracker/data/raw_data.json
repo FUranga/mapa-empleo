@@ -1,5 +1,37 @@
 [
   {
+    "id": "2cb9c9d52348dc1c",
+    "title": "La prestación por desempleo creció 30% por despidos en la industria, comercio y construcción",
+    "medio": "Conclusion",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "Unos 145.000 trabajadores pidieron el alta del beneficio en los primeros nueve meses del año.",
+    "url": "https://www.conclusion.com.ar/politica/economia/la-prestacion-por-desempleo-crecio-30-por-despidos-en-la-industria-comercio-y-construccion/10/2026/",
+    "date": "2026-10-18T15:57:16+00:00",
+    "scraped_at": "2026-10-18T21:57:51.286173+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "cfbd6db786334356",
+    "title": "La prestación por desempleo crece casi 30% por impulso de despidos en industria, comercio y construcción",
+    "medio": "Agencia Noticias Argentinas",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPbnFac21SeWphVGxpaDlaNXd5dFppS3JXNENiTDhlWEE5Qk9maTNRdlNtbGlWTmJVRFR6YkZwdlRoR2tNNU8yM3ZOVzNFRFRzdW1mazVUWlVMVlFaS3E0cnMyOTIwUGxSS3FaVm91aFZwYlhnaEJRejBRSkthclh1Sk5YbUQ1ekxWeEQzWVloTkhzdXdSV2JHUDVQd3ZlRVhOaEMyZ1U4NWM5eVZteTVtTW9ReHU4ajBSY3dxZFhOWHVUX2dKeWh5dVRMYldfUm95ME51TjZVcnNtTFY1V2NiZ0otTEh1WDFwZnQ1a2VmNk85S2tNQmtrZURCVl9GZWvSAY4CQVVfeXFMUE0wTi1tcHVWMk1hUjNIX2tpQ2ViZXo5dU5zRVdTSVdlV1lxWVcxMnYyOXcxWGpPaGxpWUdkVVVnT3dfRWFFWENnMkx4T3pPTmlfZnpMT1ZqaEJyQ0tsdFNQMUVRdnV1ejZ4VjlfYlFPeEg5V0M0a3N4djNKZmhFUWJzVE1YWE9nbWt2elVhZnNmQVZLdEo0QXdCcldoclAtU2I0RFZjbWhoZ0pPbEdIaVd1VU5aalpwWDh6MjJnRmhpdExqTkpIQVlPcFNhQVJFZXpGRVpVZnphaGViN08wWEItSFpwTW45OHRhUmEzanQ2RFp2VjJmN3hHWUs0bEFQMHFyc2FyRnVEaUtZRkFR?oc=5",
+    "date": "2026-10-18T15:00:00+00:00",
+    "scraped_at": "2026-10-18T21:58:00.470443+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "83639a04c33dd17d",
     "title": "Retiran salmón ahumado noruego en seis estados de Estados Unidos por riesgo de listeria",
     "medio": "Infobae",
