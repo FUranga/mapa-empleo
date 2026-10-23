@@ -32,6 +32,38 @@
     "status_at": null
   },
   {
+    "id": "ebbe7b847ed7d67d",
+    "title": "Netanyahu anunció una operación militar a gran escala en Cisjordania y ordenó evacuar barrios palestinos",
+    "medio": "La Gaceta",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "El primer ministro anunció registros casa por casa, demoliciones y el cierre de localidades. También prometió reforzar los asentamientos israelíes, mientras la oposición cuestiona el uso político de la seguridad en plena campaña electoral.",
+    "url": "https://www.lagaceta.com.ar/nota/1159266/mundo/netanyahu-anuncio-operacion-militar-gran-escala-cisjordania-ordeno-evacuar-barrios-palestinos.html",
+    "date": "2026-10-23T11:57:00+00:00",
+    "scraped_at": "2026-10-23T22:41:57.950253+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "fee2e4fdbeec4092",
+    "title": "El Financial Times puso bajo la lupa el plan económico de Milei y advirtió sobre un riesgo clave",
+    "medio": "El Economista",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "El influyente diario británico analizó los resultados del programa económico del Gobierno argentino. Aunque destacó la caída de la inflación y el superávit fiscal, advirtió sobre el estancamiento de la actividad, la pérdida de empleos y el deterioro de los salarios. El impacto po",
+    "url": "https://eleconomista.com.ar/economia/el-financial-times-puso-lupa-plan-economico-milei-advirtio-sobre-riesgo-clave-n99162",
+    "date": "2026-10-23T11:38:00+00:00",
+    "scraped_at": "2026-10-23T22:41:30.532661+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "139651f9e03f54a6",
     "title": "Coloquio de la UIC: Entre el pedido de un RIGI para pymes y una nueva ley de autopartes para el sector",
     "medio": "Perfil",
