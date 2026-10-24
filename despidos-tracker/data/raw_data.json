@@ -1,5 +1,21 @@
 [
   {
+    "id": "9d0c4588668fcf28",
+    "title": "El Estado del trabajo: Santa Fe es la segunda provincia con menos empleados públicos por habitante",
+    "medio": "Conclusion",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "El gobernador Pullaro celebró la reducción de personal en el sector público, que emparentó con “eficiencia”. “Hay todo un esfuerzo para que queden los recursos para prestar los servicios correctamente”, dijo.",
+    "url": "https://www.conclusion.com.ar/la-region/el-estado-del-trabajo-santa-fe-es-la-segunda-provincia-con-menos-empleados-publicos-por-habitante/10/2026/",
+    "date": "2026-10-24T15:54:10+00:00",
+    "scraped_at": "2026-10-24T22:00:59.178575+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "82155b1c0ee5cfb9",
     "title": "De Mar del Plata a Puerto Vallarta: se vendieron los “pingüinos saltarines” que quedaban en el Aquarium de Mar del Plata",
     "medio": "Clone",
