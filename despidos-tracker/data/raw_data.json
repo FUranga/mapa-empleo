@@ -1,5 +1,37 @@
 [
   {
+    "id": "c46e0528358d8fae",
+    "title": "Alerta de despidos en Neuquén por el cierre de un supermercado y una cadena de electrodomésticos",
+    "medio": "Diario Rio Negro",
+    "lugar": "Neuquen",
+    "provincia": "Neuquen",
+    "departamento": null,
+    "sector": "Comercio",
+    "topic": "despidos",
+    "snippet": "",
+    "url": "https://www.rionegro.com.ar/politica/alerta-de-despidos-en-neuquen-por-el-cierre-de-un-supermercado-y-una-cadena-de-electrodomesticos-4773252/",
+    "date": "2026-10-26T20:44:14+00:00",
+    "scraped_at": "2026-10-26T23:24:50.216756+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "8e30c56984037758",
+    "title": "Ajuste masivo en Microsoft: por qué ofrece retiros voluntarios a 60.000 empleados en varios países",
+    "medio": "El Cronista",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La propuesta alcanza a cerca del 27% de la plantilla global. Es el segundo programa de salidas voluntarias del año, mientras la compañía aumenta sus inversiones en inteligencia artificial.",
+    "url": "https://www.cronista.com/infotechnology/it-business/ajuste-masivo-en-microsoft-por-que-ofrece-retiros-voluntarios-a-60000-empleados-en-varios-paises/",
+    "date": "2026-10-26T18:40:23+00:00",
+    "scraped_at": "2026-10-26T23:24:35.068764+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "1a4074aedd167a8e",
     "title": "Busca compradores la histórica textil de una familia con larga experiencia en quiebras y salvatajes",
     "medio": "El Cronista",
