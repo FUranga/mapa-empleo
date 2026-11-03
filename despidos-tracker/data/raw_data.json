@@ -1,5 +1,37 @@
 [
   {
+    "id": "c0413fbfae79c5b6",
+    "title": "Despidieron a una trabajadora del Banco Santander y el gremio se moviliza para exigir su reincorporación",
+    "medio": "Conclusion",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La Bancaria Rosario realizará este miércoles una asamblea y una protesta frente a la sucursal de calle Pellegrini al 1800 para repudiar la desvinculación de una cajera con 11 años de antigüedad. El secretario general de La Bancaria Rosario, Sergio Rivolta, denunció que la emplead",
+    "url": "https://www.conclusion.com.ar/gremiales/despidieron-a-una-trabajadora-del-banco-santander-y-el-gremio-se-moviliza-para-exigir-su-reincorporacion/11/2026/",
+    "date": "2026-11-02T22:17:43+00:00",
+    "scraped_at": "2026-11-03T01:53:52.362163+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "b1119783124024bf",
+    "title": "ATE Rosario rechaza los despidos masivos en Iosfa, la obra social de las Fuerzas Armadas",
+    "medio": "El Ciudadano",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": "Rosario",
+    "sector": "Salud",
+    "topic": "despidos",
+    "snippet": "Más de mil estatales de todo el país quedarán en la calle y cierra la obra social en Rosario lo que afecta directamente a 60 trabajadores La entrada ATE Rosario rechaza los despidos masivos en Iosfa, la obra social de las Fuerzas Armadas se publicó primero en El Ciudadano .",
+    "url": "https://elciudadanoweb.com/ate-rosario-rechaza-los-despidos-masivos-en-iosfa-la-obra-social-de-las-fuerzas-armadas/",
+    "date": "2026-11-02T21:50:05+00:00",
+    "scraped_at": "2026-11-03T01:53:50.202458+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "eebdb928bcb12b28",
     "title": "Ultimátum a Flybondi: los días “contados” para evitar su quiebra y la deuda que arrastra",
     "medio": "El Cronista",
