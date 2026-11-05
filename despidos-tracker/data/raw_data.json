@@ -1,5 +1,37 @@
 [
   {
+    "id": "fc67cc4ce0f9ac27",
+    "title": "Dictan la conciliación obligatoria en el Banco Santander pero el gremio avisa: «No vamos a naturalizar el ajuste»",
+    "medio": "Conclusion",
+    "lugar": "Santa Fe",
+    "provincia": "Santa Fe",
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La seccional rosarina La Bancaria movilizó a las puertas de la sucursal tras la desvinculación de una empleada. Aunque la cartera laboral provincial impuso un freno temporal a las medidas de fuerza, las autoridades de la firma ratificaron la salida y la paritaria quedó empantanad",
+    "url": "https://www.conclusion.com.ar/gremiales/dictan-la-conciliacion-obligatoria-en-el-banco-santander-pero-el-gremio-avisa-no-vamos-a-naturalizar-el-ajuste/11/2026/",
+    "date": "2026-11-05T15:22:33+00:00",
+    "scraped_at": "2026-11-05T17:54:07.024643+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "1f6fae4d9af92219",
+    "title": "Entre Ríos toma la delantera ante la crecida del Paraná: Declaró la emergencia agropecuaria para ganaderos y apicultores de las islas y postergó impuestos hasta 2028",
+    "medio": "Bichos de Campo",
+    "lugar": "Entre Rios",
+    "provincia": "Entre Rios",
+    "departamento": null,
+    "sector": "Agro",
+    "topic": "cierres",
+    "snippet": "Luego de varias semanas de iniciada la crecida del río Paraná, que provocó estragos para la producción del Litoral, Entre Ríos declaró el estado de emergencia o desastre agropecuario para las explotaciones ganaderas y apícolas alcanzadas por el fenómeno. Es la primera de las prov",
+    "url": "https://bichosdecampo.com/entre-rios-toma-la-delantera-ante-la-crecida-del-parana-declaro-la-emergencia-agropecuaria-para-ganaderos-y-apicultores-de-las-islas-y-postergo-impuestos-hasta-2028/",
+    "date": "2026-11-05T12:00:09+00:00",
+    "scraped_at": "2026-11-05T17:53:31.538505+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "20a1ea7db8a65727",
     "title": "El sindicato del personal civil de las fuerzas armadas PECIFA se declaró en asamblea permanente y presentó una denuncia formal por el cierre de delegaciones y despidos en San Luis",
     "medio": "InfoGremiales",
