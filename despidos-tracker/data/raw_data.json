@@ -1,5 +1,21 @@
 [
   {
+    "id": "20a1ea7db8a65727",
+    "title": "El sindicato del personal civil de las fuerzas armadas PECIFA se declaró en asamblea permanente y presentó una denuncia formal por el cierre de delegaciones y despidos en San Luis",
+    "medio": "InfoGremiales",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "El sindicato del personal civil de las Fuerzas Armadas PECIFA reclamó ante la Secretaría de Trabajo por conflicto colectivo y persecución gremial. Advirtió que el cierre de oficinas como las de Villa Mercedes, San Luis y Merlo dejará sin atención presencial a más de 3.600 afiliad",
+    "url": "https://www.infogremiales.com.ar/el-sindicato-del-personal-civil-de-las-fuerzas-armadas-pecifa-se-declaro-en-asamblea-permanente-y-presento-una-denuncia-formal-por-el-cierre-de-delegaciones-y-despidos-en-san-luis/",
+    "date": "2026-11-04T22:35:02+00:00",
+    "scraped_at": "2026-11-05T00:33:54.595432+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "3625929b19a52a2f",
     "title": "Aparecieron 5 candidatos interesados en los activos de la empresa “acorralada” de Vicentin",
     "medio": "El Cronista",
@@ -316,6 +332,22 @@
     "url": "https://www.infogremiales.com.ar/ajuste-en-el-estado-ya-superan-los-77-mil-despidos-en-el-sector-publico-nacional-desde-la-llegada-de-milei-a-septiembre-de-este-ano/",
     "date": "2026-11-03T16:58:50+00:00",
     "scraped_at": "2026-11-03T17:37:10.932807+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "ca66ac18937b3189",
+    "title": "Ajuste en el Estado: ya superan los 77 mil despidos en el Sector Público Nacional desde la llegada de Milei",
+    "medio": "InfoGremiales",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNOUp3Y2dyYkRJaE5ObW11bHZzcTJlYzhoUHVLdTFQS3JmWC15WXJfNHctM0ZWVjhjSndYLU5KYWpZQ0tfX1BqQnhmNVY4NTlnSWZCZWdxVzFHdlp2T2tzR2NablVEclZRd0UxNjZCWm5TM21jTHdiNjR6UE9zdllEcEQ0a3FBSF93U3BKNHdpeVNUZlFPUEdLTUsxTGpjNjVkM3pIckNWSVljSm9ObVpQaHloZU5QcmlCcGlDd1dDaDVxaHZ2NW5Qd1BXTGNpalQwa3lMX21Ca1dEam9idjdrLVcwc1Z2a1JmeUIwcW9peVlCZTRNcVBqbQ?oc=5",
+    "date": "2026-11-03T16:58:50+00:00",
+    "scraped_at": "2026-11-05T00:34:16.549209+00:00",
     "status": "pendiente",
     "status_at": null
   },
