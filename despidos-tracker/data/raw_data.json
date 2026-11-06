@@ -1,5 +1,21 @@
 [
   {
+    "id": "9d47180ac07fd3c3",
+    "title": "Chubut. Comodoro: 72 despidos en el transporte, el negocio sigue para las empresas",
+    "medio": "laizquierdadiario.cl",
+    "lugar": "Chubut",
+    "provincia": "Chubut",
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOcFhhbHg0eWVHNXV1RElsa1d4b1lUemE4X1ZERTh3VGtFTWxYb2lTZk5nV2FseXNiR3ZKRjJWOTQ5ZTRnNVQ5SEtZNGdUTENIX2RBYW0xdnByNHl2bERYWXIzQ2VIVFRPU1RnWmhTN3dKdWw4MnZuR1U4bm9pU05WRDNOU2NWYTJFQUhONzdrQ2NUQ1pTTHJDZTQ3cF9JUjBMak1NZkloMWk?oc=5",
+    "date": "2026-11-05T18:21:36+00:00",
+    "scraped_at": "2026-11-06T00:35:23.892531+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "fc67cc4ce0f9ac27",
     "title": "Dictan la conciliación obligatoria en el Banco Santander pero el gremio avisa: «No vamos a naturalizar el ajuste»",
     "medio": "Conclusion",
@@ -16,6 +32,22 @@
     "status_at": null
   },
   {
+    "id": "7e711725d315c04c",
+    "title": "Caída de Ueno Bank en Paraguay: impacto en Argentina | 5 de noviembre de 2026",
+    "medio": "Hoy Día Córdoba",
+    "lugar": "Cordoba",
+    "provincia": "Cordoba",
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNUkQzWllKMEN5NWJTWlk1SUppcTk5a2t2blpqbjRlejRLUmxDeHJxSWlTZm16eFBKLWV3bDNNNEZJN3BOSjZCRjgwNVp4cERWc1lJanM3VjlVNzBkU2JLTjRBNHV5ODJRTEpSRm1uT3RRa0JhVkRMVGpGZUhLY1JGUENoTEhWWWxwYVHSAY8BQVVfeXFMUDllT3NXMVVNa3lMM0pTLUxRNDFIZmlMeVFjWGM3by1GLTBDMFNPVjd3aFdPSm85MnBzQXYzNlRrUzB1S1NGU1VZZ2JPNG8tTkpVWkwtWURlcjNORk5Ld01ObnJRbXVreTY2ZzYzQTVuSmN1VTBvZWRXRnpxYW00VGFMMVhzYXhXY1QzV2I2cXM?oc=5",
+    "date": "2026-11-05T14:01:05+00:00",
+    "scraped_at": "2026-11-06T00:35:23.891888+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "1f6fae4d9af92219",
     "title": "Entre Ríos toma la delantera ante la crecida del Paraná: Declaró la emergencia agropecuaria para ganaderos y apicultores de las islas y postergó impuestos hasta 2028",
     "medio": "Bichos de Campo",
@@ -28,6 +60,22 @@
     "url": "https://bichosdecampo.com/entre-rios-toma-la-delantera-ante-la-crecida-del-parana-declaro-la-emergencia-agropecuaria-para-ganaderos-y-apicultores-de-las-islas-y-postergo-impuestos-hasta-2028/",
     "date": "2026-11-05T12:00:09+00:00",
     "scraped_at": "2026-11-05T17:53:31.538505+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "0f26e00942e61223",
+    "title": "CAMSA, proveedora de Arcor y PepsiCo, pidió concurso preventivo con deudas por $13.029 millones",
+    "medio": "Revista Más Industrias",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNZTJhVUhKZFlCc0MzNHB1cnl1d0gwN0doXzVtRnFjZEpWMG5ZVThBZWl4bzlZRlp1bjR6YjctX2pac2Y4NEoxMFpLbnhzNXZQWHotTjJxcXVpM096M1NzVE5PTV9GMU9sVHJtQnl0Rm9uLUVpeXpaM204cUlDbHlteTVRS0hhYUwxN1Y1YmVkSmdJckVzNV9DcEpTSTZwTGpNMExCcGFtT0hnOFJieWlfQVhVMWhQOXJ0c25oWlQ1cw?oc=5",
+    "date": "2026-11-05T11:02:58+00:00",
+    "scraped_at": "2026-11-06T00:35:25.858665+00:00",
     "status": "pendiente",
     "status_at": null
   },
