@@ -1,5 +1,37 @@
 [
   {
+    "id": "420310d0474e9dfd",
+    "title": "De Baninter a Ueno Bank: las quiebras bancarias que sacudieron a América Latina",
+    "medio": "Infobae",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "",
+    "url": "https://www.infobae.com/america/agencias/2026/11/07/de-baninter-a-ueno-bank-las-quiebras-bancarias-que-sacudieron-a-america-latina/",
+    "date": "2026-11-07T15:31:31+00:00",
+    "scraped_at": "2026-11-07T16:08:22.028446+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "4d54c3030266d50b",
+    "title": "Crucero del Sur formalizó su concurso preventivo en Misiones en medio de una crisis laboral que deja a cientos de trabajadores en vilo",
+    "medio": "InfoGremiales",
+    "lugar": "Misiones",
+    "provincia": "Misiones",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "La empresa de transporte de larga distancia, perteneciente al histórico grupo Crucero, abrió su concurso preventivo ante el Juzgado Civil y Comercial N° 1 de Posadas. La firma, que venía arrastrando una profunda crisis con salarios adeudados y una drástica reducción de su plantel",
+    "url": "https://www.infogremiales.com.ar/crucero-del-sur-formalizo-su-concurso-preventivo-en-misiones-en-medio-de-una-crisis-laboral-que-deja-a-cientos-de-trabajadores-en-vilo/",
+    "date": "2026-11-07T07:06:40+00:00",
+    "scraped_at": "2026-11-07T16:08:37.256494+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "5b85cdcede0bb6fb",
     "title": "Quiebra el banco más grande de Paraguay: la vez que pasó lo mismo en Perú",
     "medio": "Infobae",
