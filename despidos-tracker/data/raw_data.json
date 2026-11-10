@@ -1,5 +1,37 @@
 [
   {
+    "id": "3065482195212147",
+    "title": "Exfuncionario guatemalteco Miguel Martínez desiste de su apelación y quedan firmes las sanciones financieras de Estados Unidos",
+    "medio": "Infobae",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La corte del circuito de Washington aceptó el retiro voluntario el 20 de octubre, archivó el expediente y ordenó devolver la competencia al juzgado federal que resolvió inicialmente la demanda",
+    "url": "https://www.infobae.com/guatemala/2026/11/10/exfuncionario-guatemalteco-miguel-martinez-desiste-de-su-apelacion-y-quedan-firmes-las-sanciones-financieras-de-estados-unidos/",
+    "date": "2026-11-10T02:02:27+00:00",
+    "scraped_at": "2026-11-10T02:26:07.434661+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "0abee65596e10709",
+    "title": "Posadas | La Estación abre como espacio para las industrias culturales con tres días de muestras, cine y música: conocé el cronograma de actividades",
+    "medio": "Misiones Online",
+    "lugar": "Misiones",
+    "provincia": "Misiones",
+    "departamento": null,
+    "sector": "Entretenimiento",
+    "topic": "cierres",
+    "snippet": "Los trabajadores de la cultura y los creadores misioneros cuentan desde esta semana con un nuevo punto de referencia en Posadas. La antigua terminal ferroviaria del cuarto tramo de la Costanera inicia una nueva etapa convertida en La Estación, Industrias Culturales y Creativas, u",
+    "url": "https://misionesonline.net/2026/11/09/posadas-la-estacion/",
+    "date": "2026-11-10T01:11:00+00:00",
+    "scraped_at": "2026-11-10T02:26:27.789963+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "d69dcb464a4f342d",
     "title": "Más de 200 técnicos y especialistas de la CNEA se sumaron al plan de retiros voluntarios libertario, y Milei consolida el ajuste en el sector nuclear",
     "medio": "InfoGremiales",
