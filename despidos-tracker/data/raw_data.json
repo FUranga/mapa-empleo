@@ -1,5 +1,37 @@
 [
   {
+    "id": "c36629f6394ffe49",
+    "title": "Tierra del Fuego cada vez más complicada: BGH despedirá a 250 operarios y Solnik ejecutó cesantías arbitrarias",
+    "medio": "InfoGremiales",
+    "lugar": "Tierra del Fuego",
+    "provincia": "Tierra del Fuego",
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La ofensiva patronal se acelera en Río Grande, epicentro de la electrónica nacional. BGH notificó a la UOM la desvinculación de más del 40% de su plantilla para el 15 de diciembre, mientras que Solnik despidió a siete trabajadores, entre ellos una delegada de línea, bajo la excus",
+    "url": "https://www.infogremiales.com.ar/tierra-del-fuego-cada-vez-mas-complicada-bgh-despedira-a-250-operarios-y-solnik-ejecuto-cesantias-arbitrarias/",
+    "date": "2026-11-14T22:36:32+00:00",
+    "scraped_at": "2026-11-14T23:27:15.589398+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "b6d0d760f5ceb2f7",
+    "title": "Un importante empresario del agro compró 10.000 hectáreas en una zona con condiciones excepcionales",
+    "medio": "La Nacion",
+    "lugar": "Rio Negro",
+    "provincia": "Rio Negro",
+    "departamento": null,
+    "sector": "Agro",
+    "topic": "cierres",
+    "snippet": "Se trata de Ignacio Bartolomé, que adquirió un establecimiento en la región de Negro Muerto, que se encuentra en expansión en la provincia de Río Negro para la producción agropecuaria",
+    "url": "https://www.lanacion.com.ar/economia/campo/un-importante-empresario-del-agro-compro-10000-hectareas-en-una-zona-con-condiciones-excepcionales-nid14112026/",
+    "date": "2026-11-14T19:12:01+00:00",
+    "scraped_at": "2026-11-14T23:27:05.029940+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "f506800cde0c36ed",
     "title": "Cooperativa Financoop quebró en Perú, pero fondo de seguro de depósitos ya se activó",
     "medio": "Infobae",
@@ -208,6 +240,22 @@
     "status_at": null
   },
   {
+    "id": "5478610a876185ec",
+    "title": "Lionel Scaloni se quiebra al hablar de su renovación con Argentina",
+    "medio": "POSTA DEPORTES",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOVzFldklMeWNST0Q5YWU5enRMdm9Cdm9ZQVZlMmhpdnJ2bEp3Z1JuSmhtRk9VRGpDa3VncFZPSy1uQXBxRHluZEw4RmZIV0lTSW9KekN0ZnJqOTc1Z0FVRkpKNEdfMk9jSExyUE5ReGJYOUJnV3NwRkU3UjdjbmFsZ0FuWU5JVjR6ZmhlM3JpWHQ5aE12aXo0d3hBb0VBTEktYmRlOGk2UEtENlpnalhWczlKWVdKTEVxZXpOcldOdElYd0x2djktb2hmc3dGRlVa0gHWAUFVX3lxTE9aUTRISlFlcjRrYWJmQXhOUG5ldWsxWXFnQUFxcS13Yk5sT180R2pROWpGc3NjTVFFX09lZGpYb3JQdHpPX25CUEU2VkhHYXBsYnoyN216Z2VUcnlnQ0c1clN1VzFnVHZGUGpVSTZyZldpMUU3LURuQ3RldjRGR0Y4bm84OVJRN2pjanlZbm9pRHRhT3RzSVFFaE9Uaks1TEh6RmhCVnBBODBZZkJMUHhMMTlOeG1wZ2w4RnVDUFhxdE11QVlkZlFNajVQdWtNVVl0VTcydFE?oc=5",
+    "date": "2026-11-13T02:54:26+00:00",
+    "scraped_at": "2026-11-14T23:27:39.747163+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "dcceaab6c399dd57",
     "title": "Una empresa agropecuaria de Tandil acumula cheques rechazados por más de $2200 millones: “Estamos poniendo la cara”",
     "medio": "La Nacion",
@@ -220,6 +268,22 @@
     "url": "https://www.lanacion.com.ar/economia/campo/una-empresa-agropecuaria-de-tandil-acumula-cheques-rechazados-por-mas-de-2200-millones-nid12112026/",
     "date": "2026-11-13T00:28:21+00:00",
     "scraped_at": "2026-11-13T00:44:57.938675+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "766c26b2eaa05511",
+    "title": "Una empresa agropecuaria de Tandil acumula cheques rechazados por más de $2200 millones: “Estamos poniendo la cara”",
+    "medio": "La Nación",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": "Agro",
+    "topic": "cierres",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxObjYwYXdVZEJjWThfaHN4OTdlaHQ0WXVHWEUzY000a1FPVVU1bHJXS0Y0eUhGbmVxUTlqWTlvQkQydjV1TE44MTR1N3JCWjJMMllCejBNQWVtd3Q0eDMzVHJEczQ5bWF6RmZ0OXJyVUt5MFFtRmRLU0k0ZmdDS0xlVXk4VE1LYVlxTVBDZlZkUHlMZlZBOHozNWZIdjRMdi1QTzFRcmxUUHM3RzJxTkpxNVB5VFZPRzVpaFNlblRiTWdGVmRsRklnSTZuSXdNZVBDaG1mbC1VU2RYZw?oc=5",
+    "date": "2026-11-13T00:28:00+00:00",
+    "scraped_at": "2026-11-14T23:27:41.637396+00:00",
     "status": "pendiente",
     "status_at": null
   },
