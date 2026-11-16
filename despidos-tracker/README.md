@@ -62,7 +62,9 @@ Corre solo via GitHub Actions (`daily.yml`, 2 veces al día). Scrapea la ventana
 
 ## La limpieza semanal
 
-`weekly_cleanup.yml` corre los domingos y borra de `raw_data.json` solo las **pendientes** (nunca revisadas) de más de 7 días. Las **descartadas** se conservan siempre — son reversibles a propósito. Lo publicado en `curated_data.json` nunca se toca.
+`weekly_cleanup.yml` corre los domingos y borra de `raw_data.json` solo las **pendientes** de más de 7 días **que ya estaban en el backlog la última vez que alguien curó** (la fecha de la última decisión editorial = el `status_at` más reciente entre descartadas y publicadas). Lo que entró después de esa curación no se borra nunca, aunque sea viejo: si nadie revisa por semanas, no se pierde nada, y el job deja un warning en Actions con cuántas pendientes viejas sin revisar hay. (Antes borraba todo lo pendiente de +7 días; entre octubre y noviembre de 2026 se perdieron así 233 notas que hubo que recuperar del historial de git.) Las **descartadas** se conservan siempre — son reversibles a propósito. Lo publicado en `curated_data.json` nunca se toca.
+
+`python despidos-tracker/scripts/cleanup.py --dry-run` muestra qué borraría sin escribir nada.
 
 ## Modelo de estados
 
