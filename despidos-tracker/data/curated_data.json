@@ -224,19 +224,19 @@
     "manual": true
   },
   {
-    "title": "La empresa de colectivos Patagonia Argentina despidió a 72 choferes en Comodoro Rivadavia tras perder la concesión del transporte urbano",
-    "medio": "ADNSUR",
+    "title": "La empresa de colectivos Patagonia Argentina despidió sin causa a choferes en Comodoro Rivadavia tras perder la concesión del transporte urbano",
+    "medio": "Cholila Online",
     "lugar": "Comodoro Rivadavia",
     "provincia": "Chubut",
     "departamento": "Escalante",
     "sector": "Transporte",
     "topic": "despidos",
-    "snippet": "Los despidos sin causa alcanzan a choferes que no pasaron a la nueva concesionaria, Grupo MR, que opera el servicio desde agosto. La empresa invocó una ordenanza de 1991 para desligarse del pago de las indemnizaciones; la Municipalidad sostiene que la obligación es de Patagonia Argentina y anunció acciones legales.",
-    "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxNMlhnZklPOVRvTWZrUlRVTE5Gd2p1MnMxRmR5ZWg2aFA3TDdsRXBEa1ZEeWlxNEhtLW9jMVNjZWhEdDlGMjhaRFlBdEI2U3o2e",
+    "snippet": "Los despidos alcanzan a choferes que no pasaron a la nueva concesionaria, Grupo MR, que opera el servicio desde agosto; según los trabajadores, son 72. La empresa se desligó del pago de las indemnizaciones y la Municipalidad sostiene que la obligación es de Patagonia Argentina, que fue la empleadora.",
+    "url": "https://cholilaonline.ar/2026/11/cruzan-a-patagonia-argentina-por-indemnizaciones.html",
     "date": "2026-11-03T00:00:00.000Z",
     "id": "manual-c8f23c893f7e",
     "scraped_at": "2026-11-16T10:21:36.915278+00:00",
-    "status_at": "2026-11-16T10:21:36.915278+00:00",
+    "status_at": "2026-11-16T15:20:30.618666+00:00",
     "manual": true
   },
   {
@@ -825,7 +825,7 @@
     "medio": "iProfesional",
     "lugar": "CABA",
     "provincia": "CABA",
-    "departamento": "CABA",
+    "departamento": null,
     "sector": "Calzado",
     "topic": "cierres",
     "snippet": "Se Ve S.A., la empresa dueña de la marca, tiene dos locales propios y menos de 20 empleados. Atribuyó la crisis a la caída del consumo, el aumento de costos y la acumulación de stock.",
@@ -1594,19 +1594,19 @@
     "status_at": "2026-08-30T09:24:33.000Z"
   },
   {
-    "title": "Metalfor entró en concurso preventivo con un plan para reducir hasta el 70% de su plantilla de 600 empleados",
+    "title": "Metalfor enfrenta dos pedidos de quiebra y plantea recortar hasta el 70% de su plantilla de 600 empleados",
     "medio": "LMNeuquén",
     "lugar": "Córdoba",
     "provincia": "Córdoba",
     "departamento": "Marcos Juárez",
     "sector": "Metalúrgica",
     "topic": "cierres",
-    "snippet": "La fabricante de maquinaria agrícola enfrenta dos pedidos de quiebra y pagó los últimos sueldos en tramos y con atrasos. Un crédito internacional de 50 millones de dólares obtenido en 2025 no alcanzó para superar la crisis financiera.",
+    "snippet": "La fabricante de maquinaria agrícola cerró sin acuerdo con la UOM el procedimiento preventivo de crisis, pagó los últimos sueldos en tramos y con atrasos y evalúa presentarse en concurso preventivo. Un crédito internacional de 50 millones de dólares obtenido en 2025 no alcanzó para superar la crisis financiera.",
     "url": "https://masp.lmneuquen.com/agricultura/una-historica-empresa-maquinaria-agricola-entra-concurso-preventivo-y-enfrenta-un-fuerte-ajuste-n1249877",
     "date": "2026-08-17T00:00:00.000Z",
     "id": "manual-d4e7f1bc7ef0",
     "scraped_at": "2026-08-31T20:03:21.701874+00:00",
-    "status_at": "2026-08-31T20:03:21.701888+00:00",
+    "status_at": "2026-11-16T15:20:30.618666+00:00",
     "manual": true
   },
   {
@@ -7587,7 +7587,7 @@
   {
     "title": "FATE deberá pagar por orden judicial los salarios de marzo a junio adeudados a los trabajadores de su planta cerrada de San Fernando",
     "medio": "Conclusión",
-    "lugar": "Buenos Aires",
+    "lugar": "San Fernando",
     "provincia": "Buenos Aires",
     "departamento": "San Fernando",
     "sector": "Otros",
