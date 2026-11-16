@@ -284,8 +284,8 @@
     "url": "https://www.cronista.com/negocios/a-medio-ano-de-aterrizar-en-la-argentina-una-aerolinea-espanola-suspende-todos-sus-vuelos-al-pais/",
     "date": "2026-11-13T16:36:38+00:00",
     "scraped_at": "2026-11-13T17:33:16.644246+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-11-16T15:20:31.000Z"
   },
   {
     "id": "212e8938b9fea1f9",
@@ -1020,8 +1020,8 @@
     "url": "https://www.infogremiales.com.ar/el-gobierno-cierra-73-registros-automotores-y-profundiza-el-ajuste-despidos-paros-y-alerta-por-el-futuro-de-miles-de-familias/",
     "date": "2026-11-06T20:22:23+00:00",
     "scraped_at": "2026-11-06T23:50:50.651066+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-11-16T15:20:31.000Z"
   },
   {
     "id": "2b27531f8baa9204",
@@ -4236,8 +4236,8 @@
     "url": "https://bichosdecampo.com/la-empresa-de-biotecnologia-moolec-anuncia-que-pedira-su-propia-liquidacion-y-crecen-las-dudas-sobre-el-futuro-de-la-cordobesa-valorasoy/",
     "date": "2026-10-13T19:42:25+00:00",
     "scraped_at": "2026-10-13T23:28:17.470759+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-11-16T15:20:31.000Z"
   },
   {
     "id": "24dbb0ed6d468700",
@@ -4444,8 +4444,8 @@
     "url": "https://www.eldia.com/politica-y-economia/gigante-automotriz-cerraria-fabricas-en-argentina-y-preocupa-la-perdida-de-empleos-politica-y-economia_1791464160",
     "date": "2026-10-08T13:05:51+00:00",
     "scraped_at": "2026-10-08T17:15:39.961536+00:00",
-    "status": "pendiente",
-    "status_at": null
+    "status": "descartado",
+    "status_at": "2026-11-16T15:20:31.000Z"
   },
   {
     "id": "b6b11735c9ef617d",
