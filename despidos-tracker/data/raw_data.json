@@ -1,5 +1,21 @@
 [
   {
+    "id": "933145be6d81eb65",
+    "title": "Piden cerrar Algodonera Avellaneda y quedarían en la calle 243 empleados",
+    "medio": "Conclusion",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "La sindicatura dijo que la quiebra ya no permite sostener las tres plantas y advirtió pérdidas millonarias. La medida podría afectar a trabajadores de Reconquista, Bandera y General Pinedo, mientras la Justicia avanza con la venta de los activos de la compañía.",
+    "url": "https://www.conclusion.com.ar/gremiales/piden-cerrar-algodonera-avellaneda-y-quedarian-en-la-calle-243-empleados/11/2026/",
+    "date": "2026-11-17T00:49:33+00:00",
+    "scraped_at": "2026-11-17T02:40:07.462740+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "6458466ce8213d24",
     "title": "Bunge: Trabajo bonaerense dictó conciliación para frenar el cierre y los 110 despidos en la planta de Campana de la agroquímica",
     "medio": "InfoGremiales",
