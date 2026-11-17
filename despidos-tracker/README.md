@@ -95,7 +95,7 @@ La lógica del tracker es de **línea de tiempo, no de perfil de empresa**: cuan
 
 ## Sectores (taxonomía propia)
 
-`config/keywords_config.json` → `sector_keywords` define una taxonomía propia del tracker (no la de `mapa-empleo`, demasiado genérica para este dominio), armada de abajo hacia arriba a partir de los rubros que fueron apareciendo publicados: Metalúrgica, Textil, Alimenticia, Calzado, Papel, Química, Agro, Transporte, Comercio, Electrodomésticos, Ecommerce, Construcción, Medios, Seguros, Salud, Minería, Energía, Aeronáutica, Gastronomía, Entretenimiento, y "Otros" como catch-all sin keywords propias (a la fecha, agosto 2026). Se va ampliando a mano — si aparece un rubro nuevo, se propone como categoría en vez de forzarlo en "Otros" (así se sumaron Salud, Ecommerce, Energía y Electrodomésticos).
+`config/keywords_config.json` → `sector_keywords` define una taxonomía propia del tracker (no la de `mapa-empleo`, demasiado genérica para este dominio), armada de abajo hacia arriba a partir de los rubros que fueron apareciendo publicados: Metalúrgica, Textil, Alimenticia, Calzado, Papel, Química, Agro, Transporte, Comercio, Electrodomésticos, Ecommerce, Construcción, Medios, Seguros, Salud, Minería, Energía, Aeronáutica, Gastronomía, Entretenimiento, Finanzas (bancos, financieras, fintech), Telecomunicaciones, y "Otros" como catch-all sin keywords propias (a la fecha, agosto 2026). Se va ampliando a mano — si aparece un rubro nuevo, se propone como categoría en vez de forzarlo en "Otros" (así se sumaron Salud, Ecommerce, Energía, Electrodomésticos y, en noviembre 2026, Finanzas y Telecomunicaciones).
 
 ## Filtro geográfico y conexión con `mapa-empleo`
 

@@ -100,6 +100,14 @@
     "Entretenimiento": [
       "parque tematico", "acuario", "cine", "club deportivo",
       "productora audiovisual", "casino"
+    ],
+    "Finanzas": [
+      "banco", "bancaria", "bancario", "entidad financiera", "financiera",
+      "fintech", "billetera virtual", "tarjeta de credito"
+    ],
+    "Telecomunicaciones": [
+      "telecomunicaciones", "telefonica", "telecom", "operadora de telefonia",
+      "proveedor de internet", "cableoperadora", "foeesitra"
     ]
   },
 
