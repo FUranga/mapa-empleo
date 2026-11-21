@@ -1,5 +1,37 @@
 [
   {
+    "id": "829a58670a843d5e",
+    "title": "El equipo de Flor de la V se enteró en vivo que se quedaba sin trabajo: “No sabíamos nada”",
+    "medio": "La Nacion",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "despidos",
+    "snippet": "La conductora de Los profesionales con Flor (elnueve) anunció en vivo que el programa terminaría por decisión de la producción en enero y sus compañeros se enteraron de la noticia en el aire; la reacción de los panelistas",
+    "url": "https://www.lanacion.com.ar/espectaculos/el-equipo-de-flor-de-la-v-se-entero-en-vivo-que-se-quedaba-sin-trabajo-no-sabiamos-nada-nid20112026/",
+    "date": "2026-11-20T23:06:14+00:00",
+    "scraped_at": "2026-11-21T00:58:19.214140+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "6261e828fd2f9c2a",
+    "title": "Debe más de US$100 millones: una empresa de Los Grobo ofrece quitas de hasta el 70% a sus acreedores",
+    "medio": "La Nacion",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "Agrofina, que está en concurso preventivo desde 2025, presentó tres alternativas para sus 307 acreedores quirografarios: cobrar el 30% a tres años, el 50% en siete cuotas o recuperar la totalidad del crédito en 11 pagos anuales, con cuatro años de gracia",
+    "url": "https://www.lanacion.com.ar/economia/campo/debe-mas-de-us100-millones-una-empresa-de-los-grobo-ofrece-quitas-de-hasta-el-70-a-sus-acreedores-nid20112026/",
+    "date": "2026-11-20T20:29:56+00:00",
+    "scraped_at": "2026-11-21T00:58:19.220869+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "931c682d506b6138",
     "title": "Pauny propuso retomar la producción el martes, pagar en cuotas los salarios adeudados, pactar un esquema de suspensiones y recortar 150 empleos",
     "medio": "InfoGremiales",
