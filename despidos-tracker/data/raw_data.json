@@ -1,5 +1,37 @@
 [
   {
+    "id": "3b4fc4aebc907ceb",
+    "title": "Después de 100 años: el peso promedio de faena de la res bovina superó los 240 kilos",
+    "medio": "La Nacion",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "Entre enero y octubre de 2026 alcanzó los 241 kilos; la Secretaría de Agricultura atribuyó el récord a la demanda de animales más pesados para la exportación, a un clima favorable para la producción de forraje y a una mayor eficiencia productiva",
+    "url": "https://www.lanacion.com.ar/economia/campo/despues-de-100-anos-el-peso-promedio-de-faena-de-la-res-bovina-supero-los-240-kilos-nid20112026/",
+    "date": "2026-11-21T15:43:24+00:00",
+    "scraped_at": "2026-11-21T17:09:48.550058+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "94a4da6b176f4704",
+    "title": "Ford paraliza la producción de la Ranger en Pacheco por dos meses debido mientras evalúa sumar autopartes importadas para bajar costos",
+    "medio": "InfoGremiales",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": "Metalúrgica",
+    "topic": "cierres",
+    "snippet": "Ford detendrá la planta de General Pacheco desde el 4 de diciembre hasta el 1 de febrero por la caída demanda interna y de exportaciones a Brasil. La empresa también avanza con la importación de autopartes chinas para reducir costos, lo que impacta directamente en los proveedores",
+    "url": "https://www.infogremiales.com.ar/ford-paraliza-la-produccion-de-la-ranger-en-pacheco-por-dos-meses-debido-mientras-evalua-sumar-autopartes-importadas-para-bajar-costos/",
+    "date": "2026-11-21T06:20:10+00:00",
+    "scraped_at": "2026-11-21T17:09:58.952275+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "829a58670a843d5e",
     "title": "El equipo de Flor de la V se enteró en vivo que se quedaba sin trabajo: “No sabíamos nada”",
     "medio": "La Nacion",
