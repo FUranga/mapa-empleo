@@ -1,5 +1,37 @@
 [
   {
+    "id": "0ed2a1a74aa35b78",
+    "title": "Restaurantes y tiendas de barrio podrían ir a la quiebra por impuestos que busca el Gobierno De la Espriella: hay alerta por el licor adulterado",
+    "medio": "Infobae",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": "Gastronomía",
+    "topic": "cierres",
+    "snippet": "La iniciativa del Ministerio de Hacienda aplicaría $330 por grado alcohólico en envases de 330 centímetros cúbicos y una tarifa de 10% sobre el valor al público",
+    "url": "https://www.infobae.com/colombia/2026/11/22/restaurantes-y-tiendas-de-barrio-podrian-ir-a-la-quiebra-por-impuestos-que-busca-el-gobierno-de-la-espriella-hay-alerta-por-el-licor-adulterado/",
+    "date": "2026-11-22T23:44:52+00:00",
+    "scraped_at": "2026-11-23T00:30:19.490072+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "16c7599b311d6e4d",
+    "title": "La suba del combustible golpea a las aerolíneas: suspendieron vuelos entre Madrid y Buenos Aires y crecen las quiebras en Europa",
+    "medio": "Perfil",
+    "lugar": "Buenos Aires",
+    "provincia": "Buenos Aires",
+    "departamento": null,
+    "sector": "Transporte",
+    "topic": "cierres",
+    "snippet": "El conflicto en Medio Oriente disparó el precio del combustible de avión, que llegó a costar 200 dólares por barril. Hay compañías que suspenden rutas, otras que reducen su flota y algunas que quebraron. Leer más",
+    "url": "https://perfil.com/internacional/la-suba-del-combustible-golpea-a-las-aerolineas-suspendieron-vuelos-entre-madrid-y-buenos-aires-y-crecen-las-quiebras-en-europa-a90lj5R4PtaX",
+    "date": "2026-11-22T23:20:56+00:00",
+    "scraped_at": "2026-11-23T00:30:26.565914+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "19cb995b38e5ca79",
     "title": "Giuliano: «Estamos al borde de la cesación de pagos, riesgo de corridas y si salimos la solución no beneficia al pueblo”",
     "medio": "Conclusion",
