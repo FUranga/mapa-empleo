@@ -1,5 +1,37 @@
 [
   {
+    "id": "c3642e614897be7f",
+    "title": "Terminó Venecia, una bienal de leones sin rugidos",
+    "medio": "La Nacion",
+    "lugar": null,
+    "provincia": null,
+    "departamento": null,
+    "sector": null,
+    "topic": "cierres",
+    "snippet": "Sin la crema global de los artistas, críticos y coleccionistas, se anunciaron los premios, que perdieron brillo tras una sucesión de tropezones y el voto del público; se quiebra una tradición centenaria",
+    "url": "https://www.lanacion.com.ar/cultura/termino-venecia-una-bienal-de-leones-sin-rugidos-nid25112026/",
+    "date": "2026-11-25T22:18:03+00:00",
+    "scraped_at": "2026-11-26T02:30:43.814673+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
+    "id": "2de8b95d6824b16c",
+    "title": "Se viene un paro de bancarios: ola de despidos y alerta por el cierre de sucursales",
+    "medio": "Que Pasa Salta",
+    "lugar": "Salta",
+    "provincia": "Salta",
+    "departamento": null,
+    "sector": "Finanzas",
+    "topic": "cierres",
+    "snippet": "",
+    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNQkt1cVhmaHpGQWlWb2FHal9vdk05Tmswbl9FYlNGTjFfQnZzODVJZExsckJHSHRuNEc2SXdDSjc5MVllWDMtNHRFWm1LZDAwa2c3VTZhdkR5RGY3Rkg4dkhmTXcxS3p2bDYzcGV2TVdMb09mUGdWenVvVmxDQnNBWTkydGdZZk1ScTZoRdIBjAFBVV95cUxNQkt1cVhmaHpGQWlWb2FHal9vdk05Tmswbl9FYlNGTjFfQnZzODVJZExsckJHSHRuNEc2SXdDSjc5MVllWDMtNHRFWm1LZDAwa2c3VTZhdkR5RGY3Rkg4dkhmTXcxS3p2bDYzcGV2TVdMb09mUGdWenVvVmxDQnNBWTkydGdZZk1ScTZoRQ?oc=5",
+    "date": "2026-11-25T20:36:04+00:00",
+    "scraped_at": "2026-11-26T02:31:11.515319+00:00",
+    "status": "pendiente",
+    "status_at": null
+  },
+  {
     "id": "4974c3243d2fb6c9",
     "title": "Desinversión: Los Grobo vende por US$5,5 millones su molino harinero y una planta de acopio para reducir una deuda con los bancos",
     "medio": "La Nacion",
